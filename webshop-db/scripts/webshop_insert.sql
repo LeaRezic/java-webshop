@@ -1,0 +1,734 @@
+------------------------------------------------------------------------------------------------
+-- COUNTRY (30, Croatia ID = 8), CITY (115, Croatian cities 100:115, + randomly Croatian: 23,40,45,87,100)
+
+insert into country (name) values ('Indonesia');
+insert into country (name) values ('Zambia');
+insert into country (name) values ('Slovenia');
+insert into country (name) values ('China');
+insert into country (name) values ('Russia');
+insert into country (name) values ('Netherlands');
+insert into country (name) values ('Bolivia');
+insert into country (name) values ('Croatia');
+insert into country (name) values ('Serbia');
+insert into country (name) values ('Iran');
+insert into country (name) values ('Portugal');
+insert into country (name) values ('Bosnia and Herzegovina');
+insert into country (name) values ('France');
+insert into country (name) values ('Ghana');
+insert into country (name) values ('Colombia');
+insert into country (name) values ('Argentina');
+insert into country (name) values ('Malaysia');
+insert into country (name) values ('Lithuania');
+insert into country (name) values ('Palestinian Territory');
+insert into country (name) values ('Norway');
+insert into country (name) values ('Haiti');
+insert into country (name) values ('Sweden');
+insert into country (name) values ('Bulgaria');
+insert into country (name) values ('Poland');
+insert into country (name) values ('Philippines');
+insert into country (name) values ('Gambia');
+insert into country (name) values ('Kazakhstan');
+insert into country (name) values ('Greece');
+insert into country (name) values ('Ukraine');
+insert into country (name) values ('Germany');
+
+select * from country;
+
+insert into city (name, country_id) values ('Oleksandriya', 27);
+insert into city (name, country_id) values ('Aga', 17);
+insert into city (name, country_id) values ('Kamogatacho-kamogata', 13);
+insert into city (name, country_id) values ('Liushan', 3);
+insert into city (name, country_id) values ('Aghajari', 18);
+insert into city (name, country_id) values ('Santa Barbara', 4);
+insert into city (name, country_id) values ('A-da-Gorda', 25);
+insert into city (name, country_id) values ('Sirdaryo', 26);
+insert into city (name, country_id) values ('Kitakyushu', 1);
+insert into city (name, country_id) values ('Abengourou', 28);
+insert into city (name, country_id) values ('Trinaterra', 1);
+insert into city (name, country_id) values ('Rybinsk', 24);
+insert into city (name, country_id) values ('Irvine', 23);
+insert into city (name, country_id) values ('Bur Safajah', 4);
+insert into city (name, country_id) values ('Ntsoudjini', 29);
+insert into city (name, country_id) values ('Zubri', 6);
+insert into city (name, country_id) values ('Manhuacu', 26);
+insert into city (name, country_id) values ('Shangtang', 28);
+insert into city (name, country_id) values ('Gardez', 9);
+insert into city (name, country_id) values ('Gio Linh', 2);
+insert into city (name, country_id) values ('Kundung', 25);
+insert into city (name, country_id) values ('Babahoyo', 17);
+insert into city (name, country_id) values ('Lopandino', 8);
+insert into city (name, country_id) values ('Koanara', 11);
+insert into city (name, country_id) values ('Sladna', 18);
+insert into city (name, country_id) values ('Kinamayan', 10);
+insert into city (name, country_id) values ('Kruengraya', 19);
+insert into city (name, country_id) values ('Tarfaya', 17);
+insert into city (name, country_id) values ('Kaom', 15);
+insert into city (name, country_id) values ('Cervantes', 21);
+insert into city (name, country_id) values ('Jetis', 18);
+insert into city (name, country_id) values ('Schiltigheim', 11);
+insert into city (name, country_id) values ('Hutag', 14);
+insert into city (name, country_id) values ('Teodoro Sampaio', 14);
+insert into city (name, country_id) values ('Newark', 12);
+insert into city (name, country_id) values ('Parion', 9);
+insert into city (name, country_id) values ('Bandeirantes', 12);
+insert into city (name, country_id) values ('Fangbu', 23);
+insert into city (name, country_id) values ('Tera', 18);
+insert into city (name, country_id) values ('Setonokalong', 8);
+insert into city (name, country_id) values ('Al Metlaoui', 12);
+insert into city (name, country_id) values ('Frisange', 18);
+insert into city (name, country_id) values ('Turba', 29);
+insert into city (name, country_id) values ('Kista', 22);
+insert into city (name, country_id) values ('Qiaolin', 8);
+insert into city (name, country_id) values ('Na Kae', 27);
+insert into city (name, country_id) values ('Salegading', 30);
+insert into city (name, country_id) values ('Karonga', 6);
+insert into city (name, country_id) values ('Tucson', 9);
+insert into city (name, country_id) values ('Dafengdui', 10);
+insert into city (name, country_id) values ('Itaperuna', 17);
+insert into city (name, country_id) values ('Szombathely', 7);
+insert into city (name, country_id) values ('Jedlinsk', 21);
+insert into city (name, country_id) values ('Buenavista', 5);
+insert into city (name, country_id) values ('Lolak', 25);
+insert into city (name, country_id) values ('Xindian', 6);
+insert into city (name, country_id) values ('Georgiyevka', 30);
+insert into city (name, country_id) values ('Solleftea', 7);
+insert into city (name, country_id) values ('Pucallpa', 23);
+insert into city (name, country_id) values ('Lephalale', 6);
+insert into city (name, country_id) values ('Sheregesh', 2);
+insert into city (name, country_id) values ('Shuanghe', 18);
+insert into city (name, country_id) values ('At Tibni', 12);
+insert into city (name, country_id) values ('Yeghegnut', 15);
+insert into city (name, country_id) values ('Nybro', 11);
+insert into city (name, country_id) values ('Conchucos', 7);
+insert into city (name, country_id) values ('Garwolin', 29);
+insert into city (name, country_id) values ('Ryazanskiy', 16);
+insert into city (name, country_id) values ('Salinggara', 5);
+insert into city (name, country_id) values ('Vitoria da Conquista', 1);
+insert into city (name, country_id) values ('Sagay', 17);
+insert into city (name, country_id) values ('Kipushi', 17);
+insert into city (name, country_id) values ('Palapye', 19);
+insert into city (name, country_id) values ('Sarukhan', 16);
+insert into city (name, country_id) values ('Lordegan', 23);
+insert into city (name, country_id) values ('Donghu', 11);
+insert into city (name, country_id) values ('Dongsheng', 30);
+insert into city (name, country_id) values ('Amerta', 23);
+insert into city (name, country_id) values ('Huayacundo Arma', 29);
+insert into city (name, country_id) values ('Qianqiao', 26);
+insert into city (name, country_id) values ('Atbasar', 19);
+insert into city (name, country_id) values ('Svetla nad Sazavou', 9);
+insert into city (name, country_id) values ('Gali', 30);
+insert into city (name, country_id) values ('Luopu', 18);
+insert into city (name, country_id) values ('Bang Bua Thong', 2);
+insert into city (name, country_id) values ('Surovikino', 30);
+insert into city (name, country_id) values ('Upernavik', 8);
+insert into city (name, country_id) values ('Dowr-e Rabat', 28);
+insert into city (name, country_id) values ('Laojiangjunjie', 29);
+insert into city (name, country_id) values ('Dangmu', 9);
+insert into city (name, country_id) values ('Pakis', 12);
+insert into city (name, country_id) values ('Tenkodogo', 17);
+insert into city (name, country_id) values ('Pakalongan', 30);
+insert into city (name, country_id) values ('Batutua', 26);
+insert into city (name, country_id) values ('Porsgrunn', 10);
+insert into city (name, country_id) values ('Ilagan', 14);
+insert into city (name, country_id) values ('Kristinestad', 15);
+insert into city (name, country_id) values ('Turtas', 27);
+insert into city (name, country_id) values ('Caloue', 19);
+insert into city (name, country_id) values ('Ketapang', 8);
+
+insert into city (name, country_id) values ('Zagreb', 8);
+insert into city (name, country_id) values ('Dubrovnik', 8);
+insert into city (name, country_id) values ('Split', 8);
+insert into city (name, country_id) values ('Zadar', 8);
+insert into city (name, country_id) values ('Osijek', 8);
+insert into city (name, country_id) values ('Babina Greda', 8);
+insert into city (name, country_id) values ('Daruvar', 8);
+insert into city (name, country_id) values ('Mljet', 8);
+insert into city (name, country_id) values ('Ilok', 8);
+insert into city (name, country_id) values ('Pula', 8);
+insert into city (name, country_id) values ('Rovinj', 8);
+insert into city (name, country_id) values ('Makarska', 8);
+insert into city (name, country_id) values ('Pozega', 8);
+insert into city (name, country_id) values ('Karlovac', 8);
+insert into city (name, country_id) values ('Cakovec', 8);
+
+select * from city;
+select * from city where country_id = 8;
+
+------------------------------------------------------------------------------------------------
+-- ROLE (2), USER_ACCOUNT (25), USER_DETAILS (25)
+
+insert into role (role_name) values ('administrator');
+insert into role (role_name) values ('webshop_user');
+
+select * from role;
+
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('smacwhirter0@dailymotion.com', 'FXv0aps7xAV2', 2, '2018-06-07 22:19:45', '2018-09-30 11:16:54', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('rblumire1@businessinsider.com', 'JgC7yNJG', 2, '2019-04-03 16:07:31', '2018-07-02 06:19:39', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('amckinn2@w3.org', 'moZtF6kZ', 2, '2018-06-29 22:16:14', '2019-05-08 22:59:25', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('rcrawford3@newyorker.com', 'IBF3MhY', 2, '2019-03-25 13:55:26', '2019-03-11 12:33:36', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('thallstone4@mayoclinic.com', '1HlrLbzr4Jy', 2, '2018-11-09 10:29:46', '2019-02-15 08:31:02', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('udallin5@qq.com', 'MN1HU5ihn', 2, '2018-11-19 14:00:55', '2019-01-19 08:00:07', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('jnineham6@bandcamp.com', '8ZLYOwNDsIq', 2, '2018-08-23 06:06:32', '2019-05-04 19:19:58', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('ipothergill7@aboutads.info', 'g5RokO', 2, '2018-10-14 04:57:41', '2018-05-21 06:09:40', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('fscamp8@weebly.com', 'RsVif4WN', 2, '2018-06-01 04:54:19', '2019-01-30 19:08:34', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('ecabrera9@dedecms.com', 'H4zXbR2D', 2, '2018-07-29 22:19:44', '2019-04-11 06:34:16', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('cclethroa@people.com.cn', 'WncvKLSc4Ci', 2, '2018-05-31 09:49:30', '2018-05-19 15:46:04', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('fshuardb@hud.gov', 'gxyusm7', 2, '2018-12-18 11:14:16', '2018-05-11 03:08:26', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('ntalc@mozilla.org', '7uVYuC2', 2, '2018-07-24 22:46:19', '2018-10-29 21:54:36', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('apennellsd@jimdo.com', 'vtZpiq', 2, '2018-10-28 14:00:02', '2019-04-23 02:51:16', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('jbaffine@businessinsider.com', 'v48KP4BN', 2, '2019-05-04 17:01:33', '2019-01-02 00:52:33', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('kdatef@histats.com', 'ouVgYJM', 2, '2018-12-01 08:58:26', null, true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('vmongerg@prlog.org', 'a5RqRZt', 2, '2018-06-06 23:30:02', '2018-06-22 15:19:49', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('clystonh@netscape.com', 'IzDE6GA', 2, '2018-10-14 15:16:49', '2019-02-10 11:02:11', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('hhubbardi@trellian.com', '1VmZrvtR', 2, '2018-04-04 08:20:36', '2019-03-02 19:52:07', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('cbykj@berkeley.edu', 'oCuT9XtHprdD', 2, '2018-06-17 06:27:16', null, true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('plonsdalek@nih.gov', 'pqD5WwT9X', 2, '2019-04-04 05:12:43', '2018-09-25 14:25:48', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('fwardl@phpbb.com', 'ErR6fC', 2, '2018-06-06 00:23:07', '2018-09-15 01:07:44', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('bruddochm@bloglines.com', 'kxSh3kdlc', 2, '2018-09-10 05:41:41', '2018-11-07 10:10:28', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('gkerblern@cafepress.com', 'RXX7IgIM1E', 2, '2018-06-05 15:07:34', '2018-07-18 13:53:34', true);
+insert into user_account (email, password, role_id, created_on, last_login, active) values ('ulundono@opera.com', 'rScnwDFxvqk', 2, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
+
+select * from user_account;
+
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (1, 'Lilli', 'Jeanesson', false, 105, '5049 Ronald Regan Alley', '(814) 2534229');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (2, 'Skipton', 'McOrkill', true, 103, '34 Jenna Crossing', '(487) 6002624');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (3, 'Noelyn', 'Moncaster', true, 105, '408 Tomscot Center', '(824) 7576864');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (4, 'Olenolin', 'Vann', true, 108, '82 Lakewood Gardens Pass', '(265) 3183660');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (5, 'Lydon', 'Bravington', true, 112, '4 Hauk Place', '(814) 9945775');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (6, 'Michal', 'Gaffney', true, 105, '790 Grover Hill', '(117) 5396639');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (7, 'Ingmar', 'Kerans', true, 104, '72 Gina Alley', '(481) 6389205');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (8, 'Nicolea', 'Rawcliff', false, 106, '27406 Northwestern Alley', '(616) 3752558');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (9, 'Merci', 'Elliff', false, 110, '32 Mariners Cove Circle', '(907) 8504786');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (10, 'Dory', 'Etuck', true, 113, '9 Debra Avenue', '(834) 3063255');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (11, 'Ebonee', 'Bootman', false, 102, '67 Bartillon Plaza', '(604) 7867429');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (12, 'Mavra', 'Kohn', false, 115, '4438 Dayton Court', '(415) 1291406');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (13, 'Birgitta', 'Iacovelli', true, 104, '1076 Straubel Road', '(797) 1344808');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (14, 'Emelyne', 'MacKissack', false, 108, '61032 5th Pass', '(454) 8568442');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (15, 'Guinna', 'Halwood', true, 104, '73 Forest Dale Center', '(943) 7788532');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (16, 'Gearalt', 'Keyme', true, 114, '5 Everett Way', '(129) 5689797');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (17, 'Roxanna', 'Rehorek', false, 102, '3 Lien Court', '(617) 6843871');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (18, 'Liuka', 'Tampion', true, 101, '3607 Oneill Lane', '(599) 9605803');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (19, 'Annette', 'Boatswain', false, 109, '3 Mandrake Park', '(291) 2353728');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (20, 'Kristoffer', 'Melding', false, 110, '727 Gina Junction', '(363) 8322907');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (21, 'Donny', 'Rupel', false, 106, '392 Schurz Park', '(296) 8351970');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (22, 'Moyna', 'Deeks', false, 102, '9 Fair Oaks Lane', '(447) 1576053');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (23, 'Dyane', 'Boake', true, 114, '708 Village Green Trail', '(915) 1283335');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (24, 'Marybeth', 'Carvill', false, 104, '218 Clemons Alley', '(323) 4183265');
+insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (25, 'Crichton', 'Reynold', false, 111, '9821 Bartillon Terrace', '(702) 5057686');
+
+select * from user_details;
+
+------------------------------------------------------------------------------------------------
+-- CATEGORY (5), SUBCATEGORY (21), MANUFACTURER (50)
+
+insert into product_category (name) values ('Games');
+insert into product_category (name) values ('Books');
+insert into product_category (name) values ('Gifts');
+insert into product_category (name) values ('Models');
+insert into product_category (name) values ('Games Accessories');
+
+select * from product_category;
+
+insert into product_subcategory (product_category_id, name) values (1, 'Board Games');
+insert into product_subcategory (product_category_id, name) values (1, 'Role Playing Games');
+insert into product_subcategory (product_category_id, name) values (1, 'Card Games');
+insert into product_subcategory (product_category_id, name) values (1, 'Classical Games');
+insert into product_subcategory (product_category_id, name) values (1, 'Party Games');
+
+insert into product_subcategory (product_category_id, name) values (2, 'Fantasy Books');
+insert into product_subcategory (product_category_id, name) values (2, 'Game Strategy Books');
+
+insert into product_subcategory (product_category_id, name) values (3, 'Mugs');
+insert into product_subcategory (product_category_id, name) values (3, 'Glasses');
+insert into product_subcategory (product_category_id, name) values (3, 'Key Chains');
+insert into product_subcategory (product_category_id, name) values (3, 'Miniatures');
+insert into product_subcategory (product_category_id, name) values (3, 'Notebooks');
+insert into product_subcategory (product_category_id, name) values (3, 'Coaters');
+insert into product_subcategory (product_category_id, name) values (3, 'Plush Toys');
+
+insert into product_subcategory (product_category_id, name) values (4, 'LEGO');
+insert into product_subcategory (product_category_id, name) values (4, 'Airplane Models');
+insert into product_subcategory (product_category_id, name) values (4, 'Car Models');
+
+insert into product_subcategory (product_category_id, name) values (5, 'Card Sleeves');
+insert into product_subcategory (product_category_id, name) values (5, 'Dice');
+insert into product_subcategory (product_category_id, name) values (5, 'Writing Pads');
+insert into product_subcategory (product_category_id, name) values (5, 'Tokens');
+
+select * from product_subcategory;
+
+insert into product_manufacturer (name) values ('Kemmer, Bernhard and Dickens');
+insert into product_manufacturer (name) values ('Stehr-Crooks');
+insert into product_manufacturer (name) values ('Weissnat-Fadel');
+insert into product_manufacturer (name) values ('Eichmann Inc');
+insert into product_manufacturer (name) values ('Ullrich, Franecki and Schulist');
+insert into product_manufacturer (name) values ('Wiza LLC');
+insert into product_manufacturer (name) values ('Miller, Lang and Hauck');
+insert into product_manufacturer (name) values ('Schuster-Abbott');
+insert into product_manufacturer (name) values ('Hamill, Haag and Nitzsche');
+insert into product_manufacturer (name) values ('Shields, Waelchi and Kreiger');
+insert into product_manufacturer (name) values ('Weimann, Koepp and Towne');
+insert into product_manufacturer (name) values ('Kshlerin-Pollich');
+insert into product_manufacturer (name) values ('Hand, Vandervort and Ebert');
+insert into product_manufacturer (name) values ('Emard and Sons');
+insert into product_manufacturer (name) values ('Wuckert-Aufderhar');
+insert into product_manufacturer (name) values ('Kling Group');
+insert into product_manufacturer (name) values ('Hettinger Inc');
+insert into product_manufacturer (name) values ('Hammes, Veum and Parker');
+insert into product_manufacturer (name) values ('Kozey, Hudson and Bogan');
+insert into product_manufacturer (name) values ('Howe Group');
+insert into product_manufacturer (name) values ('Reilly Inc');
+insert into product_manufacturer (name) values ('Langworth-Jenkins');
+insert into product_manufacturer (name) values ('Littel-Braun');
+insert into product_manufacturer (name) values ('Denesik LLC');
+insert into product_manufacturer (name) values ('Corkery Group');
+insert into product_manufacturer (name) values ('Eichmann, Pollich and Williamson');
+insert into product_manufacturer (name) values ('Casper and Sons');
+insert into product_manufacturer (name) values ('Pollich-Cartwright');
+insert into product_manufacturer (name) values ('Reichel-Kautzer');
+insert into product_manufacturer (name) values ('Lang and Sons');
+insert into product_manufacturer (name) values ('Pfeffer, Heathcote and Franecki');
+insert into product_manufacturer (name) values ('Doyle, Fahey and Dickinson');
+insert into product_manufacturer (name) values ('Walter, Sipes and Hudson');
+insert into product_manufacturer (name) values ('Strosin Inc');
+insert into product_manufacturer (name) values ('Larson, Beer and Shanahan');
+insert into product_manufacturer (name) values ('Rogahn-Olson');
+insert into product_manufacturer (name) values ('Grant, Kozey and Rosenbaum');
+insert into product_manufacturer (name) values ('Klein-Cassin');
+insert into product_manufacturer (name) values ('Waelchi-O''Reilly');
+insert into product_manufacturer (name) values ('Huels, Langosh and Wyman');
+insert into product_manufacturer (name) values ('Morissette-Mueller');
+insert into product_manufacturer (name) values ('Runolfsdottir Group');
+insert into product_manufacturer (name) values ('Mueller Inc');
+insert into product_manufacturer (name) values ('Green, Treutel and Powlowski');
+insert into product_manufacturer (name) values ('Greenfelder and Sons');
+insert into product_manufacturer (name) values ('Krajcik, Kassulke and Schmidt');
+insert into product_manufacturer (name) values ('Effertz and Sons');
+insert into product_manufacturer (name) values ('Bartoletti, Bernhard and Bednar');
+insert into product_manufacturer (name) values ('Jacobson, Marquardt and Kub');
+insert into product_manufacturer (name) values ('Kuhn-Schultz');
+
+select * from product_manufacturer;
+
+------------------------------------------------------------------------------------------------
+-- PRODUCT (150, of which 1:24 - BOARD GAMES, 138:150 - EXPANSIONS), GAME DETAILS (24), EXPANSION DETAILS (13)
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 47, 'Settlers of Catan', 'nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum', 'https://picsum.photos/id/1/250/250', 'http://phoca.cz/eleifend/donec.xml', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 49, 'Puerto Rico', 'molestie lorem quisque ut erat curabitur gravida nisi at nibh', 'https://picsum.photos/id/2/250/250', 'https://skyrock.com/duis.js', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 17, 'Carcassonne', 'massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien', 'https://picsum.photos/id/3/250/250', 'https://ning.com/praesent/blandit/nam.xml', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 2, 'Citadels', 'convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet', 'https://picsum.photos/id/4/250/250', 'https://biglobe.ne.jp/cras/non/velit.json', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 34, 'Pandemic', 'metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend', 'https://picsum.photos/id/5/250/250', 'http://youku.com/metus/arcu/adipiscing/molestie/hendrerit/at/vulputate.js', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 28, 'Small World', 'felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus', 'https://picsum.photos/id/6/250/250', 'http://upenn.edu/lorem/vitae/mattis.jpg', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 50, 'This War of Mine, leadbeateri''s ground', 'id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 'https://picsum.photos/id/7/250/250', 'https://twitpic.com/nam/ultrices/libero/non.jsp', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 23, 'Terraforming Mars', 'at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci', 'https://picsum.photos/id/8/250/250', 'http://webmd.com/feugiat/et/eros/vestibulum.json', 299.49);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 44, 'Through the Ages', 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis', 'https://picsum.photos/id/9/250/250', 'http://twitpic.com/pellentesque/ultrices/phasellus/id/sapien.html', 194.35);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 21, '7 Wonders', 'est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien', 'https://picsum.photos/id/10/250/250', 'https://youku.com/justo/sit/amet/sapien.png', 437.60);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 9, 'Powergrid', 'phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque', 'https://picsum.photos/id/11/250/250', 'https://constantcontact.com/integer/tincidunt/ante/vel.jsp', 337.72);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 39, 'King of Tokyo', 'nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in', 'https://picsum.photos/id/12/250/250', 'https://amazonaws.com/sem/praesent/id/massa.json', 155.81);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 47, 'Gloomhaven', 'nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum', 'https://picsum.photos/id/13/250/250', 'http://phoca.cz/eleifend/donec.xml', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 49, 'Twilight Struggle', 'molestie lorem quisque ut erat curabitur gravida nisi at nibh', 'https://picsum.photos/id/14/250/250', 'https://skyrock.com/duis.js', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 17, 'Scythe', 'massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien', 'https://picsum.photos/id/15/250/250', 'https://ning.com/praesent/blandit/nam.xml', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 2, 'Spirit Island', 'convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet', 'https://picsum.photos/id/16/250/250', 'https://biglobe.ne.jp/cras/non/velit.json', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 34, 'Concordia', 'metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend', 'https://picsum.photos/id/17/250/250', 'http://youku.com/metus/arcu/adipiscing/molestie/hendrerit/at/vulputate.js', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 28, 'Ticket to Ride', 'felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus', 'https://picsum.photos/id/18/250/250', 'http://upenn.edu/lorem/vitae/mattis.jpg', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 50, 'Arkam Horror, leadbeateri''s ground', 'id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 'https://picsum.photos/id/19/250/250', 'https://twitpic.com/nam/ultrices/libero/non.jsp', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 23, 'Betrayal on the House on the Hill', 'at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci', 'https://picsum.photos/id/20/250/250', 'http://webmd.com/feugiat/et/eros/vestibulum.json', 299.49);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 44, 'Agricola', 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis', 'https://picsum.photos/id/21/250/250', 'http://twitpic.com/pellentesque/ultrices/phasellus/id/sapien.html', 194.35);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 21, 'Blood Rage', 'est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien', 'https://picsum.photos/id/22/250/250', 'https://youku.com/justo/sit/amet/sapien.png', 437.60);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 9, 'Azul', 'phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque', 'https://picsum.photos/id/23/250/250', 'https://constantcontact.com/integer/tincidunt/ante/vel.jsp', 337.72);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 39, 'Caylus', 'nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in', 'https://picsum.photos/id/24/250/250', 'https://amazonaws.com/sem/praesent/id/massa.json', 155.81);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (2, 42, 'Dungeons and Dragons Base Game', 'platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat', 'https://picsum.photos/id/25/250/250', 'https://last.fm/turpis/enim/blandit/mi/in/porttitor/pede.html', 423.18);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (2, 12, 'Vampire Lore', 'scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a', 'https://picsum.photos/id/26/250/250', 'http://pagesperso-orange.fr/lacus/morbi/quis/tortor/id.jpg', 214.94);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (2, 7, 'Game of Thrones RPG, southern ground', 'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra', 'https://picsum.photos/id/27/250/250', 'https://webmd.com/sem/praesent.aspx', 106.44);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (3, 6, '7 Wonders Duel, yellow-billed', 'erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non', 'https://picsum.photos/id/28/250/250', 'http://typepad.com/eros/elementum/pellentesque/quisque.aspx', 302.94);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (3, 18, 'Pokemon, african black', 'ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices', 'https://picsum.photos/id/29/250/250', 'http://ow.ly/feugiat/et/eros/vestibulum.jpg', 489.90);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (3, 6, 'Bang!', 'vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra', 'https://picsum.photos/id/30/250/250', 'https://businesswire.com/turpis/enim/blandit/mi/in.jsp', 217.42);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (4, 8, 'Chess', 'ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam', 'https://picsum.photos/id/31/250/250', 'http://merriam-webster.com/platea/dictumst/maecenas.html', 442.26);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (4, 49, 'Backgammon', 'neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus', 'https://picsum.photos/id/32/250/250', 'https://opensource.org/rhoncus/aliquet/pulvinar/sed.png', 415.09);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (4, 43, 'Go', 'elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien', 'https://picsum.photos/id/33/250/250', 'https://ucoz.ru/magna/bibendum/imperdiet/nullam.jpg', 328.57);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (5, 29, 'Alias', 'faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at', 'https://picsum.photos/id/34/250/250', 'http://google.pl/dolor/quis/odio/consequat/varius/integer.xml', 250);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (5, 37, 'Pictionary', 'turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam', 'https://picsum.photos/id/35/250/250', 'https://earthlink.net/morbi/porttitor/lorem/id/ligula.jpg', 250);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (5, 46, 'Codenames', 'aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque', 'https://picsum.photos/id/36/250/250', 'https://prnewswire.com/orci/luctus/et.json', 250);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (6, 41, 'Witcher', 'in sagittis dui vel nisl duis ac nibh fusce lacus purus', 'https://picsum.photos/id/37/250/250', 'https://jiathis.com/dolor/quis.jsp', 200);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (6, 36, 'Game of Thrones', 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam', 'https://picsum.photos/id/38/250/250', 'http://cnbc.com/donec/ut/mauris.js', 200);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (7, 48, 'Chess for Dummies', 'erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate', 'https://picsum.photos/id/39/250/250', 'http://biglobe.ne.jp/enim/in/tempor.aspx', 150);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (7, 15, 'Go for Dummies', 'at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non', 'https://picsum.photos/id/40/250/250', 'https://skype.com/accumsan/tellus/nisi/eu/orci/mauris/lacinia.html', 150);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (8, 45, 'GoT mug - Stark', 'condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit', 'https://picsum.photos/id/41/250/250', 'http://reference.com/ultrices/mattis/odio/donec/vitae/nisi.png', 150);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (8, 17, 'GoT mug - Mormont', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/42/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 150);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (8, 17, 'Rick and Morty mug', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/43/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 150);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (8, 17, 'Stormtrooper mug', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/44/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 150);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (8, 17, 'Darth Vader mug', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/45/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 150);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (8, 17, 'Adventuretime mug', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/46/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 150);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (9, 17, 'Adventuretime glass', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/47/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 100);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (9, 17, 'Avengers glass', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/48/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 100);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (9, 17, 'Stormtrooper glass', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/49/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 100);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (9, 17, 'Darth Vader glass', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/50/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 100);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (10, 45, 'GoT keychain - Stark', 'condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit', 'https://picsum.photos/id/51/250/250', 'http://reference.com/ultrices/mattis/odio/donec/vitae/nisi.png', 67.87);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (10, 17, 'GoT keychain - Mormont', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/52/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 67.87);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (10, 17, 'Rick and Morty keychain', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/52/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 67.87);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (10, 17, 'Stormtrooper keychain', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/52/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 67.87);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (10, 17, 'Darth Vader keychain', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/52/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 67.87);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (10, 17, 'Adventuretime keychain', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/52/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 67.87);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (11, 12, 'Stormtrooper miniature', 'hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat', 'https://picsum.photos/id/53/250/250', 'https://npr.org/arcu/sed.jpg', 77.87);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (11, 12, 'Darth Vader miniature', 'hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat', 'https://picsum.photos/id/53/250/250', 'https://npr.org/arcu/sed.jpg', 77.87);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (11, 12, 'Spiderman miniature', 'hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat', 'https://picsum.photos/id/53/250/250', 'https://npr.org/arcu/sed.jpg', 77.87);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (12, 45, 'GoT notebook - Stark', 'condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit', 'https://picsum.photos/id/54/250/250', 'http://reference.com/ultrices/mattis/odio/donec/vitae/nisi.png', 59.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (12, 17, 'GoT notebook - Mormont', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/54/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 59.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (12, 17, 'Rick and Morty notebook', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/54/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 59.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (12, 17, 'Stormtrooper notebook', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/54/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 59.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (12, 17, 'Darth Vader notebook', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/54/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 59.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (12, 17, 'Adventuretime notebook', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/54/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 59.99);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (13, 45, 'GoT coaters - Stark', 'condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit', 'https://picsum.photos/id/55/250/250', 'http://reference.com/ultrices/mattis/odio/donec/vitae/nisi.png', 97.77);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (13, 17, 'GoT coaters - Mormont', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/55/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 97.77);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (13, 17, 'Rick and Morty coaters', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/55/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 97.77);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (13, 17, 'Stormtrooper coaters', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/55/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 97.77);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (13, 17, 'Darth Vader coaters', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/55/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 97.77);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (13, 17, 'Adventuretime coaters', 'venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 'https://picsum.photos/id/55/250/250', 'http://npr.org/consequat/morbi/a/ipsum/integer/a.js', 97.77);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (14, 48, 'Killer Rabbit toy', 'nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec', 'https://picsum.photos/id/54/250/250', 'http://go.com/rhoncus/dui/vel/sem/sed.aspx', 150.43);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (14, 48, 'Jack the Dog toy', 'nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec', 'https://picsum.photos/id/54/250/250', 'http://go.com/rhoncus/dui/vel/sem/sed.aspx', 150.43);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (15, 1, 'Frozen LEGO', 'ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec', 'https://picsum.photos/id/57/250/250', 'https://odnoklassniki.ru/nibh/in/quis/justo/maecenas/rhoncus.jpg', 755.52);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (15, 1, 'Star Wars LEGO', 'ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec', 'https://picsum.photos/id/57/250/250', 'https://odnoklassniki.ru/nibh/in/quis/justo/maecenas/rhoncus.jpg', 755.52);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (15, 1, 'Race LEGO', 'ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec', 'https://picsum.photos/id/57/250/250', 'https://odnoklassniki.ru/nibh/in/quis/justo/maecenas/rhoncus.jpg', 755.52);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (15, 1, 'Underwater Station LEGO', 'ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec', 'https://picsum.photos/id/57/250/250', 'https://odnoklassniki.ru/nibh/in/quis/justo/maecenas/rhoncus.jpg', 755.52);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (15, 1, 'Urban City LEGO', 'ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec', 'https://picsum.photos/id/57/250/250', 'https://odnoklassniki.ru/nibh/in/quis/justo/maecenas/rhoncus.jpg', 755.52);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (16, 2, 'Airplane FT721', 'felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus', 'https://picsum.photos/id/58/250/250', 'http://howstuffworks.com/penatibus/et/magnis/dis/parturient.html', 399.99);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (17, 41, 'Tank', 'sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non', 'https://picsum.photos/id/59/250/250', 'https://naver.com/ac/lobortis/vel/dapibus/at.png', 422.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (17, 27, 'Batmobile', 'fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu', 'https://picsum.photos/id/59/250/250', 'http://elpais.com/maecenas/tristique/est.js', 459.99);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 16, 'Card sleeves S - 100, transparent', 'proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis', 'https://picsum.photos/id/60/250/250', 'https://e-recht24.de/a/odio/in/hac/habitasse/platea.html', 27.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves S - 200, transparent', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 39.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves S - 100, yellow', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 29.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves S - 100, blue', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 29.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves M - 100, transparent', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves M - 100, yellow', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves M - 100, blue', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves M - 100, red', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves M - 100, green', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves L - 100, transparent', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 42.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves L - 100, yellow', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 42.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves L - 100, blue', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 42.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves L - 100, red', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 42.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (18, 12, 'Card sleeves L - 100, green', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'https://picsum.photos/id/60/250/250', 'http://wix.com/at/vulputate/vitae/nisl.xml', 42.99);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D4 - white', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 22.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D4 - yellow', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 22.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D4 - red', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 22.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D4 - blue', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 22.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D4 - green', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 22.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D4 - black', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 22.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D4 - purple', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 22.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D6 - white', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 33.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D6 - yellow', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 33.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D6 - red', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 33.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D6 - blue', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 33.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D6 - green', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 33.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D6 - black', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 33.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D6 - purple', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 33.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D10 - white', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D10 - yellow', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D10 - red', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D10 - blue', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D10 - green', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D10 - black', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D10 - purple', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 37.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D20 - white', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 39.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D20 - yellow', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 39.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D20 - red', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 39.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D20 - blue', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 39.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D20 - green', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 39.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D20 - black', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 39.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (19, 21, 'Dice D20 - purple', 'nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare', 'https://picsum.photos/id/61/250/250', 'http://google.ca/cubilia/curae/mauris/viverra/diam/vitae/quam.xml', 39.78);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (20, 24, '7 Wonders scoring pad', 'at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt', 'https://picsum.photos/id/62/250/250', 'http://kickstarter.com/parturient.xml', 57.78);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (20, 25, 'DnD Character Sheets', 'a pede posuere nonummy integer non velit donec diam neque vestibulum eget', 'https://picsum.photos/id/62/250/250', 'http://gnu.org/nulla/sed.json', 77.78);
+
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic cubes - S, yellow', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 49.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic cubes - S, red', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 49.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic cubes - S, blue', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 49.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic cubes - M, yellow', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 79.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic cubes - M, red', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 79.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic cubes - M, blue', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 79.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic chips - S, yellow', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 39.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic chips - S, red', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 39.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic chips - S, blue', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 39.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic chips - M, yellow', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 47.79);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic chips - M, red', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 47.79);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (21, 19, 'Plastic chips - M, blue', 'enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'https://picsum.photos/id/63/250/250', 'http://dion.ne.jp/ac/nulla/sed/vel/enim/sit/amet.png', 47.79);
+
+-- EXPANSIONS
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 47, 'Settlers of Catan - Pirates', 'nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum', 'https://picsum.photos/id/13/250/250', 'http://phoca.cz/eleifend/donec.xml', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 49, 'Settlers of Catan - Traders', 'molestie lorem quisque ut erat curabitur gravida nisi at nibh', 'https://picsum.photos/id/14/250/250', 'https://skyrock.com/duis.js', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 17, 'Settlers of Catan - Armies', 'massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien', 'https://picsum.photos/id/15/250/250', 'https://ning.com/praesent/blandit/nam.xml', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 2, 'Settlers of Catan - New Territories', 'convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet', 'https://picsum.photos/id/16/250/250', 'https://biglobe.ne.jp/cras/non/velit.json', 379.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 34, 'Settlers of Catan - Star Wars', 'metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend', 'https://picsum.photos/id/17/250/250', 'http://youku.com/metus/arcu/adipiscing/molestie/hendrerit/at/vulputate.js', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 28, 'King of Tokyo - Power Up', 'felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus', 'https://picsum.photos/id/18/250/250', 'http://upenn.edu/lorem/vitae/mattis.jpg', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 39, 'King of Tokyo - Evloution', 'nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in', 'https://picsum.photos/id/24/250/250', 'https://amazonaws.com/sem/praesent/id/massa.json', 155.81);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 50, '7 Wonders - Leaders', 'id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 'https://picsum.photos/id/19/250/250', 'https://twitpic.com/nam/ultrices/libero/non.jsp', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 23, '7 Wonders - Cities', 'at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci', 'https://picsum.photos/id/20/250/250', 'http://webmd.com/feugiat/et/eros/vestibulum.json', 299.49);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 44, '7 Wonders - Traders', 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis', 'https://picsum.photos/id/21/250/250', 'http://twitpic.com/pellentesque/ultrices/phasellus/id/sapien.html', 194.35);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 21, 'Carcassonne - Inns and Cathedrals', 'est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien', 'https://picsum.photos/id/22/250/250', 'https://youku.com/justo/sit/amet/sapien.png', 437.60);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 9, 'Carcassonne - Princess and Dragons', 'phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque', 'https://picsum.photos/id/23/250/250', 'https://constantcontact.com/integer/tincidunt/ante/vel.jsp', 337.72);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 39, 'Carcassonne - the River', 'nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in', 'https://picsum.photos/id/24/250/250', 'https://amazonaws.com/sem/praesent/id/massa.json', 155.81);
+
+
+select * from product;
+
+select * from product where product_subcategory_id = 1;
+-- 24 BOARD GAMES, id 1 - 24
+-- 13 BOARD GAMES, id 138 - 150
+
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (1, 1, 3, 55, 177, 'http://nationalgeographic.com');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (2, 2, 3, 29, 324, 'http://hatena.ne.jp');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (3, 1, 3, 53, 220, 'http://ameblo.jp');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (4, 1, 4, 60, 243, 'http://discuz.net');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (5, 2, 4, 54, 327, 'http://devhub.com');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (6, 1, 4, 27, 398, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (7, 1, 4, 43, 217, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (8, 1, 2, 55, 299, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (9, 2, 4, 28, 410, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (10, 1, 2, 44, 328, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (11, 2, 2, 43, 181, 'http://google.es');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (12, 2, 2, 48, 141, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (13, 3, 5, 26, 135, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (14, 3, 6, 32, 401, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (15, 3, 5, 36, 334, 'http://opera.com');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (16, 3, 6, 43, 408, 'http://prnewswire.com');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (17, 3, 5, 33, 364, 'http://washingtonpost.com');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (18, 3, 6, 37, 285, 'http://cloudflare.com');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (19, 3, 6, 55, 376, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (20, 3, 6, 54, 116, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (21, 3, 6, 47, 106, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (22, 3, 6, 55, 373, null);
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (23, 3, 5, 47, 111, 'https://nps.gov');
+insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (24, 3, 6, 49, 345, null);
+
+select * from game_details;
+
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (138, 1, 0, 28);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (139, 1, 0, 28);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (140, 1, 4, 21);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (141, 1, 0, 27);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (142, 1, 0, 53);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (143, 12, 1, 19);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (144, 12, 1, 22);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (145, 10, 3, 38);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (146, 10, 3, 29);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (147, 10, 3, 36);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (148, 3, 2, 28);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (149, 3, 0, 28);
+insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (150, 3, 3, 26);
+
+select * from expansion_details;
+
+------------------------------------------------------------------------------------------------
+-- RECEIPT (50), ITEM (137)
+
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (25, '498539171-9', false, '2019-03-16 00:01:03');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (23, '694839145-1', true, '2018-05-31 13:39:47');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '412135911-9', false, '2019-04-12 06:41:43');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '314304101-3', false, '2019-05-07 16:23:58');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '271049269-5', true, '2018-07-19 00:58:50');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (6, '697374677-2', true, '2018-10-31 15:22:09');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (1, '944885408-0', false, '2019-03-21 01:04:46');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '695216917-2', true, '2019-01-13 08:11:49');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (6, '743578726-4', true, '2019-04-08 04:23:21');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (2, '894408020-8', true, '2019-02-15 03:18:45');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (23, '140194018-8', false, '2019-04-16 18:19:41');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (16, '681647710-3', true, '2018-12-19 00:40:00');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (8, '203796521-4', true, '2019-01-06 09:19:01');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (20, '467128155-4', false, '2019-02-28 21:36:15');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (22, '563160369-1', false, '2018-11-19 00:44:44');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (1, '388585923-8', false, '2018-07-26 12:50:40');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (23, '718539208-X', true, '2018-09-28 04:03:53');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '011219503-2', true, '2018-09-25 10:47:36');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (7, '941201354-X', false, '2019-01-23 17:34:42');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (15, '695609087-2', false, '2018-05-28 18:15:03');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '479154705-5', false, '2019-04-04 21:14:33');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (16, '140600283-6', false, '2018-07-08 07:49:44');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (7, '798769880-6', true, '2018-08-13 08:29:14');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '974744144-6', true, '2018-11-25 04:56:15');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '107995696-4', false, '2019-04-30 09:36:19');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '246028330-X', false, '2019-02-18 03:52:26');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (9, '084603939-7', false, '2018-08-20 14:22:28');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (17, '145000276-5', true, '2018-11-25 00:16:06');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (9, '267793585-6', false, '2018-06-01 16:18:49');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '735613461-6', false, '2018-08-21 16:54:33');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (25, '925258429-3', false, '2018-09-15 16:49:35');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (14, '511186246-3', false, '2018-11-09 21:01:34');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '725180219-8', true, '2018-09-27 01:45:50');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (8, '332207663-6', true, '2019-04-07 05:51:57');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (22, '905165993-8', false, '2018-12-29 22:37:48');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (9, '921021155-3', true, '2018-10-24 17:09:17');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (17, '436620601-3', false, '2018-08-01 03:19:42');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (2, '393371038-3', true, '2018-04-28 06:09:59');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (20, '859385771-X', true, '2018-09-08 12:29:20');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (2, '488757470-3', false, '2018-06-04 20:58:20');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (19, '081898430-9', true, '2019-04-05 05:06:56');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '339991992-1', true, '2018-09-01 05:35:00');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '004507604-9', false, '2018-09-08 05:16:36');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (18, '206237136-5', false, '2018-08-24 20:10:22');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '979455949-0', true, '2019-04-01 04:21:34');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '025061933-4', true, '2019-04-03 16:11:57');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (1, '264374145-5', true, '2018-09-24 23:30:48');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (8, '496765176-3', true, '2018-08-31 06:24:58');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '355347247-2', false, '2018-10-06 14:24:34');
+insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (15, '447287544-6', false, '2018-06-24 04:26:11');
+
+select * from receipt;
+
+insert into receipt_item (receipt_id, product_id, amount) values (1, 76, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (2, 4, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (3, 80, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (4, 63, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (5, 39, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (6, 13, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (7, 21, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (8, 124, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (9, 138, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (10, 69, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (11, 15, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (12, 31, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (13, 113, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (14, 76, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (15, 122, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (16, 17, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (17, 126, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (18, 28, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (19, 76, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (20, 18, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (21, 7, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (22, 22, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (23, 110, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (24, 9, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (25, 111, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (26, 130, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (27, 25, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (28, 40, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (29, 64, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (30, 147, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (31, 16, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (32, 110, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (33, 42, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (34, 6, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (35, 7, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (36, 19, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (37, 74, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (38, 30, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (39, 41, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (40, 34, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (41, 22, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (42, 47, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (43, 82, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (44, 82, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (45, 49, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (46, 115, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (47, 20, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (48, 11, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (49, 89, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (50, 66, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (1, 21, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (2, 37, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (3, 56, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (4, 109, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (5, 59, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (6, 110, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (7, 61, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (8, 126, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (9, 55, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (10, 37, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (11, 99, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (12, 7, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (13, 140, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (14, 118, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (15, 142, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (16, 80, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (17, 40, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (18, 133, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (19, 19, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (20, 60, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (21, 12, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (22, 31, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (23, 113, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (24, 27, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (25, 7, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (26, 68, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (27, 62, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (28, 138, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (29, 31, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (30, 150, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (31, 12, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (32, 60, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (33, 32, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (34, 32, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (35, 4, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (36, 136, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (37, 79, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (38, 93, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (39, 37, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (40, 80, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (41, 117, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (42, 109, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (43, 28, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (44, 94, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (45, 139, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (46, 115, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (47, 138, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (48, 47, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (49, 47, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (50, 113, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (1, 121, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (2, 70, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (3, 22, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (4, 22, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (5, 127, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (6, 48, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (7, 1, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (8, 147, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (9, 79, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (10, 125, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (11, 64, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (12, 142, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (13, 31, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (14, 57, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (15, 149, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (16, 82, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (17, 51, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (18, 21, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (19, 132, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (20, 30, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (21, 53, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (22, 64, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (23, 82, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (24, 20, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (25, 70, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (1, 4, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (2, 88, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (3, 77, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (4, 68, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (5, 47, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (6, 41, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (7, 23, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (8, 101, 2);
+insert into receipt_item (receipt_id, product_id, amount) values (9, 26, 3);
+insert into receipt_item (receipt_id, product_id, amount) values (10, 2, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (11, 88, 1);
+insert into receipt_item (receipt_id, product_id, amount) values (12, 85, 2);
+
+select * from receipt_item;

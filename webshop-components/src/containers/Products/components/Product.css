@@ -1,0 +1,13 @@
+.Product {
+  width: 350px;
+  border: 1px solid #ccc;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.Description {
+  margin-top: 10px;
+  text-align: justify;
+  padding: 10px;
+}

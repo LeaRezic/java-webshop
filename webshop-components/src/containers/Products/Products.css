@@ -1,0 +1,6 @@
+.Products {
+  display: flex;
+  direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+}
