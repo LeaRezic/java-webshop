@@ -14,7 +14,7 @@ export class Products extends React.Component<IProducts, any> {
     return (
       <div className='Products'>
         {productList.map((prod) => (
-          <Product {...prod} key={prod.name + prod.price} />
+          <Product {...prod} key={prod.productId} />
         ))}
       </div>
     );

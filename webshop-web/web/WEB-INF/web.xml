@@ -9,7 +9,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
-        <url-pattern>\cart</url-pattern>
+        <url-pattern>/cart</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -17,7 +17,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>\login</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>ProductServlet</servlet-name>
@@ -25,6 +25,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
-        <url-pattern>\product</url-pattern>
+        <url-pattern>/product</url-pattern>
     </servlet-mapping>
 </web-app>

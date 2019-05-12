@@ -1,8 +1,6 @@
 drop table if exists receipt_item;
 drop table if exists receipt;
-drop table if exists product_expansion;
 drop table if exists expansion_details;
-drop table if exists product_game;
 drop table if exists game_details;
 drop table if exists user_details;
 drop table if exists user_account;

@@ -86,7 +86,7 @@ CREATE TABLE product (
     description TEXT,
     picture_url VARCHAR (255),
     external_url VARCHAR (255),
-    price MONEY NOT NULL,
+    price NUMERIC(15,2) NOT NULL,
     CONSTRAINT product_product_subcategory_id_fkey FOREIGN KEY (product_subcategory_id)
         REFERENCES product_subcategory (product_subcategory_id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION,

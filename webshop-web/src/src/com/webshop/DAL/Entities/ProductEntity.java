@@ -119,4 +119,9 @@ public class ProductEntity implements EntityBase {
     public int giveId() {
         return productId;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s [%s]", name, price);
+    }
 }

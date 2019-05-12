@@ -1,14 +1,30 @@
 package src.com.webshop.DAL.Repository;
 
-import src.com.webshop.DAL.Entities.ProductCategoryEntity;
-import src.com.webshop.DAL.Entities.ProductEntity;
+import src.com.webshop.DAL.Entities.*;
 
 import java.util.List;
-import java.util.Locale;
 
 public interface Repository {
 
     List<ProductEntity> getProducts();
+    List<ProductCategoryEntity> getCategories();
+    List<ProductSubcategoryEntity> getSubcategoriesForCategory(int categoryId);
+    List<ExpansionDetailsEntity> getExpansionsForGame(int gameDetailsId);
+    List<ProductManufacturerEntity> getManufacturers();
+    List<ReceiptEntity> getReceipts();
+    List<ReceiptEntity> getReceiptsForCustomer(int userDetailsId);
+    List<ReceiptItemEntity> getReceiptItemsForReceipt (int receiptId);
+    List<UserDetailsEntity> getUsers();
 
-    List<ProductCategoryEntity> getProductCategories();
+    ExpansionDetailsEntity getExpansionDetails(int expansionDetailsId);
+    GameDetailsEntity getGameDetails(int gameDetailsId);
+    ProductEntity getProduct(int productId);
+    ProductManufacturerEntity getManufacturer(int manufacturerId);
+    ProductCategoryEntity getCategory(int categoryId);
+    ProductSubcategoryEntity getSubcategory(int subcategoryId);
+    ReceiptEntity getReceipt(int receiptId);
+    ReceiptItemEntity getReceiptItem(int receiptItemId);
+    RoleEntity getRole(int roleId);
+    UserAccountEntity getUserAccount(int userAccountId);
+    UserDetailsEntity getUserDetails(int userDetailsId);
 }
