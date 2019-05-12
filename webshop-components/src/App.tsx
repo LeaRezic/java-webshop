@@ -1,40 +1,18 @@
-import axios from 'axios';
-import * as React from 'react';
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-import { Layout } from './containers/Layout/Layout';
-import { IProduct } from './containers/Products/components/Product';
-import { Products } from './containers/Products/Products';
-import { SearchArea } from './containers/Search/SearchArea';
-import { dummyData } from './mock/mockData';
+import { Layout } from './hoc/Layout/Layout';
+import { ProductsPage } from './containers/ProductsPage/ProductsPage';
 
-interface IAppState {
-  products: IProduct[];
-}
-
-class App extends React.Component<{}, IAppState> {
-  public state = {
-    products: dummyData,
-  }
-  public componentDidMount() {
-    axios.get('http://localhost:8080/webshop_web_war_exploded/product')
-      .then((res) => {
-        this.setState({products: res.data.products});
-      })
-      .catch((err) => console.log(err));
-  }
-  public render() {
-    return (
-      <div>
-        <Layout data={35}>
-          <SearchArea />
-          {/* { this.products
-            ? <Products productList={this.products} />
-            : <Products productList={dummyData} />} */}
-          <Products productList={this.state.products} />
-        </Layout>
-      </div>
-    );
-  }
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <Layout>
+        <ProductsPage />
+      </Layout>
+    </div>
+  );
 }
 
 export default App;
