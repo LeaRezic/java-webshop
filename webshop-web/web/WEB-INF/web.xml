@@ -27,12 +27,4 @@
         <servlet-name>ProductServlet</servlet-name>
         <url-pattern>\product</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>ProductsServlet</servlet-name>
-        <servlet-class>src.com.webshop.Servlet.ProductsServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ProductsServlet</servlet-name>
-        <url-pattern>\products</url-pattern>
-    </servlet-mapping>
 </web-app>
