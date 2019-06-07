@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { IProduct, Product } from '../Product/Product';
+import { IProductProps, Product } from '../Product/Product';
 
 import styles from './Products.module.css';
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 
 interface IProducts {
-  productList: IProduct[];
+  productList: IProductProps[];
 }
 
 export class Products extends React.Component<IProducts> {
