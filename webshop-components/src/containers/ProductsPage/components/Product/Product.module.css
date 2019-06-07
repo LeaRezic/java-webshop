@@ -1,18 +1,32 @@
 .Product {
-  width: 350px;
+  width: 250px;
+  height: 425px;
   box-shadow: 0 2px 3px #ccc;
   border: 1px solid #eee;
+  text-align: center;
   margin: 15px;
-  padding: 15px;
+  position: relative;
+}
+
+.ProductDetails {
+  width: 90%;
+  padding: 10px;
   text-align: center;
 }
 
 .Description {
-  margin-top: 10px;
+  width: 90%;
   text-align: justify;
-  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
 }
 
-.Image {
-  border-radius: 10px;
+.Price {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

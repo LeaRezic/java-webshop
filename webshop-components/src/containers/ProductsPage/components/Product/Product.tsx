@@ -16,14 +16,16 @@ export class Product extends React.PureComponent<IProduct> {
       name,
       description,
       pictureUrl,
-      price
+      price,
     } = this.props;
     return (
       <div className={styles['Product']}>
-        <h3>{name}</h3>
         <img className={styles['Image']} src={pictureUrl} />
-        <div className={styles['Description']}>{description}</div>
-        <div>{price}</div>
+        <div className={styles['ProductDetails']}>
+          <h3>{name}</h3>
+          <div className={styles['Description']}>{description}</div>
+        </div>
+        <div className={styles['Price']}>{price}</div>
       </div>
     );
   }
