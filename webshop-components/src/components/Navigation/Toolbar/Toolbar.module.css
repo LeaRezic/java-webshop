@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: teal;
+  background-color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +18,13 @@
 }
 
 .Logo {
-  height: 80%;
+  height: 10  0%;
+}
+
+.Title {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: teal;
 }
 
 @media (max-width: 499px) {

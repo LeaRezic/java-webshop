@@ -10,7 +10,9 @@ export class Layout extends React.Component {
     return(
       <Aux>
         <Toolbar/>
-        <main className={styles['Content']}>{this.props.children}</main>
+        <main className={styles.Content}>
+          {this.props.children}
+        </main>
       </Aux>
     );
   }

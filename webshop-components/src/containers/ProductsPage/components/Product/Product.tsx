@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 import styles from './Product.module.css';
 
@@ -25,20 +26,31 @@ export class Product extends React.PureComponent<IProductProps, IProductState> {
       pictureUrl,
       price,
     } = this.props;
+    const { hoverOnProduct } = this.state;
     return (
-      <div className={styles['Product']} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+      <div
+        className={classNames(styles.Product, { [styles.HoverProduct]: hoverOnProduct})}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
         <div className={styles.ImageHolder}>
-          <img className={styles.Image} src={pictureUrl} />
-          <div className={`${styles.ImageCover} ${this.state.hoverOnProduct ? styles.Visible : styles.Hidden}`}>
-            <button>Read More</button>
-            <button>Add to Cart</button>
-          </div>
+          {
+            hoverOnProduct
+              ? (
+                <div className={classNames(styles.Image, styles.Cover)}>
+                  <button className={`${styles.BtnReadMore} ${hoverOnProduct ? styles.Visible : styles.Hidden}`} >Read More</button>
+                  <button className={`${styles.BtnAdd} ${hoverOnProduct ? styles.Visible : styles.Hidden}`} >Add to Cart</button>
+                </div>
+              )
+              : <img className={styles.Image} src={pictureUrl} />
+          }
+          {/* <div className={`${styles.ImageCover} ${hoverOnProduct ? styles.Visible : styles.Hidden}`}/> */}
         </div>
-        <div className={styles['ProductDetails']}>
+        <div className={styles.ProductDetails}>
           <h3>{name}</h3>
-          <div className={styles['Description']}>{description}</div>
+          <div className={styles.Description}>{description}</div>
         </div>
-        <div className={styles['Price']}>{price}</div>
+        <div className={styles.Price}>{price}</div>
       </div>
     );
   }

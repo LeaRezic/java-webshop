@@ -1,11 +1,16 @@
 .Product {
   width: 250px;
   height: 425px;
-  box-shadow: 0 2px 3px #ccc;
   border: 1px solid #eee;
   text-align: center;
   margin: 15px;
   position: relative;
+  box-sizing: border-box;
+}
+
+.HoverProduct {
+  border: 1.5px solid #eee;
+  /* transform: scale(1.01); */
 }
 
 .ProductDetails {
@@ -34,10 +39,10 @@
 .ImageHolder {
   width: 250px;
   height: 250px;
-  position: relative;
+  /* position: relative; */
 }
 
-.ImageCover {
+/* .ImageCover {
   background-color: teal;
   position: absolute;
   top: 0;
@@ -54,6 +59,13 @@
 .ImageCover button:first-of-type {
   background-color: gray;
 }
+*/
+
+.Cover {
+  width: 100%;
+  height: 100%;
+  background-color: teal;
+}
 
 .Visible {
   visibility: visible;
@@ -61,4 +73,14 @@
 
 .Hidden {
   visibility: hidden;
+}
+
+.BtnReadMore, .BtnAdd {
+  position: absolute;
+  width: 100px;
+}
+
+.BtnReadMore {
+  left: 0;
+  margin-left: 20px;
 }

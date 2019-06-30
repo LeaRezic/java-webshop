@@ -13,12 +13,10 @@ export class Products extends React.Component<IProducts> {
   public render() {
     const { productList } = this.props;
     const displayProducts = productList.length
-      ? productList.map((prod) => (
-        <Product {...prod} key={prod.productId} />
-        ))
+      ? productList.map((prod) => (<Product {...prod} key={prod.productId} />))
       : <Spinner />;
     return (
-      <div className={styles['Products']}>
+      <div className={styles.Products}>
         {displayProducts}
       </div>
     );
