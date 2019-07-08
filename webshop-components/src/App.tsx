@@ -11,12 +11,12 @@ import logo from './logo.svg';
 import './App.css';
 
 import { Layout } from './hoc/Layout/Layout';
-import { ProductsPage } from './containers/ProductsPage/ProductsPage';
+import { ProductsPage } from './containers/Shop/ShoppingPage';
 import { IAppState } from './state/appState';
-import { LoginPage } from './containers/LoginPage/LoginPage';
-import { CheckoutPage } from './containers/CheckoutPage/CheckoutPage';
-import { ProfilePage } from './containers/ProfilePage/ProfilePage';
-import { AdminPage } from './containers/AdminPage/AdminPage';
+import { LoginPage } from './containers/Auth/LoginPage';
+import { CheckoutPage } from './containers/Checkout/CheckoutPage';
+import { ProfilePage } from './containers/Profile/ProfilePage';
+import { AdminPage } from './containers/Admin/AdminPage';
 
 class App extends React.Component<RouteComponentProps, IAppState> {
   render() {

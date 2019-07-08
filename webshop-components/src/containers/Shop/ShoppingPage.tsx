@@ -1,11 +1,11 @@
 import * as React from 'react';
 import axios from 'axios';
 
-import { IProductProps } from './components/Product/Product';
+import { IProduct } from './interfaces';
 import { Products } from './components/Products/Products';
 
 interface IProductsPageState {
-  products: IProductProps[];
+  products?: IProduct[];
 }
 
 export class ProductsPage extends React.Component<{}, IProductsPageState> {

@@ -1,14 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+import { IProduct } from '../../interfaces';
+
 import styles from './Product.module.css';
 
 export interface IProductProps {
-  productId: number;
-  name: string;
-  description: string;
-  pictureUrl: string;
-  price: number;
+  product: IProduct;
 }
 
 export interface IProductState {
@@ -25,7 +23,7 @@ export class Product extends React.PureComponent<IProductProps, IProductState> {
       description,
       pictureUrl,
       price,
-    } = this.props;
+    } = this.props.product;
     const { hoverOnProduct } = this.state;
     return (
       <div
@@ -34,25 +32,24 @@ export class Product extends React.PureComponent<IProductProps, IProductState> {
         onMouseLeave={this.handleMouseLeave}
       >
         <div className={styles.ImageHolder}>
-          {
-            hoverOnProduct
-              ? (
-                <div className={classNames(styles.Image, styles.Cover)}>
-                  <button className={`${styles.BtnReadMore} ${hoverOnProduct ? styles.Visible : styles.Hidden}`} >Read More</button>
-                  <button className={`${styles.BtnAdd} ${hoverOnProduct ? styles.Visible : styles.Hidden}`} >Add to Cart</button>
-                </div>
-              )
-              : <img className={styles.Image} src={pictureUrl} />
-          }
-          {/* <div className={`${styles.ImageCover} ${hoverOnProduct ? styles.Visible : styles.Hidden}`}/> */}
+          <img className={styles.Image} src={pictureUrl} />
         </div>
         <div className={styles.ProductDetails}>
-          <h3>{name}</h3>
-          <div className={styles.Description}>{description}</div>
+          <h3 className={styles.Title}>{name}</h3>
+          <div className={styles.Description}>{this.getLimitedDescription(description)}</div>
         </div>
         <div className={styles.Price}>{price}</div>
+        <button className={`${styles.BtnReadMore}`} >Read More</button>
+        <button className={`${styles.BtnAdd}`} >Add to Cart</button>
       </div>
     );
+  }
+
+  private getLimitedDescription = (description: string) => {
+    if (description.length > 100) {
+      return description.substr(0, 100) + '...';
+    }
+    return description;
   }
 
   private handleMouseEnter = () => {

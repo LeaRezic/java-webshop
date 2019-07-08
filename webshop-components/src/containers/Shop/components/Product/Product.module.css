@@ -1,15 +1,14 @@
 .Product {
   width: 250px;
-  height: 425px;
-  border: 1px solid #eee;
+  height: 465px;
+  border: 1px solid #ccc;
   text-align: center;
   margin: 15px;
   position: relative;
-  box-sizing: border-box;
 }
 
 .HoverProduct {
-  border: 1.5px solid #eee;
+  border: 1px solid teal;
   /* transform: scale(1.01); */
 }
 
@@ -19,7 +18,12 @@
   text-align: center;
 }
 
+.Title {
+  height: 30px;
+}
+
 .Description {
+  height: 50px;
   width: 90%;
   text-align: justify;
   margin-left: auto;
@@ -29,9 +33,6 @@
 }
 
 .Price {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -76,11 +77,7 @@
 }
 
 .BtnReadMore, .BtnAdd {
-  position: absolute;
+  /* position: absolute; */
   width: 100px;
-}
-
-.BtnReadMore {
-  left: 0;
-  margin-left: 20px;
+  margin: 5px;
 }

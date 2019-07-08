@@ -9,10 +9,12 @@ export class Toolbar extends React.Component {
     return(
       <header className={styles.Toolbar}>
         {/* drawer toggle */}
-        <div className={styles.Logo}>
-          <Logo />
+        <div className={styles.TitleContainer}>
+          <div className={styles.Logo}>
+            <Logo />
+          </div>
+          <span className={styles.Title}>RUBBER DUCK BOARDGAMES</span>
         </div>
-        <span className={styles.Title}>RUBBER DUCK BOARDGAMES</span>
         <nav className={styles.DesktopOnly}>
           <NavItems/>
         </nav>
