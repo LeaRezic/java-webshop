@@ -5,6 +5,6 @@ const initialState: IAuthState = {
   isAdmin: false,
 }
 
-export const reducer = (state: IAuthState = initialState, action: any) => {
+export const authReducer = (state: IAuthState = initialState, action: any): IAuthState => {
   return state;
 };

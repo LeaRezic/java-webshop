@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
-import { productsReducer } from '../containers/Shop/state/reducer';
+
+import { shoppingReducer } from '../containers/Shop/state/reducer';
+import { authReducer } from '../containers/Auth/state/reducer';
 
 export const rootReducer = combineReducers({
-  products: productsReducer,
+  shop: shoppingReducer,
+  auth: authReducer,
 });

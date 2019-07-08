@@ -1,25 +1,46 @@
 import * as React from 'react';
-import axios from 'axios';
+import { createStructuredSelector } from 'reselect';
 
-import { IProduct } from './interfaces';
+import {
+  IShoppingPageProps,
+  IProduct,
+} from './interfaces';
 import { Products } from './components/Products/Products';
+import {
+  fetchProducts,
+  addProductToCart,
+  removeProductFromCart,
+  incrementProductQuantity,
+  decrementProductQuantity,
+} from './state/actions';
+import { productsSelector } from './state/selectors';
+import { connect } from 'react-redux';
 
-interface IProductsPageState {
-  products?: IProduct[];
-}
+export interface IShoppingPageMappedProps {
+  products: IProduct[],
+};
 
-export class ProductsPage extends React.Component<{}, IProductsPageState> {
-  public state = {
-    products: [],
-  }
+export class ShoppingComponent extends React.Component<IShoppingPageProps, {}> {
   public componentDidMount() {
-    axios.get('http://localhost:8080/webshop_web_war_exploded/product')
-      .then((res) => this.setState({products: res.data.products}))
-      .catch((err) => console.log(err));
+    this.props.onProductsFetch();
   }
   public render() {
     return(
-      <Products productList={this.state.products} />
+      <Products productList={this.props.products} />
     );
   }
 }
+
+const mapStateToProps = createStructuredSelector<any, IShoppingPageMappedProps>({
+  products: productsSelector,
+})
+
+const mapDispatchToProps = {
+  onProductsFetch: fetchProducts,
+  onAddProduct: addProductToCart,
+  onRemoveProduct: removeProductFromCart,
+  onIncrementProduct: incrementProductQuantity,
+  onDecrementProduct: decrementProductQuantity,
+};
+
+export const ShoppingPage = connect(mapStateToProps, mapDispatchToProps)(ShoppingComponent);

@@ -1,7 +1,7 @@
-import { IProductsState, IItem, IProduct } from '../interfaces';
-import { ProductsAction, ProductsActionTypes } from './actions';
+import { IShoppingState, IItem, IProduct } from '../interfaces';
+import { ProductsAction, ShoppingActionTypes } from './actions';
 
-const initialState: IProductsState = {
+const initialState: IShoppingState = {
   products: [],
   cart: {
     items: [],
@@ -11,11 +11,11 @@ const initialState: IProductsState = {
     productsLoaded: false,
     isCheckout: false,
     isShopping: true,
-    error: undefined,
+    error: null,
   }
 }
 
-const changeQuantity = (state: IProductsState, productId: number, quantityDiff: number) => {
+const changeQuantity = (state: IShoppingState, productId: number, quantityDiff: number) => {
   if (!state.cart.items.some((item) => item.product.productId === productId)) {
     return state;
   }
@@ -39,9 +39,10 @@ const changeQuantity = (state: IProductsState, productId: number, quantityDiff: 
     } };
 }
 
-export function productsReducer(state: IProductsState = initialState, action: ProductsAction) {
+export function shoppingReducer(state: IShoppingState = initialState, action: ProductsAction): IShoppingState {
   switch (action.type) {
-    case ProductsActionTypes.FETCH_PRODUCTS:
+    case ShoppingActionTypes.FETCH_PRODUCTS:
+      console.log('[REDUCER - fetching]');
       return {
         ...state,
         meta: {
@@ -49,27 +50,27 @@ export function productsReducer(state: IProductsState = initialState, action: Pr
           fetchingProducts: true,
         }
       };
-    case ProductsActionTypes.FETCH_PRODUCTS_SUCCESS:
+    case ShoppingActionTypes.FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
+        products: action.data as IProduct[],
         meta: {
           ...state.meta,
           fetchingProducts: false,
           productsLoaded: true,
-          products: action.data,
         }
       };
-    case ProductsActionTypes.FETCH_PRODUCTS_FAILURE:
+    case ShoppingActionTypes.FETCH_PRODUCTS_FAILURE:
       return {
         ...state,
         meta: {
           ...state.meta,
           fetchingProducts: false,
           productsLoaded: false,
-          error: action.data,
+          error: action.data as string,
         }
       }
-    case ProductsActionTypes.ADD_PRODUCT_TO_CART:
+    case ShoppingActionTypes.ADD_PRODUCT_TO_CART:
       const newItem: IItem = {
         product: action.data as IProduct,
         quantity: 1,
@@ -80,7 +81,7 @@ export function productsReducer(state: IProductsState = initialState, action: Pr
           items: state.cart.items.concat(newItem),
         },
       }
-    case ProductsActionTypes.REMOVE_PRODUCT_FROM_CART:
+    case ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART:
       const id: number = (action.data as IProduct).productId;
       return {
         ...state,
@@ -88,9 +89,9 @@ export function productsReducer(state: IProductsState = initialState, action: Pr
           items: state.cart.items.filter((item) => item.product.productId !== id),
         },
       };
-    case ProductsActionTypes.INCREMENT_PRODUCT_QUANTITY:
+    case ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY:
       return changeQuantity(state, (action.data as IProduct).productId, 1);
-    case ProductsActionTypes.DECREMENT_PRODUCT_QUANTITY:
+    case ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY:
       return changeQuantity(state, (action.data as IProduct).productId, -1);
     default:
       return state;

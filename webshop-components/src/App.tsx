@@ -6,26 +6,23 @@ import {
   Redirect,
   RouteComponentProps,
 } from 'react-router-dom';
-import { connect } from 'react-redux';
-import logo from './logo.svg';
 import './App.css';
 
 import { Layout } from './hoc/Layout/Layout';
-import { ProductsPage } from './containers/Shop/ShoppingPage';
-import { IAppState } from './state/appState';
+import { ShoppingPage } from './containers/Shop/ShoppingPage';
 import { LoginPage } from './containers/Auth/LoginPage';
 import { CheckoutPage } from './containers/Checkout/CheckoutPage';
 import { ProfilePage } from './containers/Profile/ProfilePage';
 import { AdminPage } from './containers/Admin/AdminPage';
 
-class App extends React.Component<RouteComponentProps, IAppState> {
+class App extends React.Component<RouteComponentProps, {}> {
   render() {
     const isAuth = true;
     const isAdmin = true;
     let routes = (
       <Switch>
         <Route path='/auth' component={LoginPage} />
-        <Route exact path='/products' component={ProductsPage} />
+        <Route exact path='/products' component={ShoppingPage} />
         <Redirect to='/products' />
       </Switch>
     );
@@ -33,7 +30,7 @@ class App extends React.Component<RouteComponentProps, IAppState> {
       routes = (
         <Switch>
           <Route path='/auth' component={LoginPage} />
-          <Route exact path='/products' component={ProductsPage} />
+          <Route exact path='/products' component={ShoppingPage} />
           <Route path='/checkout' component={CheckoutPage} />
           <Route path='/profile' component={ProfilePage} />
           <Redirect to='/products' />
@@ -45,7 +42,7 @@ class App extends React.Component<RouteComponentProps, IAppState> {
         <Switch>
           <Route path='/auth' component={LoginPage} />
           <Route exact path='/admin' component={AdminPage} />
-          <Route exact path='/products' component={ProductsPage} />
+          <Route exact path='/products' component={ShoppingPage} />
           <Route path='/checkout' component={CheckoutPage} />
           <Route path='/profile' component={ProfilePage} />
           <Redirect to='/products' />

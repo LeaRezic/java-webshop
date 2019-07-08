@@ -1,7 +1,7 @@
 import { IProduct } from '../interfaces';
 import { IReduxAction } from '../../../types/interfaces';
 
-export enum ProductsActionTypes {
+export enum ShoppingActionTypes {
   FETCH_PRODUCTS = 'FETCH_PRODUCTS',
   FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS',
   FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE',
@@ -13,56 +13,56 @@ export enum ProductsActionTypes {
 }
 
 export const fetchProducts = ()
-  :IReduxAction<void, void, void, ProductsActionTypes.FETCH_PRODUCTS> => {
+  :IReduxAction<void, void, void, ShoppingActionTypes.FETCH_PRODUCTS> => {
   return {
-    type: ProductsActionTypes.FETCH_PRODUCTS,
+    type: ShoppingActionTypes.FETCH_PRODUCTS,
   }
 }
 
 export const fetchProductsSuccess = (products: IProduct[])
-  :IReduxAction<IProduct[], void, void, ProductsActionTypes.FETCH_PRODUCTS_SUCCESS> => {
+  :IReduxAction<IProduct[], void, void, ShoppingActionTypes.FETCH_PRODUCTS_SUCCESS> => {
   return {
-    type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS,
+    type: ShoppingActionTypes.FETCH_PRODUCTS_SUCCESS,
     data: products,
   }
 }
 
 export const fetchProductsFailure = (errMessage: string)
-  :IReduxAction<string, void, void, ProductsActionTypes.FETCH_PRODUCTS_FAILURE> => {
+  :IReduxAction<string, void, void, ShoppingActionTypes.FETCH_PRODUCTS_FAILURE> => {
   return {
-    type: ProductsActionTypes.FETCH_PRODUCTS_FAILURE,
+    type: ShoppingActionTypes.FETCH_PRODUCTS_FAILURE,
     data: errMessage,
   }
 }
 
 export const addProductToCart = (product: IProduct)
-  :IReduxAction<IProduct, void, void, ProductsActionTypes.ADD_PRODUCT_TO_CART> => {
+  :IReduxAction<IProduct, void, void, ShoppingActionTypes.ADD_PRODUCT_TO_CART> => {
   return {
-    type: ProductsActionTypes.ADD_PRODUCT_TO_CART,
+    type: ShoppingActionTypes.ADD_PRODUCT_TO_CART,
     data: product,
   }
 }
 
 export const removeProductFromCart = (product: IProduct)
-  :IReduxAction<IProduct, void, void, ProductsActionTypes.REMOVE_PRODUCT_FROM_CART> => {
+  :IReduxAction<IProduct, void, void, ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART> => {
   return {
-    type: ProductsActionTypes.REMOVE_PRODUCT_FROM_CART,
+    type: ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART,
     data: product,
   }
 }
 
 export const incrementProductQuantity = (product: IProduct)
-  :IReduxAction<IProduct, void, void, ProductsActionTypes.INCREMENT_PRODUCT_QUANTITY> => {
+  :IReduxAction<IProduct, void, void, ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY> => {
   return {
-    type: ProductsActionTypes.INCREMENT_PRODUCT_QUANTITY,
+    type: ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY,
     data: product,
   }
 }
 
 export const decrementProductQuantity = (product: IProduct)
-  :IReduxAction<IProduct, void, void, ProductsActionTypes.DECREMENT_PRODUCT_QUANTITY> => {
+  :IReduxAction<IProduct, void, void, ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY> => {
   return {
-    type: ProductsActionTypes.DECREMENT_PRODUCT_QUANTITY,
+    type: ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY,
     data: product,
   }
 }
