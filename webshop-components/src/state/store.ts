@@ -10,9 +10,11 @@ import createSagaMiddleware from 'redux-saga';
 import { rootReducer } from './reducer';
 import Sagas from './sagas';
 import { IShoppingState } from '../containers/Shop/interfaces';
+import { IAuthState } from '../containers/Auth/interfaces';
 
 export interface IStore {
   shop: IShoppingState;
+  auth: IAuthState;
 }
 
 const composeEnhancers = process.env.NODE_ENV === 'development'
