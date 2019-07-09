@@ -1,4 +1,4 @@
-package src.com.webshop.Models.Category;
+package src.com.webshop.Model.Category;
 
 import src.com.webshop.DAL.Entities.ProductCategoryEntity;
 import src.com.webshop.DAL.Entities.ProductSubcategoryEntity;
@@ -14,11 +14,11 @@ public class CategoryManager {
     public static List<CategoryVM> getAllCategories() {
         ArrayList<CategoryVM> list = new ArrayList<>();
         List<ProductCategoryEntity> categoryEntities = repo.getCategories();
-        categoryEntities.forEach((entity) -> list.add(createCategoryVMfromEntity(entity)));
+        categoryEntities.forEach((entity) -> list.add(createCategoryVmFromEntity(entity)));
         return list;
     }
 
-    private static CategoryVM createCategoryVMfromEntity(ProductCategoryEntity entity) {
+    private static CategoryVM createCategoryVmFromEntity(ProductCategoryEntity entity) {
         List<ProductSubcategoryEntity> subcatEntities = repo.getSubcategoriesForCategory(entity.giveId());
         List<SubcategoryVM> subcatVms = new ArrayList<>();
         subcatEntities.forEach((subcatEntity) -> subcatVms.add(createSubcatVMfromEntity(subcatEntity)));

@@ -1,4 +1,4 @@
-package src.com.webshop.Models.Category;
+package src.com.webshop.Model.Category;
 
 public class SubcategoryVM {
 

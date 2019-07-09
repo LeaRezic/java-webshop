@@ -1,6 +1,6 @@
 package src.com.webshop.DAL.Repository;
 
-import src.com.webshop.Models.Category.CategoryManager;
+import src.com.webshop.Model.Category.CategoryManager;
 
 
 public class ConsoleTest {
