@@ -1,4 +1,4 @@
-import { IProduct, ICartItem } from '../interfaces';
+import { IProduct, ICartItem, ICategory } from '../interfaces';
 import { createSelector } from 'reselect';
 import { IStore } from '../../../state/store';
 
@@ -14,3 +14,7 @@ export const getProductsSelector = createSelector(
   [productsSelector],
   (products) => products,
 );
+
+export const categoriesSelector = (state: IStore): ICategory[] => {
+  return state.shop.categories;
+};

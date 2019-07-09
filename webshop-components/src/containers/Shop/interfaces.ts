@@ -38,6 +38,9 @@ export interface IShoppingPageMappedDispatch {
   onRemoveProduct: (product: IProduct) => void;
   onIncrementProduct: (product: IProduct) => void;
   onDecrementProduct: (product: IProduct) => void;
+  onCategoriesFetch: () => void;
+  onAddSubcategories: (ids: number[]) => void;
+  onRemoveSubcategories: (ids: number[]) => void;
 }
 
 export interface IShoppingState {

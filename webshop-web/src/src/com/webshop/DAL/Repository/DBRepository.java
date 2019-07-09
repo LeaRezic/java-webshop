@@ -6,6 +6,7 @@ import src.com.webshop.DAL.EntityManagerFactoryUtil;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DBRepository implements Repository {
 
@@ -64,7 +65,11 @@ public class DBRepository implements Repository {
 
     @Override
     public List<ProductSubcategoryEntity> getSubcategoriesForCategory(int categoryId) {
-        return null;
+        List<ProductSubcategoryEntity> subcats =
+                (List<ProductSubcategoryEntity>) getAllEntitiesOfType(ProductSubcategoryEntity.class.getSimpleName());
+        return subcats.stream()
+                .filter((sub) -> sub.getProductCategoryId() == categoryId)
+                .collect(Collectors.toList());
     }
 
     @Override
