@@ -13,8 +13,6 @@ export enum ShoppingActionTypes {
   FETCH_CATEGORIES = 'FETCH_CATEGORIES',
   FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS',
   FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE',
-  ADD_FILTER_CATEGORY = 'ADD_FILTER_CATEGORY',
-  REMOVE_FILTER_CATEGORY = 'REMOVE_FILTER_CATEGORY',
   ADD_FILTER_SUBCATEGORIES = 'ADD_FILTER_SUBCATEGORIES',
   REMOVE_FILTER_SUBCATEGORIES = 'REMOVE_FILTER_SUBCATEGORIES',
 }
@@ -97,22 +95,6 @@ export const fetchCategoriesFailure = (errMessage: string)
   }
 }
 
-export const addFilterCategory = (categoryId: number)
-  :IReduxAction<number, void, void, ShoppingActionTypes.ADD_FILTER_CATEGORY> => {
-    return {
-      type: ShoppingActionTypes.ADD_FILTER_CATEGORY,
-      data: categoryId,
-    }
-  }
-
-export const removeFilterCategory = (categoryId: number)
-  : IReduxAction<number, void, void, ShoppingActionTypes.REMOVE_FILTER_CATEGORY> => {
-  return {
-    type: ShoppingActionTypes.REMOVE_FILTER_CATEGORY,
-    data: categoryId,
-  }
-}
-
 export const addFilterSubcategories = (subcategoryIds: number[])
   : IReduxAction<number[], void, void, ShoppingActionTypes.ADD_FILTER_SUBCATEGORIES> => {
   return {
@@ -140,8 +122,6 @@ export type ProductsAction =
   | ReturnType<typeof fetchCategories>
   | ReturnType<typeof fetchCategoriesSuccess>
   | ReturnType<typeof fetchCategoriesFailure>
-  | ReturnType<typeof addFilterCategory>
-  | ReturnType<typeof removeFilterCategory>
   | ReturnType<typeof addFilterSubcategories>
   | ReturnType<typeof removeFilterSubcategories>
   ;
