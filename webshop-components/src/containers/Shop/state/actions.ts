@@ -1,4 +1,4 @@
-import { IProduct } from '../interfaces';
+import { IProduct, ICategory } from '../interfaces';
 import { IReduxAction } from '../../../types/interfaces';
 
 export enum ShoppingActionTypes {
@@ -10,6 +10,13 @@ export enum ShoppingActionTypes {
   REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART',
   INCREMENT_PRODUCT_QUANTITY = 'INCREMENT_PRODUCT_QUANTITY',
   DECREMENT_PRODUCT_QUANTITY = 'DECREMENT_PRODUCT_QUANTITY',
+  FETCH_CATEGORIES = 'FETCH_CATEGORIES',
+  FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS',
+  FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE',
+  ADD_FILTER_CATEGORY = 'ADD_FILTER_CATEGORY',
+  REMOVE_FILTER_CATEGORY = 'REMOVE_FILTER_CATEGORY',
+  ADD_FILTER_SUBCATEGORIES = 'ADD_FILTER_SUBCATEGORIES',
+  REMOVE_FILTER_SUBCATEGORIES = 'REMOVE_FILTER_SUBCATEGORIES',
 }
 
 export const fetchProducts = ()
@@ -67,6 +74,61 @@ export const decrementProductQuantity = (product: IProduct)
   }
 }
 
+export const fetchCategories = ()
+  : IReduxAction<void, void, void, ShoppingActionTypes.FETCH_CATEGORIES> => {
+  return {
+    type: ShoppingActionTypes.FETCH_CATEGORIES,
+  }
+}
+
+export const fetchCategoriesSuccess = (categories: ICategory[])
+  : IReduxAction<ICategory[], void, void, ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS> => {
+  return {
+    type: ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS,
+    data: categories,
+  }
+}
+
+export const fetchCategoriesFailure = (errMessage: string)
+  : IReduxAction<string, void, void, ShoppingActionTypes.FETCH_CATEGORIES_FAILURE> => {
+  return {
+    type: ShoppingActionTypes.FETCH_CATEGORIES_FAILURE,
+    data: errMessage,
+  }
+}
+
+export const addFilterCategory = (categoryId: number)
+  :IReduxAction<number, void, void, ShoppingActionTypes.ADD_FILTER_CATEGORY> => {
+    return {
+      type: ShoppingActionTypes.ADD_FILTER_CATEGORY,
+      data: categoryId,
+    }
+  }
+
+export const removeFilterCategory = (categoryId: number)
+  : IReduxAction<number, void, void, ShoppingActionTypes.REMOVE_FILTER_CATEGORY> => {
+  return {
+    type: ShoppingActionTypes.REMOVE_FILTER_CATEGORY,
+    data: categoryId,
+  }
+}
+
+export const addFilterSubcategories = (subcategoryIds: number[])
+  : IReduxAction<number[], void, void, ShoppingActionTypes.ADD_FILTER_SUBCATEGORIES> => {
+  return {
+    type: ShoppingActionTypes.ADD_FILTER_SUBCATEGORIES,
+    data: subcategoryIds,
+  }
+}
+
+export const removeFilterSubcategories = (subcategoryIds: number[])
+  : IReduxAction<number[], void, void, ShoppingActionTypes.REMOVE_FILTER_SUBCATEGORIES> => {
+  return {
+    type: ShoppingActionTypes.REMOVE_FILTER_SUBCATEGORIES,
+    data: subcategoryIds,
+  }
+}
+
 export type ProductsAction =
   | ReturnType<typeof fetchProducts>
   | ReturnType<typeof fetchProductsSuccess>
@@ -75,4 +137,11 @@ export type ProductsAction =
   | ReturnType<typeof removeProductFromCart>
   | ReturnType<typeof incrementProductQuantity>
   | ReturnType<typeof decrementProductQuantity>
+  | ReturnType<typeof fetchCategories>
+  | ReturnType<typeof fetchCategoriesSuccess>
+  | ReturnType<typeof fetchCategoriesFailure>
+  | ReturnType<typeof addFilterCategory>
+  | ReturnType<typeof removeFilterCategory>
+  | ReturnType<typeof addFilterSubcategories>
+  | ReturnType<typeof removeFilterSubcategories>
   ;

@@ -7,17 +7,29 @@ export interface IProduct {
   price: number;
 }
 
-export interface IItem {
+export interface ICartItem {
   product: IProduct;
   quantity: number;
 }
 
 export interface ICart {
-  items: IItem[];
+  items: ICartItem[];
+}
+
+export interface ISubCategory {
+  id: number;
+  name: string;
+}
+export interface ICategory {
+  id: number;
+  name: string;
+  subcategories: ISubCategory[];
 }
 
 export interface IShoppingPageMappedProps {
   products: IProduct[];
+  cartItems: ICartItem[];
+  categories: ICategory[];
 }
 
 export interface IShoppingPageMappedDispatch {
@@ -31,9 +43,13 @@ export interface IShoppingPageMappedDispatch {
 export interface IShoppingState {
   products: IProduct[];
   cart: ICart;
+  categories: ICategory[];
+  selectedSubcategoryIds: number[];
   meta: {
     fetchingProducts: boolean;
     productsLoaded: boolean;
+    fetchingCategories: boolean;
+    categoriesLoaded: boolean;
     isShopping: boolean;
     isCheckout: boolean;
     error: string | null;

@@ -7,6 +7,7 @@ import styles from './Product.module.css';
 
 export interface IProductProps {
   product: IProduct;
+  onAddProduct: (product: IProduct) => void;
 }
 
 export interface IProductState {
@@ -40,7 +41,10 @@ export class Product extends React.PureComponent<IProductProps, IProductState> {
         </div>
         <div className={styles.Price}>{price}</div>
         <button className={`${styles.BtnReadMore}`} >Read More</button>
-        <button className={`${styles.BtnAdd}`} >Add to Cart</button>
+        <button
+          className={`${styles.BtnAdd}`}
+          onClick={() => this.props.onAddProduct(this.props.product)}
+          >Add to Cart</button>
       </div>
     );
   }

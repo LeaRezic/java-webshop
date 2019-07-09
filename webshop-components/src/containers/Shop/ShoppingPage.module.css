@@ -1,0 +1,18 @@
+.CartContainer {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 120px;
+  background-color: rgba(24, 23, 23, 0.98);
+  padding: 30px 15px 15px 30px;
+}
+
+.Visible {
+  display: block;
+}
+
+.CartBtn {
+  position: fixed;
+  top: 70px;
+  right: 0;
+}

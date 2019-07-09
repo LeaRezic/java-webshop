@@ -8,13 +8,14 @@ import { IProduct } from '../../interfaces';
 
 interface IProducts {
   productList: IProduct[];
+  onAddProduct: (product: IProduct) => void;
 }
 
 export class Products extends React.Component<IProducts> {
   public render() {
     const { productList } = this.props;
     const displayProducts = productList.length
-      ? productList.map((prod) => (<Product product={prod} key={prod.productId} />))
+      ? productList.map((prod) => (<Product product={prod} key={prod.productId} onAddProduct={this.props.onAddProduct} />))
       : <Spinner />;
     return (
       <div className={styles.Products}>
