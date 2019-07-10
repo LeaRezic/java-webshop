@@ -70,8 +70,8 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
             />
           </div>
         </div>
-        <button className={`${styles.CartBtn}`} onClick={this.handleCartClick}>
-          {this.state.isCartOpen ? `CART >` : `< CART`}
+        <button className={styles.CartBtn} onClick={this.handleCartClick}>
+          {this.state.isCartOpen ? `CART >` : `CART <`}
         </button>
         <div className={classNames(styles.CartContainer, { [styles.Visible]: this.state.isCartOpen })}>
           <Cart

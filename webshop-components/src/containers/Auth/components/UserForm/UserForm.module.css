@@ -1,0 +1,25 @@
+.InputField {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid teal;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.InputField:focus {
+  border: 3px solid rgb(0, 192, 192);
+}
+
+.Container {
+  margin: 20px;
+  text-align: left;
+  color: rgb(150, 137, 235);
+  font-weight: bold;
+  font-size: 1.5rem;
+}

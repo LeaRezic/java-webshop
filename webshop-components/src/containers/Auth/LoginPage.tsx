@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { UserForm } from './components/UserForm/UserForm';
+
 import styles from './LoginPage.module.css';
 
 interface ILoginPageProps {
@@ -17,8 +19,23 @@ export class LoginPage extends React.PureComponent<ILoginPageProps, ILoginPageSt
       auth,
     } = this.props;
     return (
-      <div className={styles.Container}>
-        HELLO I'M A LOGIN PAGE
+      <div className={styles.BackgroundContainer}>
+        <div className={styles.ContentContainer}>
+          <div className={styles.BigDuckImg} />
+          <div className={styles.LoginContainer}>
+            <div className={styles.WelcomeText}>WELCOME TO RUBBER DUCK BOARDGAMES</div>
+            <div>
+              <UserForm
+                formTitle='Already Have an Account'
+                btnText='LOG IN'
+              />
+              <UserForm
+                formTitle='Create a New Account'
+                btnText='REGISTER'
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

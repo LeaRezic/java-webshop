@@ -51,19 +51,19 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
           <br/>
           <div className={styles.QuantityBtnsContainer}>
             <button
-              className={`${styles.BtnQuantity} ${styles.BtnCartItem}`}
+              className={classNames(styles.BtnQuantity, styles.BtnCartItem)}
               onClick={() => this.props.onDecrementProduct(this.props.item.product.id)}
             >-</button>
             <div className={`${styles.Price} ${hoverOnDelete ? styles.Strike : ''}`}>{getFormattedCurrency(price * this.props.item.quantity)}</div>
             <button
-              className={`${styles.BtnQuantity} ${styles.BtnCartItem}`}
+              className={classNames(styles.BtnQuantity, styles.BtnCartItem)}
               onClick={() => this.props.onIncrementProduct(this.props.item.product.id)}
             >+</button>
           </div>
         </div>
         <div className={styles.CloseBtnContainer}>
           <button
-            className={`${styles.BtnDelete} ${styles.BtnCartItem}`}
+            className={classNames(styles.BtnDelete, styles.BtnCartItem)}
             onClick={() => this.props.onRemoveProduct(this.props.item.product.id)}
             onMouseEnter={this.handleMouseEnterDelete}
             onMouseLeave={this.handleMouseLeaveDelete}
