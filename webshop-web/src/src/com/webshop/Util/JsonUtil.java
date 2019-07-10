@@ -17,4 +17,12 @@ public class JsonUtil {
         jsonObject.add(arrayName, jarray);
         return jsonObject;
     }
+
+    public static JsonObject getJson(Object object, String objectName) {
+        final Gson gson;
+        gson = new GsonBuilder().create();
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add(objectName, gson.toJsonTree(object));
+        return jsonObject;
+    }
 }

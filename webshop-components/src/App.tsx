@@ -14,6 +14,7 @@ import { LoginPage } from './containers/Auth/LoginPage';
 import { CheckoutPage } from './containers/Checkout/CheckoutPage';
 import { ProfilePage } from './containers/Profile/ProfilePage';
 import { AdminPage } from './containers/Admin/AdminPage';
+import { ProductViewPage } from './containers/ProductView/ProductViewPage';
 
 class App extends React.Component<RouteComponentProps, {}> {
   render() {
@@ -43,6 +44,7 @@ class App extends React.Component<RouteComponentProps, {}> {
           <Route path='/auth' component={LoginPage} />
           <Route exact path='/admin' component={AdminPage} />
           <Route exact path='/products' component={ShoppingPage} />
+          <Route exact path='/products/:id' component={ProductViewPage} />
           <Route path='/checkout' component={CheckoutPage} />
           <Route path='/profile' component={ProfilePage} />
           <Redirect to='/products' />

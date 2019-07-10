@@ -1,15 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { ICartItem, IProduct } from '../../interfaces';
+import { ICartItem, IProduct } from '../../../interfaces';
 
 import styles from './CartItem.module.css';
 
 export interface ICartItemProps {
   item: ICartItem;
-  onRemoveProduct: (product: IProduct) => void;
-  onIncrementProduct: (product: IProduct) => void;
-  onDecrementProduct: (product: IProduct) => void;
+  onRemoveProduct: (productId: number) => void;
+  onIncrementProduct: (productId: number) => void;
+  onDecrementProduct: (productId: number) => void;
 }
 
 export interface ICartItemState {
@@ -40,13 +40,13 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
           <div className={styles.Title}>{name}</div>
           <div className={styles.Price}>{price * this.props.item.quantity}</div>
           <div className={styles.QuantityBtnsContainer}>
-            <button onClick={() => this.props.onDecrementProduct(this.props.item.product)}>-</button>
+            <button onClick={() => this.props.onDecrementProduct(this.props.item.product.id)}>-</button>
             <span className={styles.Quantity}>{this.getQuantity(this.props.item.quantity)}</span>
-            <button onClick={() => this.props.onIncrementProduct(this.props.item.product)}>+</button>
+            <button onClick={() => this.props.onIncrementProduct(this.props.item.product.id)}>+</button>
           </div>
         </div>
         <div className={styles.CloseBtnContainer}>
-          <button onClick={() => this.props.onRemoveProduct(this.props.item.product)}>x</button>
+          <button onClick={() => this.props.onRemoveProduct(this.props.item.product.id)}>x</button>
         </div>
       </div>
     );

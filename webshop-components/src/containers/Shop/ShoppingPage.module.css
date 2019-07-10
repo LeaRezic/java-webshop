@@ -1,3 +1,9 @@
+.FiltersContainer {
+  position: fixed;
+  left: 5px;
+  top: 120px;
+}
+
 .CartContainer {
   display: none;
   position: fixed;

@@ -1,20 +1,21 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { IProduct } from '../../interfaces';
+import { IProduct } from '../../../interfaces';
 
 import styles from './Product.module.css';
+import { RouteComponentProps, StaticContext } from 'react-router';
 
 export interface IProductProps {
   product: IProduct;
-  onAddProduct: (product: IProduct) => void;
+  onAddProduct: (productId: number) => void;
 }
 
 export interface IProductState {
   hoverOnProduct: boolean;
 }
 
-export class Product extends React.PureComponent<IProductProps, IProductState> {
+export class Product extends React.PureComponent<IProductProps & Readonly<RouteComponentProps<any, StaticContext, any>>, IProductState> {
 
   public state = { hoverOnProduct: false }
 
@@ -40,13 +41,17 @@ export class Product extends React.PureComponent<IProductProps, IProductState> {
           <div className={styles.Description}>{this.getLimitedDescription(description)}</div>
         </div>
         <div className={styles.Price}>{price}</div>
-        <button className={`${styles.BtnReadMore}`} >Read More</button>
+        <button onClick={() => this.goToProductPage()} className={`${styles.BtnReadMore}`} >Read More</button>
         <button
           className={`${styles.BtnAdd}`}
-          onClick={() => this.props.onAddProduct(this.props.product)}
+          onClick={() => this.props.onAddProduct(this.props.product.id)}
           >Add to Cart</button>
       </div>
     );
+  }
+
+  private goToProductPage = () => {
+    this.props.history.push(`/products/${this.props.product.id}`);
   }
 
   private getLimitedDescription = (description: string) => {

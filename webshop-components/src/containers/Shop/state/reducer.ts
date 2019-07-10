@@ -61,9 +61,15 @@ const fetchProductsFailure = (state: IShoppingState, errorMsg: string) => {
   }
 }
 
-const addProductToCart = (state: IShoppingState, product: IProduct) => {
+const addProductToCart = (state: IShoppingState, productId: number) => {
+  if (state.cart.items.some((item) => item.product.id === productId)) {
+    return changeQuantity(state, productId, +1);
+  }
+  if (!state.products.some((prod) => prod.id === productId)) {
+    return state;
+  }
   const newItem: ICartItem = {
-    product: product,
+    product: state.products.find((prod) => prod.id === productId)!,
     quantity: 1,
   }
   return {
@@ -74,25 +80,21 @@ const addProductToCart = (state: IShoppingState, product: IProduct) => {
   }
 }
 
-const removeProductFromCart = (state: IShoppingState, product: IProduct) => {
-  const id: number = product.productId;
+const removeProductFromCart = (state: IShoppingState, productId: number) => {
   return {
     ...state,
     cart: {
-      items: state.cart.items.filter((item) => item.product.productId !== id),
+      items: state.cart.items.filter((item) => item.product.id !== productId),
     },
   };
 }
 
 const changeQuantity = (state: IShoppingState, productId: number, quantityDiff: number) => {
-  if (!state.cart.items.some((item) => item.product.productId === productId)) {
+  if (!state.cart.items.some((item) => item.product.id === productId)) {
     return state;
   }
-  const items = state.cart.items.map((item) => {
-    if (item.product.productId !== productId) {
-      return item;
-    }
-    if (item.quantity + quantityDiff < 0) {
+  let items = state.cart.items.map((item) => {
+    if (item.product.id !== productId) {
       return item;
     }
     return {
@@ -100,6 +102,7 @@ const changeQuantity = (state: IShoppingState, productId: number, quantityDiff: 
       quantity: item.quantity + quantityDiff,
     }
   })
+  items = items.filter((item) => item.quantity > 0);
   return {
     ...state,
     cart: {
@@ -160,17 +163,17 @@ const removeFilterSubcategories = (state: IShoppingState, ids: number[]) => {
 export function shoppingReducer(state: IShoppingState = initialState, action: ProductsAction): IShoppingState {
   switch (action.type) {
     case ShoppingActionTypes.FETCH_PRODUCTS: return fetchProducts(state);
-    case ShoppingActionTypes.FETCH_PRODUCTS_SUCCESS: return fetchProductsSuccess(state, action.data as IProduct[]);
-    case ShoppingActionTypes.FETCH_PRODUCTS_FAILURE: return fetchProductsFailure(state, action.data as string);
-    case ShoppingActionTypes.ADD_PRODUCT_TO_CART: return addProductToCart(state, action.data as IProduct);
-    case ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART: return removeProductFromCart(state, action.data as IProduct);
-    case ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY: return changeQuantity(state, (action.data as IProduct).productId, 1);
-    case ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY: return changeQuantity(state, (action.data as IProduct).productId, -1);
+    case ShoppingActionTypes.FETCH_PRODUCTS_SUCCESS: return fetchProductsSuccess(state, action.data!);
+    case ShoppingActionTypes.FETCH_PRODUCTS_FAILURE: return fetchProductsFailure(state, action.data!);
+    case ShoppingActionTypes.ADD_PRODUCT_TO_CART: return addProductToCart(state, action.data!);
+    case ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART: return removeProductFromCart(state, action.data!);
+    case ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data!, 1);
+    case ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data!, -1);
     case ShoppingActionTypes.FETCH_CATEGORIES: return fetchCategories(state);
-    case ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS: return fetchCategoriesSuccess(state, action.data as ICategory[]);
-    case ShoppingActionTypes.FETCH_CATEGORIES_FAILURE: return fetchCategoriesFailure(state, action.data as string);
-    case ShoppingActionTypes.ADD_FILTER_SUBCATEGORIES: return addFilterSubcategories(state, action.data as number[]);
-    case ShoppingActionTypes.REMOVE_FILTER_SUBCATEGORIES: return removeFilterSubcategories(state, action.data as number[]);
+    case ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS: return fetchCategoriesSuccess(state, action.data!);
+    case ShoppingActionTypes.FETCH_CATEGORIES_FAILURE: return fetchCategoriesFailure(state, action.data!);
+    case ShoppingActionTypes.ADD_FILTER_SUBCATEGORIES: return addFilterSubcategories(state, action.data!);
+    case ShoppingActionTypes.REMOVE_FILTER_SUBCATEGORIES: return removeFilterSubcategories(state, action.data!);
     default: return state;
   }
 }

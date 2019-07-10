@@ -2,15 +2,15 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { IProduct, ICartItem } from '../../interfaces';
-import { CartItem } from '../CartItem/CartItem';
+import { CartItem } from './CartItem/CartItem';
 
 import styles from './Cart.module.css';
 
 interface ICartProps {
   cartItems: ICartItem[];
-  onRemoveProduct: (product: IProduct) => void;
-  onIncrementProduct: (product: IProduct) => void;
-  onDecrementProduct: (product: IProduct) => void;
+  onRemoveProduct: (productId: number) => void;
+  onIncrementProduct: (productId: number) => void;
+  onDecrementProduct: (productId: number) => void;
 }
 
 export class Cart extends React.Component<ICartProps> {
@@ -20,7 +20,7 @@ export class Cart extends React.Component<ICartProps> {
       ? cartItems.map((prod) => (
           <CartItem
             item={prod}
-            key={prod.product.productId}
+            key={prod.product.id}
             onRemoveProduct={this.props.onRemoveProduct}
             onIncrementProduct={this.props.onIncrementProduct}
             onDecrementProduct={this.props.onDecrementProduct}

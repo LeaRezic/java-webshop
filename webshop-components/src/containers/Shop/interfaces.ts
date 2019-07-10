@@ -1,10 +1,12 @@
+import { StaticContext, RouteComponentProps } from 'react-router';
 
 export interface IProduct {
-  productId: number;
+  id: number;
   name: string;
   description: string;
   pictureUrl: string;
   price: number;
+  subcategoryId: number;
 }
 
 export interface ICartItem {
@@ -34,10 +36,10 @@ export interface IShoppingPageMappedProps {
 
 export interface IShoppingPageMappedDispatch {
   onProductsFetch: () => void;
-  onAddProduct: (product: IProduct) => void;
-  onRemoveProduct: (product: IProduct) => void;
-  onIncrementProduct: (product: IProduct) => void;
-  onDecrementProduct: (product: IProduct) => void;
+  onAddProduct: (productId: number) => void;
+  onRemoveProduct: (productId: number) => void;
+  onIncrementProduct: (productId: number) => void;
+  onDecrementProduct: (productId: number) => void;
   onCategoriesFetch: () => void;
   onAddSubcategories: (ids: number[]) => void;
   onRemoveSubcategories: (ids: number[]) => void;
@@ -62,4 +64,5 @@ export interface IShoppingState {
 export type IShoppingPageProps =
   & IShoppingPageMappedProps
   & IShoppingPageMappedDispatch
+  & Readonly<RouteComponentProps<any, StaticContext, any>>
   ;

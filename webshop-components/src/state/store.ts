@@ -9,10 +9,12 @@ import { rootReducer } from './reducer';
 import Sagas from './sagas';
 import { IAuthState } from '../containers/Auth/interfaces';
 import { IShoppingState } from '../containers/Shop/interfaces';
+import { IProductViewState } from '../containers/ProductView/interfaces';
 
 export interface IStore {
   auth: IAuthState;
   shop: IShoppingState;
+  productView: IProductViewState;
 }
 
 const composeEnhancers = process.env.NODE_ENV === 'development'

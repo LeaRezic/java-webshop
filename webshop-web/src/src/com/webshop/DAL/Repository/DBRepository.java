@@ -104,56 +104,89 @@ public class DBRepository implements Repository {
 
     @Override
     public ExpansionDetailsEntity getExpansionDetails(int expansionDetailsId) {
-        return null;
+        return (ExpansionDetailsEntity)
+                getEntityOfTypeById(
+                        ExpansionDetailsEntity.class.getSimpleName(),
+                        expansionDetailsId);
     }
 
     @Override
     public GameDetailsEntity getGameDetails(int gameDetailsId) {
-        return null;
+        return (GameDetailsEntity)
+                getEntityOfTypeById(
+                        GameDetailsEntity.class.getSimpleName(),
+                        gameDetailsId);
     }
 
     @Override
     public ProductEntity getProduct(int productId) {
-        return null;
+        return (ProductEntity)
+                getEntityOfTypeById(
+                        ProductEntity.class.getSimpleName(),
+                        productId);
     }
 
     @Override
     public ProductManufacturerEntity getManufacturer(int manufacturerId) {
-        return null;
+        return (ProductManufacturerEntity)
+                getEntityOfTypeById(
+                        ProductManufacturerEntity.class.getSimpleName(),
+                        manufacturerId);
     }
 
     @Override
     public ProductCategoryEntity getCategory(int categoryId) {
-        return null;
+        return (ProductCategoryEntity)
+                getEntityOfTypeById(
+                        ProductCategoryEntity.class.getSimpleName(),
+                        categoryId);
     }
 
     @Override
     public ProductSubcategoryEntity getSubcategory(int subcategoryId) {
-        return null;
+        return (ProductSubcategoryEntity)
+                getEntityOfTypeById(
+                        ProductSubcategoryEntity.class.getSimpleName(),
+                        subcategoryId);
     }
 
     @Override
     public ReceiptEntity getReceipt(int receiptId) {
-        return null;
+        return (ReceiptEntity)
+                getEntityOfTypeById(
+                        ReceiptEntity.class.getSimpleName(),
+                        receiptId);
     }
 
     @Override
     public ReceiptItemEntity getReceiptItem(int receiptItemId) {
-        return null;
+        return (ReceiptItemEntity)
+                getEntityOfTypeById(
+                        ReceiptItemEntity.class.getSimpleName(),
+                        receiptItemId);
     }
 
     @Override
     public RoleEntity getRole(int roleId) {
-        return null;
+        return (RoleEntity)
+                getEntityOfTypeById(
+                        RoleEntity.class.getSimpleName(),
+                        roleId);
     }
 
     @Override
     public UserAccountEntity getUserAccount(int userAccountId) {
-        return null;
+        return (UserAccountEntity)
+                getEntityOfTypeById(
+                        UserAccountEntity.class.getSimpleName(),
+                        userAccountId);
     }
 
     @Override
     public UserDetailsEntity getUserDetails(int userDetailsId) {
-        return null;
+        return (UserDetailsEntity)
+                getEntityOfTypeById(
+                        UserDetailsEntity.class.getSimpleName(),
+                        userDetailsId);
     }
 }

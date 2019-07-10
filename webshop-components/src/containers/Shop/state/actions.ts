@@ -40,35 +40,35 @@ export const fetchProductsFailure = (errMessage: string)
   }
 }
 
-export const addProductToCart = (product: IProduct)
-  :IReduxAction<IProduct, void, void, ShoppingActionTypes.ADD_PRODUCT_TO_CART> => {
+export const addProductToCart = (productId: number)
+  :IReduxAction<number, void, void, ShoppingActionTypes.ADD_PRODUCT_TO_CART> => {
   return {
     type: ShoppingActionTypes.ADD_PRODUCT_TO_CART,
-    data: product,
+    data: productId,
   }
 }
 
-export const removeProductFromCart = (product: IProduct)
-  :IReduxAction<IProduct, void, void, ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART> => {
+export const removeProductFromCart = (productId: number)
+  :IReduxAction<number, void, void, ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART> => {
   return {
     type: ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART,
-    data: product,
+    data: productId,
   }
 }
 
-export const incrementProductQuantity = (product: IProduct)
-  :IReduxAction<IProduct, void, void, ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY> => {
+export const incrementProductQuantity = (productId: number)
+  :IReduxAction<number, void, void, ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY> => {
   return {
     type: ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY,
-    data: product,
+    data: productId,
   }
 }
 
-export const decrementProductQuantity = (product: IProduct)
-  :IReduxAction<IProduct, void, void, ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY> => {
+export const decrementProductQuantity = (productId: number)
+  :IReduxAction<number, void, void, ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY> => {
   return {
     type: ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY,
-    data: product,
+    data: productId,
   }
 }
 

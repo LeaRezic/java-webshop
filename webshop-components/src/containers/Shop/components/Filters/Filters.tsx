@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { ICategory } from '../../interfaces';
-import { Filter } from '../Filter/Filter';
+import { CategoryFilter } from './CategoryFilter/CategoryFilter';
 
 import styles from './Filters.module.css';
 
@@ -17,7 +17,7 @@ export class Filters extends React.Component<IFilters> {
     const { filterList } = this.props;
     const displayFilters = filterList.length
       ? filterList.map((category) => (
-        <Filter
+        <CategoryFilter
           category={category}
           key={category.id}
           onAddSubcategories={this.props.onAddSubcategories}

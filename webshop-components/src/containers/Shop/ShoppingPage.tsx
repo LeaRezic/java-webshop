@@ -17,13 +17,18 @@ import {
   addFilterSubcategories,
   removeFilterSubcategories,
 } from './state/actions';
-import { productsSelector, cartItemsSelector, categoriesSelector } from './state/selectors';
+import {
+  cartItemsSelector,
+  categoriesSelector,
+  getProductsSelector,
+} from './state/selectors';
 import { connect } from 'react-redux';
 import { Aux } from '../../hoc/Aux/Aux';
 import { Cart } from './components/Cart/Cart';
+import { Filters } from './components/Filters/Filters';
 
 import styles from './ShoppingPage.module.css';
-import { Filters } from './components/Filters/Filters';
+import { withRouter } from 'react-router';
 
 interface IShoppingPageState {
   isCartOpen: boolean;
@@ -42,14 +47,17 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
   public render() {
     return(
       <Aux>
-        <Filters
-          filterList={this.props.categories}
-          onAddSubcategories={this.props.onAddSubcategories}
-          onRemoveSubcategories={this.props.onRemoveSubcategories}
-        />
+        <div className={styles.FiltersContainer}>
+          <Filters
+            filterList={this.props.categories}
+            onAddSubcategories={this.props.onAddSubcategories}
+            onRemoveSubcategories={this.props.onRemoveSubcategories}
+          />
+        </div>
         <Products
           productList={this.props.products}
           onAddProduct={this.props.onAddProduct}
+          {...this.props}
         />
         <button className={styles.CartBtn} onClick={this.handleCartClick}>CART</button>
         <div className={classNames(styles.CartContainer, { [styles.Visible]: this.state.isCartOpen })}>
@@ -71,7 +79,7 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
 }
 
 const mapStateToProps = createStructuredSelector<any, IShoppingPageMappedProps>({
-  products: productsSelector,
+  products: getProductsSelector,
   cartItems: cartItemsSelector,
   categories: categoriesSelector,
 })
@@ -87,4 +95,4 @@ const mapDispatchToProps = {
   onRemoveSubcategories: removeFilterSubcategories,
 };
 
-export const ShoppingPage = connect(mapStateToProps, mapDispatchToProps)(ShoppingComponent);
+export const ShoppingPage = withRouter(connect(mapStateToProps, mapDispatchToProps)(ShoppingComponent));
