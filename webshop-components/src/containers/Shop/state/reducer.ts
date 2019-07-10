@@ -3,6 +3,7 @@ import {
   ICartItem,
   IProduct,
   ICategory,
+  ISubCategory,
 } from '../interfaces';
 import {
   ProductsAction,
@@ -15,6 +16,7 @@ const initialState: IShoppingState = {
     items: [],
   },
   categories: [],
+  selectedCategoryId: 0,
   selectedSubcategoryIds: [],
   meta: {
     fetchingProducts: false,
@@ -146,6 +148,29 @@ const fetchCategoriesFailure = (state: IShoppingState, errMsg: string) => {
   };
 }
 
+const getAllSubcatIdsForCategory = (subcategories: ISubCategory[]) => {
+  const initial: number[] = [];
+  return subcategories.reduce((prev, curr) => {
+    return prev.concat(curr.id);
+  }, initial);
+}
+
+const changeFilterCategory = (state: IShoppingState, id: number) => {
+  if (id === 0) {
+    return {
+      ...state,
+      selectedCategoryId: id,
+      selectedSubcategoryIds: [],
+    }
+  }
+  const category = state.categories.find((cat) => cat.id === id);
+  return {
+    ...state,
+    selectedCategoryId: id,
+    selectedSubcategoryIds: getAllSubcatIdsForCategory(category!.subcategories),
+  }
+}
+
 const addFilterSubcategories = (state: IShoppingState, ids: number[]) => {
   return {
     ...state,
@@ -154,6 +179,14 @@ const addFilterSubcategories = (state: IShoppingState, ids: number[]) => {
 }
 
 const removeFilterSubcategories = (state: IShoppingState, ids: number[]) => {
+  const subcats = state.selectedSubcategoryIds.filter((id) => !ids.includes(id));
+  if (subcats.length === 0) {
+    return {
+      ...state,
+      selectedCategoryId: 0,
+      selectedSubcategoryIds: [],
+    }
+  }
   return {
     ...state,
     selectedSubcategoryIds: state.selectedSubcategoryIds.filter((id) => !ids.includes(id)),
@@ -172,6 +205,7 @@ export function shoppingReducer(state: IShoppingState = initialState, action: Pr
     case ShoppingActionTypes.FETCH_CATEGORIES: return fetchCategories(state);
     case ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS: return fetchCategoriesSuccess(state, action.data!);
     case ShoppingActionTypes.FETCH_CATEGORIES_FAILURE: return fetchCategoriesFailure(state, action.data!);
+    case ShoppingActionTypes.CHANGE_FILTER_CATEGORY: return changeFilterCategory(state, action.data!);
     case ShoppingActionTypes.ADD_FILTER_SUBCATEGORIES: return addFilterSubcategories(state, action.data!);
     case ShoppingActionTypes.REMOVE_FILTER_SUBCATEGORIES: return removeFilterSubcategories(state, action.data!);
     default: return state;

@@ -21,6 +21,10 @@ export const selectedSubcategoryIdsSelector = (state: IStore): number[] => {
   return state.shop.selectedSubcategoryIds;
 }
 
+export const selectedCategoryIdSelector = (state: IStore): number => {
+  return state.shop.selectedCategoryId;
+}
+
 export const selectedCategories = createSelector(
   [selectedSubcategoryIdsSelector, categoriesSelector],
   (subcatIds, categories) => {

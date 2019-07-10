@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { createStructuredSelector } from 'reselect';
-import classNames from 'classnames';
 import { connect } from 'react-redux';
 
 import {
-  IProductDetailed, IProductViewPageProps, IProductViewPageMappedProps
+  IProductViewPageProps, IProductViewPageMappedProps
 } from './interfaces';
 import {
   addProductToCart,
@@ -13,11 +12,11 @@ import {
 import { fetchProduct } from './state/actions';
 import { productViewSelector } from './state/selectors';
 import { Aux } from '../../hoc/Aux/Aux';
-
-import styles from './ProductViewPage.module.css';
 import { Spinner } from '../../components/UI/Spinner/Spinner';
 import { withRouter } from 'react-router';
 import { ProductDetails } from './components/ProductDetails/ProductDetails';
+
+import styles from './ProductViewPage.module.css';
 
 export class ProductViewComponent extends React.Component<IProductViewPageProps, {}> {
 

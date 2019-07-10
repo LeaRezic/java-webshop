@@ -1,9 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { ICartItem, IProduct } from '../../../interfaces';
+import { ICartItem } from '../../../interfaces';
+import { getDesiredDimensionsPic } from '../../../../../utils/pictureUtil';
+import { getFormattedCurrency } from '../../../../../utils/currencyUtil';
 
 import styles from './CartItem.module.css';
+import globalStyles from '../../../../../style/GlobalStyle.module.css';
 
 export interface ICartItemProps {
   item: ICartItem;
@@ -14,11 +17,15 @@ export interface ICartItemProps {
 
 export interface ICartItemState {
   hoverOnCartItem: boolean;
+  hoverOnDelete: boolean;
 }
 
 export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState> {
 
-  public state = { hoverOnCartItem: false }
+  public state = {
+    hoverOnCartItem: false,
+    hoverOnDelete: false,
+  }
 
   public render() {
     const {
@@ -26,7 +33,7 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
       pictureUrl,
       price,
     } = this.props.item.product;
-    const { hoverOnCartItem } = this.state;
+    const { hoverOnCartItem, hoverOnDelete } = this.state;
     return (
       <div
         className={classNames(styles.CartItemContainer, { [styles.HoverContainer]: hoverOnCartItem })}
@@ -34,19 +41,33 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
         onMouseLeave={this.handleMouseLeave}
       >
         <div className={styles.PictureContainer}>
-          <img src={this.getDesiredDimensionsPic(pictureUrl, 100, 100)} alt='productPhoto'/>
+          <img src={getDesiredDimensionsPic(pictureUrl, 150)} alt='productPhoto'/>
         </div>
         <div className={styles.DetailsContainer}>
-          <div className={styles.Title}>{name}</div>
-          <div className={styles.Price}>{price * this.props.item.quantity}</div>
+          <div className={`${styles.Title} ${hoverOnDelete ? styles.Strike : ''}`}>{name}</div>
+          <br/>
+          <div><span className={`${globalStyles.TextPurpleLight} ${hoverOnDelete ? styles.Strike : ''}`}>Base Price: {getFormattedCurrency(price)}</span></div>
+          <div><span className={`${globalStyles.TextPurpleLight} ${hoverOnDelete ? styles.Strike : ''}`}>Amount: {this.getQuantity(this.props.item.quantity)}</span></div>
+          <br/>
           <div className={styles.QuantityBtnsContainer}>
-            <button onClick={() => this.props.onDecrementProduct(this.props.item.product.id)}>-</button>
-            <span className={styles.Quantity}>{this.getQuantity(this.props.item.quantity)}</span>
-            <button onClick={() => this.props.onIncrementProduct(this.props.item.product.id)}>+</button>
+            <button
+              className={`${styles.BtnQuantity} ${styles.BtnCartItem}`}
+              onClick={() => this.props.onDecrementProduct(this.props.item.product.id)}
+            >-</button>
+            <div className={`${styles.Price} ${hoverOnDelete ? styles.Strike : ''}`}>{getFormattedCurrency(price * this.props.item.quantity)}</div>
+            <button
+              className={`${styles.BtnQuantity} ${styles.BtnCartItem}`}
+              onClick={() => this.props.onIncrementProduct(this.props.item.product.id)}
+            >+</button>
           </div>
         </div>
         <div className={styles.CloseBtnContainer}>
-          <button onClick={() => this.props.onRemoveProduct(this.props.item.product.id)}>x</button>
+          <button
+            className={`${styles.BtnDelete} ${styles.BtnCartItem}`}
+            onClick={() => this.props.onRemoveProduct(this.props.item.product.id)}
+            onMouseEnter={this.handleMouseEnterDelete}
+            onMouseLeave={this.handleMouseLeaveDelete}
+          >x</button>
         </div>
       </div>
     );
@@ -60,18 +81,17 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
     this.setState({ hoverOnCartItem: false });
   }
 
+  private handleMouseEnterDelete = () => {
+    this.setState({ hoverOnDelete: true });
+  }
+
+  private handleMouseLeaveDelete = () => {
+    this.setState({ hoverOnDelete: false });
+  }
+
   private getQuantity = (quantity: number) => {
     return quantity >= 10
       ? quantity.toString()
       : `0${quantity}`;
-  }
-
-  private getDesiredDimensionsPic = (url: string, width: number, height: number = 0) => {
-    const segments = url.split('/');
-    segments.pop();
-    segments.pop();
-    segments.push(width.toString());
-    segments.push(height ? height.toString() : width.toString());
-    return segments.join('/');
   }
 }

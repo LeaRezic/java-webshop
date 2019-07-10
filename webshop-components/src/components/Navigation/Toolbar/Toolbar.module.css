@@ -31,7 +31,7 @@
   margin-left: 10px;
   font-weight: bold;
   font-size: 1.6rem;
-  color: teal;
+  color: rgb(0, 192, 192);
 }
 
 @media (max-width: 499px) {

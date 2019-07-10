@@ -1,18 +1,18 @@
 import * as React from 'react';
 
 import { Product } from './Product/Product';
-
-import styles from './Products.module.css';
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { IProduct } from '../../interfaces';
-import { RouteComponentProps, StaticContext } from 'react-router';
+import { ReactRouterProps } from '../../../../types/interfaces';
+
+import styles from './Products.module.css';
 
 interface IProducts {
   productList: IProduct[];
   onAddProduct: (productId: number) => void;
 }
 
-export class Products extends React.Component<IProducts & Readonly<RouteComponentProps<any, StaticContext, any>>> {
+export class Products extends React.Component<IProducts & ReactRouterProps> {
   public render() {
     const { productList } = this.props;
     const displayProducts = productList.length

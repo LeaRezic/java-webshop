@@ -1,17 +1,21 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { RouteComponentProps, StaticContext } from 'react-router';
 
 import { IProductDetailed } from '../../interfaces';
+import { ReactRouterProps } from '../../../../types/interfaces';
+
+import { Aux } from '../../../../hoc/Aux/Aux';
+import { getDesiredDimensionsPic } from '../../../../utils/pictureUtil';
+import { getFormattedCurrency } from '../../../../utils/currencyUtil';
 
 import styles from './ProductDetails.module.css';
+import globalStyles from '../../../../style/GlobalStyle.module.css';
 
 export interface IProductDetailsProps {
   product: IProductDetailed | null;
   onAddProduct: (productId: number) => void;
 }
 
-export class ProductDetails extends React.PureComponent<IProductDetailsProps & Readonly<RouteComponentProps<any, StaticContext, any>>> {
+export class ProductDetails extends React.PureComponent<IProductDetailsProps & ReactRouterProps> {
 
   public render() {
     const {
@@ -21,25 +25,54 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
       pictureUrl,
       price,
     } = this.props.product!.basic;
+    const {
+      manufacturerName,
+      subcategoryName,
+    } = this.props.product!;
     return (
-      <div>
-        <h3>{name}</h3>
-        <div>
-          <img src={pictureUrl} />
-        </div>
-        <div>{description}</div>
-        <div>{price}</div>
-        <button onClick={() => this.goToShopPage()} className={`${styles.BtnReadMore}`} >BACK TO SHOPPING</button>
+      <Aux>
         <button
-          className={`${styles.BtnAdd}`}
-          onClick={() => this.props.onAddProduct(id)}
-        >Add to Cart</button>
-      </div>
+          onClick={() => this.goToShopPage()}
+          className={`${globalStyles.Btn} ${globalStyles.BtnInfo}`}
+        >
+          BACK TO SHOPPING
+        </button>
+        <div className={styles.ProductContainer}>
+          <div className={styles.ProductPicture}>
+            <div>
+              <img src={getDesiredDimensionsPic(pictureUrl, 400)} />
+            </div>
+          </div>
+          <div className={styles.ProductText}>
+            <h3 className={styles.PrductTitle}>{name}</h3>
+            <div><span className={globalStyles.TextGrayBold}>Description<br/></span><span>{description}</span></div>
+            <br/>
+            <div><span className={globalStyles.TextGrayBold}>Subcategory: </span><span>{subcategoryName}</span></div>
+            <br/>
+            <div><span className={globalStyles.TextGrayBold}>Price: </span><span>{getFormattedCurrency(price)}</span></div>
+            <br/>
+            <div><span className={globalStyles.TextGrayBold}>Manufacturer: </span><span>{manufacturerName}</span></div>
+            <br/>
+            <div><span className={globalStyles.TextGrayBold}>Read more: </span>{this.getLink()}</div>
+            <br/>
+            <button
+              className={`${globalStyles.Btn} ${globalStyles.BtnSuccess}`}
+              onClick={() => this.props.onAddProduct(id)}
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </Aux>
     );
   }
 
   private goToShopPage = () => {
     this.props.history.push('/products');
+  }
+
+  private getLink = () => {
+    return <a href={this.props.product!.externalUrl} target='_blank' >{this.props.product!.externalUrl}</a>
   }
 
 }

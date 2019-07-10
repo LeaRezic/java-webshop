@@ -1,0 +1,77 @@
+.TextGrayBold {
+  font-size: 1rem;
+  font-weight: bold;
+  color: darkslateblue;
+  text-transform: uppercase;
+}
+
+.TextPurpleLight {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(150, 137, 235);
+}
+
+.TextTealLight {
+  color: rgb(0, 192, 192);
+}
+
+.Btn {
+  border: 2px solid black;
+  background-color: transparent;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.BtnSmall {
+  border: 2px solid black;
+  background-color: transparent;
+  color: black;
+  padding: 8px 15px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.BtnSuccess {
+  border-color: rgb(0, 192, 192);
+  color: teal;
+}
+.BtnSuccess:hover {
+  background-color: rgb(0, 192, 192);
+  color: white;
+}
+.BtnSuccessActive {
+  background-color: rgb(0, 192, 192);
+  color: white;
+}
+
+.BtnSecondary {
+  border-color: #e7e7e7;
+  color: black;
+}
+.BtnSecondary:hover {
+  background: #e7e7e7;
+}
+
+.BtnInfo {
+  border-color: darkslateblue;
+  color: darkslateblue
+}
+.BtnInfo:hover {
+  background: darkslateblue;
+  color: white;
+}
+.BtnInfoActive {
+  background: darkslateblue;
+  color: white;
+}
+
+.BtnDanger {
+  border-color: #f44336;
+  color: red
+}
+.BtnDanger:hover {
+  background: #f44336;
+  color: white;
+}

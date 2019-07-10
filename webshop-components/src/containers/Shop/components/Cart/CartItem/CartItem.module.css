@@ -1,38 +1,38 @@
 .CartItemContainer {
-  width: 250px;
-  height: 100px;
+  width: 500px;
+  height: 150px;
+  padding: 10px;
   display: flex;
   margin: 10px;
   background-color: transparent;
-  /* background-color: rgba(1, 1, 1, 0.98); */
-  /* border: 1px solid #ccc; */
-  border: 1px solid transparent;
 }
 
 .HoverContainer {
-  border: 1px solid teal;
+  background-color: rgb(28, 23, 75);
 }
 
 .PictureContainer {
-  width: 100px;
-  height: 100px;
+  width: 30%;
 }
 
 .DetailsContainer {
-  width: 125px;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 5px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px;
+  padding-left: 20px;
 }
 
 .Title {
-  font-size: 0.8rem;
-  color: teal;
+  font-size: 1.3rem;
+  color: rgb(0, 192, 192);
+  text-align: left;
 }
 
 .Quantity {
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   background-color: teal;
   font-weight: bold;
   border-radius: 100px;
@@ -41,15 +41,40 @@
 }
 
 .Price {
-  font-size: 0.75rem;
+  color: white;
+  font-size: 1.2rem;
 }
 
 .QuantityBtnsContainer {
   display: flex;
   justify-content: space-between;
+  width: 80%;;
   align-items: center;
 }
 
 .CloseBtnContainer {
-  width: 25px;
+  width: 10%;
+}
+
+.BtnCartItem {
+  border: transparent;
+  background-color: transparent;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.BtnQuantity {
+  color: rgb(0, 192, 192);
+  margin-right: 5px;
+}
+.BtnQuantity:hover {
+  color: white;
+}
+
+.BtnDelete {
+  color: red;
+}
+
+.Strike {
+  text-decoration: line-through;
 }

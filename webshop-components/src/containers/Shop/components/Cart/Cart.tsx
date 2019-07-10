@@ -1,10 +1,11 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
-import { IProduct, ICartItem } from '../../interfaces';
+import { ICartItem } from '../../interfaces';
 import { CartItem } from './CartItem/CartItem';
+import { getFormattedCurrency } from '../../../../utils/currencyUtil';
 
 import styles from './Cart.module.css';
+import globalStyles from '../../../../style/GlobalStyle.module.css';
 
 interface ICartProps {
   cartItems: ICartItem[];
@@ -26,11 +27,11 @@ export class Cart extends React.Component<ICartProps> {
             onDecrementProduct={this.props.onDecrementProduct}
           />
           ))
-      : <div className={styles.CartText}>No products in Cart.</div>;
+      : <div className={`${globalStyles.TextTealLight} ${styles.CartText}`}>No products in Cart.</div>;
     return (
       <div>
         {displayCart}
-        <div>{`TOTAL: ${this.getTotalPrice()}`}</div>
+        <div className={styles.TotalPrice}>{`TOTAL: ${getFormattedCurrency(this.getTotalPrice())}`}</div>
       </div>
     );
   }

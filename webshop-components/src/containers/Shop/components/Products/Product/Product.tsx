@@ -2,9 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { IProduct } from '../../../interfaces';
+import { getFormattedCurrency } from '../../../../../utils/currencyUtil';
+import { ReactRouterProps } from '../../../../../types/interfaces';
 
 import styles from './Product.module.css';
-import { RouteComponentProps, StaticContext } from 'react-router';
+import globalStyles from '../../../../../style/GlobalStyle.module.css';
 
 export interface IProductProps {
   product: IProduct;
@@ -15,7 +17,7 @@ export interface IProductState {
   hoverOnProduct: boolean;
 }
 
-export class Product extends React.PureComponent<IProductProps & Readonly<RouteComponentProps<any, StaticContext, any>>, IProductState> {
+export class Product extends React.PureComponent<IProductProps & ReactRouterProps, IProductState> {
 
   public state = { hoverOnProduct: false }
 
@@ -29,7 +31,7 @@ export class Product extends React.PureComponent<IProductProps & Readonly<RouteC
     const { hoverOnProduct } = this.state;
     return (
       <div
-        className={classNames(styles.Product, { [styles.HoverProduct]: hoverOnProduct})}
+        className={classNames(styles.Product)}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
@@ -40,12 +42,21 @@ export class Product extends React.PureComponent<IProductProps & Readonly<RouteC
           <h3 className={styles.Title}>{name}</h3>
           <div className={styles.Description}>{this.getLimitedDescription(description)}</div>
         </div>
-        <div className={styles.Price}>{price}</div>
-        <button onClick={() => this.goToProductPage()} className={`${styles.BtnReadMore}`} >Read More</button>
-        <button
-          className={`${styles.BtnAdd}`}
-          onClick={() => this.props.onAddProduct(this.props.product.id)}
-          >Add to Cart</button>
+        <div className={styles.Price}>{getFormattedCurrency(price)}</div>
+        <div className={styles.ButtonsContainer}>
+          <button
+            onClick={() => this.goToProductPage()}
+            className={`${globalStyles.BtnSmall} ${globalStyles.BtnInfo} ${hoverOnProduct ? globalStyles.BtnInfoActive : globalStyles.BtnInfo}`}
+          >
+            Read More
+          </button>
+          <button
+            className={`${globalStyles.BtnSmall} ${globalStyles.BtnSuccess} ${hoverOnProduct ? globalStyles.BtnSuccessActive : globalStyles.BtnSucceess}`}
+            onClick={() => this.props.onAddProduct(this.props.product.id)}
+          >
+            Add to Cart
+        </button>
+        </div>
       </div>
     );
   }

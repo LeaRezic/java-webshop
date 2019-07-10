@@ -2,75 +2,64 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { ICategory } from '../../../interfaces';
+import { SubcategoryFilter } from '../SubcategoryFilter/SubcategoryFilter';
 
 import styles from './CategoryFilter.module.css';
-import { SubcategoryFilter } from '../SubcategoryFilter/SubcategoryFilter';
+import globalStyles from '../../../../../style/GlobalStyle.module.css';
 
 export interface ICategoryFilterProps {
   category: ICategory;
+  isSet: boolean;
+  onChangeCategoryId: (id: number) => void;
   onAddSubcategories: (ids: number[]) => void;
   onRemoveSubcategories: (ids: number[]) => void;
 }
 
-export interface ICategoryFilterState {
-  isSet: boolean;
-}
-
-export class CategoryFilter extends React.PureComponent<ICategoryFilterProps, ICategoryFilterState> {
+export class CategoryFilter extends React.PureComponent<ICategoryFilterProps> {
 
   public state = {
     hoverOnFilter: false,
-    isSet: false,
   }
 
   public render() {
-    const { isSet } = this.state;
-    const { category, onAddSubcategories, onRemoveSubcategories } = this.props;
+    const { category, isSet, onAddSubcategories, onRemoveSubcategories } = this.props;
     return (
       <div className={styles.FilterContainer}>
         <button
+          className={classNames(
+            globalStyles.Btn,
+            globalStyles.BtnSecondary,
+            styles.BtnCategory,
+            { [styles.Clicked]: this.props.isSet })}
           onClick={() => this.addOrRemoveSubcats()}
         >
             {category.name}
         </button>
-        { isSet
+        {/* <div className={styles.SubcatContainer}>
+          {isSet
             ? (
-            category.subcategories.map((subCat) => (
-              <SubcategoryFilter
-                key={subCat.id}
-                category={category}
-                subcategory={subCat}
-                onAddSubcategories={onAddSubcategories}
-                onRemoveSubcategories={onRemoveSubcategories}
-              />
-            ))
+              category.subcategories.map((subCat) => (
+                <SubcategoryFilter
+                  key={subCat.id}
+                  category={category}
+                  subcategory={subCat}
+                  onAddSubcategories={onAddSubcategories}
+                  onRemoveSubcategories={onRemoveSubcategories}
+                />
+              ))
             )
-            : null }
+            : null}
+        </div> */}
       </div>
     );
   }
 
-  private handleOnChange = (event: any) => {
-    console.log(event);
-  }
-
-  private handleSubcatClick = (id: number) => {
-    console.log(`[OPTION CLICK] - ${id}`);
-    if (id === -1) {
-      this.props.onAddSubcategories(this.getAllSubCatIds());
-    } else {
-      this.props.onRemoveSubcategories(this.getAllSubCatIds());
-      this.props.onAddSubcategories([id]);
-    }
-  }
-
   private addOrRemoveSubcats = () => {
-    if (this.state.isSet) {
-      this.props.onRemoveSubcategories(this.getAllSubCatIds());
+    if (this.props.isSet) {
+      this.props.onChangeCategoryId(0);
     } else {
-      this.props.onAddSubcategories(this.getAllSubCatIds());
+      this.props.onChangeCategoryId(this.props.category.id);
     }
-    this.setState({isSet: !this.state.isSet});
   }
 
   private getAllSubCatIds = () => {

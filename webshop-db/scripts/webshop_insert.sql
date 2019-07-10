@@ -32,8 +32,6 @@ insert into country (name) values ('Greece');
 insert into country (name) values ('Ukraine');
 insert into country (name) values ('Germany');
 
-select * from country;
-
 insert into city (name, country_id) values ('Oleksandriya', 27);
 insert into city (name, country_id) values ('Aga', 17);
 insert into city (name, country_id) values ('Kamogatacho-kamogata', 13);
@@ -151,16 +149,11 @@ insert into city (name, country_id) values ('Pozega', 8);
 insert into city (name, country_id) values ('Karlovac', 8);
 insert into city (name, country_id) values ('Cakovec', 8);
 
-select * from city;
-select * from city where country_id = 8;
-
 ------------------------------------------------------------------------------------------------
 -- ROLE (2), USER_ACCOUNT (25), USER_DETAILS (25)
 
 insert into role (role_name) values ('administrator');
 insert into role (role_name) values ('webshop_user');
-
-select * from role;
 
 insert into user_account (email, password, role_id, created_on, last_login, active) values ('smacwhirter0@dailymotion.com', 'FXv0aps7xAV2', 2, '2018-06-07 22:19:45', '2018-09-30 11:16:54', true);
 insert into user_account (email, password, role_id, created_on, last_login, active) values ('rblumire1@businessinsider.com', 'JgC7yNJG', 2, '2019-04-03 16:07:31', '2018-07-02 06:19:39', true);
@@ -188,8 +181,6 @@ insert into user_account (email, password, role_id, created_on, last_login, acti
 insert into user_account (email, password, role_id, created_on, last_login, active) values ('gkerblern@cafepress.com', 'RXX7IgIM1E', 2, '2018-06-05 15:07:34', '2018-07-18 13:53:34', true);
 insert into user_account (email, password, role_id, created_on, last_login, active) values ('ulundono@opera.com', 'rScnwDFxvqk', 2, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
 
-select * from user_account;
-
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (1, 'Lilli', 'Jeanesson', false, 105, '5049 Ronald Regan Alley', '(814) 2534229');
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (2, 'Skipton', 'McOrkill', true, 103, '34 Jenna Crossing', '(487) 6002624');
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (3, 'Noelyn', 'Moncaster', true, 105, '408 Tomscot Center', '(824) 7576864');
@@ -216,8 +207,6 @@ insert into user_details (user_account_id, first_name, last_name, female, city_i
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (24, 'Marybeth', 'Carvill', false, 104, '218 Clemons Alley', '(323) 4183265');
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (25, 'Crichton', 'Reynold', false, 111, '9821 Bartillon Terrace', '(702) 5057686');
 
-select * from user_details;
-
 ------------------------------------------------------------------------------------------------
 -- CATEGORY (5), SUBCATEGORY (21), MANUFACTURER (50)
 
@@ -225,9 +214,7 @@ insert into product_category (name) values ('Games');
 insert into product_category (name) values ('Books');
 insert into product_category (name) values ('Gifts');
 insert into product_category (name) values ('Models');
-insert into product_category (name) values ('Games Accessories');
-
-select * from product_category;
+insert into product_category (name) values ('Accessories');
 
 insert into product_subcategory (product_category_id, name) values (1, 'Board Games');
 insert into product_subcategory (product_category_id, name) values (1, 'Role Playing Games');
@@ -254,8 +241,6 @@ insert into product_subcategory (product_category_id, name) values (5, 'Card Sle
 insert into product_subcategory (product_category_id, name) values (5, 'Dice');
 insert into product_subcategory (product_category_id, name) values (5, 'Writing Pads');
 insert into product_subcategory (product_category_id, name) values (5, 'Tokens');
-
-select * from product_subcategory;
 
 insert into product_manufacturer (name) values ('Kemmer, Bernhard and Dickens');
 insert into product_manufacturer (name) values ('Stehr-Crooks');
@@ -308,8 +293,6 @@ insert into product_manufacturer (name) values ('Bartoletti, Bernhard and Bednar
 insert into product_manufacturer (name) values ('Jacobson, Marquardt and Kub');
 insert into product_manufacturer (name) values ('Kuhn-Schultz');
 
-select * from product_manufacturer;
-
 ------------------------------------------------------------------------------------------------
 -- PRODUCT (150, of which 1:24 - BOARD GAMES, 138:150 - EXPANSIONS), GAME DETAILS (24), EXPANSION DETAILS (13)
 
@@ -319,7 +302,7 @@ insert into product (product_subcategory_id, product_manufacturer_id, name, desc
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 2, 'Citadels', 'convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet', 'https://picsum.photos/id/24/250/250', 'https://biglobe.ne.jp/cras/non/velit.json', 379.99);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 34, 'Pandemic', 'metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend', 'https://picsum.photos/id/25/250/250', 'http://youku.com/metus/arcu/adipiscing/molestie/hendrerit/at/vulputate.js', 469.99);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 28, 'Small World', 'felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus', 'https://picsum.photos/id/26/250/250', 'http://upenn.edu/lorem/vitae/mattis.jpg', 469.99);
-insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 50, 'This War of Mine, leadbeateri''s ground', 'id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 'https://picsum.photos/id/27/250/250', 'https://twitpic.com/nam/ultrices/libero/non.jsp', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 50, 'This War of Mine', 'id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 'https://picsum.photos/id/27/250/250', 'https://twitpic.com/nam/ultrices/libero/non.jsp', 469.99);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 23, 'Terraforming Mars', 'at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci', 'https://picsum.photos/id/28/250/250', 'http://webmd.com/feugiat/et/eros/vestibulum.json', 299.49);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 44, 'Through the Ages', 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis', 'https://picsum.photos/id/29/250/250', 'http://twitpic.com/pellentesque/ultrices/phasellus/id/sapien.html', 194.35);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 21, '7 Wonders', 'est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien', 'https://picsum.photos/id/10/250/250', 'https://youku.com/justo/sit/amet/sapien.png', 437.60);
@@ -332,7 +315,7 @@ insert into product (product_subcategory_id, product_manufacturer_id, name, desc
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 2, 'Spirit Island', 'convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet', 'https://picsum.photos/id/16/250/250', 'https://biglobe.ne.jp/cras/non/velit.json', 379.99);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 34, 'Concordia', 'metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend', 'https://picsum.photos/id/17/250/250', 'http://youku.com/metus/arcu/adipiscing/molestie/hendrerit/at/vulputate.js', 469.99);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 28, 'Ticket to Ride', 'felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus', 'https://picsum.photos/id/18/250/250', 'http://upenn.edu/lorem/vitae/mattis.jpg', 469.99);
-insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 50, 'Arkam Horror, leadbeateri''s ground', 'id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 'https://picsum.photos/id/19/250/250', 'https://twitpic.com/nam/ultrices/libero/non.jsp', 469.99);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 50, 'Arkam Horror', 'id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 'https://picsum.photos/id/19/250/250', 'https://twitpic.com/nam/ultrices/libero/non.jsp', 469.99);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 23, 'Betrayal on the House on the Hill', 'at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci', 'https://picsum.photos/id/20/250/250', 'http://webmd.com/feugiat/et/eros/vestibulum.json', 299.49);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 44, 'Agricola', 'sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis', 'https://picsum.photos/id/21/250/250', 'http://twitpic.com/pellentesque/ultrices/phasellus/id/sapien.html', 194.35);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 21, 'Blood Rage', 'est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien', 'https://picsum.photos/id/22/250/250', 'https://youku.com/justo/sit/amet/sapien.png', 437.60);
@@ -341,10 +324,10 @@ insert into product (product_subcategory_id, product_manufacturer_id, name, desc
 
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (2, 42, 'Dungeons and Dragons Base Game', 'platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat', 'https://picsum.photos/id/25/250/250', 'https://last.fm/turpis/enim/blandit/mi/in/porttitor/pede.html', 423.18);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (2, 12, 'Vampire Lore', 'scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a', 'https://picsum.photos/id/26/250/250', 'http://pagesperso-orange.fr/lacus/morbi/quis/tortor/id.jpg', 214.94);
-insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (2, 7, 'Game of Thrones RPG, southern ground', 'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra', 'https://picsum.photos/id/27/250/250', 'https://webmd.com/sem/praesent.aspx', 106.44);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (2, 7, 'Game of Thrones RPG', 'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra', 'https://picsum.photos/id/27/250/250', 'https://webmd.com/sem/praesent.aspx', 106.44);
 
-insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (3, 6, '7 Wonders Duel, yellow-billed', 'erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non', 'https://picsum.photos/id/28/250/250', 'http://typepad.com/eros/elementum/pellentesque/quisque.aspx', 302.94);
-insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (3, 18, 'Pokemon, african black', 'ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices', 'https://picsum.photos/id/29/250/250', 'http://ow.ly/feugiat/et/eros/vestibulum.jpg', 489.90);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (3, 6, '7 Wonders Duel', 'erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non', 'https://picsum.photos/id/28/250/250', 'http://typepad.com/eros/elementum/pellentesque/quisque.aspx', 302.94);
+insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (3, 18, 'Pokemon', 'ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices', 'https://picsum.photos/id/29/250/250', 'http://ow.ly/feugiat/et/eros/vestibulum.jpg', 489.90);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (3, 6, 'Bang!', 'vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra', 'https://picsum.photos/id/30/250/250', 'https://businesswire.com/turpis/enim/blandit/mi/in.jsp', 217.42);
 
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (4, 8, 'Chess', 'ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam', 'https://picsum.photos/id/31/250/250', 'http://merriam-webster.com/platea/dictumst/maecenas.html', 442.26);
@@ -487,10 +470,6 @@ insert into product (product_subcategory_id, product_manufacturer_id, name, desc
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 9, 'Carcassonne - Princess and Dragons', 'phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque', 'https://picsum.photos/id/23/250/250', 'https://constantcontact.com/integer/tincidunt/ante/vel.jsp', 337.72);
 insert into product (product_subcategory_id, product_manufacturer_id, name, description, picture_url, external_url, price) values (1, 39, 'Carcassonne - the River', 'nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in', 'https://picsum.photos/id/24/250/250', 'https://amazonaws.com/sem/praesent/id/massa.json', 155.81);
 
-
-select * from product;
-
-select * from product where product_subcategory_id = 1;
 -- 24 BOARD GAMES, id 1 - 24
 -- 13 BOARD GAMES, id 138 - 150
 
@@ -519,8 +498,6 @@ insert into game_details (product_id, players_min, players_max, playtime_from, p
 insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (23, 3, 5, 47, 111, 'https://nps.gov');
 insert into game_details (product_id, players_min, players_max, playtime_from, playtime_to, instructions_video_url) values (24, 3, 6, 49, 345, null);
 
-select * from game_details;
-
 insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (138, 1, 0, 28);
 insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (139, 1, 0, 28);
 insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (140, 1, 4, 21);
@@ -534,8 +511,6 @@ insert into expansion_details (product_id, base_game_id, added_players_num, adde
 insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (148, 3, 2, 28);
 insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (149, 3, 0, 28);
 insert into expansion_details (product_id, base_game_id, added_players_num, added_playtime) values (150, 3, 3, 26);
-
-select * from expansion_details;
 
 ------------------------------------------------------------------------------------------------
 -- RECEIPT (50), ITEM (137)
@@ -590,8 +565,6 @@ insert into receipt (user_details_id, receipt_number, credit_card, purchase_date
 insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (8, '496765176-3', true, '2018-08-31 06:24:58');
 insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '355347247-2', false, '2018-10-06 14:24:34');
 insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (15, '447287544-6', false, '2018-06-24 04:26:11');
-
-select * from receipt;
 
 insert into receipt_item (receipt_id, product_id, amount) values (1, 76, 3);
 insert into receipt_item (receipt_id, product_id, amount) values (2, 4, 2);
@@ -730,5 +703,3 @@ insert into receipt_item (receipt_id, product_id, amount) values (9, 26, 3);
 insert into receipt_item (receipt_id, product_id, amount) values (10, 2, 1);
 insert into receipt_item (receipt_id, product_id, amount) values (11, 88, 1);
 insert into receipt_item (receipt_id, product_id, amount) values (12, 85, 2);
-
-select * from receipt_item;

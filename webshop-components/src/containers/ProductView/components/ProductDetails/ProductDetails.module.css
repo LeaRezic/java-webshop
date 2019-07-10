@@ -1,0 +1,20 @@
+.ProductContainer {
+  /* background: url('../../../../assets/img/logo.png') repeat; */
+  display: flex;
+  margin-top: 50px;
+}
+
+.ProductText {
+  padding: 20px;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.PrductTitle {
+  font-size: 2rem;
+  color: teal;
+  text-transform: uppercase;
+}

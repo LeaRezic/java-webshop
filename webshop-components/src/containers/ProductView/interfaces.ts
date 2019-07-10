@@ -1,5 +1,6 @@
 import { RouteComponentProps, StaticContext } from 'react-router';
 import { IProduct } from '../Shop/interfaces';
+import { ReactRouterProps } from '../../types/interfaces';
 
 export interface IProductDetailed {
   basic: IProduct;
@@ -31,5 +32,5 @@ export interface IProductViewPageMappedDispatch {
 export type IProductViewPageProps =
   & IProductViewPageMappedProps
   & IProductViewPageMappedDispatch
-  & Readonly<RouteComponentProps<any, StaticContext, any>>
+  & ReactRouterProps
   ;

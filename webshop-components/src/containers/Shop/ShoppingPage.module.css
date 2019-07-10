@@ -2,6 +2,8 @@
   position: fixed;
   left: 5px;
   top: 120px;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .CartContainer {
@@ -9,8 +11,10 @@
   position: fixed;
   right: 0;
   top: 120px;
-  background-color: rgba(24, 23, 23, 0.98);
+  background-color: rgba(43, 31, 77, 0.98);
   padding: 30px 15px 15px 30px;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .Visible {
@@ -18,7 +22,18 @@
 }
 
 .CartBtn {
+  padding: 15px;
   position: fixed;
   top: 70px;
   right: 0;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid rgba(43, 31, 77, 0.98);
+  background: rgba(43, 31, 77, 0.98);
+  color: rgb(0, 192, 192);
+}
+.CartBtn:active {
+  border: 2px solid rgba(43, 31, 77, 0.98);
+  background: rgba(43, 31, 77, 0.98);
+  color: rgb(0, 192, 192);
 }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { withRouter } from 'react-router';
 import { createStructuredSelector } from 'reselect';
 import classNames from 'classnames';
 
@@ -16,11 +17,14 @@ import {
   fetchCategories,
   addFilterSubcategories,
   removeFilterSubcategories,
+  changeFilterCategory,
 } from './state/actions';
 import {
   cartItemsSelector,
   categoriesSelector,
   getProductsSelector,
+  selectedSubcategoryIdsSelector,
+  selectedCategoryIdSelector,
 } from './state/selectors';
 import { connect } from 'react-redux';
 import { Aux } from '../../hoc/Aux/Aux';
@@ -28,7 +32,7 @@ import { Cart } from './components/Cart/Cart';
 import { Filters } from './components/Filters/Filters';
 
 import styles from './ShoppingPage.module.css';
-import { withRouter } from 'react-router';
+import globalStyles from '../../style/GlobalStyle.module.css';
 
 interface IShoppingPageState {
   isCartOpen: boolean;
@@ -49,7 +53,10 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
       <Aux>
         <div className={styles.FiltersContainer}>
           <Filters
+            chosenCategoryId={this.props.chosenCategoryId}
+            chosenSubcategoryIds={this.props.chosenSubcategoryIds}
             filterList={this.props.categories}
+            onChangeCategoryId={this.props.onChangeCategoryId}
             onAddSubcategories={this.props.onAddSubcategories}
             onRemoveSubcategories={this.props.onRemoveSubcategories}
           />
@@ -59,7 +66,9 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
           onAddProduct={this.props.onAddProduct}
           {...this.props}
         />
-        <button className={styles.CartBtn} onClick={this.handleCartClick}>CART</button>
+        <button className={`${styles.CartBtn}`} onClick={this.handleCartClick}>
+          {this.state.isCartOpen ? `CART >` : `< CART`}
+        </button>
         <div className={classNames(styles.CartContainer, { [styles.Visible]: this.state.isCartOpen })}>
           <Cart
             cartItems={this.props.cartItems}
@@ -67,7 +76,13 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
             onDecrementProduct={this.props.onDecrementProduct}
             onIncrementProduct={this.props.onIncrementProduct}
           />
-          <button className={styles.CheckoutBtn}>CHECKOUT</button>
+          <button
+            disabled={this.props.cartItems.length <= 0}
+            onClick={this.handleCheckoutClick}
+            className={`${globalStyles.Btn} ${globalStyles.BtnSuccess}`}
+          >
+            CHECKOUT
+          </button>
         </div>
       </Aux>
     );
@@ -76,12 +91,18 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
   private handleCartClick = () => {
     this.setState({ isCartOpen: !this.state.isCartOpen });
   }
+
+  private handleCheckoutClick = () => {
+    this.props.history.push('/checkout');
+  }
 }
 
 const mapStateToProps = createStructuredSelector<any, IShoppingPageMappedProps>({
   products: getProductsSelector,
   cartItems: cartItemsSelector,
   categories: categoriesSelector,
+  chosenCategoryId: selectedCategoryIdSelector,
+  chosenSubcategoryIds: selectedSubcategoryIdsSelector,
 })
 
 const mapDispatchToProps = {
@@ -91,6 +112,7 @@ const mapDispatchToProps = {
   onIncrementProduct: incrementProductQuantity,
   onDecrementProduct: decrementProductQuantity,
   onCategoriesFetch: fetchCategories,
+  onChangeCategoryId: changeFilterCategory,
   onAddSubcategories: addFilterSubcategories,
   onRemoveSubcategories: removeFilterSubcategories,
 };

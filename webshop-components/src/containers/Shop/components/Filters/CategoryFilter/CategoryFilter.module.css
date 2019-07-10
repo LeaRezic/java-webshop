@@ -1,0 +1,13 @@
+.FilterContainer {
+  display: flex;
+}
+
+.BtnCategory {
+  border-radius: 100px;
+  width: 140px;
+  margin: 10px;
+}
+
+.Clicked {
+  background: #e7e7e7;
+}

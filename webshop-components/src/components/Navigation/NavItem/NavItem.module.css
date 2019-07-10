@@ -6,7 +6,7 @@
 }
 
 .NavItem a {
-  color: teal;
+  color: rgb(0, 192, 192);
   text-decoration: none;
   width: 100%;
   box-sizing: border-box;
@@ -16,7 +16,7 @@
 .NavItem a:hover,
 .NavItem a:active,
 .NavItem a.active {
-  color: #40a5c8;
+  color: rgb(0, 192, 192);
 }
 
 @media (min-width: 500px) {
@@ -38,7 +38,7 @@
   .NavItem a:hover,
   .NavItem a:active,
   .NavItem a.active {
-    border-bottom: 4px solid teal;
-    color: teal;
+    border-bottom: 4px solid rgb(0, 192, 192);
+    color: rgb(0, 192, 192);
   }
 }
