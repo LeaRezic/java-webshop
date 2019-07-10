@@ -1,9 +1,9 @@
 .FiltersContainer {
-  position: fixed;
-  left: 5px;
-  top: 120px;
-  max-height: 600px;
-  overflow-y: auto;
+  width: 15%;
+}
+
+.ProductsContainer {
+  width: 85%;
 }
 
 .CartContainer {
@@ -36,4 +36,13 @@
   border: 2px solid rgba(43, 31, 77, 0.98);
   background: rgba(43, 31, 77, 0.98);
   color: rgb(0, 192, 192);
+}
+
+.ProductsWithFilters {
+  margin-top: 100px;
+  margin-bottom: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  display: flex;
 }

@@ -51,21 +51,25 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
   public render() {
     return(
       <Aux>
-        <div className={styles.FiltersContainer}>
-          <Filters
-            chosenCategoryId={this.props.chosenCategoryId}
-            chosenSubcategoryIds={this.props.chosenSubcategoryIds}
-            filterList={this.props.categories}
-            onChangeCategoryId={this.props.onChangeCategoryId}
-            onAddSubcategories={this.props.onAddSubcategories}
-            onRemoveSubcategories={this.props.onRemoveSubcategories}
-          />
+        <div className={styles.ProductsWithFilters}>
+          <div className={styles.FiltersContainer}>
+            <Filters
+              chosenCategoryId={this.props.chosenCategoryId}
+              chosenSubcategoryIds={this.props.chosenSubcategoryIds}
+              filterList={this.props.categories}
+              onChangeCategoryId={this.props.onChangeCategoryId}
+              onAddSubcategories={this.props.onAddSubcategories}
+              onRemoveSubcategories={this.props.onRemoveSubcategories}
+            />
+          </div>
+          <div className={styles.ProductsContainer}>
+            <Products
+              productList={this.props.products}
+              onAddProduct={this.props.onAddProduct}
+              {...this.props}
+            />
+          </div>
         </div>
-        <Products
-          productList={this.props.products}
-          onAddProduct={this.props.onAddProduct}
-          {...this.props}
-        />
         <button className={`${styles.CartBtn}`} onClick={this.handleCartClick}>
           {this.state.isCartOpen ? `CART >` : `< CART`}
         </button>

@@ -31,7 +31,9 @@ export class ProductViewComponent extends React.Component<IProductViewPageProps,
       : <Spinner />
     return (
       <Aux>
-        {display}
+        <div className={styles.Container}>
+          {display}
+        </div>
       </Aux>
     );
   }
