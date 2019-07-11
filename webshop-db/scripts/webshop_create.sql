@@ -25,6 +25,7 @@ CREATE TABLE role (
 
 CREATE TABLE user_account (
  user_account_id serial PRIMARY KEY,
+ uuid VARCHAR(36) UNIQUE NOT NULL,
  email VARCHAR (355) UNIQUE NOT NULL,
  password VARCHAR (50) NOT NULL,
  role_id integer NOT NULL,

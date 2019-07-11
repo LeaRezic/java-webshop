@@ -1,12 +1,11 @@
 package src.com.webshop.Servlet;
 
 import com.google.gson.JsonObject;
-import src.com.webshop.Model.Login.UserVM;
+import src.com.webshop.Model.Auth.UserVM;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

@@ -45,5 +45,6 @@
     <orderEntry type="library" name="Hibernate 5.4.2-5.4.2" level="project" />
     <orderEntry type="library" name="org.postgresql:postgresql:9.4-1206-jdbc42" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.8.4" level="project" />
+    <orderEntry type="library" name="redis.clients:jedis:2.9.0" level="project" />
   </component>
 </module>

@@ -150,36 +150,40 @@ insert into city (name, country_id) values ('Karlovac', 8);
 insert into city (name, country_id) values ('Cakovec', 8);
 
 ------------------------------------------------------------------------------------------------
--- ROLE (2), USER_ACCOUNT (25), USER_DETAILS (25)
+-- ROLE (2), USER_ACCOUNT (25), USER_DETAILS (27)
+-- NOTE USERS: ADMIN ('superuser@admin.com', 'admin123!'), NORMAL: ('plain@user.com', 'user123!')
 
 insert into role (role_name) values ('administrator');
 insert into role (role_name) values ('webshop_user');
 
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('smacwhirter0@dailymotion.com', 'FXv0aps7xAV2', 2, '2018-06-07 22:19:45', '2018-09-30 11:16:54', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('rblumire1@businessinsider.com', 'JgC7yNJG', 2, '2019-04-03 16:07:31', '2018-07-02 06:19:39', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('amckinn2@w3.org', 'moZtF6kZ', 2, '2018-06-29 22:16:14', '2019-05-08 22:59:25', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('rcrawford3@newyorker.com', 'IBF3MhY', 2, '2019-03-25 13:55:26', '2019-03-11 12:33:36', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('thallstone4@mayoclinic.com', '1HlrLbzr4Jy', 2, '2018-11-09 10:29:46', '2019-02-15 08:31:02', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('udallin5@qq.com', 'MN1HU5ihn', 2, '2018-11-19 14:00:55', '2019-01-19 08:00:07', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('jnineham6@bandcamp.com', '8ZLYOwNDsIq', 2, '2018-08-23 06:06:32', '2019-05-04 19:19:58', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('ipothergill7@aboutads.info', 'g5RokO', 2, '2018-10-14 04:57:41', '2018-05-21 06:09:40', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('fscamp8@weebly.com', 'RsVif4WN', 2, '2018-06-01 04:54:19', '2019-01-30 19:08:34', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('ecabrera9@dedecms.com', 'H4zXbR2D', 2, '2018-07-29 22:19:44', '2019-04-11 06:34:16', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('cclethroa@people.com.cn', 'WncvKLSc4Ci', 2, '2018-05-31 09:49:30', '2018-05-19 15:46:04', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('fshuardb@hud.gov', 'gxyusm7', 2, '2018-12-18 11:14:16', '2018-05-11 03:08:26', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('ntalc@mozilla.org', '7uVYuC2', 2, '2018-07-24 22:46:19', '2018-10-29 21:54:36', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('apennellsd@jimdo.com', 'vtZpiq', 2, '2018-10-28 14:00:02', '2019-04-23 02:51:16', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('jbaffine@businessinsider.com', 'v48KP4BN', 2, '2019-05-04 17:01:33', '2019-01-02 00:52:33', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('kdatef@histats.com', 'ouVgYJM', 2, '2018-12-01 08:58:26', null, true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('vmongerg@prlog.org', 'a5RqRZt', 2, '2018-06-06 23:30:02', '2018-06-22 15:19:49', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('clystonh@netscape.com', 'IzDE6GA', 2, '2018-10-14 15:16:49', '2019-02-10 11:02:11', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('hhubbardi@trellian.com', '1VmZrvtR', 2, '2018-04-04 08:20:36', '2019-03-02 19:52:07', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('cbykj@berkeley.edu', 'oCuT9XtHprdD', 2, '2018-06-17 06:27:16', null, true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('plonsdalek@nih.gov', 'pqD5WwT9X', 2, '2019-04-04 05:12:43', '2018-09-25 14:25:48', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('fwardl@phpbb.com', 'ErR6fC', 2, '2018-06-06 00:23:07', '2018-09-15 01:07:44', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('bruddochm@bloglines.com', 'kxSh3kdlc', 2, '2018-09-10 05:41:41', '2018-11-07 10:10:28', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('gkerblern@cafepress.com', 'RXX7IgIM1E', 2, '2018-06-05 15:07:34', '2018-07-18 13:53:34', true);
-insert into user_account (email, password, role_id, created_on, last_login, active) values ('ulundono@opera.com', 'rScnwDFxvqk', 2, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('121aea07-4f3a-403f-a64a-3a9a44ec8ca8', 'smacwhirter0@dailymotion.com', 'FXv0aps7xAV2', 2, '2018-06-07 22:19:45', '2018-09-30 11:16:54', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('abb629b0-5318-445d-9e2e-04394891b88d', 'rblumire1@businessinsider.com', 'JgC7yNJG', 2, '2019-04-03 16:07:31', '2018-07-02 06:19:39', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('97f18026-7436-481b-b5a0-7e5bc08b96bb', 'amckinn2@w3.org', 'moZtF6kZ', 2, '2018-06-29 22:16:14', '2019-05-08 22:59:25', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('c06ebaaa-9217-4e23-be8a-794b69765b12', 'rcrawford3@newyorker.com', 'IBF3MhY', 2, '2019-03-25 13:55:26', '2019-03-11 12:33:36', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('0988031c-ad30-49aa-8fe6-deda8d3fd872', 'thallstone4@mayoclinic.com', '1HlrLbzr4Jy', 2, '2018-11-09 10:29:46', '2019-02-15 08:31:02', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('2bfafb92-5403-40c7-a83e-88de772b6b2f', 'udallin5@qq.com', 'MN1HU5ihn', 2, '2018-11-19 14:00:55', '2019-01-19 08:00:07', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('6c3e7e33-9830-46f6-b97a-94d8339fce97', 'jnineham6@bandcamp.com', '8ZLYOwNDsIq', 2, '2018-08-23 06:06:32', '2019-05-04 19:19:58', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('2a1bf813-3381-40cc-84df-2adb0a51b70e', 'ipothergill7@aboutads.info', 'g5RokO', 2, '2018-10-14 04:57:41', '2018-05-21 06:09:40', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('670e9c0b-2e9a-4af2-9ea5-775c85a21a1a', 'fscamp8@weebly.com', 'RsVif4WN', 2, '2018-06-01 04:54:19', '2019-01-30 19:08:34', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('220ce959-fdc4-4435-8f08-0667503d0a9d', 'ecabrera9@dedecms.com', 'H4zXbR2D', 2, '2018-07-29 22:19:44', '2019-04-11 06:34:16', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('54432243-26a0-4214-b6b2-a763ed485c91', 'cclethroa@people.com.cn', 'WncvKLSc4Ci', 2, '2018-05-31 09:49:30', '2018-05-19 15:46:04', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('2393e615-c18a-46f3-8939-85b943c53dd3', 'fshuardb@hud.gov', 'gxyusm7', 2, '2018-12-18 11:14:16', '2018-05-11 03:08:26', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('8e715860-e0b6-4a09-8b85-babc857ba71b', 'ntalc@mozilla.org', '7uVYuC2', 2, '2018-07-24 22:46:19', '2018-10-29 21:54:36', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('cf36c8d4-d371-40ea-8b08-52dd98ec1529', 'apennellsd@jimdo.com', 'vtZpiq', 2, '2018-10-28 14:00:02', '2019-04-23 02:51:16', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('ab55359a-4d61-47aa-9443-38d69e863faf', 'jbaffine@businessinsider.com', 'v48KP4BN', 2, '2019-05-04 17:01:33', '2019-01-02 00:52:33', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('0b4c6379-1949-45fd-a641-b0f33a5a505b', 'kdatef@histats.com', 'ouVgYJM', 2, '2018-12-01 08:58:26', null, true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('e839afa0-a0d4-4cbc-bee0-ebac3599fd46', 'vmongerg@prlog.org', 'a5RqRZt', 2, '2018-06-06 23:30:02', '2018-06-22 15:19:49', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('62695a09-6cf1-4348-aa9f-81ee7e59a91f', 'clystonh@netscape.com', 'IzDE6GA', 2, '2018-10-14 15:16:49', '2019-02-10 11:02:11', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('d50fc8f5-47ae-4656-995d-2f2b5ac959ff', 'hhubbardi@trellian.com', '1VmZrvtR', 2, '2018-04-04 08:20:36', '2019-03-02 19:52:07', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('fe0cca55-b2ba-46cd-92a9-08bfd10c45c6', 'cbykj@berkeley.edu', 'oCuT9XtHprdD', 2, '2018-06-17 06:27:16', null, true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('6ef7b1e0-7577-43ae-b3bc-008853716b65', 'plonsdalek@nih.gov', 'pqD5WwT9X', 2, '2019-04-04 05:12:43', '2018-09-25 14:25:48', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('b8d897f4-1a6b-496f-b916-834e6579728e', 'fwardl@phpbb.com', 'ErR6fC', 2, '2018-06-06 00:23:07', '2018-09-15 01:07:44', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('b97e6efa-9e20-4eca-80e2-ccd5a76fb913', 'bruddochm@bloglines.com', 'kxSh3kdlc', 2, '2018-09-10 05:41:41', '2018-11-07 10:10:28', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('72de4a51-aa3a-482c-a232-0e1c52c1fe2f', 'gkerblern@cafepress.com', 'RXX7IgIM1E', 2, '2018-06-05 15:07:34', '2018-07-18 13:53:34', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('8dc7040e-220a-49cc-ac5f-af028b7fa9ef', 'ulundono@opera.com', 'rScnwDFxvqk', 2, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('97a754d3-3975-42f6-b6c5-c8acaa092062', 'superuser@admin.com', 'admin123!', 1, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('c2046339-6a14-490b-881c-92c57973a602', 'plain@user.com', 'user123!', 1, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
+
 
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (1, 'Lilli', 'Jeanesson', false, 105, '5049 Ronald Regan Alley', '(814) 2534229');
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (2, 'Skipton', 'McOrkill', true, 103, '34 Jenna Crossing', '(487) 6002624');
