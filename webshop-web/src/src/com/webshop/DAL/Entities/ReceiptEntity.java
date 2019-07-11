@@ -25,7 +25,7 @@ public class ReceiptEntity implements EntityBase {
     }
 
     @Basic
-    @Column(name = "user_details_id", nullable = false)
+    @Column(name = "user_account_id", nullable = false)
     public int getUserDetailsId() {
         return userDetailsId;
     }

@@ -1,11 +1,13 @@
-import { IAuthState } from '../interfaces';
-import { AuthActions, AuthActionTypes, IUserResponseInfo } from './actions';
-import { statement } from '@babel/template';
+import { IAuthState, IAuthToken } from '../interfaces';
+import { AuthActions, AuthActionTypes } from './actions';
 
 const initialState: IAuthState = {
-  isAuthenticated: false,
-  isAdmin: false,
-  userName: '',
+  token: {
+    email: '',
+    expireTime: '',
+    isAdmin: false,
+    tokenId: '',
+  },
   meta: {
     isRequestingLogin: false,
     isRequestingRegister: false,
@@ -27,12 +29,15 @@ const loginRequest = (state: IAuthState) => {
   }
 }
 
-const loginSuccess = (state: IAuthState, userData: IUserResponseInfo) => {
+const loginSuccess = (state: IAuthState, token: IAuthToken) => {
   return {
     ...state,
-    isAuthenticated: true,
-    isAdmin: userData.isAdmin,
-    userName: userData.username,
+    token: {
+      email: token.email,
+      expireTime: token.expireTime,
+      isAdmin: token.isAdmin,
+      tokenId: token.tokenId,
+    },
     meta: {
       ...state.meta,
       isRequestingLogin: false,
@@ -74,12 +79,15 @@ const registerRequest = (state: IAuthState) => {
   }
 }
 
-const registerSuccess = (state: IAuthState, userData: IUserResponseInfo) => {
+const registerSuccess = (state: IAuthState, token: IAuthToken) => {
   return {
     ...state,
-    isAuthenticated: true,
-    isAdmin: userData.isAdmin,
-    userName: userData.username,
+    token: {
+      email: token.email,
+      expireTime: token.expireTime,
+      isAdmin: token.isAdmin,
+      tokenId: token.tokenId,
+    },
     meta: {
       ...state.meta,
       isRequestingRegister: false,

@@ -18,8 +18,8 @@ export interface IReceiptBasic {
 };
 
 export interface IReceiptDetailed {
-  personUsername: string;
-  receipt: IReceiptBasic;
+  username: string;
+  basic: IReceiptBasic;
   items: IReceiptItem[];
 };
 

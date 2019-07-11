@@ -11,10 +11,11 @@ export enum ProfileActionTypes {
   PROFILE_DETAILS_FAILURE = 'PROFILE_DETAILS_FAILURE',
 }
 
-export const purchaseHistoryRequest = ()
-  : IReduxAction<void, void, void, ProfileActionTypes.PURCHASE_HISTORY_REQUEST> => {
+export const purchaseHistoryRequest = (authTokenId: string)
+  : IReduxAction<string, void, void, ProfileActionTypes.PURCHASE_HISTORY_REQUEST> => {
   return {
     type: ProfileActionTypes.PURCHASE_HISTORY_REQUEST,
+    data: authTokenId,
   };
 }
 
@@ -34,10 +35,11 @@ export const purchaseHistoryFailure = (error: string)
   };
 }
 
-export const profileDetailsRequest = ()
-  : IReduxAction<void, void, void, ProfileActionTypes.PROFILE_DETAILS_REQUEST> => {
+export const profileDetailsRequest = (authTokenId: string)
+  : IReduxAction<string, void, void, ProfileActionTypes.PROFILE_DETAILS_REQUEST> => {
   return {
     type: ProfileActionTypes.PROFILE_DETAILS_REQUEST,
+    data: authTokenId,
   };
 }
 

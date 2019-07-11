@@ -1,0 +1,352 @@
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c98d6002-c3e9-46dc-90bd-dc4556cc6716
+****************************************************
+[DB REPO] user uuid: 8dc7040e-220a-49cc-ac5f-af028b7fa9ef
+****************************************************
+[DB REPO] user id: 25
+****************************************************
+{"receipts":[{"username":"ulundono@opera.com","basic":{"id":1,"number":"498539171-9","creditCard":false,"purchaseDate":"2019-03-16 00:01:03.0","totalProducts":7,"amount":3260.67},"items":[{"id":1,"receiptId":1,"productId":76,"productName":"Race LEGO","productUrl":"https://picsum.photos/id/57/250/250","productPrice":755.52,"amount":3},{"id":51,"receiptId":1,"productId":21,"productName":"Agricola","productUrl":"https://picsum.photos/id/21/250/250","productPrice":194.35,"amount":1},{"id":101,"receiptId":1,"productId":121,"productName":"Dice D20 - green","productUrl":"https://picsum.photos/id/61/250/250","productPrice":39.78,"amount":1},{"id":126,"receiptId":1,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2}]},{"username":"ulundono@opera.com","basic":{"id":31,"number":"925258429-3","creditCard":false,"purchaseDate":"2018-09-15 16:49:35.0","totalProducts":5,"amount":1227.41},"items":[{"id":31,"receiptId":31,"productId":16,"productName":"Spirit Island","productUrl":"https://picsum.photos/id/16/250/250","productPrice":379.99,"amount":2},{"id":81,"receiptId":31,"productId":12,"productName":"King of Tokyo","productUrl":"https://picsum.photos/id/12/250/250","productPrice":155.81,"amount":3}]}]}

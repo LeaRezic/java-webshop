@@ -22,6 +22,9 @@ public class UserManager {
 
     public static boolean validatePassword(String username, String password) {
         UserVM user = getUserByUsername(username);
+        if (user == null) {
+            return false;
+        }
         return user.getPassword().equals(password);
     }
 

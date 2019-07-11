@@ -1,4 +1,5 @@
 import { IReduxAction } from '../../../types/interfaces';
+import { IAuthToken } from '../interfaces';
 
 export enum AuthActionTypes {
   LOG_IN_REQUEST = 'LOG_IN_REQUEST',
@@ -16,11 +17,6 @@ export interface IUserRequestInfo {
   password: string;
 }
 
-export interface IUserResponseInfo {
-  username: string;
-  isAdmin: boolean;
-}
-
 export const loginRequest = (userInfo: IUserRequestInfo)
   :IReduxAction<IUserRequestInfo, void, void, AuthActionTypes.LOG_IN_REQUEST> => {
   return {
@@ -29,8 +25,8 @@ export const loginRequest = (userInfo: IUserRequestInfo)
   };
 }
 
-export const loginSuccess = (userInfo: IUserResponseInfo)
-  :IReduxAction<IUserResponseInfo, void, void, AuthActionTypes.LOG_IN_SUCCESS> => {
+export const loginSuccess = (userInfo: IAuthToken)
+  :IReduxAction<IAuthToken, void, void, AuthActionTypes.LOG_IN_SUCCESS> => {
   return {
     type: AuthActionTypes.LOG_IN_SUCCESS,
     data: userInfo,
@@ -60,8 +56,8 @@ export const registerRequest = (userInfo: IUserRequestInfo)
   };
 }
 
-export const registerSuccess = (userInfo: IUserResponseInfo)
-  :IReduxAction<IUserResponseInfo, void, void, AuthActionTypes.REGISTER_SUCCESS> => {
+export const registerSuccess = (userInfo: IAuthToken)
+  :IReduxAction<IAuthToken, void, void, AuthActionTypes.REGISTER_SUCCESS> => {
   return {
     type: AuthActionTypes.REGISTER_SUCCESS,
     data: userInfo,

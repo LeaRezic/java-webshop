@@ -35,7 +35,7 @@ const purchaseHistorySuccess = (state: IProfileState, receipts: IReceiptDetailed
     meta: {
       ...state.meta,
       isRequestingHistory: false,
-      profileInfoSuccess: true,
+      historySuccess: true,
     }
   }
 }
@@ -46,8 +46,8 @@ const purchaseHistoryFailure = (state: IProfileState, error: string) => {
     meta: {
       ...state.meta,
       isRequestingHistory: false,
-      profileInfoSuccess: false,
-      profileInfoError: error,
+      historySuccess: false,
+      historyError: error,
     }
   }
 }
@@ -70,7 +70,6 @@ const profileDetailsSuccess = (state: IProfileState, profileInfo: IProfileInfo) 
       ...state.meta,
       isRequestingProfileInfo: false,
       profileInfoSuccess: true,
-      shouldRedirectToProducts: true,
     }
   }
 }

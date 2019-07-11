@@ -44,7 +44,7 @@ public class AuthTokenManager {
         authCache.updateExpireDate(tokenId, DateUtil.getNowWithMins(30));
         return new AuthTokenClient(
                 tokenServer.getEmail(),
-                tokenServer.getIdToken(),
+                tokenServer.getTokenId(),
                 tokenServer.getExpireTime(),
                 tokenServer.isAdmin()
         );

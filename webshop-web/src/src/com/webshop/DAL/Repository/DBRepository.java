@@ -2,6 +2,7 @@ package src.com.webshop.DAL.Repository;
 
 import src.com.webshop.DAL.Entities.*;
 import src.com.webshop.DAL.EntityManagerFactoryUtil;
+import src.com.webshop.Util.DummyLogger.LoggerUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -112,18 +113,20 @@ public class DBRepository implements Repository {
 
     @Override
     public List<ReceiptEntity> getReceiptsForCustomer(String userUuid) {
+        LoggerUtil.log("[DB REPO] user uuid: " + userUuid);
         UserAccountEntity user = getUserAccountByUUID(userUuid);
+        LoggerUtil.log("[DB REPO] user id: " + user.giveId());
         EntityManager em = null;
         List<ReceiptEntity> receipts = null;
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("FROM ")
-                    .append(UserAccountEntity.class.getSimpleName())
+                    .append(ReceiptEntity.class.getSimpleName())
                     .append(" WHERE user_account_id = ")
                     .append(user.giveId());
             em = emFactory.createEntityManager();
             em.getTransaction().begin();
-            receipts = em.createQuery(sb.toString()).getResultList();
+            receipts = (List<ReceiptEntity>) em.createQuery(sb.toString()).getResultList();
             em.getTransaction().commit();
             em.close();
         } catch (Exception e) {
@@ -136,7 +139,25 @@ public class DBRepository implements Repository {
 
     @Override
     public List<ReceiptItemEntity> getReceiptItemsForReceipt(int receiptId) {
-        return null;
+        EntityManager em = null;
+        List<ReceiptItemEntity> receiptItems = null;
+        try {
+            StringBuilder sb = new StringBuilder();
+            sb.append("FROM ")
+                    .append(ReceiptItemEntity.class.getSimpleName())
+                    .append(" WHERE receipt_id = ")
+                    .append(receiptId);
+            em = emFactory.createEntityManager();
+            em.getTransaction().begin();
+            receiptItems = em.createQuery(sb.toString()).getResultList();
+            em.getTransaction().commit();
+            em.close();
+        } catch (Exception e) {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return receiptItems;
     }
 
     @Override

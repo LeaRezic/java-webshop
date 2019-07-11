@@ -25,12 +25,12 @@ public class RedisAuthCache implements AuthCache {
 
     @Override
     public void storeAuthToken(AuthTokenServer token) {
-        if (jedis.exists(token.getIdToken())) {
-            jedis.del(token.getIdToken());
+        if (jedis.exists(token.getTokenId())) {
+            jedis.del(token.getTokenId());
         }
-        jedis.set(token.getIdToken(), JsonUtil.getJsonString(token));
+        jedis.set(token.getTokenId(), JsonUtil.getJsonString(token));
         try {
-            jedis.expire(token.getIdToken(), (int) DateUtil.getSecondsDiff(token.getExpireTime()));
+            jedis.expire(token.getTokenId(), (int) DateUtil.getSecondsDiff(token.getExpireTime()));
         } catch (ParseException e) {
             e.printStackTrace();
         }

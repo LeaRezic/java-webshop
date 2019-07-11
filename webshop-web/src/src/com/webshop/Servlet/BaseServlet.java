@@ -1,6 +1,7 @@
 package src.com.webshop.Servlet;
 
 import com.google.gson.JsonObject;
+import src.com.webshop.Util.DummyLogger.LoggerUtil;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -23,8 +24,9 @@ public class BaseServlet extends HttpServlet {
 
     protected void setAccessControlHeaders(HttpServletResponse resp) {
         resp.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        resp.setHeader("Access-Control-Allow-Methods", "GET");
-        resp.setHeader("Access-Control-Allow-Methods", "POST");
+        resp.setHeader("Access-Control-Allow-Methods", "GET, POST");
+        resp.setHeader("Access-Control-Max-Age", "86400");
+        resp.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
     }
 
     protected void printJsonResponse(HttpServletResponse response, JsonObject jsonObject) throws IOException {
@@ -47,6 +49,7 @@ public class BaseServlet extends HttpServlet {
         while (headerNames.hasMoreElements()) {
             String key = (String) headerNames.nextElement();
             String value = request.getHeader(key);
+            LoggerUtil.log(key + " " + value);
             map.put(key, value);
         }
         return map;
@@ -54,7 +57,7 @@ public class BaseServlet extends HttpServlet {
 
     protected String getRequestAuthHeader(HttpServletRequest request) {
         Map<String, String> map = getHeadersInfo(request);
-        String authHeaderValue = map.get("Authorization");
+        String authHeaderValue = map.get("authorization");
         if (authHeaderValue == null) {
             return null;
         }

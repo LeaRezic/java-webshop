@@ -1,14 +1,15 @@
 package src.com.webshop.Servlet;
 
+import com.google.gson.JsonObject;
 import src.com.webshop.Model.Auth.AuthTokenManager;
 import src.com.webshop.Model.Auth.AuthTokenServer;
-import src.com.webshop.Model.Receipt.ReceiptBasicVM;
+import src.com.webshop.Model.Receipt.ReceiptDetailedVM;
 import src.com.webshop.Model.Receipt.ReceiptManager;
+import src.com.webshop.Util.DummyLogger.LoggerUtil;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -23,7 +24,10 @@ public class ReceiptServlet extends BaseServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        super.setAccessControlHeaders(response);
+        LoggerUtil.log("[RECEIPT SERVLET]");
         String authToken = super.getRequestAuthHeader(request);
+        LoggerUtil.log(authToken);
         try {
             boolean isValid = AuthTokenManager.tokenValid(authToken);
             if (!isValid) {
@@ -43,8 +47,10 @@ public class ReceiptServlet extends BaseServlet {
             return;
         }
         AuthTokenServer serverToken = AuthTokenManager.getExistingServerToken(authToken);
-        List<ReceiptBasicVM> receipts = ReceiptManager.getReceiptsForUuid(serverToken.getUserUuid());
+        List<ReceiptDetailedVM> receipts = ReceiptManager.getReceiptsDetailed(serverToken.getUserUuid());
         AuthTokenManager.updateExpireDate(authToken);
+        JsonObject obj = JsonUtil.getJsonArray(receipts, "receipts");
+        LoggerUtil.log(JsonUtil.getJsonString(obj));
         super.printJsonResponse(response, JsonUtil.getJsonArray(receipts, "receipts"));
     }
 

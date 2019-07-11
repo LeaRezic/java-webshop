@@ -2,6 +2,7 @@ package src.com.webshop.Model.Receipt;
 
 import src.com.webshop.DAL.Entities.ReceiptEntity;
 import src.com.webshop.DAL.Entities.ReceiptItemEntity;
+import src.com.webshop.DAL.Entities.UserAccountEntity;
 import src.com.webshop.DAL.Repository.Repository;
 import src.com.webshop.DAL.Repository.RepositoryFactory;
 import src.com.webshop.Model.Product.ProductDetailedVM;
@@ -14,14 +15,50 @@ public class ReceiptManager {
 
     private static Repository repo = RepositoryFactory.getRepo();
 
+    public static List<ReceiptDetailedVM> getReceiptsDetailed(String uuid) {
+        UserAccountEntity user = repo.getUserAccountByUUID(uuid);
+        String email = user.getEmail();
+        List<ReceiptDetailedVM> receipts = new ArrayList<>();
+        List<ReceiptEntity> entities = repo.getReceiptsForCustomer(uuid);
+        for (ReceiptEntity entity : entities) {
+            ReceiptDetailedVM detailedReceipt = new ReceiptDetailedVM(
+                    email,
+                    getBasicVmFromEntity(entity),
+                    getItemsFromEntity(entity.getReceiptId())
+            );
+            receipts.add(detailedReceipt);
+        }
+        return receipts;
+    }
+
+    private static List<ReceiptItemVM> getItemsFromEntity(int receiptId) {
+        List<ReceiptItemVM> items = new ArrayList<>();
+        List<ReceiptItemEntity> entities = repo.getReceiptItemsForReceipt(receiptId);
+        entities.forEach((entity) -> items.add(getItemVmFromEntity(entity)));
+        return items;
+    }
+
+    private static ReceiptItemVM getItemVmFromEntity(ReceiptItemEntity entity) {
+        ProductDetailedVM product = ProductManager.getProduct(entity.getProductId());
+        return new ReceiptItemVM(
+                entity.giveId(),
+                entity.getReceiptId(),
+                entity.getProductId(),
+                product.getBasic().getName(),
+                product.getBasic().getPictureUrl(),
+                product.getBasic().getPrice(),
+                entity.getAmount()
+        );
+    }
+
     public static List<ReceiptBasicVM> getReceiptsForUuid(String userUuid) {
         List<ReceiptBasicVM> returnList = new ArrayList<>();
         List<ReceiptEntity> entities = repo.getReceiptsForCustomer(userUuid);
-        entities.forEach((entity) -> returnList.add(getVmFromEntity(entity)));
+        entities.forEach((entity) -> returnList.add(getBasicVmFromEntity(entity)));
         return returnList;
     }
 
-    private static ReceiptBasicVM getVmFromEntity(ReceiptEntity entity) {
+    private static ReceiptBasicVM getBasicVmFromEntity(ReceiptEntity entity) {
         List<ReceiptItemEntity> receiptItems = repo.getReceiptItemsForReceipt(entity.giveId());
         return new ReceiptBasicVM(
                 entity.giveId(),

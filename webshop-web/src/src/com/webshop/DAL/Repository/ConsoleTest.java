@@ -7,6 +7,7 @@ import src.com.webshop.Model.Auth.UserManager;
 import src.com.webshop.Model.Auth.UserVM;
 import src.com.webshop.Model.Category.CategoryManager;
 import src.com.webshop.Util.DateUtil;
+import src.com.webshop.Util.DummyLogger.LoggerUtil;
 
 import java.util.UUID;
 
@@ -47,5 +48,7 @@ public class ConsoleTest {
         UserVM user = UserManager.getUserByUsername("plain@user.com");
         System.out.println(user.getUsername());
         System.out.println(user.getUuid());
+
+        LoggerUtil.log("[KOJI VRAG]");
     }
 }

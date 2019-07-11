@@ -3,15 +3,15 @@ package src.com.webshop.Model.Auth;
 public class AuthTokenServer {
 
     private String email;
-    private String idToken;
+    private String tokenId;
     private String expireTime;
     private boolean isAdmin;
 
     private String userUuid;
 
-    public AuthTokenServer(String email, String idToken, String expireTime, boolean isAdmin, String userUuid) {
+    public AuthTokenServer(String email, String tokenId, String expireTime, boolean isAdmin, String userUuid) {
         this.email = email;
-        this.idToken = idToken;
+        this.tokenId = tokenId;
         this.expireTime = expireTime;
         this.isAdmin = isAdmin;
         this.userUuid = userUuid;
@@ -25,12 +25,12 @@ public class AuthTokenServer {
         this.email = email;
     }
 
-    public String getIdToken() {
-        return idToken;
+    public String getTokenId() {
+        return tokenId;
     }
 
-    public void setIdToken(String idToken) {
-        this.idToken = idToken;
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
     }
 
     public String getExpireTime() {
