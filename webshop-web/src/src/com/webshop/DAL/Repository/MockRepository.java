@@ -103,7 +103,22 @@ public class MockRepository implements Repository {
     }
 
     @Override
+    public UserAccountEntity getUserAccountByUUID(String userAccountUUID) {
+        return null;
+    }
+
+    @Override
     public UserDetailsEntity getUserDetails(int userDetailsId) {
+        return null;
+    }
+
+    @Override
+    public boolean insertUser(UserAccountEntity entity) {
+        return false;
+    }
+
+    @Override
+    public UserAccountEntity getUserByUsername(String username) {
         return null;
     }
 }

@@ -1,6 +1,7 @@
 package src.com.webshop.Servlet;
 
 import com.google.gson.JsonObject;
+import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,4 +32,9 @@ public class BaseServlet extends HttpServlet {
         out.flush();
     }
 
+    protected void sendErrorResponse(HttpServletResponse response, int code, String errorMessage) throws IOException {
+        response.setStatus(code);
+        JsonObject jsonError = JsonUtil.getJson(errorMessage, "error");
+        printJsonResponse(response, jsonError);
+    }
 }

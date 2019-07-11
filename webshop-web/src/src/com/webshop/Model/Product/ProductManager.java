@@ -3,14 +3,15 @@ package src.com.webshop.Model.Product;
 import src.com.webshop.DAL.Entities.ProductEntity;
 import src.com.webshop.DAL.Entities.ProductManufacturerEntity;
 import src.com.webshop.DAL.Entities.ProductSubcategoryEntity;
-import src.com.webshop.DAL.Repository.DBRepository;
+import src.com.webshop.DAL.Repository.Repository;
+import src.com.webshop.DAL.Repository.RepositoryFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductManager {
 
-    private static DBRepository repo = new DBRepository();
+    private static Repository repo = RepositoryFactory.getRepo();
 
     public static List<ProductBasicVM> getAllProducts() {
         List<ProductBasicVM> list = new ArrayList<>();

@@ -1,19 +1,38 @@
 package src.com.webshop.Model.Auth;
 
 public class UserVM {
-    private String username;
-    private boolean isAdmin;
 
-    public UserVM(String username, boolean isAdmin) {
+    private int id;
+    private String uuid;
+    private String username;
+    private String role;
+    private String password;
+
+    public UserVM(int id, String uuid, String username, String role, String password) {
+        this.id = id;
+        this.uuid = uuid;
         this.username = username;
-        this.isAdmin = isAdmin;
+        this.role = role;
+        this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getUuid() {
+        return uuid;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public boolean isAdmin() {
-        return isAdmin;
+    public String getRole() {
+        return role;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

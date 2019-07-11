@@ -3,13 +3,15 @@ package src.com.webshop.Model.Category;
 import src.com.webshop.DAL.Entities.ProductCategoryEntity;
 import src.com.webshop.DAL.Entities.ProductSubcategoryEntity;
 import src.com.webshop.DAL.Repository.DBRepository;
+import src.com.webshop.DAL.Repository.Repository;
+import src.com.webshop.DAL.Repository.RepositoryFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryManager {
 
-    private static DBRepository repo = new DBRepository();
+    private static Repository repo = RepositoryFactory.getRepo();
 
     public static List<CategoryVM> getAllCategories() {
         ArrayList<CategoryVM> list = new ArrayList<>();

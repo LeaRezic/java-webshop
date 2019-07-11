@@ -26,5 +26,10 @@ public interface Repository {
     ReceiptItemEntity getReceiptItem(int receiptItemId);
     RoleEntity getRole(int roleId);
     UserAccountEntity getUserAccount(int userAccountId);
+    UserAccountEntity getUserAccountByUUID(String userAccountUUID);
     UserDetailsEntity getUserDetails(int userDetailsId);
+
+    boolean insertUser(UserAccountEntity entity);
+
+    UserAccountEntity getUserByUsername(String username);
 }

@@ -6,20 +6,23 @@ import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
-@WebServlet(name = "LoginServlet")
-public class LoginServlet extends BaseServlet {
-
+@WebServlet(name = "RegisterServlet")
+public class RegisterServlet extends BaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.setAccessControlHeaders(response);
         String body = request.getReader().lines().collect(Collectors.joining());
         Credentials credentials = (Credentials) JsonUtil.getObjFromJson(body, Credentials.class);
-        if (credentials == null) {
+        if (credentials == null
+            || credentials.getUsername() == null
+            || credentials.getPassword() == null
+            || credentials.getUsername().trim().length() == 0
+            || credentials.getPassword().trim().length() == 0) {
             super.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
@@ -27,11 +30,28 @@ public class LoginServlet extends BaseServlet {
             );
             return;
         }
-        if (!AuthTokenManager.validateCredentials(credentials.getUsername(), credentials.getPassword())) {
+        if (credentials.getPassword().length() < 6) {
             super.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
-                    "Invalid Credentials. User does not exist or password is incorrect."
+                    "Password needs to be at least 6 characters long."
+            );
+            return;
+        }
+        if (AuthTokenManager.usernameExists(credentials.getUsername())) {
+            super.sendErrorResponse(
+                    response,
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    "Username already exists. Please use a different one."
+            );
+            return;
+        }
+        String uuid = UserManager.insertUser(credentials.getUsername(), credentials.getPassword(), false);
+        if (uuid == null) {
+            super.sendErrorResponse(
+                    response,
+                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    "Failed to create new account."
             );
             return;
         }
@@ -39,7 +59,7 @@ public class LoginServlet extends BaseServlet {
         if (tokenClient == null) {
             super.sendErrorResponse(
                     response,
-                    HttpServletResponse.SC_BAD_REQUEST,
+                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
                     "Failed to construct auth token for client."
             );
             return;
@@ -49,7 +69,6 @@ public class LoginServlet extends BaseServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.setAccessControlHeaders(response);
-    }
 
+    }
 }

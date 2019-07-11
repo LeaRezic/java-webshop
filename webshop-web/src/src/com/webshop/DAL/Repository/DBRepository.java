@@ -10,10 +10,18 @@ import java.util.stream.Collectors;
 
 public class DBRepository implements Repository {
 
+    private static DBRepository repo = null;
     private EntityManagerFactory emFactory;
 
-    public DBRepository() {
+    private DBRepository() {
         this.emFactory = EntityManagerFactoryUtil.getEmFactory();
+    }
+    
+    public static DBRepository getInstance() {
+        if (repo == null) {
+            return new DBRepository();
+        }
+        return repo;
     }
 
     private List<?> getAllEntitiesOfType(String className) {
@@ -51,6 +59,21 @@ public class DBRepository implements Repository {
             }
         }
         return entity;
+    }
+
+    private void insertEntity(EntityBase entity) {
+        EntityManager em = null;
+        try {
+            em = emFactory.createEntityManager();
+            em.getTransaction().begin();
+            em.persist(entity);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            if (em != null) {
+                em.close();
+            }
+        }
     }
 
     @Override
@@ -188,5 +211,61 @@ public class DBRepository implements Repository {
                 getEntityOfTypeById(
                         UserDetailsEntity.class.getSimpleName(),
                         userDetailsId);
+    }
+
+    @Override
+    public UserAccountEntity getUserAccountByUUID(String userAccountUUID) {
+        EntityManager em = null;
+        UserAccountEntity entity = null;
+        try {
+            StringBuilder sb = new StringBuilder();
+            sb.append("FROM ")
+                    .append(UserAccountEntity.class.getSimpleName())
+                    .append(" WHERE uuid like '")
+                    .append(userAccountUUID)
+                    .append("'");
+            em = emFactory.createEntityManager();
+            em.getTransaction().begin();
+            entity = (UserAccountEntity) em.createQuery(sb.toString()).getResultList().get(0);
+            em.getTransaction().commit();
+            em.close();
+        } catch (Exception e) {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return entity;
+    }
+
+    @Override
+    public boolean insertUser(UserAccountEntity entity) {
+        entity.setUserAccountId(0);
+        insertEntity(entity);
+        UserAccountEntity newEntity = getUserAccountByUUID(entity.getUuid());
+        return newEntity != null;
+    }
+
+    @Override
+    public UserAccountEntity getUserByUsername(String username) {
+        EntityManager em = null;
+        UserAccountEntity entity = null;
+        try {
+            StringBuilder sb = new StringBuilder();
+            sb.append("FROM ")
+                    .append(UserAccountEntity.class.getSimpleName())
+                    .append(" WHERE email like '")
+                    .append(username)
+                    .append("'");
+            em = emFactory.createEntityManager();
+            em.getTransaction().begin();
+            entity = (UserAccountEntity) em.createQuery(sb.toString()).getResultList().get(0);
+            em.getTransaction().commit();
+            em.close();
+        } catch (Exception e) {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return entity;
     }
 }

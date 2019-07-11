@@ -182,7 +182,7 @@ insert into user_account (uuid, email, password, role_id, created_on, last_login
 insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('72de4a51-aa3a-482c-a232-0e1c52c1fe2f', 'gkerblern@cafepress.com', 'RXX7IgIM1E', 2, '2018-06-05 15:07:34', '2018-07-18 13:53:34', true);
 insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('8dc7040e-220a-49cc-ac5f-af028b7fa9ef', 'ulundono@opera.com', 'rScnwDFxvqk', 2, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
 insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('97a754d3-3975-42f6-b6c5-c8acaa092062', 'superuser@admin.com', 'admin123!', 1, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
-insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('c2046339-6a14-490b-881c-92c57973a602', 'plain@user.com', 'user123!', 1, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
+insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('c2046339-6a14-490b-881c-92c57973a602', 'plain@user.com', 'user123!', 2, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
 
 
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (1, 'Lilli', 'Jeanesson', false, 105, '5049 Ronald Regan Alley', '(814) 2534229');

@@ -8,6 +8,7 @@ import java.util.Objects;
 @Table(name = "user_account", schema = "public", catalog = "webshop")
 public class UserAccountEntity implements EntityBase {
     private int userAccountId;
+    private String uuid;
     private String email;
     private String password;
     private int roleId;
@@ -17,12 +18,23 @@ public class UserAccountEntity implements EntityBase {
 
     @Id
     @Column(name = "user_account_id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int getUserAccountId() {
         return userAccountId;
     }
 
     public void setUserAccountId(int userAccountId) {
         this.userAccountId = userAccountId;
+    }
+
+    @Basic
+    @Column(name = "uuid", nullable = false, length = 36)
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     @Basic

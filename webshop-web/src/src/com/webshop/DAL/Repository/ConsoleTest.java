@@ -1,14 +1,18 @@
 package src.com.webshop.DAL.Repository;
 
-import redis.clients.jedis.Jedis;
+import src.com.webshop.Cache.AuthCache;
+import src.com.webshop.Cache.AuthCacheFactory;
+import src.com.webshop.Model.Auth.AuthTokenServer;
+import src.com.webshop.Model.Auth.UserManager;
+import src.com.webshop.Model.Auth.UserVM;
 import src.com.webshop.Model.Category.CategoryManager;
+import src.com.webshop.Util.DateUtil;
 
 import java.util.UUID;
 
-
 public class ConsoleTest {
     public static void main(String[] args) {
-        DBRepository dbRepository = new DBRepository();
+        Repository dbRepository = RepositoryFactory.getRepo();
         dbRepository.getProducts().forEach((p) -> System.out.println(p.getName()));
 
         System.out.println("-------------------------");
@@ -17,13 +21,31 @@ public class ConsoleTest {
             c.getSubcategories().forEach((sc) -> System.out.println("  " + sc.getName()));
         });
 
-        Jedis jedis = new Jedis("localhost");
-        System.out.println("Connection to server sucessfully");
-        //check whether server is running or not
-        System.out.println("Server is running: "+ jedis.ping());
+        AuthTokenServer token = new AuthTokenServer(
+                "miki@mail.com",
+                UUID.randomUUID().toString(),
+                DateUtil.getNowWithMins(30),
+                false,
+                UUID.randomUUID().toString()
+        );
+        /*
+        * AuthCache authCache = AuthCacheFactory.getAuthCache();
+        authCache.storeAuthToken(token);
+        AuthTokenServer retreivedToken = authCache.getAuthTokenServer(token.getIdToken());
+        System.out.println(retreivedToken.getEmail());
+        System.out.println(retreivedToken.getEmail());
+        System.out.println(retreivedToken.getIdToken());*/
 
-        for (int i = 0; i < 26; i++) {
-            System.out.println(UUID.randomUUID());
-        }
+        // 728d3fe0-330d-4011-bea5-83697c0b7a28
+        /*
+        AuthCache authCache = AuthCacheFactory.getAuthCache();
+        AuthTokenServer retreivedToken = authCache.getAuthTokenServer("728d3fe0-330d-4011-bea5-83697c0b7a28");
+        System.out.println(retreivedToken.getEmail());
+        System.out.println(retreivedToken.getIdToken());
+        */
+
+        UserVM user = UserManager.getUserByUsername("plain@user.com");
+        System.out.println(user.getUsername());
+        System.out.println(user.getUuid());
     }
 }

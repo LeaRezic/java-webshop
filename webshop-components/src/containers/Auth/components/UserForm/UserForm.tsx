@@ -31,8 +31,8 @@ export class UserForm extends React.PureComponent<IUserFormProps> {
   private handleSubmit = (e: any) => {
     e.preventDefault();
     const userData: IUserRequestInfo = {
-      username: 'miki',
-      password: '123',
+      username: 'novi2@user.com',
+      password: 'user123!',
     }
     this.props.onSubmit(userData);
   }
