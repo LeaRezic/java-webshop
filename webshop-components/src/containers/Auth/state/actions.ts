@@ -8,6 +8,7 @@ export enum AuthActionTypes {
   REGISTER_REQUEST = 'REGISTER_REQUEST',
   REGISTER_SUCCESS = 'REGISTER_SUCCESS',
   REGISTER_FAILURE = 'REGISTER_FAILURE',
+  STOP_REDIRECT_TO_PRODUCTS = 'STOP_REDIRECT_TO_PRODUCTS',
 }
 
 export interface IUserRequestInfo {
@@ -75,6 +76,13 @@ export const registerFailure = (error: string)
   };
 }
 
+export const stopRedirectToProducts = ()
+  : IReduxAction<void, void, void, AuthActionTypes.STOP_REDIRECT_TO_PRODUCTS> => {
+  return {
+    type: AuthActionTypes.STOP_REDIRECT_TO_PRODUCTS,
+  };
+}
+
 export type AuthActions =
   | ReturnType<typeof loginRequest>
   | ReturnType<typeof loginSuccess>
@@ -83,4 +91,5 @@ export type AuthActions =
   | ReturnType<typeof registerRequest>
   | ReturnType<typeof registerSuccess>
   | ReturnType<typeof registerFailure>
+  | ReturnType<typeof stopRedirectToProducts>
   ;

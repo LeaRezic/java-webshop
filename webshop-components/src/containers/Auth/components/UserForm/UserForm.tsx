@@ -16,12 +16,12 @@ export class UserForm extends React.PureComponent<IUserFormProps> {
     return(
       <form>
         <div className={styles.Container}>
-          <span>{this.props.formTitle}</span>
-          <input placeholder='EMAIL' className={styles.InputField} type='email'/>
-          <input placeholder='PASSWORD' className={styles.InputField} type='password' />
+          <span className={globalStyles.TextPurpleLightBig}>{this.props.formTitle}</span>
+          <input placeholder='e-mail' className={styles.InputField} type='email'/>
+          <input placeholder='password' className={styles.InputField} type='password' />
           <button
             onClick={(e) => this.handleSubmit(e)}
-            className={classNames(globalStyles.Btn, globalStyles.BtnSuccess)}
+            className={classNames(globalStyles.Btn, globalStyles.BtnSubtle)}
           >{this.props.btnText}</button>
         </div>
       </form>

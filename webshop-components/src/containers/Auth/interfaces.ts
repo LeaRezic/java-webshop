@@ -9,5 +9,6 @@ export interface IAuthState {
     registerSuccess: boolean;
     loginError: string;
     registerError: string;
+    shouldRedirectToProducts: boolean;
   }
 }

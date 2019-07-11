@@ -1,7 +1,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import axios from 'axios';
 
-import { AuthActionTypes, loginSuccess, loginFailure, loginRequest, registerRequest } from './actions';
+import { AuthActionTypes, loginSuccess, loginFailure, loginRequest, registerRequest, logOut } from './actions';
 
 export function* watchLoginRequest() {
   yield takeLatest(AuthActionTypes.LOG_IN_REQUEST, loginRequestIntercept);

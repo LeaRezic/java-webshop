@@ -11,6 +11,13 @@
   color: rgb(150, 137, 235);
 }
 
+.TextPurpleLightBig {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(150, 137, 235);
+}
+
 .TextTealLight {
   color: rgb(0, 192, 192);
 }
@@ -50,6 +57,7 @@
   color: white;
 }
 .BtnSuccessActive {
+  border-color: rgb(0, 192, 192);
   background-color: rgb(0, 192, 192);
   color: white;
 }
@@ -82,4 +90,15 @@
 .BtnDanger:hover {
   background: #f44336;
   color: white;
+}
+
+.BtnSubtle {
+  background-color: rgb(150, 137, 235);
+  border-color: rgb(150, 137, 235);
+  color: rgb(88, 21, 143);
+}
+.BtnSubtle:hover {
+  background-color: rgb(166, 156, 228);
+  border-color: rgb(166, 156, 228);
+  color: rgb(88, 21, 143);
 }

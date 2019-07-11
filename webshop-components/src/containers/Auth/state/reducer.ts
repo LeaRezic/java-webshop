@@ -1,5 +1,6 @@
 import { IAuthState } from '../interfaces';
 import { AuthActions, AuthActionTypes, IUserResponseInfo } from './actions';
+import { statement } from '@babel/template';
 
 const initialState: IAuthState = {
   isAuthenticated: false,
@@ -12,6 +13,7 @@ const initialState: IAuthState = {
     registerSuccess: false,
     loginError: '',
     registerError: '',
+    shouldRedirectToProducts: false,
   }
 }
 
@@ -35,6 +37,7 @@ const loginSuccess = (state: IAuthState, userData: IUserResponseInfo) => {
       ...state.meta,
       isRequestingLogin: false,
       loginSuccess: true,
+      shouldRedirectToProducts: true,
     }
   }
 }
@@ -52,7 +55,13 @@ const loginFailure = (state: IAuthState, error: string) => {
 }
 
 const logOut = () => {
-  return initialState;
+  return {
+    ...initialState,
+    meta: {
+      ...initialState.meta,
+      shouldRedirectToProducts: true,
+    }
+  };
 }
 
 const registerRequest = (state: IAuthState) => {
@@ -75,6 +84,7 @@ const registerSuccess = (state: IAuthState, userData: IUserResponseInfo) => {
       ...state.meta,
       isRequestingRegister: false,
       registerSuccess: true,
+      shouldRedirectToProducts: true,
     }
   }
 }
@@ -91,6 +101,16 @@ const registerFailure = (state: IAuthState, error: string) => {
   }
 }
 
+const stopRedirectToProducts = (state: IAuthState) => {
+  return {
+    ...state,
+    meta: {
+      ...state.meta,
+      shouldRedirectToProducts: false,
+    }
+  }
+}
+
 export const authReducer = (state: IAuthState = initialState, action: AuthActions): IAuthState => {
   switch (action.type) {
     case AuthActionTypes.LOG_IN_REQUEST: return loginRequest(state);
@@ -100,6 +120,7 @@ export const authReducer = (state: IAuthState = initialState, action: AuthAction
     case AuthActionTypes.REGISTER_REQUEST: return registerRequest(state);
     case AuthActionTypes.REGISTER_SUCCESS: return registerSuccess(state, action.data!);
     case AuthActionTypes.REGISTER_FAILURE: return registerFailure(state, action.data!);
+    case AuthActionTypes.STOP_REDIRECT_TO_PRODUCTS: return stopRedirectToProducts(state);
     default: return state;
   }
 };
