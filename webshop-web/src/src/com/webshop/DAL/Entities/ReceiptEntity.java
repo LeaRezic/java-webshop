@@ -7,6 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "receipt", schema = "public", catalog = "webshop")
 public class ReceiptEntity implements EntityBase {
+
     private int receiptId;
     private int userDetailsId;
     private String receiptNumber;

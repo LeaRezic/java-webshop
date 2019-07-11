@@ -10,9 +10,11 @@ import Sagas from './sagas';
 import { IAuthState } from '../containers/Auth/interfaces';
 import { IShoppingState } from '../containers/Shop/interfaces';
 import { IProductViewState } from '../containers/ProductView/interfaces';
+import { IProfileState } from '../containers/Profile/interfaces';
 
 export interface IStore {
   auth: IAuthState;
+  profile: IProfileState;
   shop: IShoppingState;
   productView: IProductViewState;
 }

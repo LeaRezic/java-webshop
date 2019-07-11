@@ -111,8 +111,27 @@ public class DBRepository implements Repository {
     }
 
     @Override
-    public List<ReceiptEntity> getReceiptsForCustomer(int userDetailsId) {
-        return null;
+    public List<ReceiptEntity> getReceiptsForCustomer(String userUuid) {
+        UserAccountEntity user = getUserAccountByUUID(userUuid);
+        EntityManager em = null;
+        List<ReceiptEntity> receipts = null;
+        try {
+            StringBuilder sb = new StringBuilder();
+            sb.append("FROM ")
+                    .append(UserAccountEntity.class.getSimpleName())
+                    .append(" WHERE user_account_id = ")
+                    .append(user.giveId());
+            em = emFactory.createEntityManager();
+            em.getTransaction().begin();
+            receipts = em.createQuery(sb.toString()).getResultList();
+            em.getTransaction().commit();
+            em.close();
+        } catch (Exception e) {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return receipts;
     }
 
     @Override

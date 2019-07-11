@@ -150,7 +150,7 @@ insert into city (name, country_id) values ('Karlovac', 8);
 insert into city (name, country_id) values ('Cakovec', 8);
 
 ------------------------------------------------------------------------------------------------
--- ROLE (2), USER_ACCOUNT (25), USER_DETAILS (27)
+-- ROLE (2), USER_ACCOUNT (27), USER_DETAILS (25)
 -- NOTE USERS: ADMIN ('superuser@admin.com', 'admin123!'), NORMAL: ('plain@user.com', 'user123!')
 
 insert into role (role_name) values ('administrator');
@@ -519,56 +519,56 @@ insert into expansion_details (product_id, base_game_id, added_players_num, adde
 ------------------------------------------------------------------------------------------------
 -- RECEIPT (50), ITEM (137)
 
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (25, '498539171-9', false, '2019-03-16 00:01:03');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (23, '694839145-1', true, '2018-05-31 13:39:47');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '412135911-9', false, '2019-04-12 06:41:43');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '314304101-3', false, '2019-05-07 16:23:58');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '271049269-5', true, '2018-07-19 00:58:50');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (6, '697374677-2', true, '2018-10-31 15:22:09');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (1, '944885408-0', false, '2019-03-21 01:04:46');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '695216917-2', true, '2019-01-13 08:11:49');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (6, '743578726-4', true, '2019-04-08 04:23:21');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (2, '894408020-8', true, '2019-02-15 03:18:45');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (23, '140194018-8', false, '2019-04-16 18:19:41');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (16, '681647710-3', true, '2018-12-19 00:40:00');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (8, '203796521-4', true, '2019-01-06 09:19:01');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (20, '467128155-4', false, '2019-02-28 21:36:15');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (22, '563160369-1', false, '2018-11-19 00:44:44');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (1, '388585923-8', false, '2018-07-26 12:50:40');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (23, '718539208-X', true, '2018-09-28 04:03:53');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '011219503-2', true, '2018-09-25 10:47:36');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (7, '941201354-X', false, '2019-01-23 17:34:42');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (15, '695609087-2', false, '2018-05-28 18:15:03');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '479154705-5', false, '2019-04-04 21:14:33');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (16, '140600283-6', false, '2018-07-08 07:49:44');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (7, '798769880-6', true, '2018-08-13 08:29:14');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '974744144-6', true, '2018-11-25 04:56:15');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '107995696-4', false, '2019-04-30 09:36:19');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '246028330-X', false, '2019-02-18 03:52:26');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (9, '084603939-7', false, '2018-08-20 14:22:28');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (17, '145000276-5', true, '2018-11-25 00:16:06');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (9, '267793585-6', false, '2018-06-01 16:18:49');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '735613461-6', false, '2018-08-21 16:54:33');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (25, '925258429-3', false, '2018-09-15 16:49:35');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (14, '511186246-3', false, '2018-11-09 21:01:34');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (13, '725180219-8', true, '2018-09-27 01:45:50');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (8, '332207663-6', true, '2019-04-07 05:51:57');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (22, '905165993-8', false, '2018-12-29 22:37:48');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (9, '921021155-3', true, '2018-10-24 17:09:17');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (17, '436620601-3', false, '2018-08-01 03:19:42');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (2, '393371038-3', true, '2018-04-28 06:09:59');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (20, '859385771-X', true, '2018-09-08 12:29:20');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (2, '488757470-3', false, '2018-06-04 20:58:20');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (19, '081898430-9', true, '2019-04-05 05:06:56');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '339991992-1', true, '2018-09-01 05:35:00');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (4, '004507604-9', false, '2018-09-08 05:16:36');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (18, '206237136-5', false, '2018-08-24 20:10:22');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '979455949-0', true, '2019-04-01 04:21:34');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '025061933-4', true, '2019-04-03 16:11:57');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (1, '264374145-5', true, '2018-09-24 23:30:48');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (8, '496765176-3', true, '2018-08-31 06:24:58');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (11, '355347247-2', false, '2018-10-06 14:24:34');
-insert into receipt (user_details_id, receipt_number, credit_card, purchase_date) values (15, '447287544-6', false, '2018-06-24 04:26:11');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (25, '498539171-9', false, '2019-03-16 00:01:03');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (23, '694839145-1', true, '2018-05-31 13:39:47');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (11, '412135911-9', false, '2019-04-12 06:41:43');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (13, '314304101-3', false, '2019-05-07 16:23:58');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (11, '271049269-5', true, '2018-07-19 00:58:50');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (6, '697374677-2', true, '2018-10-31 15:22:09');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (1, '944885408-0', false, '2019-03-21 01:04:46');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (13, '695216917-2', true, '2019-01-13 08:11:49');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (6, '743578726-4', true, '2019-04-08 04:23:21');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (2, '894408020-8', true, '2019-02-15 03:18:45');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (23, '140194018-8', false, '2019-04-16 18:19:41');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (16, '681647710-3', true, '2018-12-19 00:40:00');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (8, '203796521-4', true, '2019-01-06 09:19:01');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (20, '467128155-4', false, '2019-02-28 21:36:15');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (22, '563160369-1', false, '2018-11-19 00:44:44');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (1, '388585923-8', false, '2018-07-26 12:50:40');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (23, '718539208-X', true, '2018-09-28 04:03:53');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (11, '011219503-2', true, '2018-09-25 10:47:36');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (7, '941201354-X', false, '2019-01-23 17:34:42');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (15, '695609087-2', false, '2018-05-28 18:15:03');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (13, '479154705-5', false, '2019-04-04 21:14:33');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (16, '140600283-6', false, '2018-07-08 07:49:44');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (7, '798769880-6', true, '2018-08-13 08:29:14');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (4, '974744144-6', true, '2018-11-25 04:56:15');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (13, '107995696-4', false, '2019-04-30 09:36:19');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (4, '246028330-X', false, '2019-02-18 03:52:26');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (9, '084603939-7', false, '2018-08-20 14:22:28');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (17, '145000276-5', true, '2018-11-25 00:16:06');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (9, '267793585-6', false, '2018-06-01 16:18:49');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (4, '735613461-6', false, '2018-08-21 16:54:33');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (25, '925258429-3', false, '2018-09-15 16:49:35');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (14, '511186246-3', false, '2018-11-09 21:01:34');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (13, '725180219-8', true, '2018-09-27 01:45:50');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (8, '332207663-6', true, '2019-04-07 05:51:57');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (22, '905165993-8', false, '2018-12-29 22:37:48');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (9, '921021155-3', true, '2018-10-24 17:09:17');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (17, '436620601-3', false, '2018-08-01 03:19:42');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (2, '393371038-3', true, '2018-04-28 06:09:59');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (20, '859385771-X', true, '2018-09-08 12:29:20');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (2, '488757470-3', false, '2018-06-04 20:58:20');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (19, '081898430-9', true, '2019-04-05 05:06:56');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (4, '339991992-1', true, '2018-09-01 05:35:00');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (4, '004507604-9', false, '2018-09-08 05:16:36');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (18, '206237136-5', false, '2018-08-24 20:10:22');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (11, '979455949-0', true, '2019-04-01 04:21:34');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (11, '025061933-4', true, '2019-04-03 16:11:57');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (1, '264374145-5', true, '2018-09-24 23:30:48');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (8, '496765176-3', true, '2018-08-31 06:24:58');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (11, '355347247-2', false, '2018-10-06 14:24:34');
+insert into receipt (user_account_id, receipt_number, credit_card, purchase_date) values (15, '447287544-6', false, '2018-06-24 04:26:11');
 
 insert into receipt_item (receipt_id, product_id, amount) values (1, 76, 3);
 insert into receipt_item (receipt_id, product_id, amount) values (2, 4, 2);

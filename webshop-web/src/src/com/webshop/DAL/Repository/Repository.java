@@ -12,7 +12,7 @@ public interface Repository {
     List<ExpansionDetailsEntity> getExpansionsForGame(int gameDetailsId);
     List<ProductManufacturerEntity> getManufacturers();
     List<ReceiptEntity> getReceipts();
-    List<ReceiptEntity> getReceiptsForCustomer(int userDetailsId);
+    List<ReceiptEntity> getReceiptsForCustomer(String userUuid);
     List<ReceiptItemEntity> getReceiptItemsForReceipt (int receiptId);
     List<UserDetailsEntity> getUsers();
 

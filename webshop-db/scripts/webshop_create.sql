@@ -128,12 +128,12 @@ CREATE TABLE expansion_details (
 
 CREATE TABLE receipt (
     receipt_id serial PRIMARY KEY,
-    user_details_id INTEGER NOT NULL,
+    user_account_id INTEGER NOT NULL,
     receipt_number VARCHAR (25) NOT NULL,
     credit_card BOOLEAN NOT NULL,
     purchase_date TIMESTAMP NOT NULL,
-    CONSTRAINT receipt_user_details_id_fkey FOREIGN KEY (user_details_id)
-        REFERENCES user_details (user_details_id) MATCH SIMPLE
+    CONSTRAINT receipt_user_account_id_fkey FOREIGN KEY (user_account_id)
+        REFERENCES user_account (user_account_id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 

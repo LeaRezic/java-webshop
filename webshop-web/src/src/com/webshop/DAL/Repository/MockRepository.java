@@ -38,7 +38,7 @@ public class MockRepository implements Repository {
     }
 
     @Override
-    public List<ReceiptEntity> getReceiptsForCustomer(int userDetailsId) {
+    public List<ReceiptEntity> getReceiptsForCustomer(String userDetailsId) {
         return null;
     }
 

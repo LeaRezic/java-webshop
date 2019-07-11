@@ -4,6 +4,8 @@ import src.com.webshop.Cache.AuthCache;
 import src.com.webshop.Cache.AuthCacheFactory;
 import src.com.webshop.Util.DateUtil;
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.UUID;
 
 public class AuthTokenManager {
@@ -48,9 +50,35 @@ public class AuthTokenManager {
         );
     }
 
-    private static boolean tokenPresent(String tokenId) {
+    public static boolean tokenPresent(String tokenId) {
         AuthCache authCache = AuthCacheFactory.getAuthCache();
         return authCache.checkIfPresent(tokenId);
+    }
+
+    public static AuthTokenServer getExistingServerToken(String tokenId) {
+        AuthCache authCache = AuthCacheFactory.getAuthCache();
+        AuthTokenServer token = null;
+        if (authCache.checkIfPresent(tokenId)) {
+            token = authCache.getAuthTokenServer(tokenId);
+        }
+        return token;
+    }
+
+    public static boolean tokenValid(String tokenId) throws ParseException {
+        AuthCache authCache = AuthCacheFactory.getAuthCache();
+        if (authCache.checkIfPresent(tokenId)) {
+            AuthTokenServer token = authCache.getAuthTokenServer(tokenId);
+            return DateUtil.checkIfFuture(token.getExpireTime());
+        }
+        return false;
+    }
+
+    public static boolean updateExpireDate(String tokenId) {
+        AuthCache authCache = AuthCacheFactory.getAuthCache();
+        if (authCache.checkIfPresent(tokenId)) {
+            authCache.updateExpireDate(tokenId, DateUtil.getNowWithMins(30));
+        }
+        return false;
     }
 
     private static void cacheServerToken(AuthTokenServer serverToken) {

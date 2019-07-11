@@ -22,4 +22,10 @@ public class DateUtil {
         return (expire.getTime()-now.getTime())/1000;
     }
 
+    public static boolean checkIfFuture(String expireDate) throws ParseException {
+        Date now = new Date();
+        Date expire = new SimpleDateFormat(DATE_FORMAT).parse(expireDate);
+        return (expire.getTime() - now.getTime()) > 0;
+    }
+
 }
