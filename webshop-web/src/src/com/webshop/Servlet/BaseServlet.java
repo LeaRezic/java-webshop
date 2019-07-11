@@ -20,6 +20,7 @@ public class BaseServlet extends HttpServlet {
     protected void setAccessControlHeaders(HttpServletResponse resp) {
         resp.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         resp.setHeader("Access-Control-Allow-Methods", "GET");
+        resp.setHeader("Access-Control-Allow-Methods", "POST");
     }
 
     protected void printJsonResponse(HttpServletResponse response, JsonObject jsonObject) throws IOException {

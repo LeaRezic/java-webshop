@@ -15,11 +15,18 @@ import { CheckoutPage } from './containers/Checkout/CheckoutPage';
 import { ProfilePage } from './containers/Profile/ProfilePage';
 import { AdminPage } from './containers/Admin/AdminPage';
 import { ProductViewPage } from './containers/ProductView/ProductViewPage';
+import { createStructuredSelector } from 'reselect';
+import { isAuthenticatedSelector, isAdminSelector } from './containers/Auth/state/selectors';
+import { connect } from 'react-redux';
 
-class App extends React.Component<RouteComponentProps, {}> {
+export interface IAppAuthProps {
+  isAuth: boolean;
+  isAdmin: boolean;
+}
+
+class App extends React.Component<RouteComponentProps & IAppAuthProps, {}> {
   render() {
-    const isAuth = true;
-    const isAdmin = true;
+    const { isAuth, isAdmin } = this.props;
     let routes = (
       <Switch>
         <Route path='/auth' component={LoginPage} />
@@ -27,11 +34,12 @@ class App extends React.Component<RouteComponentProps, {}> {
         <Redirect to='/products' />
       </Switch>
     );
-    if (isAuth) {
+    if (isAuth && !isAdmin) {
       routes = (
         <Switch>
           <Route path='/auth' component={LoginPage} />
           <Route exact path='/products' component={ShoppingPage} />
+          <Route exact path='/products/:id' component={ProductViewPage} />
           <Route path='/checkout' component={CheckoutPage} />
           <Route path='/profile' component={ProfilePage} />
           <Redirect to='/products' />
@@ -43,11 +51,7 @@ class App extends React.Component<RouteComponentProps, {}> {
         <Switch>
           <Route path='/auth' component={LoginPage} />
           <Route exact path='/admin' component={AdminPage} />
-          <Route exact path='/products' component={ShoppingPage} />
-          <Route exact path='/products/:id' component={ProductViewPage} />
-          <Route path='/checkout' component={CheckoutPage} />
-          <Route path='/profile' component={ProfilePage} />
-          <Redirect to='/products' />
+          <Redirect to='/admin' />
         </Switch>
       );
     }
@@ -61,4 +65,9 @@ class App extends React.Component<RouteComponentProps, {}> {
   }
 }
 
-export default withRouter(App);
+const mapStateToProps = createStructuredSelector<any, IAppAuthProps>({
+  isAuth: isAuthenticatedSelector,
+  isAdmin: isAdminSelector,
+})
+
+export default withRouter(connect(mapStateToProps)(App));
