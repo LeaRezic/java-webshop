@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { IProduct } from '../../../interfaces';
 import { getFormattedCurrency } from '../../../../../utils/currencyUtil';
-import { ReactRouterProps } from '../../../../../types/interfaces';
+import { ReactRouterProps } from '../../../../../typings/interfaces';
 
 import styles from './Product.module.css';
 import globalStyles from '../../../../../style/GlobalStyle.module.css';

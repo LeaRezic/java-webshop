@@ -1,5 +1,5 @@
 import { IProduct, ICategory } from '../interfaces';
-import { IReduxAction } from '../../../types/interfaces';
+import { IReduxAction } from '../../../typings/interfaces';
 
 export enum ShoppingActionTypes {
   FETCH_PRODUCTS = 'FETCH_PRODUCTS',

@@ -1,0 +1,8 @@
+.Expander {
+  color: #D3D2D3;
+  font-size: 14px;
+}
+
+:global .rt-td.rt-expandable {
+  padding-left: 11px;
+}

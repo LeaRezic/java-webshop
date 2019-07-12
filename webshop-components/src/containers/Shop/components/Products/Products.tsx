@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Product } from './Product/Product';
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { IProduct } from '../../interfaces';
-import { ReactRouterProps } from '../../../../types/interfaces';
+import { ReactRouterProps } from '../../../../typings/interfaces';
 
 import styles from './Products.module.css';
 

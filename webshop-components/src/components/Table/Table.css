@@ -1,0 +1,347 @@
+:global .ReactTable {
+  background: #FFFFFF;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+:global .ReactTable .rt-table {
+  background-color: #FFFFFF;
+}
+
+:global .ReactTable .rt-thead {
+  background-color: #E2E7E9;
+  color: #6B8792;
+  font-weight: 500;
+  box-sizing: border-box;
+  border-bottom: 1px solid #BBD0D8;
+}
+@media (min-width: 980px) {
+  :global .ReactTable .rt-thead {
+    background-color: #E6EAEC;
+    color: #003144;
+    border-color: #B4C1C6;
+  }
+}
+
+:global .ReactTable .rt-thead.-header {
+  box-shadow: none;
+}
+
+:global .ReactTable .rt-tr-group {
+  box-sizing: border-box;
+  border-bottom: 1px solid #BBD0D8 !important;
+}
+@media (min-width: 980px) {
+  :global .ReactTable .rt-tr-group {
+    border-color: #B4C1C6;
+  }
+}
+
+:global .ReactTable .rt-th {
+  min-height: 44px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-right: none !important;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: initial;
+  font-size: 15px;
+}
+@media (min-width: 980px) {
+  :global .ReactTable .rt-th {
+    font-size: 15px;
+    min-height: 48px;
+  }
+}
+
+:global .ReactTable .rt-th:focus {
+  outline: none;
+}
+
+:global .ReactTable .rt-th {
+  padding-left: 16px !important;
+}
+
+:global .ReactTable .rt-th:last-child {
+  padding-right: 16px;
+}
+
+@media (min-width: 980px) {
+  :global .ReactTable .rt-tr.-even {
+    background-color: #F2F4F5;
+  }
+}
+
+@media (min-width: 980px) {
+  :global .ReactTable .rt-tr.-odd {
+    background-color: #FFFFFF;
+  }
+}
+
+@media (min-width: 980px) {
+  :global .ReactTable .rt-tr-group.-expanded .rt-tr.-even + div {
+    background-color: #FFFFFF;
+  }
+}
+
+@media (min-width: 980px) {
+  :global .ReactTable .rt-tr-group.-expanded .rt-tr.-odd + div {
+    background-color: #FFFFFF;
+  }
+}
+
+:global .ReactTable .rt-td {
+  color: #212121;
+  min-height: 65px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-right: none !important;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: initial;
+  font-size: 16px;
+  text-align: center;
+}
+@media (min-width: 980px) {
+  :global .ReactTable .rt-td {
+    font-size: 15px;
+    min-height: 48px;
+    color: #67757B;
+  }
+}
+
+:global .ReactTable .rt-td {
+  padding-left: 16px;
+}
+
+:global .ReactTable .rt-td:last-child {
+  padding-right: 16px;
+}
+
+:global .ReactTable .-pagination {
+  box-shadow: none;
+}
+
+:global .ReactTable .rt-tr {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+:global .ReactTable .GreenText .rt-td,
+:global .ReactTable .GreenText.-expanded {
+  color: #20A026 !important;
+}
+
+:global .ReactTable .RedText .rt-td,
+:global .ReactTable .RedText.-expanded {
+  color: #CC3300 !important;
+}
+
+:global .ReactTable .Grey .rt-td,
+:global .ReactTable .Grey.-expanded {
+  color: #C8C8C8 !important;
+}
+
+:global .ReactTable .Warning .rt-td,
+:global .ReactTable .Warning.-expanded {
+  background-color: #FEEFB3 !important;
+}
+
+:global .ReactTable .Error .rt-td,
+:global .ReactTable .Error.-expanded {
+  color: #CC3300;
+  color: #CC3300;
+  background-color: #FEEAEA !important;
+}
+
+:global .ReactTable .CrossedOut .rt-td,
+:global .ReactTable .CrossedOut.-expanded {
+  text-decoration: line-through !important;
+}
+
+:global .ReactTable .rt-tfoot .rt-tr .rt-td {
+  text-transform: uppercase;
+  color: #083144;
+}
+
+/* Extra css */
+:global .-expanded {
+  position: relative;
+  background: #DEE8EB;
+}
+@media (min-width: 980px) {
+  :global .-expanded > div:nth-child(2) {
+    border: 1px solid #B4C1C6;
+    border-bottom: 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
+}
+
+.PullLeft {
+  justify-content: flex-start !important;
+  text-align: start !important;
+}
+
+.PullRight {
+  justify-content: flex-end !important;
+  text-align: end !important;
+}
+
+/* #TODO @bigd -> make these classes actually act as they should */
+:global .Error {
+  background: red;
+}
+
+:global .Warning {
+  background: yellow;
+}
+
+:global .-pagination {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  flex-wrap: wrap;
+  /* 500px is specific to pagination component of the tables and will probably go away soon */
+}
+:global .-pagination .-previous {
+  order: 1;
+}
+:global .-pagination .-center {
+  order: 2;
+}
+:global .-pagination .-next {
+  order: 3;
+}
+@media (max-width: 500px) {
+  :global .-pagination .-previous {
+    order: 2;
+    margin-right: 16px;
+  }
+  :global .-pagination .-center {
+    order: 1;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+  }
+  :global .-pagination .-next {
+    order: 3;
+  }
+}
+:global .-pagination > .-previous,
+:global .-pagination > .-next {
+  flex: 1 auto;
+  display: flex;
+  flex-direction: row;
+  min-width: 96px;
+}
+:global .-pagination > .-previous > .-btn,
+:global .-pagination > .-next > .-btn {
+  flex: 1 1;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  user-select: none;
+  background-color: #2F96B4;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 2px;
+  background-image: none;
+  padding: 8px 12px;
+  transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+:global .-pagination > .-previous > .-btn:active,
+:global .-pagination > .-next > .-btn:active {
+  outline: 0;
+  color: #FFFFFF;
+  background-color: #31B0D5;
+  border-color: #269ABC;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+:global .-pagination > .-previous > .-btn:hover,
+:global .-pagination > .-next > .-btn:hover {
+  color: #FFFFFF;
+  background-color: #31B0D5;
+  border-color: #269ABC;
+}
+:global .-pagination > .-previous > .-btn:focus,
+:global .-pagination > .-next > .-btn:focus {
+  outline: 0;
+  color: #FFFFFF;
+  background-color: #31B0D5;
+  border-color: #1B6D85;
+}
+:global .-pagination > .-previous > .-btn[disabled],
+:global .-pagination > .-next > .-btn[disabled] {
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.5;
+}
+:global .-pagination > .-center {
+  flex: 1 1;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 4px 16px;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+  max-width: 320px;
+}
+:global .-pagination > .-center > .select-wrap .-pageSizeOptions {
+  flex: 1 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+:global .-pagination > .-center > .-pageInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 4px;
+}
+:global .-pagination > .-center > .-pageInfo > .-totalPages {
+  box-sizing: border-box;
+  padding: 0 8px;
+}
+:global .-pagination > .-center > .-pageInfo > .-pageJump {
+  box-sizing: border-box;
+  padding: 0 8px;
+}
+:global .-pagination > .-center > .-pageInfo > .-pageJump > input {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 4px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #FFFFFF;
+  background-image: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+:global .-pagination > .-center > .-pageInfo > .-pageJump > input:focus {
+  border-color: #66AFE9 !important;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}

@@ -1,6 +1,6 @@
 import { RouteComponentProps, StaticContext } from 'react-router';
 import { IProduct } from '../Shop/interfaces';
-import { ReactRouterProps } from '../../types/interfaces';
+import { ReactRouterProps } from '../../typings/interfaces';
 
 export interface IProductDetailed {
   basic: IProduct;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { IProductDetailed } from '../../interfaces';
-import { ReactRouterProps } from '../../../../types/interfaces';
+import { ReactRouterProps } from '../../../../typings/interfaces';
 
 import { Aux } from '../../../../hoc/Aux/Aux';
 import { getDesiredDimensionsPic } from '../../../../utils/pictureUtil';

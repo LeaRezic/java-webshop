@@ -9,7 +9,7 @@ import { isAuthenticatedSelector, shouldRedirectSelector } from './state/selecto
 
 import styles from './LoginPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
-import { ReactRouterProps } from '../../types/interfaces';
+import { ReactRouterProps } from '../../typings/interfaces';
 
 interface ILoginPageMappedProps {
   isAuthenticated: boolean;

@@ -1,4 +1,4 @@
-import { ReactRouterProps } from '../../types/interfaces';
+import { ReactRouterProps } from '../../typings/interfaces';
 
 export interface IProduct {
   id: number;

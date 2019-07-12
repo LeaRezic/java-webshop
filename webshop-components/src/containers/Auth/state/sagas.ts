@@ -16,7 +16,7 @@ function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>
       {
         method: 'post',
         headers: {
-        'Content-Type': 'text/plain; charset=UTF-8'
+        'Content-Type': 'application/json; charset=UTF-8'
         }
       }
     );
@@ -44,7 +44,7 @@ function* registerRequestIntercept(action: Readonly<ReturnType<typeof registerRe
       {
         method: 'post',
         headers: {
-          'Content-Type': 'text/plain; charset=UTF-8'
+          'Content-Type': 'application/json; charset=UTF-8'
         }
       }
     );

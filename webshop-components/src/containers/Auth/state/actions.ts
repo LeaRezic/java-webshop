@@ -1,4 +1,4 @@
-import { IReduxAction } from '../../../types/interfaces';
+import { IReduxAction } from '../../../typings/interfaces';
 import { IAuthToken } from '../interfaces';
 
 export enum AuthActionTypes {
