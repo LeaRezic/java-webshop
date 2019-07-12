@@ -1,0 +1,11 @@
+.ItemContainer {
+  display: flex;
+  padding: 5px;
+}
+
+.DescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  font-size: 0.8rem;
+}

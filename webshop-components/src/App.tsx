@@ -31,6 +31,7 @@ class App extends React.Component<RouteComponentProps & IAppAuthProps, {}> {
       <Switch>
         <Route path='/auth' component={LoginPage} />
         <Route exact path='/products' component={ShoppingPage} />
+        <Route exact path='/products/:id' component={ProductViewPage} />
         <Redirect to='/products' />
       </Switch>
     );

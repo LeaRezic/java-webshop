@@ -2446,3 +2446,659 @@ accept-language en-GB,en-US;q=0.9,en;q=0.8
 [DB REPO] user id: 23
 ****************************************************
 {"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:2ea9cf07-0cfa-4e0f-8afc-da13942b681a
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+2ea9cf07-0cfa-4e0f-8afc-da13942b681a
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:2ea9cf07-0cfa-4e0f-8afc-da13942b681a
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+2ea9cf07-0cfa-4e0f-8afc-da13942b681a
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c312327f-bb2e-47aa-b670-85529fe90cb1
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c312327f-bb2e-47aa-b670-85529fe90cb1
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c312327f-bb2e-47aa-b670-85529fe90cb1
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c312327f-bb2e-47aa-b670-85529fe90cb1
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c312327f-bb2e-47aa-b670-85529fe90cb1
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c312327f-bb2e-47aa-b670-85529fe90cb1
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:ba5f7335-7bdc-4920-b9ea-76483ed0c036
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+ba5f7335-7bdc-4920-b9ea-76483ed0c036
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:eea23fc7-5414-4a43-8811-41d7942b4299
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+eea23fc7-5414-4a43-8811-41d7942b4299
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:2ac070ad-eda5-4d12-9a83-4d2996b15d88
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+2ac070ad-eda5-4d12-9a83-4d2996b15d88
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:2ac070ad-eda5-4d12-9a83-4d2996b15d88
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+2ac070ad-eda5-4d12-9a83-4d2996b15d88
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:6c467a4b-60cb-4b9a-82d6-092fb0fe0c7b
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+6c467a4b-60cb-4b9a-82d6-092fb0fe0c7b
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:6c467a4b-60cb-4b9a-82d6-092fb0fe0c7b
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+6c467a4b-60cb-4b9a-82d6-092fb0fe0c7b
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:15b04eba-ba10-44b5-b9dc-56cc839de96c
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+15b04eba-ba10-44b5-b9dc-56cc839de96c
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:0fbc37f2-cf89-4fae-aab6-1eaed3500118
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+0fbc37f2-cf89-4fae-aab6-1eaed3500118
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:402320d6-120b-4066-be86-30d096fb03d9
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+402320d6-120b-4066-be86-30d096fb03d9
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:dc985920-0595-4511-b23d-b15651bd387e
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+dc985920-0595-4511-b23d-b15651bd387e
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:f8419d5d-9e6f-4d53-8ffc-d306d93e8027
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+f8419d5d-9e6f-4d53-8ffc-d306d93e8027
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:c5753a98-ccc5-4d72-9c62-718b4a9ed6de
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+c5753a98-ccc5-4d72-9c62-718b4a9ed6de
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:45d24ca1-61dc-4df0-830f-4a6ec40edc36
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+45d24ca1-61dc-4df0-830f-4a6ec40edc36
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:619e802e-0a10-47f8-b570-0f7a088b241c
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+619e802e-0a10-47f8-b570-0f7a088b241c
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:4b806897-df93-49a2-9080-155aef502837
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+4b806897-df93-49a2-9080-155aef502837
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:4b806897-df93-49a2-9080-155aef502837
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+4b806897-df93-49a2-9080-155aef502837
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:bfb29538-76cf-469b-8e55-9462aadd0667
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+bfb29538-76cf-469b-8e55-9462aadd0667
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
