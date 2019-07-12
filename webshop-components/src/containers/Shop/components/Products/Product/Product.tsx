@@ -20,6 +20,12 @@ export interface IProductState {
 
 export class Product extends React.PureComponent<IProductProps & ReactRouterProps, IProductState> {
 
+  show;
+  constructor(props) {
+    super(props);
+    this.show = notify.createShowQueue();
+  }
+
   public state = { hoverOnProduct: false }
 
   public render() {
@@ -63,7 +69,7 @@ export class Product extends React.PureComponent<IProductProps & ReactRouterProp
   }
 
   private handleAddProduct = () => {
-    notify.show(`Added ${this.props.product.name} to cart!`, 'success', 1000);
+    this.show(`Added ${this.props.product.name} to cart!`, 'success', 1000);
     this.props.onAddProduct(this.props.product.id);
   }
 

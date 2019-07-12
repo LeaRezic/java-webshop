@@ -2,10 +2,13 @@
   /* background: url('../../../../assets/img/logo.png') repeat; */
   display: flex;
   margin-top: 50px;
+  border: 2px solid rgb(11, 24, 37);
+  background-color: rgb(145, 163, 163);
+  border-radius: 10px;
+  padding: 50px;
 }
 
 .ProductText {
-  padding: 20px;
   padding-left: 40px;
   display: flex;
   flex-direction: column;

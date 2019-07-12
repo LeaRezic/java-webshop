@@ -4,4 +4,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 80%;
+  /* border: 2px solid rgb(11, 24, 37);
+  border-radius: 10px; */
+  padding: 50px;
 }

@@ -11,7 +11,8 @@
   position: fixed;
   right: 0;
   top: 120px;
-  background-color: rgba(43, 31, 77, 0.98);
+  /* background-color: rgba(43, 31, 77, 0.98); */
+  background-color: rgb(36, 36, 36);
   padding: 30px 15px 15px 30px;
   max-height: 600px;
   overflow-y: auto;
@@ -22,14 +23,16 @@
 }
 
 .CartBtn {
-  padding: 15px;
+  padding: 7px;
   position: fixed;
-  top: 70px;
+  top: 79px;
   right: 0;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
-  border: 2px solid rgba(43, 31, 77, 0.98);
-  background: rgba(43, 31, 77, 0.98);
+  /* border: 2px solid rgba(43, 31, 77, 0.98); */
+  border: 2px solid rgb(36, 36, 36);
+  /* background: rgba(43, 31, 77, 0.98); */
+  background: rgb(36, 36, 36);
   color: rgb(0, 192, 192);
 }
 .CartBtn:focus {
@@ -43,4 +46,8 @@
   margin-right: auto;
   width: 90%;
   display: flex;
+}
+
+.CartIcon {
+  margin-left: 10px;
 }

@@ -38,6 +38,12 @@ interface ILoginPageState {
 
 export class LoginPageComponent extends React.PureComponent<ILoginPageProps, ILoginPageState> {
 
+  show;
+  constructor(props) {
+    super(props);
+    this.show = notify.createShowQueue();
+  }
+
   public componentDidUpdate() {
     if (this.props.shouldRedirect) {
       this.props.onCancelRedirect();
@@ -45,11 +51,11 @@ export class LoginPageComponent extends React.PureComponent<ILoginPageProps, ILo
     }
 
     if (this.props.loginError) {
-      notify.show(this.props.loginError, 'error', 6000);
+      this.show(this.props.loginError, 'error', 4000);
       this.props.onClearLoginError();
     }
     if (this.props.registerError) {
-      notify.show(this.props.registerError, 'error', 6000);
+      this.show(this.props.registerError, 'error', 4000);
       this.props.onClearRegisterError();
     }
   }

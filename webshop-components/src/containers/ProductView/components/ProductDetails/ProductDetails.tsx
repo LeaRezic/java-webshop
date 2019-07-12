@@ -18,6 +18,12 @@ export interface IProductDetailsProps {
 
 export class ProductDetails extends React.PureComponent<IProductDetailsProps & ReactRouterProps> {
 
+  show;
+  constructor(props) {
+    super(props);
+    this.show = notify.createShowQueue();
+  }
+
   public render() {
     const {
       id,
@@ -34,7 +40,7 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
       <Aux>
         <button
           onClick={() => this.goToShopPage()}
-          className={`${globalStyles.Btn} ${globalStyles.BtnInfo}`}
+          className={`${globalStyles.Btn} ${globalStyles.BtnSubtle}`}
         >
           BACK TO SHOPPING
         </button>
@@ -57,7 +63,7 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
             <div><span className={globalStyles.TextGrayBold}>Read more: </span>{this.getLink()}</div>
             <br/>
             <button
-              className={`${globalStyles.Btn} ${globalStyles.BtnSuccess}`}
+              className={`${globalStyles.Btn} ${globalStyles.BtnSuccessSubtle}`}
               onClick={this.handleAddProduct}
             >
               Add to Cart
@@ -69,7 +75,7 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
   }
 
   private handleAddProduct = () => {
-    notify.show(`Added ${this.props.product.basic.name} to cart!`, 'success', 1000);
+    this.show(`Added ${this.props.product.basic.name} to cart!`, 'success', 1000);
     this.props.onAddProduct(this.props.product.basic.id);
   }
 

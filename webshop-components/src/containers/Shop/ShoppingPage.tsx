@@ -71,7 +71,10 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
           </div>
         </div>
         <button className={styles.CartBtn} onClick={this.handleCartClick}>
-          {this.state.isCartOpen ? `CART >` : `CART <`}
+          { this.state.isCartOpen
+            ? <i className={classNames('fas fa-chevron-right', styles.Icon)} />
+            : <i className={classNames('fas fa-chevron-left', styles.Icon)} />}
+          <i className={classNames('fas fa-shopping-cart', styles.CartIcon)} />
         </button>
         <div className={classNames(styles.CartContainer, { [styles.Visible]: this.state.isCartOpen })}>
           <Cart
@@ -83,7 +86,7 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
           <button
             disabled={this.props.cartItems.length <= 0}
             onClick={this.handleCheckoutClick}
-            className={`${globalStyles.Btn} ${globalStyles.BtnSuccess}`}
+            className={`${globalStyles.Btn} ${globalStyles.BtnSuccessSubtle}`}
           >
             CHECKOUT
           </button>

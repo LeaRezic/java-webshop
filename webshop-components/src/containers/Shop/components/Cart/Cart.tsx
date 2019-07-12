@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 import { ICartItem } from '../../interfaces';
 import { CartItem } from './CartItem/CartItem';
@@ -27,7 +28,7 @@ export class Cart extends React.Component<ICartProps> {
             onDecrementProduct={this.props.onDecrementProduct}
           />
           ))
-      : <div className={`${globalStyles.TextTealLight} ${styles.CartText}`}>No products in Cart.</div>;
+      : <div className={classNames(globalStyles.TextTealLight, styles.CartText)}>No products in Cart.</div>;
     return (
       <div>
         {displayCart}
