@@ -1,11 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { notify } from 'react-notify-toast';
 
 import { UserForm } from './components/UserForm/UserForm';
-import { IUserRequestInfo, loginRequest, registerRequest, logOut, stopRedirectToProducts } from './state/actions';
+import { IUserRequestInfo, loginRequest, registerRequest, logOut, stopRedirectToProducts, clearLoginError, clearRegisterError } from './state/actions';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { isAuthenticatedSelector, shouldRedirectSelector } from './state/selectors';
+import { isAuthenticatedSelector, shouldRedirectSelector, loginErrorSelector, registerErrorSelector } from './state/selectors';
 
 import styles from './LoginPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
@@ -14,6 +15,8 @@ import { ReactRouterProps } from '../../typings/interfaces';
 interface ILoginPageMappedProps {
   isAuthenticated: boolean;
   shouldRedirect: boolean;
+  loginError: string;
+  registerError: string;
 }
 
 interface ILoginPageMappedDispatch {
@@ -21,6 +24,8 @@ interface ILoginPageMappedDispatch {
   onRegister: (data: IUserRequestInfo) => void;
   onLogout: () => void;
   onCancelRedirect: () => void;
+  onClearLoginError: () => void;
+  onClearRegisterError: () => void;
 }
 
 type ILoginPageProps = ILoginPageMappedProps
@@ -37,6 +42,15 @@ export class LoginPageComponent extends React.PureComponent<ILoginPageProps, ILo
     if (this.props.shouldRedirect) {
       this.props.onCancelRedirect();
       this.props.history.push('/products');
+    }
+
+    if (this.props.loginError) {
+      notify.show(this.props.loginError, 'error', 6000);
+      this.props.onClearLoginError();
+    }
+    if (this.props.registerError) {
+      notify.show(this.props.registerError, 'error', 6000);
+      this.props.onClearRegisterError();
     }
   }
 
@@ -89,13 +103,17 @@ export class LoginPageComponent extends React.PureComponent<ILoginPageProps, ILo
 const mapStateToProps = createStructuredSelector<any, ILoginPageMappedProps>({
   isAuthenticated: isAuthenticatedSelector,
   shouldRedirect: shouldRedirectSelector,
-})
+  loginError: loginErrorSelector,
+  registerError: registerErrorSelector,
+});
 
 const mapDispatchToProps = {
   onLogin: loginRequest,
   onRegister: registerRequest,
   onLogout: logOut,
   onCancelRedirect: stopRedirectToProducts,
-}
+  onClearLoginError: clearLoginError,
+  onClearRegisterError: clearRegisterError,
+};
 
 export const LoginPage = connect(mapStateToProps, mapDispatchToProps)(LoginPageComponent);

@@ -21,3 +21,11 @@ export const shouldRedirectSelector = (state: IStore): boolean => {
 export const authTokenSelector = (state: IStore): string => {
   return state.auth.token.tokenId;
 }
+
+export const loginErrorSelector = (state: IStore): string => {
+  return state.auth.meta.loginError;
+}
+
+export const registerErrorSelector = (state: IStore): string => {
+  return state.auth.meta.registerError;
+}

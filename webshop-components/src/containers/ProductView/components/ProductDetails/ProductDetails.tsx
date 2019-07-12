@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { notify } from 'react-notify-toast';
 
 import { IProductDetailed } from '../../interfaces';
 import { ReactRouterProps } from '../../../../typings/interfaces';
@@ -57,7 +58,7 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
             <br/>
             <button
               className={`${globalStyles.Btn} ${globalStyles.BtnSuccess}`}
-              onClick={() => this.props.onAddProduct(id)}
+              onClick={this.handleAddProduct}
             >
               Add to Cart
             </button>
@@ -65,6 +66,11 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
         </div>
       </Aux>
     );
+  }
+
+  private handleAddProduct = () => {
+    notify.show(`Added ${this.props.product.basic.name} to cart!`, 'success', 1000);
+    this.props.onAddProduct(this.props.product.basic.id);
   }
 
   private goToShopPage = () => {

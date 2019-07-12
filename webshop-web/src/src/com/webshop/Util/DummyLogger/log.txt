@@ -3102,3 +3102,355 @@ bfb29538-76cf-469b-8e55-9462aadd0667
 [DB REPO] user id: 23
 ****************************************************
 {"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:fe8d1ba4-fc02-4641-afe9-a93c3a8e938a
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+fe8d1ba4-fc02-4641-afe9-a93c3a8e938a
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:311d83c4-e2d6-43b7-8da0-f6f3455429b9
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+311d83c4-e2d6-43b7-8da0-f6f3455429b9
+****************************************************
+[DB REPO] user uuid: b97e6efa-9e20-4eca-80e2-ccd5a76fb913
+****************************************************
+[DB REPO] user id: 23
+****************************************************
+{"receipts":[{"username":"bruddochm@bloglines.com","basic":{"id":2,"number":"694839145-1","creditCard":true,"purchaseDate":"2018-05-31 13:39:47.0","totalProducts":7,"amount":1495.53},"items":[{"id":2,"receiptId":2,"productId":4,"productName":"Citadels","productUrl":"https://picsum.photos/id/24/250/250","productPrice":379.99,"amount":2},{"id":52,"receiptId":2,"productId":37,"productName":"Witcher","productUrl":"https://picsum.photos/id/37/250/250","productPrice":200.0,"amount":3},{"id":102,"receiptId":2,"productId":70,"productName":"Darth Vader coaters","productUrl":"https://picsum.photos/id/55/250/250","productPrice":97.77,"amount":1},{"id":127,"receiptId":2,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":11,"number":"140194018-8","creditCard":false,"purchaseDate":"2019-04-16 18:19:41.0","totalProducts":7,"amount":1320.51},"items":[{"id":11,"receiptId":11,"productId":15,"productName":"Scythe","productUrl":"https://picsum.photos/id/15/250/250","productPrice":379.99,"amount":3},{"id":61,"receiptId":11,"productId":99,"productName":"Dice D4 - blue","productUrl":"https://picsum.photos/id/61/250/250","productPrice":22.78,"amount":1},{"id":111,"receiptId":11,"productId":64,"productName":"Darth Vader notebook","productUrl":"https://picsum.photos/id/54/250/250","productPrice":59.99,"amount":2},{"id":136,"receiptId":11,"productId":88,"productName":"Card sleeves M - 100, blue","productUrl":"https://picsum.photos/id/60/250/250","productPrice":37.78,"amount":1}]},{"username":"bruddochm@bloglines.com","basic":{"id":17,"number":"718539208-X","creditCard":true,"purchaseDate":"2018-09-28 04:03:53.0","totalProducts":4,"amount":417.86},"items":[{"id":17,"receiptId":17,"productId":126,"productName":"Plastic cubes - S, yellow","productUrl":"https://picsum.photos/id/63/250/250","productPrice":49.99,"amount":1},{"id":67,"receiptId":17,"productId":40,"productName":"Go for Dummies","productUrl":"https://picsum.photos/id/40/250/250","productPrice":150.0,"amount":2},{"id":117,"receiptId":17,"productId":51,"productName":"GoT keychain - Stark","productUrl":"https://picsum.photos/id/51/250/250","productPrice":67.87,"amount":1}]}]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:ad90f0a9-dac4-4c0c-9ed8-0e581f01e4c5
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+ad90f0a9-dac4-4c0c-9ed8-0e581f01e4c5
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:ad90f0a9-dac4-4c0c-9ed8-0e581f01e4c5
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+ad90f0a9-dac4-4c0c-9ed8-0e581f01e4c5
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:873343b0-a39b-4cb6-92c1-fe8bd49ce7fa
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+873343b0-a39b-4cb6-92c1-fe8bd49ce7fa
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:e7cdcbd6-6140-460a-9ff8-e64a4a545830
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+e7cdcbd6-6140-460a-9ff8-e64a4a545830
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:e7cdcbd6-6140-460a-9ff8-e64a4a545830
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+e7cdcbd6-6140-460a-9ff8-e64a4a545830
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:9560a346-017c-4837-a886-f14ee2530988
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+9560a346-017c-4837-a886-f14ee2530988
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:680eed46-eb58-4517-96f1-64d80cee3a1e
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+680eed46-eb58-4517-96f1-64d80cee3a1e
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:680eed46-eb58-4517-96f1-64d80cee3a1e
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+680eed46-eb58-4517-96f1-64d80cee3a1e
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}
+****************************************************
+[RECEIPT SERVLET]
+****************************************************
+host localhost:8080
+****************************************************
+connection keep-alive
+****************************************************
+pragma no-cache
+****************************************************
+cache-control no-cache
+****************************************************
+accept application/json, text/plain, */*
+****************************************************
+origin http://localhost:3000
+****************************************************
+authorization Bearer:680eed46-eb58-4517-96f1-64d80cee3a1e
+****************************************************
+user-agent Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+****************************************************
+referer http://localhost:3000/profile
+****************************************************
+accept-encoding gzip, deflate, br
+****************************************************
+accept-language en-GB,en-US;q=0.9,en;q=0.8
+****************************************************
+680eed46-eb58-4517-96f1-64d80cee3a1e
+****************************************************
+[DB REPO] user uuid: 8c9ffd8f-34ae-400c-b7a0-787c65de9e1b
+****************************************************
+[DB REPO] user id: 29
+****************************************************
+{"receipts":[]}

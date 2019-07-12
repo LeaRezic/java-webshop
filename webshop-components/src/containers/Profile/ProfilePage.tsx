@@ -6,7 +6,7 @@ import { authTokenSelector } from '../Auth/state/selectors';
 import { purchaseHistoryRequest } from './state/actions';
 import { connect } from 'react-redux';
 import { IReceiptDetailed } from './interfaces';
-import { receiptsSelector } from './state/selectors';
+import { receiptsSelector, loadingHistorySelector, historyLoadedSelector } from './state/selectors';
 import { PurchaseHistory } from './components/PurchaseHistory/PurchaseHistory';
 import { Modal } from '../../components/Modal/Modal';
 import { Aux } from '../../hoc/Aux/Aux';
@@ -16,6 +16,8 @@ import styles from './ProfilePage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
 
 interface IProfilePageMappedProps {
+  isLoadingHistory: boolean;
+  isHistoryLoaded: boolean;
   authToken: string;
   purchaseHistory: IReceiptDetailed[];
 }
@@ -50,7 +52,12 @@ export class ProfilePageComponent extends React.PureComponent<IProfilePageProps,
           {this.state.shouldDisplayHistory ? 'REFRESH PURCHASE HISTORY' : 'FETCH PURCHASE HISTORY'}
         </button>
         {this.state.shouldDisplayHistory
-          ? <PurchaseHistory onViewItems={this.handleViewItems} receipts={this.props.purchaseHistory} />
+          ? <PurchaseHistory
+              isLoadingData={this.props.isLoadingHistory}
+              isDataLoaded={this.props.isHistoryLoaded}
+              onViewItems={this.handleViewItems}
+              receipts={this.props.purchaseHistory}
+            />
           : null}
       </div>;
     return (
@@ -83,6 +90,8 @@ export class ProfilePageComponent extends React.PureComponent<IProfilePageProps,
 const mapStateToProps = createStructuredSelector<any, IProfilePageMappedProps>({
   authToken: authTokenSelector,
   purchaseHistory: receiptsSelector,
+  isLoadingHistory: loadingHistorySelector,
+  isHistoryLoaded: historyLoadedSelector,
 })
 
 const mapDispatchToProps = {

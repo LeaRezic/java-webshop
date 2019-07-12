@@ -1,5 +1,6 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import axios from 'axios';
+import { notify } from 'react-notify-toast';
 
 import { AuthActionTypes, loginSuccess, loginFailure, loginRequest, registerRequest, logOut } from './actions';
 
@@ -20,14 +21,9 @@ function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>
         }
       }
     );
-    console.log(response.data.token);
-    if (response.data.error) {
-      yield put(loginFailure(response.data.error));
-      return;
-    }
     yield put(loginSuccess(response.data.token));
   } catch (error) {
-    yield put(loginFailure(error.message));
+    yield put(loginFailure(error.response.data.error));
   }
 }
 
@@ -48,13 +44,9 @@ function* registerRequestIntercept(action: Readonly<ReturnType<typeof registerRe
         }
       }
     );
-    console.log(response.data.token);
-    if (response.data.error) {
-      yield put(loginFailure(response.data.error));
-      return;
-    }
+    notify.show(`Created user ${action.data.username}.`, 'success', 2000);
     yield put(loginSuccess(response.data.token));
   } catch (error) {
-    yield put(loginFailure(error.message));
+    yield put(loginFailure(error.response.data.error));
   }
 }

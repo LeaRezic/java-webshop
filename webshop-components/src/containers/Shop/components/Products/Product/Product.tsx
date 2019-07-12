@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { notify } from 'react-notify-toast';
 
 import { IProduct } from '../../../interfaces';
 import { getFormattedCurrency } from '../../../../../utils/currencyUtil';
@@ -52,13 +53,18 @@ export class Product extends React.PureComponent<IProductProps & ReactRouterProp
           </button>
           <button
             className={`${globalStyles.BtnSmall} ${globalStyles.BtnSuccess} ${hoverOnProduct ? globalStyles.BtnSuccessActive : globalStyles.BtnSucceess}`}
-            onClick={() => this.props.onAddProduct(this.props.product.id)}
+            onClick={this.handleAddProduct}
           >
             Add to Cart
         </button>
         </div>
       </div>
     );
+  }
+
+  private handleAddProduct = () => {
+    notify.show(`Added ${this.props.product.name} to cart!`, 'success', 1000);
+    this.props.onAddProduct(this.props.product.id);
   }
 
   private goToProductPage = () => {

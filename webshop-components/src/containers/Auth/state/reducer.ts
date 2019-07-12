@@ -1,5 +1,6 @@
 import { IAuthState, IAuthToken } from '../interfaces';
 import { AuthActions, AuthActionTypes } from './actions';
+import { statement } from '@babel/template';
 
 const initialState: IAuthState = {
   token: {
@@ -119,6 +120,26 @@ const stopRedirectToProducts = (state: IAuthState) => {
   }
 }
 
+const clearLoginErr = (state: IAuthState) => {
+  return {
+    ...state,
+      meta: {
+        ...state.meta,
+        loginError: '',
+      }
+  }
+}
+
+const clearRegisterErr = (state: IAuthState) => {
+  return {
+    ...state,
+    meta: {
+      ...state.meta,
+      registerError: '',
+    }
+  }
+}
+
 export const authReducer = (state: IAuthState = initialState, action: AuthActions): IAuthState => {
   switch (action.type) {
     case AuthActionTypes.LOG_IN_REQUEST: return loginRequest(state);
@@ -129,6 +150,8 @@ export const authReducer = (state: IAuthState = initialState, action: AuthAction
     case AuthActionTypes.REGISTER_SUCCESS: return registerSuccess(state, action.data!);
     case AuthActionTypes.REGISTER_FAILURE: return registerFailure(state, action.data!);
     case AuthActionTypes.STOP_REDIRECT_TO_PRODUCTS: return stopRedirectToProducts(state);
+    case AuthActionTypes.CLEAR_LOGIN_ERROR: return clearLoginErr(state);
+    case AuthActionTypes.CLEAR_REGISTER_ERROR: return clearRegisterErr(state);
     default: return state;
   }
 };
