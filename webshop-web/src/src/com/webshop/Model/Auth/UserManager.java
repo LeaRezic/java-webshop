@@ -10,14 +10,6 @@ import java.util.UUID;
 
 public class UserManager {
 
-    /*
-    * find user by id
-    * find user by uuid
-    * create new user, return uuid
-    * find user by email and password
-    * validate password
-    * */
-
     private static Repository repo = RepositoryFactory.getRepo();
 
     public static boolean validatePassword(String username, String password) {

@@ -29,8 +29,7 @@ public class ReceiptServlet extends BaseServlet {
         String authToken = super.getRequestAuthHeader(request);
         LoggerUtil.log(authToken);
         try {
-            boolean isValid = AuthTokenManager.tokenValid(authToken);
-            if (!isValid) {
+            if (!AuthTokenManager.tokenValid(authToken)) {
                 super.sendErrorResponse(
                         response,
                         HttpServletResponse.SC_UNAUTHORIZED,

@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { ICategory } from '../../interfaces';
 import { CategoryFilter } from './CategoryFilter/CategoryFilter';
+import { SubcategoryFilter } from './SubcategoryFilter/SubcategoryFilter';
 
 import styles from './Filters.module.css';
-import { SubcategoryFilter } from './SubcategoryFilter/SubcategoryFilter';
 
 interface IFilters {
   filterList: ICategory[];
@@ -31,7 +30,7 @@ export class Filters extends React.Component<IFilters> {
           onChangeCategoryId={this.props.onChangeCategoryId}
         />
         ))
-      : <Spinner />;
+      : null;
     return (
       <div className={styles.Filters}>
         <div>

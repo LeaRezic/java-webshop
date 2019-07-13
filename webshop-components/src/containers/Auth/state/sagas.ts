@@ -23,6 +23,10 @@ function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>
     );
     yield put(loginSuccess(response.data.token));
   } catch (error) {
+    if (typeof error.response === 'undefined') {
+      yield put(loginFailure(error.message));
+      return;
+    }
     yield put(loginFailure(error.response.data.error));
   }
 }
@@ -47,6 +51,10 @@ function* registerRequestIntercept(action: Readonly<ReturnType<typeof registerRe
     notify.show(`Created user ${action.data.username}.`, 'success', 2000);
     yield put(loginSuccess(response.data.token));
   } catch (error) {
+    if (typeof error.response === 'undefined') {
+      yield put(loginFailure(error.message));
+      return;
+    }
     yield put(loginFailure(error.response.data.error));
   }
 }

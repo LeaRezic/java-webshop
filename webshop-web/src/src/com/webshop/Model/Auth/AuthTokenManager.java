@@ -5,17 +5,9 @@ import src.com.webshop.Cache.AuthCacheFactory;
 import src.com.webshop.Util.DateUtil;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.UUID;
 
 public class AuthTokenManager {
-
-    /*
-    * create new token for existing user
-    * create new user, give it a token
-    * check if token exists
-    * get existing token
-    * */
 
     public static boolean validateCredentials(String username, String password) {
         return UserManager.validatePassword(username, password);
