@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: darkslateblue;
+  background-color: #30415D;
 }
 
 .ContentContainer {
@@ -25,14 +25,14 @@
 .LoginContainer {
   margin-top: 100px;
   padding: 50px;
-  width: 40%;
+  width: 45%;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1700px) {
   .BigDuckImg {
     width: 500px;
     height: 500px;
@@ -59,12 +59,8 @@
 
   .LoginContainer {
     width: 90%;
+    margin-top: 5px;
   }
-}
-
-.WelcomeText {
-  color: white;
-  font-size: 2rem;
 }
 
 .LogOutBtn {

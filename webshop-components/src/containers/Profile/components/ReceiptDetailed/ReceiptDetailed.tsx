@@ -34,14 +34,14 @@ export class ReceiptDetailed extends React.PureComponent<IReceiptDetailedProps> 
     const { receipt } = this.props;
     return (
       <div className={styles.Container}>
-        <div className={globalStyles.TextGrayBold}>Receipt Number {receipt.basic.number}</div>
+        <div className={globalStyles.GrimzonBoldUppercase}>Receipt Number {receipt.basic.number}</div>
         <hr/>
         <div><span className={globalStyles.TextLightGray}>Purchase Date: </span>{receipt.basic.purchaseDate}</div>
         <div><span className={globalStyles.TextLightGray}>Price Paid: </span>{getFormattedCurrency(receipt.basic.amount)}</div>
         <div><span className={globalStyles.TextLightGray}>Number of Products: </span>{receipt.basic.totalProducts}</div>
         <br/>
         <div>
-          <span className={globalStyles.TextGrayBold}>Items</span>
+          <span className={globalStyles.GrimzonBoldUppercase}>Items</span>
           <hr />
           <div>
             {receipt.items.map((item) => ( <ReceiptItem key={item.id} {...item} /> ))}

@@ -1,10 +1,6 @@
 .ProductContainer {
-  /* background: url('../../../../assets/img/logo.png') repeat; */
   display: flex;
   margin-top: 50px;
-  border: 2px solid rgb(11, 24, 37);
-  background-color: rgb(145, 163, 163);
-  border-radius: 10px;
   padding: 50px;
 }
 
@@ -20,4 +16,16 @@
   font-size: 2rem;
   color: teal;
   text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  .ProductText {
+    margin-bottom: 20px;
+    padding-left: 0;
+  }
+  .ProductContainer {
+    padding: 5px;
+    margin-top: 5px;
+    flex-direction: column-reverse;
+  }
 }

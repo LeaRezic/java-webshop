@@ -16,7 +16,13 @@ export class Products extends React.Component<IProducts & ReactRouterProps> {
   public render() {
     const { productList } = this.props;
     const displayProducts = productList.length
-      ? productList.map((prod) => (<Product product={prod} key={prod.id} onAddProduct={this.props.onAddProduct} {...this.props} />))
+      ? productList.map((prod) =>
+          (<Product
+            product={prod}
+            key={prod.id}
+            onAddProduct={this.props.onAddProduct}
+            {...this.props}
+          />))
       : <Spinner />;
     return (
       <div className={styles.Products}>

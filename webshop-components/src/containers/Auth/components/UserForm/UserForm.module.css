@@ -20,3 +20,13 @@
   margin: 20px;
   text-align: left;
 }
+
+.BtnSubmit {
+  width: 200px;
+  margin-top: 10px;
+}
+
+.ErrorText {
+  margin: 2px 0;
+  color: #CF6766;
+}

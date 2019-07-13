@@ -45,7 +45,7 @@ export class UserForm extends React.PureComponent<IUserFormProps, IUserFormState
     return(
       <form>
         <div className={styles.Container}>
-          <span className={globalStyles.TextPurpleLightBig}>{this.props.formTitle}</span>
+          <span className={globalStyles.CrimzonBigUppercase}>{this.props.formTitle}</span>
           <input
             placeholder='e-mail'
             className={styles.InputField}
@@ -53,7 +53,7 @@ export class UserForm extends React.PureComponent<IUserFormProps, IUserFormState
             onChange={(event) => this.handleUsernameChange(event)}
           />
           { this.state.username.error !== null
-              ? <p>{this.state.username.error}</p>
+              ? <p className={styles.ErrorText}>{this.state.username.error}</p>
               : null }
           <input
             placeholder='password'
@@ -62,12 +62,12 @@ export class UserForm extends React.PureComponent<IUserFormProps, IUserFormState
             onChange={(event) => this.handlePasswordChange(event)}
           />
           { this.state.password.error !== null
-            ? <p>{this.state.password.error}</p>
+            ? <p className={styles.ErrorText}>{this.state.password.error}</p>
             : null }
           <button
             disabled={this.checkIfSubmitDisabled()}
             onClick={(e) => this.handleSubmit(e)}
-            className={classNames(globalStyles.Btn, globalStyles.BtnSubtle)}
+            className={classNames(globalStyles.Btn, globalStyles.BtnSuccessSubtle, styles.BtnSubmit)}
           >
             {this.props.btnText}
           </button>

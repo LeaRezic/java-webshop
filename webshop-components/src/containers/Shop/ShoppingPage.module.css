@@ -1,9 +1,60 @@
+.ProductsWithFilters {
+  margin-bottom: 75px;
+  margin-left: 10px;
+  margin-right: auto;
+  width: 100%;
+  display: flex;
+}
+
 .FiltersContainer {
-  width: 15%;
+  display: none;
+  margin-top: 20px;
+  margin-left: 30px;
 }
 
 .ProductsContainer {
-  width: 85%;
+  width: 100%;
+}
+
+.FiltersBtn {
+  display: none;
+}
+
+@media (max-width: 799px) {
+  .FiltersBtn {
+    display: block;
+    position: relative;
+    left: 30px;
+    top: -20px;
+  }
+}
+
+@media (min-width: 800px) {
+  .FiltersContainer {
+    width: 35%;
+    display: block;
+  }
+  .ProductsContainer {
+    width: 65%;
+  }
+}
+
+@media (min-width: 940px) {
+  .FiltersContainer {
+    width: 20%;
+  }
+  .ProductsContainer {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1250px) {
+  .FiltersContainer {
+    width: 15%;
+  }
+  .ProductsContainer {
+    width: 85%;
+  }
 }
 
 .CartContainer {
@@ -11,11 +62,26 @@
   position: fixed;
   right: 0;
   top: 120px;
-  /* background-color: rgba(43, 31, 77, 0.98); */
   background-color: rgb(36, 36, 36);
   padding: 30px 15px 15px 30px;
   max-height: 600px;
   overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .CartContainer {
+    padding: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .CartContainer {
+    padding: 3px;
+    max-height: 380px;
+    overflow-y: auto;
+  }
 }
 
 .Visible {
@@ -29,23 +95,13 @@
   right: 0;
   font-size: 20px;
   cursor: pointer;
-  /* border: 2px solid rgba(43, 31, 77, 0.98); */
   border: 2px solid rgb(36, 36, 36);
-  /* background: rgba(43, 31, 77, 0.98); */
   background: rgb(36, 36, 36);
   color: rgb(0, 192, 192);
 }
+
 .CartBtn:focus {
   outline: none;
-}
-
-.ProductsWithFilters {
-  margin-top: 100px;
-  margin-bottom: 75px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  display: flex;
 }
 
 .CartIcon {

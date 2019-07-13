@@ -1,21 +1,33 @@
-.TextGrayBold {
+/*
+#CF6766
+#30415D
+#031424
+#8EAEBD
+#214455
+#644E5B
+#9E5A63
+#C96567
+#97AABD
+*/
+
+.GrimzonBoldUppercase {
   font-size: 1rem;
   font-weight: bold;
-  color: rgb(51, 43, 102);
+  color: #9E5A63;
   text-transform: uppercase;
 }
 
-.TextPurpleLight {
+.GrimzonBold {
   font-size: 1rem;
   font-weight: bold;
-  color: rgb(150, 137, 235);
+  color: #CF6766;
 }
 
-.TextPurpleLightBig {
+.CrimzonBigUppercase {
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: rgb(150, 137, 235);
+  color: #C96567;
 }
 
 .TextTealLight {
@@ -83,15 +95,15 @@
 }
 
 .BtnInfo {
-  border-color: rgb(51, 43, 102);
-  color: rgb(51, 43, 102)
+  border-color: #C96567;
+  color: #C96567
 }
 .BtnInfo:hover {
-  background: rgb(51, 43, 102);
+  background: #C96567;
   color: white;
 }
 .BtnInfoActive {
-  background: rgb(51, 43, 102);
+  background: #C96567;
   color: white;
 }
 
@@ -105,14 +117,14 @@
 }
 
 .BtnSubtle {
-  background-color: rgb(150, 137, 235);
-  border-color: rgb(150, 137, 235);
-  color: rgb(88, 21, 143);
+  background-color: #644E5B;
+  border-color: #644E5B;
+  color: #C96567;
 }
 .BtnSubtle:hover {
-  background-color: rgb(166, 156, 228);
-  border-color: rgb(166, 156, 228);
-  color: rgb(88, 21, 143);
+  background-color: #9E5A63;
+  border-color: #9E5A63;
+  color: #C96567;
 }
 
 .BtnSuccessSubtle {

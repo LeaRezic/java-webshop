@@ -46,8 +46,8 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
         <div className={styles.DetailsContainer}>
           <div className={`${styles.Title} ${hoverOnDelete ? styles.Strike : ''}`}>{name}</div>
           <br/>
-          <div><span className={`${globalStyles.TextPurpleLight} ${hoverOnDelete ? styles.Strike : ''}`}>Base Price: {getFormattedCurrency(price)}</span></div>
-          <div><span className={`${globalStyles.TextPurpleLight} ${hoverOnDelete ? styles.Strike : ''}`}>Amount: {this.getQuantity(this.props.item.quantity)}</span></div>
+          <div><span className={`${globalStyles.GrimzonBold} ${hoverOnDelete ? styles.Strike : ''}`}>Base Price: {getFormattedCurrency(price)}</span></div>
+          <div><span className={`${globalStyles.GrimzonBold} ${hoverOnDelete ? styles.Strike : ''}`}>Amount: {this.getQuantity(this.props.item.quantity)}</span></div>
           <br/>
           <div className={styles.QuantityBtnsContainer}>
             <button

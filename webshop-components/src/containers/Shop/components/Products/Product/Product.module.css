@@ -1,53 +1,74 @@
 .Product {
-  width: 250px;
-  height: 470px;
+  padding: 10px;
+  width: 200px;
+  height: 385px;
   border: 1px solid #ccc;
   text-align: center;
-  margin: 15px;
-  position: relative;
-}
-
-.HoverProduct {
-  border: 1px solid teal;
+  margin: 15px 5px 5px 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .ProductDetails {
-  width: 90%;
-  padding: 5px;
+  width: 100%;
+  margin: 0 auto;
+  height: 180px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .Title {
-  height: 30px;
+  margin-top: 2px;
+  margin-bottom: 0;
 }
 
 .Description {
-  height: 50px;
   width: 90%;
   text-align: justify;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px;
   font-size: 0.8rem;
-}
-
-.Price {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.ImageHolder {
-  width: 250px;
-  height: 250px;
-}
-
-.Cover {
-  width: 100%;
-  height: 100%;
-  background-color: teal;
 }
 
 .ButtonsContainer {
   display: flex;
   justify-content: space-evenly;
+}
+
+@media (max-width: 800px) {
+  .Product {
+    flex-direction: row;
+    padding: 10px;
+    width: 90%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Product {
+    flex-direction: row;
+    padding: 10px;
+    width: 80%;
+    height: 200px;
+  }
+  .Description {
+    display: none;
+  }
+  .ButtonsContainer {
+    height: 80px;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .Image {
+    display: none;
+  }
+  .Description {
+    display: block;
+  }
 }

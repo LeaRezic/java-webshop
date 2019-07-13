@@ -70,7 +70,7 @@ export class LoginPageComponent extends React.PureComponent<ILoginPageProps, ILo
               this.props.isAuthenticated
               ? (
                   <div>
-                    <div className={globalStyles.TextPurpleLightBig}>COME BACK SOON</div>
+                    <div className={globalStyles.CrimzonBigUppercase}>COME BACK SOON</div>
                     <button
                       onClick={(e) => this.handleLogout(e)}
                       className={classNames(globalStyles.Btn, globalStyles.BtnSubtle, styles.LogOutBtn)}

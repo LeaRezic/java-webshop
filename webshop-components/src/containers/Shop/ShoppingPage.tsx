@@ -33,14 +33,17 @@ import { Filters } from './components/Filters/Filters';
 
 import styles from './ShoppingPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
+import { Modal } from '../../components/Modal/Modal';
 
 interface IShoppingPageState {
   isCartOpen: boolean;
+  showFiltersPopup: boolean;
 }
 
 export class ShoppingComponent extends React.Component<IShoppingPageProps, IShoppingPageState> {
   public state = {
     isCartOpen: false,
+    showFiltersPopup: false,
   };
 
   public componentDidMount() {
@@ -49,18 +52,25 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
   }
 
   public render() {
+    const filters = <Filters
+      chosenCategoryId={this.props.chosenCategoryId}
+      chosenSubcategoryIds={this.props.chosenSubcategoryIds}
+      filterList={this.props.categories}
+      onChangeCategoryId={this.props.onChangeCategoryId}
+      onAddSubcategories={this.props.onAddSubcategories}
+      onRemoveSubcategories={this.props.onRemoveSubcategories}
+    />;
     return(
       <Aux>
+        <button
+          className={classNames(styles.FiltersBtn, globalStyles.Btn, globalStyles.BtnSuccessSubtle)}
+          onClick={this.handleFiltersClick}
+        >
+          SET FILTERS
+        </button>
         <div className={styles.ProductsWithFilters}>
           <div className={styles.FiltersContainer}>
-            <Filters
-              chosenCategoryId={this.props.chosenCategoryId}
-              chosenSubcategoryIds={this.props.chosenSubcategoryIds}
-              filterList={this.props.categories}
-              onChangeCategoryId={this.props.onChangeCategoryId}
-              onAddSubcategories={this.props.onAddSubcategories}
-              onRemoveSubcategories={this.props.onRemoveSubcategories}
-            />
+            {filters}
           </div>
           <div className={styles.ProductsContainer}>
             <Products
@@ -91,8 +101,21 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
             CHECKOUT
           </button>
         </div>
+        { this.state.showFiltersPopup
+          ? <Modal show={this.state.showFiltersPopup} onModalClosed={this.handleClosePopup} >
+              {filters}
+            </Modal>
+          : null }
       </Aux>
     );
+  }
+
+  private handleFiltersClick = () => {
+    this.setState({ showFiltersPopup: true });
+  }
+
+  private handleClosePopup = () => {
+    this.setState({ showFiltersPopup: false });
   }
 
   private handleCartClick = () => {

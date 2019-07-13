@@ -38,4 +38,7 @@
   .DesktopOnly {
     display: none;
   }
+  .Title {
+    display: none;
+  }
 }

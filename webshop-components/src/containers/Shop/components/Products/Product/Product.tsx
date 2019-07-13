@@ -8,6 +8,7 @@ import { ReactRouterProps } from '../../../../../typings/interfaces';
 
 import styles from './Product.module.css';
 import globalStyles from '../../../../../style/GlobalStyle.module.css';
+import { getDesiredDimensionsPic } from '../../../../../utils/pictureUtil';
 
 export interface IProductProps {
   product: IProduct;
@@ -42,27 +43,25 @@ export class Product extends React.PureComponent<IProductProps & ReactRouterProp
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
-        <div className={styles.ImageHolder}>
-          <img className={styles.Image} src={pictureUrl} />
-        </div>
+        <img className={styles.Image} src={getDesiredDimensionsPic(pictureUrl, 200)} />
         <div className={styles.ProductDetails}>
           <h3 className={styles.Title}>{name}</h3>
           <div className={styles.Description}>{this.getLimitedDescription(description)}</div>
-        </div>
-        <div className={styles.Price}>{getFormattedCurrency(price)}</div>
-        <div className={styles.ButtonsContainer}>
-          <button
-            onClick={() => this.goToProductPage()}
-            className={`${globalStyles.BtnSmall} ${globalStyles.BtnInfo} ${hoverOnProduct ? globalStyles.BtnInfoActive : globalStyles.BtnInfo}`}
-          >
-            Read More
-          </button>
-          <button
-            className={`${globalStyles.BtnSmall} ${globalStyles.BtnSuccess} ${hoverOnProduct ? globalStyles.BtnSuccessActive : globalStyles.BtnSucceess}`}
-            onClick={this.handleAddProduct}
-          >
-            Add to Cart
-        </button>
+          <div className={styles.Price}>{getFormattedCurrency(price)}</div>
+          <div className={styles.ButtonsContainer}>
+            <button
+              onClick={() => this.goToProductPage()}
+              className={`${globalStyles.BtnSmall} ${globalStyles.BtnInfo} ${hoverOnProduct ? globalStyles.BtnInfoActive : globalStyles.BtnInfo}`}
+            >
+              Read More
+            </button>
+            <button
+              className={`${globalStyles.BtnSmall} ${globalStyles.BtnSuccess} ${hoverOnProduct ? globalStyles.BtnSuccessActive : globalStyles.BtnSucceess}`}
+              onClick={this.handleAddProduct}
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     );

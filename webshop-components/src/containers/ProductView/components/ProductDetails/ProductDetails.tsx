@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { notify } from 'react-notify-toast';
+import classNames from 'classnames';
 
 import { IProductDetailed } from '../../interfaces';
 import { ReactRouterProps } from '../../../../typings/interfaces';
@@ -26,7 +27,6 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
 
   public render() {
     const {
-      id,
       name,
       description,
       pictureUrl,
@@ -40,27 +40,28 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
       <Aux>
         <button
           onClick={() => this.goToShopPage()}
-          className={`${globalStyles.Btn} ${globalStyles.BtnSubtle}`}
+          className={classNames(globalStyles.Btn, globalStyles.BtnInfo)}
         >
           BACK TO SHOPPING
         </button>
         <div className={styles.ProductContainer}>
-          <div className={styles.ProductPicture}>
-            <div>
-              <img src={getDesiredDimensionsPic(pictureUrl, 400)} />
-            </div>
-          </div>
+          <img className={styles.Img} src={getDesiredDimensionsPic(pictureUrl, 400)} />
           <div className={styles.ProductText}>
             <h3 className={styles.PrductTitle}>{name}</h3>
-            <div><span className={globalStyles.TextGrayBold}>Description<br/></span><span>{description}</span></div>
+            <div className={globalStyles.GrimzonBoldUppercase}>Description</div>
+            <div>{description}</div>
             <br/>
-            <div><span className={globalStyles.TextGrayBold}>Subcategory: </span><span>{subcategoryName}</span></div>
+            <div className={globalStyles.GrimzonBoldUppercase}>Subcategory</div>
+            <div>{subcategoryName}</div>
             <br/>
-            <div><span className={globalStyles.TextGrayBold}>Price: </span><span>{getFormattedCurrency(price)}</span></div>
+            <div className={globalStyles.GrimzonBoldUppercase}>Price</div>
+            <div>{getFormattedCurrency(price)}</div>
             <br/>
-            <div><span className={globalStyles.TextGrayBold}>Manufacturer: </span><span>{manufacturerName}</span></div>
+            <div className={globalStyles.GrimzonBoldUppercase}>Manufacturer</div>
+            <div>{manufacturerName}</div>
             <br/>
-            <div><span className={globalStyles.TextGrayBold}>Read more: </span>{this.getLink()}</div>
+            <div className={globalStyles.GrimzonBoldUppercase}>Read more</div>
+            <div>{this.getLink()}</div>
             <br/>
             <button
               className={`${globalStyles.Btn} ${globalStyles.BtnSuccessSubtle}`}
