@@ -11,13 +11,14 @@ export function* watchLoginRequest() {
 function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>>) {
   try {
     const { username, password } = action.data!;
+    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/login`);
     const response = yield axios.post(
-      'http://localhost:8080/webshop_web_war_exploded/login',
+      ulr,
       JSON.stringify({ username: username, password: password }),
       {
         method: 'post',
         headers: {
-        'Content-Type': 'application/json; charset=UTF-8'
+        'Content-Type': 'text/plain; charset=UTF-8'
         }
       }
     );
@@ -38,8 +39,9 @@ export function* watchRegisterRequest() {
 function* registerRequestIntercept(action: Readonly<ReturnType<typeof registerRequest>>) {
   try {
     const { username, password } = action.data!;
+    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/register`);
     const response = yield axios.post(
-      'http://localhost:8080/webshop_web_war_exploded/register',
+      ulr,
       JSON.stringify({ username: username, password: password }),
       {
         method: 'post',

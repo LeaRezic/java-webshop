@@ -23,8 +23,8 @@ public class BaseServlet extends HttpServlet {
     }
 
     protected void setAccessControlHeaders(HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        resp.setHeader("Access-Control-Allow-Methods", "GET, POST");
+        resp.setHeader("Access-Control-Allow-Origin", "http://learezic.from.hr");
+        resp.setHeader("Access-Control-Allow-Methods", "POST");
         resp.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
     }
 

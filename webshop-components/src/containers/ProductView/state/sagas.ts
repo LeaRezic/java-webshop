@@ -15,7 +15,8 @@ export function* watchFetchProduct() {
 function* fetchProductData(action: Readonly<ReturnType<typeof fetchProduct>>) {
   try {
     const id = action.data;
-    const response = yield axios.get(`http://localhost:8080/webshop_web_war_exploded/product/${id}`, { responseType: 'json' });
+    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/product/${id}`);
+    const response = yield axios.get(ulr, { responseType: 'json' });
     yield put(fetchProductSuccess(response.data.product));
   } catch (error) {
     yield put(fetchProductFailure(error.message));

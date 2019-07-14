@@ -9,7 +9,8 @@ export function * watchFetchProducts() {
 
 function * fetchProductsData(action: Readonly<ReturnType<typeof fetchProducts>>) {
   try {
-    const response = yield axios.get('http://localhost:8080/webshop_web_war_exploded/product', { responseType: 'json' });
+    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/product`);
+    const response = yield axios.get(ulr, { responseType: 'json' });
     yield put(fetchProductsSuccess(response.data.products));
   } catch (error) {
     yield put(fetchProductsFailure(error.message));
@@ -22,7 +23,8 @@ export function* watchFetchCategories() {
 
 function* fetchCategoriesData(action: Readonly<ReturnType<typeof fetchProducts>>) {
   try {
-    const response = yield axios.get('http://localhost:8080/webshop_web_war_exploded/category', { responseType: 'json' });
+    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/category`);
+    const response = yield axios.get(ulr, { responseType: 'json' });
     yield put(fetchCategoriesSuccess(response.data.categories));
   } catch (error) {
     yield put(fetchCategoriesFailure(error.message));

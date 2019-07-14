@@ -10,8 +10,9 @@ export function* watchPurchaseHistoryRequest() {
 function* purchaseHistoryRequestIntercept(action: Readonly<ReturnType<typeof purchaseHistoryRequest>>) {
   try {
     const tokenId = action.data!;
+    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/receipt`);
     const response = yield axios.get(
-      'http://localhost:8080/webshop_web_war_exploded/receipt',
+      ulr,
       {
         method: 'get',
         headers: {
@@ -38,8 +39,9 @@ export function* watchProfileDetailsRequest() {
 function* profileDetilsRequestIntercept(action: Readonly<ReturnType<typeof profileDetailsRequest>>) {
   try {
     const tokenId = action.data!;
+    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/profile`);
     const response = yield axios.get(
-      'http://localhost:8080/webshop_web_war_exploded/profile',
+      ulr,
       {
         headers: {
           'Content-Type': 'text/plain; charset=UTF-8',

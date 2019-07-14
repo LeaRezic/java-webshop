@@ -2,3 +2,4 @@
 out/
 lib/
 web/WEB-INF/lib/
+src/META-INF/persistence.xml
