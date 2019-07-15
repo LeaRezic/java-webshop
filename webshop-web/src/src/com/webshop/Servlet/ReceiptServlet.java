@@ -25,9 +25,7 @@ public class ReceiptServlet extends BaseServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.setAccessControlHeaders(response);
-        LoggerUtil.log("[RECEIPT SERVLET]");
         String authToken = super.getRequestAuthHeader(request);
-        LoggerUtil.log(authToken);
         try {
             if (!AuthTokenManager.tokenValid(authToken)) {
                 super.sendErrorResponse(
@@ -48,8 +46,6 @@ public class ReceiptServlet extends BaseServlet {
         AuthTokenServer serverToken = AuthTokenManager.getExistingServerToken(authToken);
         List<ReceiptDetailedVM> receipts = ReceiptManager.getReceiptsDetailed(serverToken.getUserUuid());
         AuthTokenManager.updateExpireDate(authToken);
-        JsonObject obj = JsonUtil.getJsonArray(receipts, "receipts");
-        LoggerUtil.log(JsonUtil.getJsonString(obj));
         super.printJsonResponse(response, JsonUtil.getJsonArray(receipts, "receipts"));
     }
 

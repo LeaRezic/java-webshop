@@ -1,7 +1,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import axios from 'axios';
 import { notify } from 'react-notify-toast';
 
+import { instance } from '../../../utils/axios';
 import { AuthActionTypes, loginSuccess, loginFailure, loginRequest, registerRequest, logOut } from './actions';
 
 export function* watchLoginRequest() {
@@ -11,8 +11,8 @@ export function* watchLoginRequest() {
 function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>>) {
   try {
     const { username, password } = action.data!;
-    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/login`);
-    const response = yield axios.post(
+    const ulr = '/login';
+    const response = yield instance.post(
       ulr,
       JSON.stringify({ username: username, password: password }),
       {
@@ -39,8 +39,8 @@ export function* watchRegisterRequest() {
 function* registerRequestIntercept(action: Readonly<ReturnType<typeof registerRequest>>) {
   try {
     const { username, password } = action.data!;
-    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/register`);
-    const response = yield axios.post(
+    const ulr = encodeURI(`/register`);
+    const response = yield instance.post(
       ulr,
       JSON.stringify({ username: username, password: password }),
       {

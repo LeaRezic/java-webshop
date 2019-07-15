@@ -45,4 +45,12 @@
         <url-pattern>/receipt</url-pattern>
         <url-pattern>/receipt/*</url-pattern>
     </servlet-mapping>
+    <context-param>
+        <param-name>localAllowOrigin</param-name>
+        <param-value>http://localhost:3000</param-value>
+    </context-param>
+    <context-param>
+        <param-name>remoteAllowOrigin</param-name>
+        <param-value>https://learezic.from.hr</param-value>
+    </context-param>
 </web-app>

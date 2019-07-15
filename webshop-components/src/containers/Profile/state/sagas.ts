@@ -1,5 +1,6 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import axios from 'axios';
+import { instance } from '../../../utils/axios';
+
 
 import { ProfileActionTypes, purchaseHistoryRequest, purchaseHistorySuccess, purchaseHistoryFailure, profileDetailsRequest, profileDetailsFailure, profileDetailsSuccess } from './actions';
 
@@ -10,8 +11,8 @@ export function* watchPurchaseHistoryRequest() {
 function* purchaseHistoryRequestIntercept(action: Readonly<ReturnType<typeof purchaseHistoryRequest>>) {
   try {
     const tokenId = action.data!;
-    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/receipt`);
-    const response = yield axios.get(
+    const ulr = encodeURI(`/receipt`);
+    const response = yield instance.get(
       ulr,
       {
         method: 'get',
@@ -39,8 +40,8 @@ export function* watchProfileDetailsRequest() {
 function* profileDetilsRequestIntercept(action: Readonly<ReturnType<typeof profileDetailsRequest>>) {
   try {
     const tokenId = action.data!;
-    const ulr = encodeURI(`http://learezic.from.hr:8080/webshop-web_war exploded/profile`);
-    const response = yield axios.get(
+    const ulr = encodeURI(`/profile`);
+    const response = yield instance.get(
       ulr,
       {
         headers: {

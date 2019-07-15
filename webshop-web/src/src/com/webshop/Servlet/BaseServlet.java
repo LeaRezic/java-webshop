@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,9 +26,25 @@ public class BaseServlet extends HttpServlet {
     }
 
     protected void setAccessControlHeaders(HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "http://learezic.from.hr");
+        String allowOrigin = determineAndGetOrigin();
+        LoggerUtil.log(allowOrigin);
+        resp.setHeader("Access-Control-Allow-Origin", allowOrigin);
         resp.setHeader("Access-Control-Allow-Methods", "POST");
         resp.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
+    }
+
+    private String determineAndGetOrigin() {
+        try {
+            URL local = new URL("http://localhost:3000");
+            URLConnection myURLConnection = local.openConnection();
+            myURLConnection.connect();
+            return getServletContext().getInitParameter("localAllowOrigin");
+        }
+        catch (MalformedURLException e) {
+            return getServletContext().getInitParameter("remoteAllowOrigin");
+        } catch (IOException e) {
+            return getServletContext().getInitParameter("remoteAllowOrigin");
+        }
     }
 
     protected void printJsonResponse(HttpServletResponse response, JsonObject jsonObject) throws IOException {
@@ -48,7 +67,6 @@ public class BaseServlet extends HttpServlet {
         while (headerNames.hasMoreElements()) {
             String key = (String) headerNames.nextElement();
             String value = request.getHeader(key);
-            LoggerUtil.log(key + " " + value);
             map.put(key, value);
         }
         return map;

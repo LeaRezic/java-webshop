@@ -2,7 +2,6 @@ package src.com.webshop.DAL.Repository;
 
 import src.com.webshop.DAL.Entities.*;
 import src.com.webshop.DAL.EntityManagerFactoryUtil;
-import src.com.webshop.Util.DummyLogger.LoggerUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -113,9 +112,7 @@ public class DBRepository implements Repository {
 
     @Override
     public List<ReceiptEntity> getReceiptsForCustomer(String userUuid) {
-        LoggerUtil.log("[DB REPO] user uuid: " + userUuid);
         UserAccountEntity user = getUserAccountByUUID(userUuid);
-        LoggerUtil.log("[DB REPO] user id: " + user.giveId());
         EntityManager em = null;
         List<ReceiptEntity> receipts = null;
         try {
