@@ -14,7 +14,7 @@ public interface Repository {
     List<ReceiptEntity> getReceipts();
     List<ReceiptEntity> getReceiptsForCustomer(String userUuid);
     List<ReceiptItemEntity> getReceiptItemsForReceipt (int receiptId);
-    List<UserDetailsEntity> getUsers();
+    List<UserAccountEntity> getUsers();
 
     ExpansionDetailsEntity getExpansionDetails(int expansionDetailsId);
     GameDetailsEntity getGameDetails(int gameDetailsId);

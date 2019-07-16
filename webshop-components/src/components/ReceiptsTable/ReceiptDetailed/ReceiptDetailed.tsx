@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { IReceiptDetailed, IReceiptItem } from '../../interfaces';
+import { IReceiptDetailed, IReceiptItem } from '../../../containers/Profile/interfaces';
+import { getFormattedCurrency } from '../../../utils/currencyUtil';
+import { getDesiredDimensionsPic } from '../../../utils/pictureUtil';
 
 import styles from './ReceiptDetailed.module.css';
-import globalStyles from '../../../../style/GlobalStyle.module.css';
-import { getFormattedCurrency } from '../../../../utils/currencyUtil';
-import { getDesiredDimensionsPic } from '../../../../utils/pictureUtil';
+import globalStyles from '../../../style/GlobalStyle.module.css';
 
 interface IReceiptDetailedProps {
   receipt: IReceiptDetailed;

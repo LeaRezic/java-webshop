@@ -1,17 +1,26 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { CellType } from '../../../../components/Table/Cell';
-import { IRowConfig } from '../../../../components/Table/interfaces';
-import { IReceiptDetailed } from '../../interfaces';
-import { changeIsoDateFormat } from '../../../../utils/dateUtils';
+import { CellType } from '../Table/Cell';
+import { IRowConfig } from '../Table/interfaces';
+import { IReceiptDetailed } from '../../containers/Profile/interfaces';
+import { changeIsoDateFormat } from '../../utils/dateUtils';
 
-import styles from './PurchaseHistory.module.css';
+import styles from './ReceiptsTable.module.css';
 
-export const getInstanceTableConfig = (onViewDetails: (receipt: IReceiptDetailed) => void)
-  :IRowConfig<IReceiptDetailed> => [
+export const getTableConfig = (
+  showUsername: boolean,
+  onViewDetails: (receipt: IReceiptDetailed) => void)
+  :IRowConfig<IReceiptDetailed> => {
+  const config = [
     {
-      className: 'CellBreakWord',
+      accessor: (row: IReceiptDetailed) => row.username,
+      openInNewTab: true,
+      sortable: true,
+      title: 'User',
+      weight: 20,
+    },
+    {
       accessor: (row: IReceiptDetailed) => row.basic.purchaseDate,
       openInNewTab: true,
       sortable: true,
@@ -44,7 +53,7 @@ export const getInstanceTableConfig = (onViewDetails: (receipt: IReceiptDetailed
       sortable: true,
       title: 'Paid by Card',
       className: styles.CreditCard,
-      formatter: (isCreditCard: boolean) => isCreditCard ? <span className={classNames(styles.Icon, 'fas fa-check')}/> : null,
+      formatter: (isCreditCard: boolean) => isCreditCard ? <span className={classNames(styles.Icon, 'fas fa-check')} /> : null,
       weight: 15,
     },
     {
@@ -65,3 +74,8 @@ export const getInstanceTableConfig = (onViewDetails: (receipt: IReceiptDetailed
       weight: 18,
     },
   ];
+  if (!showUsername) {
+    config.shift();
+  }
+  return config;
+}

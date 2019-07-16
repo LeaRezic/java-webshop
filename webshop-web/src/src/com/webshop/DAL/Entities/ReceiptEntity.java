@@ -9,7 +9,7 @@ import java.util.Objects;
 public class ReceiptEntity implements EntityBase {
 
     private int receiptId;
-    private int userDetailsId;
+    private int userAccountId;
     private String receiptNumber;
     private boolean creditCard;
     private Timestamp purchaseDate;
@@ -26,12 +26,12 @@ public class ReceiptEntity implements EntityBase {
 
     @Basic
     @Column(name = "user_account_id", nullable = false)
-    public int getUserDetailsId() {
-        return userDetailsId;
+    public int getUserAccountId() {
+        return userAccountId;
     }
 
-    public void setUserDetailsId(int userDetailsId) {
-        this.userDetailsId = userDetailsId;
+    public void setUserAccountId(int userDetailsId) {
+        this.userAccountId = userDetailsId;
     }
 
     @Basic
@@ -70,7 +70,7 @@ public class ReceiptEntity implements EntityBase {
         if (o == null || getClass() != o.getClass()) return false;
         ReceiptEntity that = (ReceiptEntity) o;
         return receiptId == that.receiptId &&
-                userDetailsId == that.userDetailsId &&
+                userAccountId == that.userAccountId &&
                 creditCard == that.creditCard &&
                 Objects.equals(receiptNumber, that.receiptNumber) &&
                 Objects.equals(purchaseDate, that.purchaseDate);
@@ -78,7 +78,7 @@ public class ReceiptEntity implements EntityBase {
 
     @Override
     public int hashCode() {
-        return Objects.hash(receiptId, userDetailsId, receiptNumber, creditCard, purchaseDate);
+        return Objects.hash(receiptId, userAccountId, receiptNumber, creditCard, purchaseDate);
     }
 
     @Override

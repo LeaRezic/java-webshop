@@ -8,7 +8,7 @@ export enum AdminViewType {
 
 export interface IAdminUserData {
   username: string;
-  uuid: string;
+  // uuid: string;
   totalReceipts: number;
   userSince: string;
   lastLogin: string;
@@ -16,9 +16,10 @@ export interface IAdminUserData {
 
 export interface ILoginLog {
   id: number;
-  ip: string;
+  ipAddress: string;
   username: string;
   date: string;
+  register: boolean;
 }
 
 export interface IAdminViewMeta {

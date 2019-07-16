@@ -48,7 +48,7 @@ public class MockRepository implements Repository {
     }
 
     @Override
-    public List<UserDetailsEntity> getUsers() {
+    public List<UserAccountEntity> getUsers() {
         return null;
     }
 

@@ -83,4 +83,17 @@ public class ReceiptManager {
         return price;
     }
 
+    public static List<ReceiptDetailedVM> getAllReceipts() {
+        List<ReceiptDetailedVM> receipts = new ArrayList<>();
+        List<ReceiptEntity> entities = repo.getReceipts();
+        for (ReceiptEntity entity : entities) {
+            ReceiptDetailedVM detailedReceipt = new ReceiptDetailedVM(
+                    repo.getUserAccount(entity.getUserAccountId()).getEmail(),
+                    getBasicVmFromEntity(entity),
+                    getItemsFromEntity(entity.getReceiptId())
+            );
+            receipts.add(detailedReceipt);
+        }
+        return receipts;
+    }
 }

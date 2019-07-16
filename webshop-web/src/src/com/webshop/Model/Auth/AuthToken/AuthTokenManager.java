@@ -89,7 +89,7 @@ public class AuthTokenManager {
                 user.getUsername(),
                 tokenId,
                 expireDate,
-                user.getRole().equals("admin")
+                user.getRole().equals("administrator")
         );
     }
 
@@ -98,7 +98,7 @@ public class AuthTokenManager {
                 user.getUsername(),
                 tokenId,
                 expireDate,
-                user.getRole().equals("admin"),
+                user.getRole().equals("administrator"),
                 user.getUuid()
         );
     }

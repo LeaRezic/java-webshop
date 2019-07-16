@@ -54,6 +54,14 @@
         <url-pattern>/loginlogs</url-pattern>
         <url-pattern>/loginlogs/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UsersServlet</servlet-name>
+        <servlet-class>src.com.webshop.Servlet.UsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsersServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
     <context-param>
         <param-name>localAllowOrigin</param-name>
         <param-value>http://localhost:3000</param-value>

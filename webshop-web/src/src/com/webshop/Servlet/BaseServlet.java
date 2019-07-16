@@ -87,7 +87,6 @@ public class BaseServlet extends HttpServlet {
     }
 
     protected boolean sendAuthErrorIfApplies(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        setAccessControlHeaders(response);
         String authToken = getRequestAuthHeader(request);
         try {
             if (!AuthTokenManager.tokenValid(authToken)) {

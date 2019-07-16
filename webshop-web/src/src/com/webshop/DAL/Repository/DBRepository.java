@@ -108,7 +108,7 @@ public class DBRepository implements Repository {
 
     @Override
     public List<ReceiptEntity> getReceipts() {
-        return null;
+        return (List<ReceiptEntity>) getAllEntitiesOfType(ReceiptEntity.class.getSimpleName());
     }
 
     @Override
@@ -159,8 +159,8 @@ public class DBRepository implements Repository {
     }
 
     @Override
-    public List<UserDetailsEntity> getUsers() {
-        return null;
+    public List<UserAccountEntity> getUsers() {
+        return (List<UserAccountEntity>) getAllEntitiesOfType(UserAccountEntity.class.getSimpleName());
     }
 
     @Override

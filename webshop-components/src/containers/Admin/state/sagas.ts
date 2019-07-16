@@ -43,7 +43,7 @@ function* usersDataRequestIntercept(action: Readonly<ReturnType<typeof usersData
 }
 
 export function* watchLoginLogsRequest() {
-  yield takeLatest(AdminActionTypes.USERS_DATA_REQUEST, loginLogsRequestIntercept);
+  yield takeLatest(AdminActionTypes.LOGIN_LOGS_REQUEST, loginLogsRequestIntercept);
 }
 
 function* loginLogsRequestIntercept(action: Readonly<ReturnType<typeof loginLogsRequest>>) {
@@ -71,7 +71,7 @@ function* loginLogsRequestIntercept(action: Readonly<ReturnType<typeof loginLogs
 }
 
 export function* watchReceiptsRequest() {
-  yield takeLatest(AdminActionTypes.USERS_DATA_REQUEST, receiptsRequestIntercept);
+  yield takeLatest(AdminActionTypes.RECEIPTS_REQUEST, receiptsRequestIntercept);
 }
 
 function* receiptsRequestIntercept(action: Readonly<ReturnType<typeof receiptsRequest>>) {

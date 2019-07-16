@@ -1,9 +1,10 @@
 import { IReduxAction } from '../../../typings/interfaces';
 
-import { IAdminUserData, ILoginLog } from '../interfaces';
+import { IAdminUserData, ILoginLog, AdminViewType } from '../interfaces';
 import { IReceiptDetailed } from '../../Profile/interfaces';
 
 export enum AdminActionTypes {
+  SET_ADMIN_VIEW = 'SET_ADMIN_VIEW',
   USERS_DATA_REQUEST = 'USERS_DATA_REQUEST',
   USERS_DATA_SUCCESS = 'USERS_DATA_SUCCESS',
   USERS_DATA_FAILURE = 'USERS_DATA_FAILURE',
@@ -11,11 +12,21 @@ export enum AdminActionTypes {
   LOGIN_LOGS_SUCCESS = 'LOGIN_LOGS_SUCCESS',
   LOGIN_LOGS_FAILURE = 'LOGIN_LOGS_FAILURE',
   LOGIN_LOGS_SET_FILTER = 'LOGIN_LOGS_SET_FILTER',
+  VIEW_USER_LOGS = 'VIEW_USER_LOGS',
   RECEIPTS_REQUEST = 'RECEIPTS_REQUEST',
   RECEIPTS_SUCCESS = 'RECEIPTS_SUCCESS',
   RECEIPTS_FAILURE = 'RECEIPTS_FAILURE',
   RECEIPTS_SET_FILTER = 'RECEIPTS_SET_FILTER',
+  VIEW_USER_RECEIPTS = 'VIEW_USER_RECEIPTS',
 }
+
+export const setAdminView = (view: AdminViewType)
+  :IReduxAction<AdminViewType, void, void, AdminActionTypes.SET_ADMIN_VIEW> => {
+    return {
+      type: AdminActionTypes.SET_ADMIN_VIEW,
+      data: view,
+    };
+};
 
 export const usersDataRequest = (authTokenId: string)
   : IReduxAction<string, void, void, AdminActionTypes.USERS_DATA_REQUEST> => {
@@ -73,6 +84,14 @@ export const loginLogsSetFilter = (username: string)
     };
 }
 
+export const viewUserLogs = (username: string)
+  : IReduxAction<string, void, void, AdminActionTypes.VIEW_USER_LOGS> => {
+  return {
+    type: AdminActionTypes.VIEW_USER_LOGS,
+    data: username,
+  };
+}
+
 export const receiptsRequest = (authTokenId: string)
   : IReduxAction<string, void, void, AdminActionTypes.RECEIPTS_REQUEST> => {
   return {
@@ -105,7 +124,16 @@ export const receiptsSetFilter = (username: string)
   };
 }
 
+export const viewUserReceipts = (username: string)
+  : IReduxAction<string, void, void, AdminActionTypes.VIEW_USER_RECEIPTS> => {
+  return {
+    type: AdminActionTypes.VIEW_USER_RECEIPTS,
+    data: username,
+  };
+}
+
 export type AdminActions =
+  | ReturnType<typeof setAdminView>
   | ReturnType<typeof usersDataRequest>
   | ReturnType<typeof usersDataSuccess>
   | ReturnType<typeof usersDataFailure>
@@ -117,4 +145,6 @@ export type AdminActions =
   | ReturnType<typeof receiptsSuccess>
   | ReturnType<typeof receiptsFailure>
   | ReturnType<typeof receiptsSetFilter>
+  | ReturnType<typeof viewUserLogs>
+  | ReturnType<typeof viewUserReceipts>
   ;

@@ -4,8 +4,11 @@ import src.com.webshop.DAL.Entities.RoleEntity;
 import src.com.webshop.DAL.Entities.UserAccountEntity;
 import src.com.webshop.DAL.Repository.Repository;
 import src.com.webshop.DAL.Repository.RepositoryFactory;
+import src.com.webshop.Util.DateUtil;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class UserManager {
@@ -73,5 +76,29 @@ public class UserManager {
             return null;
         }
         return uuid;
+    }
+
+    public static List<UserDetailedVM> getUsersDetailed() {
+        List<UserDetailedVM> users = new ArrayList<>();
+        List<UserAccountEntity> entities = repo.getUsers();
+        entities.forEach((entity) -> users.add(new UserDetailedVM(
+                entity.getEmail(),
+                entity.getUuid(),
+                repo.getReceiptsForCustomer(entity.getUuid()).size(),
+                /*
+                DateUtil.getDisplayTimestamp(entity.getCreatedOn()),
+                DateUtil.getDisplayTimestamp(entity.getLastLogin())
+                */
+                entity.getCreatedOn().toString(),
+                getLastLogin(entity)
+        )));
+        return users;
+    }
+
+    private static String getLastLogin(UserAccountEntity entity) {
+        if (entity.getLastLogin() == null) {
+            return entity.getCreatedOn().toString();
+        }
+        return entity.getLastLogin().toString();
     }
 }

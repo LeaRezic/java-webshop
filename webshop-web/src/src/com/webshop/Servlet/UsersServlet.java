@@ -2,8 +2,8 @@ package src.com.webshop.Servlet;
 
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
-import src.com.webshop.Model.Receipt.ReceiptDetailedVM;
-import src.com.webshop.Model.Receipt.ReceiptManager;
+import src.com.webshop.Model.Auth.UserData.UserDetailedVM;
+import src.com.webshop.Model.Auth.UserData.UserManager;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -11,15 +11,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ReceiptServlet")
-public class ReceiptServlet extends BaseServlet {
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
+@WebServlet(name = "UsersServlet")
+public class UsersServlet extends BaseServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.setAccessControlHeaders(response);
@@ -28,14 +23,16 @@ public class ReceiptServlet extends BaseServlet {
         }
         String authToken = super.getRequestAuthHeader(request);
         AuthTokenServer serverToken = AuthTokenManager.getExistingServerToken(authToken);
-        List<ReceiptDetailedVM> receipts = new ArrayList<>();
-        if (serverToken.isAdmin()) {
-            receipts = ReceiptManager.getAllReceipts();
-        } else {
-            receipts = ReceiptManager.getReceiptsDetailed(serverToken.getUserUuid());
+        if (!serverToken.isAdmin()) {
+            super.sendErrorResponse(
+                    response,
+                    HttpServletResponse.SC_UNAUTHORIZED,
+                    "No permission for selected action."
+            );
+            return;
         }
         AuthTokenManager.updateExpireDate(authToken);
-        super.printJsonResponse(response, JsonUtil.getJsonArray(receipts, "receipts"));
+        List<UserDetailedVM> users = UserManager.getUsersDetailed();
+        super.printJsonResponse(response, JsonUtil.getJsonArray(users, "users"));
     }
-
 }

@@ -1,5 +1,6 @@
 package src.com.webshop.Util;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,6 +27,10 @@ public class DateUtil {
         Date now = new Date();
         Date expire = new SimpleDateFormat(DATE_FORMAT).parse(expireDate);
         return (expire.getTime() - now.getTime()) > 0;
+    }
+
+    public static String getDisplayTimestamp(Timestamp timestamp) {
+        return new SimpleDateFormat(DATE_FORMAT).format(timestamp);
     }
 
 }

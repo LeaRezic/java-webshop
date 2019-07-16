@@ -4,7 +4,6 @@ import src.com.webshop.DAL.Entities.LoginLogEntity;
 import src.com.webshop.DAL.Repository.Repository;
 import src.com.webshop.DAL.Repository.RepositoryFactory;
 import src.com.webshop.Model.Auth.AuthRequestData;
-import src.com.webshop.Util.DummyLogger.LoggerUtil;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -40,6 +39,7 @@ public class LoginLogManager {
                 e.giveId(),
                 e.getUserName(),
                 e.getIpAddress(),
+                e.getLoginDate().toString(),
                 e.isRegister()
         )));
         return resultList;
