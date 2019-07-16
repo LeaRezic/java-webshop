@@ -11,12 +11,18 @@ export enum ShoppingActionTypes {
   CLEAR_CART = 'CLEAR_CART',
   INCREMENT_PRODUCT_QUANTITY = 'INCREMENT_PRODUCT_QUANTITY',
   DECREMENT_PRODUCT_QUANTITY = 'DECREMENT_PRODUCT_QUANTITY',
+  SET_PRODUCT_QUANTITY = 'SET_PRODUCT_QUANTITY',
   FETCH_CATEGORIES = 'FETCH_CATEGORIES',
   FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS',
   FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE',
   CHANGE_FILTER_CATEGORY = 'CHANGE_FILTER_CATEGORY',
   ADD_FILTER_SUBCATEGORIES = 'ADD_FILTER_SUBCATEGORIES',
   REMOVE_FILTER_SUBCATEGORIES = 'REMOVE_FILTER_SUBCATEGORIES',
+}
+
+export interface ISetQuantity {
+  productId: number;
+  quantity: number;
 }
 
 export const fetchProducts = ()
@@ -81,6 +87,18 @@ export const decrementProductQuantity = (productId: number)
   }
 }
 
+export const setProductQuantity = (productId: number, quantity: number)
+  :IReduxAction<ISetQuantity, void, void, ShoppingActionTypes.SET_PRODUCT_QUANTITY> => {
+  const data: ISetQuantity = {
+    productId: productId,
+    quantity: quantity,
+  }
+  return {
+    type: ShoppingActionTypes.SET_PRODUCT_QUANTITY,
+    data: data,
+  }
+}
+
 export const fetchCategories = ()
   : IReduxAction<void, void, void, ShoppingActionTypes.FETCH_CATEGORIES> => {
   return {
@@ -137,6 +155,7 @@ export type ProductsAction =
   | ReturnType<typeof clearCart>
   | ReturnType<typeof incrementProductQuantity>
   | ReturnType<typeof decrementProductQuantity>
+  | ReturnType<typeof setProductQuantity>
   | ReturnType<typeof fetchCategories>
   | ReturnType<typeof fetchCategoriesSuccess>
   | ReturnType<typeof fetchCategoriesFailure>

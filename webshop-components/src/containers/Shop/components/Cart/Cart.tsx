@@ -13,6 +13,8 @@ interface ICartProps {
   onRemoveProduct: (productId: number) => void;
   onIncrementProduct: (productId: number) => void;
   onDecrementProduct: (productId: number) => void;
+  onClearCart: () => void;
+  onSetQuantity: (productId: number, quantity) => void;
 }
 
 export class Cart extends React.Component<ICartProps> {
@@ -26,15 +28,29 @@ export class Cart extends React.Component<ICartProps> {
             onRemoveProduct={this.props.onRemoveProduct}
             onIncrementProduct={this.props.onIncrementProduct}
             onDecrementProduct={this.props.onDecrementProduct}
+            onSetQuantity={this.props.onSetQuantity}
           />
           ))
       : <div className={classNames(globalStyles.TextTealLight, styles.CartText)}>No products in Cart.</div>;
     return (
       <div>
+        <button
+          disabled={cartItems.length === 0}
+          className={classNames(globalStyles.BtnSmall, globalStyles.BtnInfo)}
+          onClick={this.handleClearAll}
+        >
+          CLEAR ALL
+        </button>
         {displayCart}
         <div className={styles.TotalPrice}>{`TOTAL: ${getFormattedCurrency(this.getTotalPrice())}`}</div>
       </div>
     );
+  }
+
+  private handleClearAll = () => {
+    if (window.confirm('Clear all products from Cart?')) {
+      this.props.onClearCart();
+    }
   }
 
   private getTotalPrice = () => {

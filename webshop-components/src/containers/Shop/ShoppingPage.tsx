@@ -20,6 +20,8 @@ import {
   addFilterSubcategories,
   removeFilterSubcategories,
   changeFilterCategory,
+  clearCart,
+  setProductQuantity,
 } from './state/actions';
 import {
   cartItemsSelector,
@@ -52,12 +54,14 @@ interface IShoppingPageMappedDispatch {
   onProductsFetch: () => void;
   onAddProduct: (productId: number) => void;
   onRemoveProduct: (productId: number) => void;
+  onClearCart: () => void;
   onIncrementProduct: (productId: number) => void;
   onDecrementProduct: (productId: number) => void;
   onCategoriesFetch: () => void;
   onChangeCategoryId: (id: number) => void;
   onAddSubcategories: (ids: number[]) => void;
   onRemoveSubcategories: (ids: number[]) => void;
+  onSetQuantity: (productId: number, quantity: number) => void;
 }
 
 type IShoppingPageProps =
@@ -130,6 +134,8 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
             onRemoveProduct={this.props.onRemoveProduct}
             onDecrementProduct={this.props.onDecrementProduct}
             onIncrementProduct={this.props.onIncrementProduct}
+            onClearCart={this.props.onClearCart}
+            onSetQuantity={this.props.onSetQuantity}
           />
           <button
             disabled={this.props.cartItems.length <= 0}
@@ -189,6 +195,8 @@ const mapDispatchToProps = {
   onChangeCategoryId: changeFilterCategory,
   onAddSubcategories: addFilterSubcategories,
   onRemoveSubcategories: removeFilterSubcategories,
+  onClearCart: clearCart,
+  onSetQuantity: setProductQuantity,
 };
 
 export const ShoppingPage = withRouter(connect(mapStateToProps, mapDispatchToProps)(ShoppingComponent));

@@ -7,7 +7,7 @@ import { ICartItem } from '../Shop/interfaces';
 import { CartItem } from '../Shop/components/Cart/CartItem/CartItem';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { addProductToCart, removeProductFromCart, incrementProductQuantity, decrementProductQuantity } from '../Shop/state/actions';
+import { addProductToCart, removeProductFromCart, incrementProductQuantity, decrementProductQuantity, setProductQuantity } from '../Shop/state/actions';
 import { cartItemsSelector } from '../Shop/state/selectors';
 import { authTokenSelector } from '../Auth/state/selectors';
 
@@ -32,6 +32,7 @@ interface ICheckoutPageMappedDispatch {
   onConfirmOrder: (requestData: ICreateReceiptRequest) => void;
   onStopRedirect: () => void;
   onClearError: () => void;
+  onSetQuantity: (productId: number, quantity: number) => void;
 }
 
 type ICheckoutPageProps = ICheckoutPageMappedProps & ICheckoutPageMappedDispatch & RouterProps;
@@ -66,6 +67,7 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
           onDecrementProduct={this.props.onDecrementProduct}
           onIncrementProduct={this.props.onIncrementProduct}
           onRemoveProduct={this.props.onRemoveProduct}
+          onSetQuantity={this.props.onSetQuantity}
         />
       ))
       : <div>
@@ -141,6 +143,7 @@ const mapDispatchToProps = {
   onConfirmOrder: createReceiptRequest,
   onStopRedirect: stopRedirectToProducts,
   onClearError: clearError,
+  onSetQuantity: setProductQuantity,
 };
 
 export const CheckoutPage = connect(mapStateToProps, mapDispatchToProps)(CheckoutPageComponent);

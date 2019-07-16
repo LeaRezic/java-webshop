@@ -13,6 +13,7 @@ export interface ICartItemProps {
   onRemoveProduct: (productId: number) => void;
   onIncrementProduct: (productId: number) => void;
   onDecrementProduct: (productId: number) => void;
+  onSetQuantity: (productId: number, quantity: number) => void;
 }
 
 export interface ICartItemState {
@@ -59,6 +60,11 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
               className={classNames(styles.BtnQuantity, styles.BtnCartItem)}
               onClick={() => this.props.onIncrementProduct(this.props.item.product.id)}
             >+</button>
+            <button
+              className={classNames(styles.BtnQuantity, styles.BtnCartItem)}
+              onClick={this.handleSetQuantity}
+              style={{fontSize: '0.8rem'}}
+            >SET</button>
           </div>
         </div>
         <div className={styles.CloseBtnContainer}>
@@ -71,6 +77,25 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
         </div>
       </div>
     );
+  }
+
+  private handleSetQuantity = () => {
+    const amount = window.prompt('Enter quantity, whole number above 0.');
+    let message = null;
+    if (amount === null || amount.trim().length === 0) {
+      message = 'Amount cannot be empty. Made no changes.';
+    } else if (
+      isNaN(parseFloat(amount))
+      || parseFloat(amount).toString() !== amount
+      || parseFloat(amount).toFixed(0).toString() !== amount
+      || parseFloat(amount) <= 0) {
+      message = `${amount} is not a valid amount (whole number above 0). Made no changes.`;
+    }
+    if (message === null) {
+      this.props.onSetQuantity(this.props.item.product.id, parseFloat(amount));
+      return;
+    }
+    window.alert(message);
   }
 
   private handleMouseEnter = () => {

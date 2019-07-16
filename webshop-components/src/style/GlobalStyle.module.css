@@ -59,6 +59,10 @@
   outline: none;
 }
 
+.Btn:disabled {
+  cursor: not-allowed;
+}
+
 .BtnSmall {
   border: 2px solid black;
   background-color: transparent;
@@ -70,6 +74,10 @@
 
 .BtnSmall:focus {
   outline: none;
+}
+
+.BtnSmall:disabled {
+  cursor: not-allowed;
 }
 
 .BtnSuccess {
@@ -84,6 +92,16 @@
   border-color: rgb(0, 133, 133);
   background-color: rgb(0, 133, 133);
   color: white;
+}
+.BtnSuccessActive:disabled {
+  border-color: rgb(0, 133, 133);
+  background-color: rgb(0, 133, 133);
+  color: white;
+}
+.BtnSuccess:disabled {
+  border-color: rgb(0, 133, 133);
+  background-color: transparent;
+  color: teal;
 }
 
 .BtnSecondary {
@@ -105,6 +123,11 @@
 .BtnInfoActive {
   background: #C96567;
   color: white;
+}
+.BtnInfo:disabled {
+  border-color: #C96567;
+  background-color: transparent;
+  color: #C96567
 }
 
 .BtnDanger {
@@ -135,4 +158,9 @@
 .BtnSuccessSubtle:hover {
   border-color: rgb(77, 133, 133);
   background-color: rgb(77, 133, 133);
+}
+.BtnSuccessSubtle:disabled {
+  border-color: rgb(0, 133, 133);
+  background-color: rgb(0, 133, 133);
+  color: rgb(0, 37, 37);
 }

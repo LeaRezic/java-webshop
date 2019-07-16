@@ -8,6 +8,7 @@ import {
 import {
   ProductsAction,
   ShoppingActionTypes,
+  ISetQuantity,
 } from './actions';
 
 const initialState: IShoppingState = {
@@ -102,6 +103,29 @@ const changeQuantity = (state: IShoppingState, productId: number, quantityDiff: 
     return {
       product: item.product,
       quantity: item.quantity + quantityDiff,
+    }
+  })
+  items = items.filter((item) => item.quantity > 0);
+  return {
+    ...state,
+    cart: {
+      ...state.cart,
+      items: items,
+    }
+  };
+}
+
+const setQuantity = (state: IShoppingState, productQuantity: ISetQuantity) => {
+  if (!state.cart.items.some((item) => item.product.id === productQuantity.productId)) {
+    return state;
+  }
+  let items = state.cart.items.map((item) => {
+    if (item.product.id !== productQuantity.productId) {
+      return item;
+    }
+    return {
+      product: item.product,
+      quantity: productQuantity.quantity,
     }
   })
   items = items.filter((item) => item.quantity > 0);
@@ -212,6 +236,7 @@ export function shoppingReducer(state: IShoppingState = initialState, action: Pr
     case ShoppingActionTypes.CLEAR_CART: return clearCart(state);
     case ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data!, 1);
     case ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data!, -1);
+    case ShoppingActionTypes.SET_PRODUCT_QUANTITY: return setQuantity(state, action.data!);
     case ShoppingActionTypes.FETCH_CATEGORIES: return fetchCategories(state);
     case ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS: return fetchCategoriesSuccess(state, action.data!);
     case ShoppingActionTypes.FETCH_CATEGORIES_FAILURE: return fetchCategoriesFailure(state, action.data!);
