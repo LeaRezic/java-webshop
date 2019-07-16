@@ -112,6 +112,15 @@ const loginLogsFailure = (state: IAdminState, error: string) => {
   }
 }
 
+const loginLogsSetFilter = (state: IAdminState, username: string) => {
+  return {
+    ...state,
+    logs: {
+      ...state.logs,
+      usernameFilter: username,
+    },
+  };
+}
 
 const receiptsRequest = (state: IAdminState) => {
   return {
@@ -156,17 +165,29 @@ const receiptsFailure = (state: IAdminState, error: string) => {
   }
 }
 
+const receiptsSetFilter = (state: IAdminState, username: string) => {
+  return {
+    ...state,
+    receipts: {
+      ...state.receipts,
+      usernameFilter: username,
+    },
+  };
+}
+
 export const adminReducer = (state: IAdminState = initialState, action: AdminActions): IAdminState => {
   switch (action.type) {
     case AdminActionTypes.USERS_DATA_REQUEST: return usersDataRequest(state);
-    case AdminActionTypes.USERS_DATA_SUCCESS: return usersDataSuccess(state, action.data!);
-    case AdminActionTypes.USERS_DATA_FAILURE: return usersDataFailure(state, action.data!);
+    case AdminActionTypes.USERS_DATA_SUCCESS: return usersDataSuccess(state, action.data);
+    case AdminActionTypes.USERS_DATA_FAILURE: return usersDataFailure(state, action.data);
     case AdminActionTypes.LOGIN_LOGS_REQUEST: return loginLogsRequest(state);
-    case AdminActionTypes.LOGIN_LOGS_SUCCESS: return loginLogsSuccess(state, action.data!);
-    case AdminActionTypes.LOGIN_LOGS_FAILURE: return loginLogsFailure(state, action.data!);
+    case AdminActionTypes.LOGIN_LOGS_SUCCESS: return loginLogsSuccess(state, action.data);
+    case AdminActionTypes.LOGIN_LOGS_FAILURE: return loginLogsFailure(state, action.data);
+    case AdminActionTypes.LOGIN_LOGS_SET_FILTER: return loginLogsSetFilter(state, action.data);
     case AdminActionTypes.RECEIPTS_REQUEST: return receiptsRequest(state);
-    case AdminActionTypes.RECEIPTS_SUCCESS: return receiptsSuccess(state, action.data!);
-    case AdminActionTypes.RECEIPTS_FAILURE: return receiptsFailure(state, action.data!);
+    case AdminActionTypes.RECEIPTS_SUCCESS: return receiptsSuccess(state, action.data);
+    case AdminActionTypes.RECEIPTS_FAILURE: return receiptsFailure(state, action.data);
+    case AdminActionTypes.RECEIPTS_SET_FILTER: return receiptsSetFilter(state, action.data);
     default: return state;
   }
 };

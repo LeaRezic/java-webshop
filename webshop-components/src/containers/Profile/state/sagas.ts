@@ -22,7 +22,6 @@ function* purchaseHistoryRequestIntercept(action: Readonly<ReturnType<typeof pur
         }
       }
     );
-    console.log(response.data.receipts);
     if (response.data.error) {
       yield put(purchaseHistoryFailure(response.data.error));
       return;
@@ -50,7 +49,6 @@ function* profileDetilsRequestIntercept(action: Readonly<ReturnType<typeof profi
         }
       }
     );
-    console.log(response.data.receipts);
     if (response.data.error) {
       yield put(profileDetailsFailure(response.data.error));
       return;

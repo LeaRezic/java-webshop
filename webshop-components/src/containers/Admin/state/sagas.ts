@@ -1,8 +1,18 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import { instance } from '../../../utils/axios';
 
-
-import { AdminActionTypes, usersDataFailure, usersDataSuccess, usersDataRequest, loginLogsRequest, loginLogsFailure, loginLogsSuccess, receiptsRequest, receiptsFailure, receiptsSuccess,  } from './actions';
+import {
+  AdminActionTypes,
+  usersDataFailure,
+  usersDataSuccess,
+  usersDataRequest,
+  loginLogsRequest,
+  loginLogsFailure,
+  loginLogsSuccess,
+  receiptsRequest,
+  receiptsFailure,
+  receiptsSuccess,
+} from './actions';
 
 export function* watchUsersDataRequest() {
   yield takeLatest(AdminActionTypes.USERS_DATA_REQUEST, usersDataRequestIntercept);
@@ -22,7 +32,6 @@ function* usersDataRequestIntercept(action: Readonly<ReturnType<typeof usersData
         }
       }
     );
-    console.log(response.data.users);
     if (response.data.error) {
       yield put(usersDataFailure(response.data.error));
       return;
@@ -51,7 +60,6 @@ function* loginLogsRequestIntercept(action: Readonly<ReturnType<typeof loginLogs
         }
       }
     );
-    console.log(response.data.logs);
     if (response.data.error) {
       yield put(loginLogsFailure(response.data.error));
       return;
@@ -80,7 +88,6 @@ function* receiptsRequestIntercept(action: Readonly<ReturnType<typeof receiptsRe
         }
       }
     );
-    console.log(response.data.receipts);
     if (response.data.error) {
       yield put(receiptsFailure(response.data.error));
       return;

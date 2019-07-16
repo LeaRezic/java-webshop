@@ -10,9 +10,11 @@ export enum AdminActionTypes {
   LOGIN_LOGS_REQUEST = 'LOGIN_LOGS_REQUEST',
   LOGIN_LOGS_SUCCESS = 'LOGIN_LOGS_SUCCESS',
   LOGIN_LOGS_FAILURE = 'LOGIN_LOGS_FAILURE',
+  LOGIN_LOGS_SET_FILTER = 'LOGIN_LOGS_SET_FILTER',
   RECEIPTS_REQUEST = 'RECEIPTS_REQUEST',
   RECEIPTS_SUCCESS = 'RECEIPTS_SUCCESS',
   RECEIPTS_FAILURE = 'RECEIPTS_FAILURE',
+  RECEIPTS_SET_FILTER = 'RECEIPTS_SET_FILTER',
 }
 
 export const usersDataRequest = (authTokenId: string)
@@ -63,6 +65,14 @@ export const loginLogsFailure = (error: string)
   };
 }
 
+export const loginLogsSetFilter = (username: string)
+  :IReduxAction<string, void, void, AdminActionTypes.LOGIN_LOGS_SET_FILTER> => {
+    return {
+      type: AdminActionTypes.LOGIN_LOGS_SET_FILTER,
+      data: username,
+    };
+}
+
 export const receiptsRequest = (authTokenId: string)
   : IReduxAction<string, void, void, AdminActionTypes.RECEIPTS_REQUEST> => {
   return {
@@ -87,6 +97,14 @@ export const receiptsFailure = (error: string)
   };
 }
 
+export const receiptsSetFilter = (username: string)
+  : IReduxAction<string, void, void, AdminActionTypes.RECEIPTS_SET_FILTER> => {
+  return {
+    type: AdminActionTypes.RECEIPTS_SET_FILTER,
+    data: username,
+  };
+}
+
 export type AdminActions =
   | ReturnType<typeof usersDataRequest>
   | ReturnType<typeof usersDataSuccess>
@@ -94,7 +112,9 @@ export type AdminActions =
   | ReturnType<typeof loginLogsRequest>
   | ReturnType<typeof loginLogsSuccess>
   | ReturnType<typeof loginLogsFailure>
+  | ReturnType<typeof loginLogsSetFilter>
   | ReturnType<typeof receiptsRequest>
   | ReturnType<typeof receiptsSuccess>
   | ReturnType<typeof receiptsFailure>
+  | ReturnType<typeof receiptsSetFilter>
   ;
