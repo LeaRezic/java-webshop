@@ -18,7 +18,8 @@ public class LoginServlet extends BaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.setAccessControlHeaders(response);
         String body = request.getReader().lines().collect(Collectors.joining());
-        Credentials credentials = (Credentials) JsonUtil.getObjFromJson(body, Credentials.class);
+        AuthRequestData authRequestData = (AuthRequestData) JsonUtil.getObjFromJson(body, AuthRequestData.class);
+        Credentials credentials = authRequestData.getCredentials();
         if (credentials == null) {
             super.sendErrorResponse(
                     response,
@@ -45,6 +46,7 @@ public class LoginServlet extends BaseServlet {
             return;
         }
         JsonObject responseData = JsonUtil.getJson(tokenClient, "token");
+
         super.printJsonResponse(response, responseData);
     }
 

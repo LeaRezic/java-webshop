@@ -9,7 +9,7 @@ export function * watchFetchProducts() {
 
 function * fetchProductsData(action: Readonly<ReturnType<typeof fetchProducts>>) {
   try {
-    const ulr = encodeURI(`/product`);
+    const ulr = '/product';
     const response = yield instance.get(ulr, { responseType: 'json' });
     yield put(fetchProductsSuccess(response.data.products));
   } catch (error) {
@@ -23,7 +23,7 @@ export function* watchFetchCategories() {
 
 function* fetchCategoriesData(action: Readonly<ReturnType<typeof fetchProducts>>) {
   try {
-    const ulr = encodeURI(`/category`);
+    const ulr = '/category';
     const response = yield instance.get(ulr, { responseType: 'json' });
     yield put(fetchCategoriesSuccess(response.data.categories));
   } catch (error) {

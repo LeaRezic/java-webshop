@@ -11,7 +11,7 @@ export function* watchPurchaseHistoryRequest() {
 function* purchaseHistoryRequestIntercept(action: Readonly<ReturnType<typeof purchaseHistoryRequest>>) {
   try {
     const tokenId = action.data!;
-    const ulr = encodeURI(`/receipt`);
+    const ulr = '/receipt';
     const response = yield instance.get(
       ulr,
       {
@@ -40,7 +40,7 @@ export function* watchProfileDetailsRequest() {
 function* profileDetilsRequestIntercept(action: Readonly<ReturnType<typeof profileDetailsRequest>>) {
   try {
     const tokenId = action.data!;
-    const ulr = encodeURI(`/profile`);
+    const ulr = '/profile';
     const response = yield instance.get(
       ulr,
       {

@@ -2,7 +2,9 @@ import { takeLatest, put } from 'redux-saga/effects';
 import { notify } from 'react-notify-toast';
 
 import { instance } from '../../../utils/axios';
+import { wtf } from '../../../utils/ipUtil';
 import { AuthActionTypes, loginSuccess, loginFailure, loginRequest, registerRequest, logOut } from './actions';
+import { IAuthRequestData } from '../interfaces';
 
 export function* watchLoginRequest() {
   yield takeLatest(AuthActionTypes.LOG_IN_REQUEST, loginRequestIntercept);
@@ -10,15 +12,22 @@ export function* watchLoginRequest() {
 
 function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>>) {
   try {
-    const { username, password } = action.data!;
+    const ip = yield wtf();
+    const data: IAuthRequestData = {
+      credentials: {
+        username: action.data.username,
+        password: action.data.password,
+      },
+      visitorAddress: ip,
+    };
     const ulr = '/login';
     const response = yield instance.post(
       ulr,
-      JSON.stringify({ username: username, password: password }),
+      JSON.stringify(data),
       {
         method: 'post',
         headers: {
-        'Content-Type': 'text/plain; charset=UTF-8'
+        'Content-Type': 'application/json; charset=UTF-8'
         }
       }
     );
@@ -38,11 +47,18 @@ export function* watchRegisterRequest() {
 
 function* registerRequestIntercept(action: Readonly<ReturnType<typeof registerRequest>>) {
   try {
-    const { username, password } = action.data!;
-    const ulr = encodeURI(`/register`);
+    const ip = yield wtf();
+    const data: IAuthRequestData = {
+      credentials: {
+        username: action.data.username,
+        password: action.data.password,
+      },
+      visitorAddress: ip,
+    };
+    const ulr = '/register';
     const response = yield instance.post(
       ulr,
-      JSON.stringify({ username: username, password: password }),
+      JSON.stringify(data),
       {
         method: 'post',
         headers: {

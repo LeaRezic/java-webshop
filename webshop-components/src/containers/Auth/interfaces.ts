@@ -17,3 +17,11 @@ export interface IAuthState {
     shouldRedirectToProducts: boolean;
   }
 }
+
+export interface IAuthRequestData {
+  credentials: {
+    username: string;
+    password: string;
+  };
+  visitorAddress: string;
+}

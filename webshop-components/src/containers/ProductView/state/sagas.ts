@@ -15,7 +15,7 @@ export function* watchFetchProduct() {
 function* fetchProductData(action: Readonly<ReturnType<typeof fetchProduct>>) {
   try {
     const id = action.data;
-    const ulr = encodeURI(`/product/${id}`);
+    const ulr = '/product/${id}';
     const response = yield instance.get(ulr, { responseType: 'json' });
     yield put(fetchProductSuccess(response.data.product));
   } catch (error) {
