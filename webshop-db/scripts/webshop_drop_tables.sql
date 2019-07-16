@@ -11,3 +11,4 @@ drop table if exists product;
 drop table if exists product_subcategory;
 drop table if exists product_category;
 drop table if exists product_manufacturer;
+drop table if exists login_log;

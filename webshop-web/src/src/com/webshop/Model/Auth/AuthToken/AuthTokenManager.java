@@ -1,7 +1,9 @@
-package src.com.webshop.Model.Auth;
+package src.com.webshop.Model.Auth.AuthToken;
 
 import src.com.webshop.Cache.AuthCache;
 import src.com.webshop.Cache.AuthCacheFactory;
+import src.com.webshop.Model.Auth.UserData.UserManager;
+import src.com.webshop.Model.Auth.UserData.UserVM;
 import src.com.webshop.Util.DateUtil;
 
 import java.text.ParseException;
@@ -24,6 +26,10 @@ public class AuthTokenManager {
         AuthTokenServer serverToken = getServerToken(user, tokenId, expireDate);
         cacheServerToken(serverToken);
         return clientToken;
+    }
+
+    public static String getUuidForUsername(String username) {
+        return UserManager.getUserByUsername(username).getUuid();
     }
 
     public static boolean usernameExists(String username) {

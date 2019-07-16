@@ -6,14 +6,16 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "login_log", schema = "public", catalog = "webshop")
-public class LoginLogEntity {
+public class LoginLogEntity implements EntityBase {
     private int loginLogId;
+    private String username;
     private String ipAddress;
     private Timestamp loginDate;
     private boolean register;
 
     @Id
     @Column(name = "login_log_id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int getLoginLogId() {
         return loginLogId;
     }
@@ -23,7 +25,17 @@ public class LoginLogEntity {
     }
 
     @Basic
-    @Column(name = "ip_address", nullable = false, length = 15)
+    @Column(name = "username", nullable = false, length = 355)
+    public String getUserName() {
+        return username;
+    }
+
+    public void setUserName(String username) {
+        this.username = username;
+    }
+
+    @Basic
+    @Column(name = "ip_address", nullable = false, length = 16)
     public String getIpAddress() {
         return ipAddress;
     }
@@ -66,5 +78,10 @@ public class LoginLogEntity {
     @Override
     public int hashCode() {
         return Objects.hash(loginLogId, ipAddress, loginDate, register);
+    }
+
+    @Override
+    public int giveId() {
+        return getLoginLogId();
     }
 }

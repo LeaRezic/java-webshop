@@ -1,7 +1,7 @@
 package src.com.webshop.Cache;
 
 import redis.clients.jedis.Jedis;
-import src.com.webshop.Model.Auth.AuthTokenServer;
+import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
 import src.com.webshop.Util.DateUtil;
 import src.com.webshop.Util.JsonUtil;
 

@@ -2,6 +2,9 @@ package src.com.webshop.Servlet;
 
 import com.google.gson.JsonObject;
 import src.com.webshop.Model.Auth.*;
+import src.com.webshop.Model.Auth.AuthToken.AuthTokenClient;
+import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
+import src.com.webshop.Model.Auth.LoginLog.LoginLogManager;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -9,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 @WebServlet(name = "LoginServlet")
@@ -45,8 +47,8 @@ public class LoginServlet extends BaseServlet {
             );
             return;
         }
+        LoginLogManager.logNewLogin(authRequestData);
         JsonObject responseData = JsonUtil.getJson(tokenClient, "token");
-
         super.printJsonResponse(response, responseData);
     }
 

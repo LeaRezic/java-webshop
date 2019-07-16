@@ -1,11 +1,9 @@
 package src.com.webshop.Servlet;
 
-import com.google.gson.JsonObject;
-import src.com.webshop.Model.Auth.AuthTokenManager;
-import src.com.webshop.Model.Auth.AuthTokenServer;
+import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
+import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
 import src.com.webshop.Model.Receipt.ReceiptDetailedVM;
 import src.com.webshop.Model.Receipt.ReceiptManager;
-import src.com.webshop.Util.DummyLogger.LoggerUtil;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;

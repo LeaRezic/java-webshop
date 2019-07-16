@@ -118,6 +118,11 @@ public class MockRepository implements Repository {
     }
 
     @Override
+    public boolean insertLoginLog(LoginLogEntity entity) {
+        return false;
+    }
+
+    @Override
     public UserAccountEntity getUserByUsername(String username) {
         return null;
     }

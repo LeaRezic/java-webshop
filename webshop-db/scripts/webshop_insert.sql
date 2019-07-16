@@ -184,7 +184,6 @@ insert into user_account (uuid, email, password, role_id, created_on, last_login
 insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('97a754d3-3975-42f6-b6c5-c8acaa092062', 'superuser@admin.com', 'admin123!', 1, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
 insert into user_account (uuid, email, password, role_id, created_on, last_login, active) values ('c2046339-6a14-490b-881c-92c57973a602', 'plain@user.com', 'user123!', 2, '2018-10-24 01:53:06', '2019-01-30 07:56:28', true);
 
-
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (1, 'Lilli', 'Jeanesson', false, 105, '5049 Ronald Regan Alley', '(814) 2534229');
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (2, 'Skipton', 'McOrkill', true, 103, '34 Jenna Crossing', '(487) 6002624');
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (3, 'Noelyn', 'Moncaster', true, 105, '408 Tomscot Center', '(824) 7576864');
@@ -210,6 +209,114 @@ insert into user_details (user_account_id, first_name, last_name, female, city_i
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (23, 'Dyane', 'Boake', true, 114, '708 Village Green Trail', '(915) 1283335');
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (24, 'Marybeth', 'Carvill', false, 104, '218 Clemons Alley', '(323) 4183265');
 insert into user_details (user_account_id, first_name, last_name, female, city_id, full_street, phone) values (25, 'Crichton', 'Reynold', false, 111, '9821 Bartillon Terrace', '(702) 5057686');
+
+
+------------------------------------------------------------------------------------------------
+-- LOGIN_LOG (102)
+
+insert into login_log (username, ip_address, login_date, register) values ('plain@user.com', '135.152.248.251', '2019-06-03 09:32:31', true);
+insert into login_log (username, ip_address, login_date, register) values ('plain@user.com', '135.152.248.251', '2019-06-04 09:32:31', false);
+insert into login_log (username, ip_address, login_date, register) values ('rblumire1@businessinsider.com', '135.152.248.251', '2019-06-03 09:32:31', false);
+insert into login_log (username, ip_address, login_date, register) values ('rblumire1@businessinsider.com', '213.145.72.143', '2019-07-02 05:59:49', false);
+insert into login_log (username, ip_address, login_date, register) values ('rblumire1@businessinsider.com', '55.95.200.208', '2019-07-12 05:17:41', false);
+insert into login_log (username, ip_address, login_date, register) values ('amckinn2@w3.org', '61.157.44.7', '2019-07-15 16:34:46', true);
+insert into login_log (username, ip_address, login_date, register) values ('amckinn2@w3.org', '50.247.8.215', '2019-05-17 21:20:36', false);
+insert into login_log (username, ip_address, login_date, register) values ('amckinn2@w3.org', '4.152.127.156', '2019-06-30 23:33:02', false);
+insert into login_log (username, ip_address, login_date, register) values ('amckinn2@w3.org', '200.59.87.185', '2019-07-14 00:34:55', false);
+insert into login_log (username, ip_address, login_date, register) values ('rcrawford3@newyorker.com', '48.225.188.110', '2019-05-27 10:57:19', true);
+insert into login_log (username, ip_address, login_date, register) values ('rcrawford3@newyorker.com', '242.249.201.239', '2019-07-09 16:31:59', false);
+insert into login_log (username, ip_address, login_date, register) values ('rcrawford3@newyorker.com', '126.165.62.15', '2019-07-11 02:13:57', false);
+insert into login_log (username, ip_address, login_date, register) values ('thallstone4@mayoclinic.com', '209.130.128.18', '2019-06-09 13:19:33', true);
+insert into login_log (username, ip_address, login_date, register) values ('thallstone4@mayoclinic.com', '15.129.137.35', '2019-05-03 03:07:30', false);
+insert into login_log (username, ip_address, login_date, register) values ('thallstone4@mayoclinic.com', '120.221.17.136', '2019-06-14 21:20:34', false);
+insert into login_log (username, ip_address, login_date, register) values ('thallstone4@mayoclinic.com', '212.192.26.169', '2019-05-22 23:50:41', false);
+insert into login_log (username, ip_address, login_date, register) values ('udallin5@qq.com', '136.184.174.9', '2019-05-03 05:52:04', true);
+insert into login_log (username, ip_address, login_date, register) values ('udallin5@qq.com', '80.82.28.181', '2019-06-09 02:57:18', false);
+insert into login_log (username, ip_address, login_date, register) values ('udallin5@qq.com', '24.177.226.16', '2019-07-13 01:26:49', false);
+insert into login_log (username, ip_address, login_date, register) values ('udallin5@qq.com', '108.18.54.92', '2019-07-15 05:33:06', false);
+insert into login_log (username, ip_address, login_date, register) values ('jnineham6@bandcamp.com', '55.146.17.134', '2019-05-07 02:42:57', true);
+insert into login_log (username, ip_address, login_date, register) values ('fscamp8@weebly.com', '103.179.107.107', '2019-06-03 16:29:51', true);
+insert into login_log (username, ip_address, login_date, register) values ('ecabrera9@dedecms.com', '128.161.181.61', '2019-07-14 05:07:05', true);
+insert into login_log (username, ip_address, login_date, register) values ('ecabrera9@dedecms.com', '193.100.118.80', '2019-06-12 00:18:23', false);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '23.160.160.130', '2019-05-09 11:24:52', true);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '213.203.36.231', '2019-06-26 16:01:44', false);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '42.69.145.168', '2019-05-26 02:07:19', false);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '60.42.185.39', '2019-07-15 22:26:56', false);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '29.62.231.53', '2019-06-05 16:29:15', false);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '56.68.140.80', '2019-05-01 14:04:05', false);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '242.37.137.248', '2019-05-15 23:02:50', false);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '169.27.116.163', '2019-06-05 16:42:45', false);
+insert into login_log (username, ip_address, login_date, register) values ('cclethroa@people.com.cn', '37.183.175.111', '2019-05-03 00:57:15', false);
+insert into login_log (username, ip_address, login_date, register) values ('fshuardb@hud.gov', '71.116.48.185', '2019-06-01 14:27:42', true);
+insert into login_log (username, ip_address, login_date, register) values ('fshuardb@hud.gov', '61.22.205.137', '2019-06-21 08:12:49', false);
+insert into login_log (username, ip_address, login_date, register) values ('fshuardb@hud.gov', '15.229.89.28', '2019-05-06 01:07:26', false);
+insert into login_log (username, ip_address, login_date, register) values ('fshuardb@hud.gov', '239.150.115.12', '2019-05-12 05:35:18', false);
+insert into login_log (username, ip_address, login_date, register) values ('fshuardb@hud.gov', '144.79.236.49', '2019-07-09 21:45:20', false);
+insert into login_log (username, ip_address, login_date, register) values ('fshuardb@hud.gov', '31.167.152.183', '2019-05-29 18:43:59', false);
+insert into login_log (username, ip_address, login_date, register) values ('ntalc@mozilla.org', '219.92.219.101', '2019-05-25 20:14:01', true);
+insert into login_log (username, ip_address, login_date, register) values ('ntalc@mozilla.org', '45.192.152.163', '2019-06-03 03:50:19', false);
+insert into login_log (username, ip_address, login_date, register) values ('ntalc@mozilla.org', '219.69.243.140', '2019-06-21 21:55:59', false);
+insert into login_log (username, ip_address, login_date, register) values ('ntalc@mozilla.org', '209.164.83.111', '2019-05-07 19:44:25', false);
+insert into login_log (username, ip_address, login_date, register) values ('ntalc@mozilla.org', '112.240.41.112', '2019-06-10 00:41:09', false);
+insert into login_log (username, ip_address, login_date, register) values ('ntalc@mozilla.org', '217.103.46.233', '2019-07-08 13:57:31', false);
+insert into login_log (username, ip_address, login_date, register) values ('apennellsd@jimdo.com', '134.130.219.217', '2019-05-01 22:45:42', true);
+insert into login_log (username, ip_address, login_date, register) values ('apennellsd@jimdo.com', '28.244.118.201', '2019-05-03 15:53:08', false);
+insert into login_log (username, ip_address, login_date, register) values ('apennellsd@jimdo.com', '107.227.65.120', '2019-07-10 21:22:57', false);
+insert into login_log (username, ip_address, login_date, register) values ('apennellsd@jimdo.com', '88.207.36.2', '2019-06-01 02:50:12', false);
+insert into login_log (username, ip_address, login_date, register) values ('jbaffine@businessinsider.com', '67.93.109.124', '2019-06-10 09:49:58', true);
+insert into login_log (username, ip_address, login_date, register) values ('kdatef@histats.com', '223.187.15.211', '2019-07-11 13:28:33', false);
+insert into login_log (username, ip_address, login_date, register) values ('kdatef@histats.com', '223.187.15.211', '2019-06-06 05:20:09', false);
+insert into login_log (username, ip_address, login_date, register) values ('kdatef@histats.com', '223.187.15.211', '2019-05-09 16:47:33', true);
+insert into login_log (username, ip_address, login_date, register) values ('vmongerg@prlog.org', '227.152.193.23', '2019-05-22 09:06:06', true);
+insert into login_log (username, ip_address, login_date, register) values ('vmongerg@prlog.org', '50.70.211.125', '2019-06-02 07:48:53', false);
+insert into login_log (username, ip_address, login_date, register) values ('clystonh@netscape.com', '89.146.46.89', '2019-06-03 15:55:14', true);
+insert into login_log (username, ip_address, login_date, register) values ('clystonh@netscape.com', '24.115.88.199', '2019-05-09 03:42:53', false);
+insert into login_log (username, ip_address, login_date, register) values ('clystonh@netscape.com', '119.194.109.4', '2019-05-02 07:19:05', false);
+insert into login_log (username, ip_address, login_date, register) values ('hhubbardi@trellian.com', '83.179.151.144', '2019-05-10 15:11:26', true);
+insert into login_log (username, ip_address, login_date, register) values ('hhubbardi@trellian.com', '204.93.252.107', '2019-05-19 08:50:58', false);
+insert into login_log (username, ip_address, login_date, register) values ('hhubbardi@trellian.com', '110.190.203.96', '2019-06-17 06:10:13', false);
+insert into login_log (username, ip_address, login_date, register) values ('hhubbardi@trellian.com', '239.140.16.19', '2019-05-22 07:46:28', false);
+insert into login_log (username, ip_address, login_date, register) values ('cbykj@berkeley.edu', '75.26.139.66', '2019-07-15 17:10:07', true);
+insert into login_log (username, ip_address, login_date, register) values ('cbykj@berkeley.edu', '2.114.83.110', '2019-05-15 02:38:34', false);
+insert into login_log (username, ip_address, login_date, register) values ('cbykj@berkeley.edu', '226.173.180.37', '2019-05-28 02:43:07', false);
+insert into login_log (username, ip_address, login_date, register) values ('cbykj@berkeley.edu', '226.24.179.55', '2019-05-31 12:10:22', false);
+insert into login_log (username, ip_address, login_date, register) values ('cbykj@berkeley.edu', '59.162.95.15', '2019-05-12 19:16:01', false);
+insert into login_log (username, ip_address, login_date, register) values ('plonsdalek@nih.gov', '25.20.106.39', '2019-06-29 03:48:05', true);
+insert into login_log (username, ip_address, login_date, register) values ('plonsdalek@nih.gov', '192.118.80.108', '2019-05-02 06:06:45', false);
+insert into login_log (username, ip_address, login_date, register) values ('plonsdalek@nih.gov', '204.42.164.56', '2019-06-08 21:22:50', false);
+insert into login_log (username, ip_address, login_date, register) values ('plonsdalek@nih.gov', '159.221.84.245', '2019-05-01 04:34:55', false);
+insert into login_log (username, ip_address, login_date, register) values ('plonsdalek@nih.gov', '26.52.172.107', '2019-06-19 15:22:24', false);
+insert into login_log (username, ip_address, login_date, register) values ('plonsdalek@nih.gov', '158.193.113.7', '2019-05-25 12:19:47', false);
+insert into login_log (username, ip_address, login_date, register) values ('fwardl@phpbb.com', '247.48.145.209', '2019-05-07 05:49:12', true);
+insert into login_log (username, ip_address, login_date, register) values ('fwardl@phpbb.com', '222.248.54.232', '2019-05-27 07:40:26', false);
+insert into login_log (username, ip_address, login_date, register) values ('fwardl@phpbb.com', '177.93.227.226', '2019-07-15 16:32:28', false);
+insert into login_log (username, ip_address, login_date, register) values ('fwardl@phpbb.com', '18.16.237.230', '2019-06-12 21:18:44', false);
+insert into login_log (username, ip_address, login_date, register) values ('fwardl@phpbb.com', '251.82.33.247', '2019-06-23 16:42:24', false);
+insert into login_log (username, ip_address, login_date, register) values ('bruddochm@bloglines.com', '17.49.132.223', '2019-05-14 03:19:55', true);
+insert into login_log (username, ip_address, login_date, register) values ('bruddochm@bloglines.com', '82.178.180.211', '2019-06-10 18:48:24', false);
+insert into login_log (username, ip_address, login_date, register) values ('bruddochm@bloglines.com', '39.141.255.139', '2019-07-03 09:56:21', false);
+insert into login_log (username, ip_address, login_date, register) values ('bruddochm@bloglines.com', '45.11.116.159', '2019-05-24 23:02:13', false);
+insert into login_log (username, ip_address, login_date, register) values ('bruddochm@bloglines.com', '6.26.99.221', '2019-07-07 04:21:31', false);
+insert into login_log (username, ip_address, login_date, register) values ('bruddochm@bloglines.com', '107.201.140.29', '2019-05-20 22:00:55', false);
+insert into login_log (username, ip_address, login_date, register) values ('bruddochm@bloglines.com', '152.89.17.186', '2019-06-03 02:42:41', false);
+insert into login_log (username, ip_address, login_date, register) values ('bruddochm@bloglines.com', '19.175.192.176', '2019-06-26 21:17:29', false);
+insert into login_log (username, ip_address, login_date, register) values ('gkerblern@cafepress.com', '26.167.179.33', '2019-05-14 04:48:10', true);
+insert into login_log (username, ip_address, login_date, register) values ('gkerblern@cafepress.com', '60.245.237.141', '2019-06-12 08:06:27', false);
+insert into login_log (username, ip_address, login_date, register) values ('gkerblern@cafepress.com', '0.43.164.218', '2019-05-01 18:31:55', false);
+insert into login_log (username, ip_address, login_date, register) values ('gkerblern@cafepress.com', '252.3.51.104', '2019-06-14 06:28:09', false);
+insert into login_log (username, ip_address, login_date, register) values ('gkerblern@cafepress.com', '75.164.1.239', '2019-06-28 04:18:45', true);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '250.94.151.217', '2019-07-11 14:01:34', true);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '248.245.136.3', '2019-06-11 16:08:33', false);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '136.73.48.93', '2019-05-18 13:51:40', false);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '87.54.248.64', '2019-07-05 11:28:09', false);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '46.213.167.184', '2019-06-18 18:57:00', false);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '48.52.27.165', '2019-07-14 13:34:10', false);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '3.65.32.108', '2019-06-30 13:04:32', false);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '232.123.200.233', '2019-05-31 17:48:44', false);
+insert into login_log (username, ip_address, login_date, register) values ('ulundono@opera.com', '143.104.246.183', '2019-06-24 13:50:56', false);
+insert into login_log (username, ip_address, login_date, register) values ('smacwhirter0@dailymotion.com', '48.124.168.127', '2019-06-03 19:48:19', false);
+insert into login_log (username, ip_address, login_date, register) values ('smacwhirter0@dailymotion.com', '85.138.214.65', '2019-05-07 08:18:39', true);
+
 
 ------------------------------------------------------------------------------------------------
 -- CATEGORY (5), SUBCATEGORY (21), MANUFACTURER (50)

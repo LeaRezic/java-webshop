@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Auth;
+package src.com.webshop.Model.Auth.UserData;
 
 import src.com.webshop.DAL.Entities.RoleEntity;
 import src.com.webshop.DAL.Entities.UserAccountEntity;

@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Auth;
+package src.com.webshop.Model.Auth.AuthToken;
 
 public class AuthTokenServer {
 

@@ -27,7 +27,6 @@ public class BaseServlet extends HttpServlet {
 
     protected void setAccessControlHeaders(HttpServletResponse resp) {
         String allowOrigin = determineAndGetOrigin();
-        LoggerUtil.log(allowOrigin);
         resp.setHeader("Access-Control-Allow-Origin", allowOrigin);
         resp.setHeader("Access-Control-Allow-Methods", "POST");
         resp.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");

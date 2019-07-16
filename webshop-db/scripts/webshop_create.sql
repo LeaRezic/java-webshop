@@ -55,6 +55,20 @@ CREATE TABLE user_details (
 );
 
 ------------------------------------------------------------------------------------------------
+-- LOGS
+
+CREATE TABLE login_log (
+    login_log_id serial PRIMARY KEY,
+    username VARCHAR(355) NOT NULL,
+    ip_address VARCHAR(16) NOT NULL,
+    login_date TIMESTAMP NOT NULL,
+    register BOOLEAN NOT NULL,
+    CONSTRAINT login_log_username_fkey FOREIGN KEY (username)
+        REFERENCES user_account (email) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+------------------------------------------------------------------------------------------------
 -- CATEGORY, SUBCATEGORY, MANUFACTURER
 
 CREATE TABLE product_category (

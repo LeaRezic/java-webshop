@@ -1,6 +1,6 @@
 package src.com.webshop.Cache;
 
-import src.com.webshop.Model.Auth.AuthTokenServer;
+import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
 
 public interface AuthCache {
 
