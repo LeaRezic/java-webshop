@@ -7,12 +7,14 @@ import createSagaMiddleware from 'redux-saga';
 
 import { rootReducer } from './reducer';
 import Sagas from './sagas';
+import { IAdminState } from '../containers/Admin/interfaces';
 import { IAuthState } from '../containers/Auth/interfaces';
 import { IShoppingState } from '../containers/Shop/interfaces';
 import { IProductViewState } from '../containers/ProductView/interfaces';
 import { IProfileState } from '../containers/Profile/interfaces';
 
 export interface IStore {
+  admin: IAdminState;
   auth: IAuthState;
   profile: IProfileState;
   shop: IShoppingState;

@@ -5,6 +5,7 @@ import { watchFetchProducts, watchFetchCategories } from '../containers/Shop/sta
 import { watchFetchProduct } from '../containers/ProductView/state/sagas';
 import { watchLoginRequest, watchRegisterRequest } from '../containers/Auth/state/sagas';
 import { watchPurchaseHistoryRequest, watchProfileDetailsRequest } from '../containers/Profile/state/sagas';
+import { watchUsersDataRequest, watchLoginLogsRequest, watchReceiptsRequest } from '../containers/Admin/state/sagas';
 
 export default function * root() {
   // yield watchFetchProducts();
@@ -17,5 +18,8 @@ export default function * root() {
     watchRegisterRequest(),
     watchPurchaseHistoryRequest(),
     watchProfileDetailsRequest(),
+    watchUsersDataRequest(),
+    watchLoginLogsRequest(),
+    watchReceiptsRequest(),
   ])
 }
