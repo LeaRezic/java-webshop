@@ -1,6 +1,7 @@
 package src.com.webshop.Servlet;
 
 import com.google.gson.JsonObject;
+import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
 import src.com.webshop.Util.DummyLogger.LoggerUtil;
 import src.com.webshop.Util.JsonUtil;
 
@@ -13,6 +14,7 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.ParseException;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -82,6 +84,29 @@ public class BaseServlet extends HttpServlet {
             return null;
         }
         return parts[1];
+    }
+
+    protected boolean sendAuthErrorIfApplies(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        setAccessControlHeaders(response);
+        String authToken = getRequestAuthHeader(request);
+        try {
+            if (!AuthTokenManager.tokenValid(authToken)) {
+                sendErrorResponse(
+                        response,
+                        HttpServletResponse.SC_UNAUTHORIZED,
+                        "Authentication token is not valid."
+                );
+                return true;
+            }
+        } catch (ParseException | IOException e) {
+                sendErrorResponse(
+                    response,
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    "Error while parsing the authentication token."
+            );
+            return true;
+        }
+        return false;
     }
 
 }

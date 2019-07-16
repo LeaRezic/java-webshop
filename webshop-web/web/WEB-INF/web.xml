@@ -45,6 +45,15 @@
         <url-pattern>/receipt</url-pattern>
         <url-pattern>/receipt/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginLogServlet</servlet-name>
+        <servlet-class>src.com.webshop.Servlet.LoginLogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginLogServlet</servlet-name>
+        <url-pattern>/loginlogs</url-pattern>
+        <url-pattern>/loginlogs/*</url-pattern>
+    </servlet-mapping>
     <context-param>
         <param-name>localAllowOrigin</param-name>
         <param-value>http://localhost:3000</param-value>

@@ -7,23 +7,19 @@ import src.com.webshop.Model.Auth.AuthRequestData;
 import src.com.webshop.Util.DummyLogger.LoggerUtil;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class LoginLogManager {
 
     private static Repository repo = RepositoryFactory.getRepo();
 
     public static void logNewLogin(AuthRequestData authRequestData) {
-        LoggerUtil.log("[LOGIN LOG MANAGER]: inserting new login.");
-        LoggerUtil.log("[username]: " + authRequestData.getCredentials().getUsername());
-        LoggerUtil.log("[ip]: " + authRequestData.getVisitorAddress());
         newLog(authRequestData, false);
     }
 
     public static void logNewRegister(AuthRequestData authRequestData) {
-        LoggerUtil.log("[LOGIN LOG MANAGER]: inserting new register.");
-        LoggerUtil.log("[username]: " + authRequestData.getCredentials().getUsername());
-        LoggerUtil.log("[ip]: " + authRequestData.getVisitorAddress());
         newLog(authRequestData, true);
     }
 
@@ -34,7 +30,18 @@ public class LoginLogManager {
         loginLogEntity.setLoginLogId(0);
         loginLogEntity.setRegister(isRegister);
         loginLogEntity.setLoginDate(new Timestamp(new Date().getTime()));
-        boolean jelje = repo.insertLoginLog(loginLogEntity);
-        LoggerUtil.log("[PERSISTED]: " + jelje);
+        repo.insertLoginLog(loginLogEntity);
+    }
+
+    public static List<LoginLogVM> getLoginLogs() {
+        List<LoginLogVM> resultList = new ArrayList<>();
+        List<LoginLogEntity> entities = repo.getLoginLogs();
+        entities.forEach((e) -> resultList.add(new LoginLogVM(
+                e.giveId(),
+                e.getUserName(),
+                e.getIpAddress(),
+                e.isRegister()
+        )));
+        return resultList;
     }
 }

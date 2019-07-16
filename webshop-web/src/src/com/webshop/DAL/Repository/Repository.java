@@ -32,5 +32,7 @@ public interface Repository {
     boolean insertUser(UserAccountEntity entity);
     boolean insertLoginLog(LoginLogEntity entity);
 
+    List<LoginLogEntity> getLoginLogs();
+
     UserAccountEntity getUserByUsername(String username);
 }

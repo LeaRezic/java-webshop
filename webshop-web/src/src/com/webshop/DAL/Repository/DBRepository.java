@@ -6,8 +6,6 @@ import src.com.webshop.Util.DummyLogger.LoggerUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -295,6 +293,11 @@ public class DBRepository implements Repository {
             LoggerUtil.log("[DB REPO]: something got fucked...");
             return false;
         }
+    }
+
+    @Override
+    public List<LoginLogEntity> getLoginLogs() {
+        return (List<LoginLogEntity>) getAllEntitiesOfType(LoginLogEntity.class.getSimpleName());
     }
 
     @Override

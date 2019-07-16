@@ -123,6 +123,11 @@ public class MockRepository implements Repository {
     }
 
     @Override
+    public List<LoginLogEntity> getLoginLogs() {
+        return null;
+    }
+
+    @Override
     public UserAccountEntity getUserByUsername(String username) {
         return null;
     }
