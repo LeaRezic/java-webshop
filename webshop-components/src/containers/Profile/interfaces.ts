@@ -3,7 +3,7 @@ export interface IReceiptItem {
   receiptId: number;
   productId: number;
   productName: string;
-  productUrl: string;
+  pictureUrl: string;
   productPrice: number;
   amount: number;
 };

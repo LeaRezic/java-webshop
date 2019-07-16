@@ -14,4 +14,5 @@ export const findIP = new Promise(r => {
   }
 });
 
-export const wtf = (): Promise<string> => Promise.resolve(findIP.then(ip => ip as string).catch(e => e as string));
+export const getCurrentIP = (): Promise<string> =>
+  Promise.resolve(findIP.then(ip => ip as string).catch(e => e as string));

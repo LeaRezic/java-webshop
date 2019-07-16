@@ -8,6 +8,7 @@ export enum ShoppingActionTypes {
   INIT_CART = 'INIT_CART',
   ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART',
   REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART',
+  CLEAR_CART = 'CLEAR_CART',
   INCREMENT_PRODUCT_QUANTITY = 'INCREMENT_PRODUCT_QUANTITY',
   DECREMENT_PRODUCT_QUANTITY = 'DECREMENT_PRODUCT_QUANTITY',
   FETCH_CATEGORIES = 'FETCH_CATEGORIES',
@@ -54,6 +55,13 @@ export const removeProductFromCart = (productId: number)
   return {
     type: ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART,
     data: productId,
+  }
+}
+
+export const clearCart = ()
+  :IReduxAction<void, void, void, ShoppingActionTypes.CLEAR_CART> => {
+  return {
+    type: ShoppingActionTypes.CLEAR_CART,
   }
 }
 
@@ -126,6 +134,7 @@ export type ProductsAction =
   | ReturnType<typeof fetchProductsFailure>
   | ReturnType<typeof addProductToCart>
   | ReturnType<typeof removeProductFromCart>
+  | ReturnType<typeof clearCart>
   | ReturnType<typeof incrementProductQuantity>
   | ReturnType<typeof decrementProductQuantity>
   | ReturnType<typeof fetchCategories>

@@ -7,6 +7,7 @@ import { IReceiptDetailed } from '../../containers/Profile/interfaces';
 import { changeIsoDateFormat } from '../../utils/dateUtils';
 
 import styles from './ReceiptsTable.module.css';
+import { getFormattedCurrency } from '../../utils/currencyUtil';
 
 export const getTableConfig = (
   showUsername: boolean,
@@ -40,6 +41,7 @@ export const getTableConfig = (
       openInNewTab: true,
       sortable: true,
       title: 'Amount',
+      formatter: (amount: number) => getFormattedCurrency(amount),
       weight: 17,
     },
     {

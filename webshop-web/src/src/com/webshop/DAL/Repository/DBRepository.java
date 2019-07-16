@@ -323,4 +323,39 @@ public class DBRepository implements Repository {
         }
         return entity;
     }
+
+    @Override
+    public int insertReceipt(ReceiptEntity receiptEntity) {
+        insertEntity(receiptEntity);
+        ReceiptEntity receipt = getReceiptByNumber(receiptEntity.getReceiptNumber());
+        return receipt.getReceiptId();
+    }
+
+    @Override
+    public void insertReceiptItem(ReceiptItemEntity receiptItemEntity) {
+        insertEntity(receiptItemEntity);
+    }
+
+    private ReceiptEntity getReceiptByNumber(String receiptNumber) {
+        EntityManager em = null;
+        ReceiptEntity entity = null;
+        try {
+            StringBuilder sb = new StringBuilder();
+            sb.append("FROM ")
+                    .append(ReceiptEntity.class.getSimpleName())
+                    .append(" WHERE receipt_number like '")
+                    .append(receiptNumber)
+                    .append("'");
+            em = emFactory.createEntityManager();
+            em.getTransaction().begin();
+            entity = (ReceiptEntity) em.createQuery(sb.toString()).getResultList().get(0);
+            em.getTransaction().commit();
+            em.close();
+        } catch (Exception e) {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return entity;
+    }
 }

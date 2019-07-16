@@ -13,11 +13,11 @@ interface IReceiptDetailedProps {
 
 class ReceiptItem extends React.PureComponent<IReceiptItem> {
   public render() {
-    const { productName, productPrice, amount, productUrl } = this.props;
+    const { productName, productPrice, amount, pictureUrl } = this.props;
     return(
       <div className={styles.ItemContainer}>
         <div className={styles.PictureContainer}>
-          <img src={getDesiredDimensionsPic(productUrl, 50)} alt='product photo'/>
+          <img src={getDesiredDimensionsPic(pictureUrl, 50)} alt='product photo'/>
         </div>
         <div className={styles.DescriptionContainer}>
           <div><span className={globalStyles.TextLightGraySmall}>Product: </span>{productName}</div>

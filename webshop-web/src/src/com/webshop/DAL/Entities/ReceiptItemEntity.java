@@ -13,6 +13,7 @@ public class ReceiptItemEntity implements EntityBase {
 
     @Id
     @Column(name = "receipt_item_id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int getReceiptItemId() {
         return receiptItemId;
     }

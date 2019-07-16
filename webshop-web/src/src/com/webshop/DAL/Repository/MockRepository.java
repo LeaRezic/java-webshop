@@ -131,4 +131,14 @@ public class MockRepository implements Repository {
     public UserAccountEntity getUserByUsername(String username) {
         return null;
     }
+
+    @Override
+    public int insertReceipt(ReceiptEntity receiptEntity) {
+        return 0;
+    }
+
+    @Override
+    public void insertReceiptItem(ReceiptItemEntity receiptItemEntity) {
+
+    }
 }

@@ -193,6 +193,15 @@ const removeFilterSubcategories = (state: IShoppingState, ids: number[]) => {
   }
 }
 
+const clearCart = (state: IShoppingState) => {
+  return {
+    ...state,
+    cart: {
+      items: [],
+    },
+  }
+}
+
 export function shoppingReducer(state: IShoppingState = initialState, action: ProductsAction): IShoppingState {
   switch (action.type) {
     case ShoppingActionTypes.FETCH_PRODUCTS: return fetchProducts(state);
@@ -200,6 +209,7 @@ export function shoppingReducer(state: IShoppingState = initialState, action: Pr
     case ShoppingActionTypes.FETCH_PRODUCTS_FAILURE: return fetchProductsFailure(state, action.data!);
     case ShoppingActionTypes.ADD_PRODUCT_TO_CART: return addProductToCart(state, action.data!);
     case ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART: return removeProductFromCart(state, action.data!);
+    case ShoppingActionTypes.CLEAR_CART: return clearCart(state);
     case ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data!, 1);
     case ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data!, -1);
     case ShoppingActionTypes.FETCH_CATEGORIES: return fetchCategories(state);

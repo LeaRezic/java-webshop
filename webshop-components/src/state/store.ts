@@ -12,10 +12,12 @@ import { IAuthState } from '../containers/Auth/interfaces';
 import { IShoppingState } from '../containers/Shop/interfaces';
 import { IProductViewState } from '../containers/ProductView/interfaces';
 import { IProfileState } from '../containers/Profile/interfaces';
+import { ICheckoutState } from '../containers/Checkout/interfaces';
 
 export interface IStore {
   admin: IAdminState;
   auth: IAuthState;
+  checkout: ICheckoutState;
   profile: IProfileState;
   shop: IShoppingState;
   productView: IProductViewState;

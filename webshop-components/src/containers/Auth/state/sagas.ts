@@ -2,7 +2,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 import { notify } from 'react-notify-toast';
 
 import { instance } from '../../../utils/axios';
-import { wtf } from '../../../utils/ipUtil';
+import { getCurrentIP } from '../../../utils/ipUtil';
 import { AuthActionTypes, loginSuccess, loginFailure, loginRequest, registerRequest, logOut } from './actions';
 import { IAuthRequestData } from '../interfaces';
 
@@ -12,7 +12,7 @@ export function* watchLoginRequest() {
 
 function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>>) {
   try {
-    const ip = yield wtf();
+    const ip = yield getCurrentIP();
     const data: IAuthRequestData = {
       credentials: {
         username: action.data.username,
@@ -47,7 +47,7 @@ export function* watchRegisterRequest() {
 
 function* registerRequestIntercept(action: Readonly<ReturnType<typeof registerRequest>>) {
   try {
-    const ip = yield wtf();
+    const ip = yield getCurrentIP();
     const data: IAuthRequestData = {
       credentials: {
         username: action.data.username,

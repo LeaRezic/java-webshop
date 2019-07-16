@@ -138,3 +138,63 @@
 [DB REPO]: logged entity 192.168.0.28
 ****************************************************
 [DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+{"password":"123456","receiptItems":[{"productId":4,"ammount":1},{"productId":9,"ammount":1},{"productId":10,"ammount":1}]}
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":4,"ammount":1},{"productId":9,"ammount":1},{"productId":10,"ammount":1},{"productId":1,"ammount":1},{"productId":2,"ammount":1}]}
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":3,"ammount":1},{"productId":5,"ammount":1},{"productId":7,"ammount":1}]}
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":148,"ammount":1}]}
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":148,"ammount":1}]}
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":148,"ammount":1}]}
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":148,"ammount":1}]}
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":148,"ammount":1}]}
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":4,"ammount":1},{"productId":7,"ammount":1},{"productId":16,"ammount":1},{"productId":38,"ammount":1},{"productId":53,"ammount":1}]}
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":31,"ammount":1},{"productId":33,"ammount":1},{"productId":40,"ammount":3}]}
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+{"password":"123456","creditCard":false,"receiptItems":[{"productId":2,"ammount":1},{"productId":3,"ammount":1}]}
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28
+****************************************************
+[DB REPO]: logged entity 192.168.0.28

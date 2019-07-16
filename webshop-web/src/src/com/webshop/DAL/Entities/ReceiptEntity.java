@@ -16,6 +16,7 @@ public class ReceiptEntity implements EntityBase {
 
     @Id
     @Column(name = "receipt_id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int getReceiptId() {
         return receiptId;
     }

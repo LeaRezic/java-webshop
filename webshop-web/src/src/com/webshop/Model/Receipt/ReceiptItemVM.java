@@ -6,7 +6,7 @@ public class ReceiptItemVM {
     private int receiptId;
     private int productId;
     private String productName;
-    private String productUrl;
+    private String pictureUrl;
     private double productPrice;
     private int amount;
 
@@ -15,7 +15,7 @@ public class ReceiptItemVM {
         this.receiptId = receiptId;
         this.productId = productId;
         this.productName = productName;
-        this.productUrl = productUrl;
+        this.pictureUrl = productUrl;
         this.productPrice = productPrice;
         this.amount = amount;
     }
@@ -36,8 +36,8 @@ public class ReceiptItemVM {
         return productName;
     }
 
-    public String getProductUrl() {
-        return productUrl;
+    public String getPictureUrl() {
+        return pictureUrl;
     }
 
     public double getProductPrice() {

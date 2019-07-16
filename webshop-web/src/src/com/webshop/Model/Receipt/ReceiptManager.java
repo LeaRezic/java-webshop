@@ -7,8 +7,11 @@ import src.com.webshop.DAL.Repository.Repository;
 import src.com.webshop.DAL.Repository.RepositoryFactory;
 import src.com.webshop.Model.Product.ProductDetailedVM;
 import src.com.webshop.Model.Product.ProductManager;
+import src.com.webshop.Util.ReceiptNumberGenerator;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ReceiptManager {
@@ -95,5 +98,33 @@ public class ReceiptManager {
             receipts.add(detailedReceipt);
         }
         return receipts;
+    }
+
+    public static String createNewReceipt(CreateReceiptData createReceiptData, String email) {
+        String receiptNumber = ReceiptNumberGenerator.getRandomReceiptNumber();
+        int receiptId = insertReceipt(createReceiptData, email, receiptNumber);
+        for (CreateReceiptItemData receiptItem : createReceiptData.getReceiptItems()) {
+            insertReceiptItem(receiptItem, receiptId);
+        }
+        return receiptNumber;
+    }
+
+    private static void insertReceiptItem(CreateReceiptItemData item, int receiptId) {
+        ReceiptItemEntity receiptItemEntity = new ReceiptItemEntity();
+        receiptItemEntity.setReceiptItemId(0);
+        receiptItemEntity.setReceiptId(receiptId);
+        receiptItemEntity.setAmount(item.getAmmount());
+        receiptItemEntity.setProductId(item.getProductId());
+        repo.insertReceiptItem(receiptItemEntity);
+    }
+
+    private static int insertReceipt(CreateReceiptData createReceiptData, String email, String receiptNumber) {
+        ReceiptEntity receiptEntity = new ReceiptEntity();
+        receiptEntity.setReceiptId(0);
+        receiptEntity.setCreditCard(createReceiptData.isCreditCard());
+        receiptEntity.setReceiptNumber(receiptNumber);
+        receiptEntity.setPurchaseDate(new Timestamp(new Date().getTime()));
+        receiptEntity.setUserAccountId(repo.getUserByUsername(email).getUserAccountId());
+        return repo.insertReceipt(receiptEntity);
     }
 }

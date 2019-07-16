@@ -35,4 +35,8 @@ public interface Repository {
     List<LoginLogEntity> getLoginLogs();
 
     UserAccountEntity getUserByUsername(String username);
+
+    int insertReceipt(ReceiptEntity receiptEntity);
+
+    void insertReceiptItem(ReceiptItemEntity receiptItemEntity);
 }

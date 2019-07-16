@@ -2,10 +2,12 @@ import * as React from 'react';
 import { withRouter } from 'react-router';
 import { createStructuredSelector } from 'reselect';
 import classNames from 'classnames';
+import { notify } from 'react-notify-toast';
 
 import {
-  IShoppingPageProps,
-  IShoppingPageMappedProps,
+  IProduct,
+  ICartItem,
+  ICategory,
 } from './interfaces';
 import { Products } from './components/Products/Products';
 import {
@@ -30,10 +32,39 @@ import { connect } from 'react-redux';
 import { Aux } from '../../hoc/Aux/Aux';
 import { Cart } from './components/Cart/Cart';
 import { Filters } from './components/Filters/Filters';
+import { Modal } from '../../components/Modal/Modal';
+import { ReactRouterProps } from '../../typings/interfaces';
 
 import styles from './ShoppingPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
-import { Modal } from '../../components/Modal/Modal';
+import { isAuthenticatedSelector } from '../Auth/state/selectors';
+
+interface IShoppingPageMappedProps {
+  isAuthenticated: boolean;
+  products: IProduct[];
+  cartItems: ICartItem[];
+  categories: ICategory[];
+  chosenCategoryId: number;
+  chosenSubcategoryIds: number[];
+}
+
+interface IShoppingPageMappedDispatch {
+  onProductsFetch: () => void;
+  onAddProduct: (productId: number) => void;
+  onRemoveProduct: (productId: number) => void;
+  onIncrementProduct: (productId: number) => void;
+  onDecrementProduct: (productId: number) => void;
+  onCategoriesFetch: () => void;
+  onChangeCategoryId: (id: number) => void;
+  onAddSubcategories: (ids: number[]) => void;
+  onRemoveSubcategories: (ids: number[]) => void;
+}
+
+type IShoppingPageProps =
+  & IShoppingPageMappedProps
+  & IShoppingPageMappedDispatch
+  & ReactRouterProps
+  ;
 
 interface IShoppingPageState {
   isCartOpen: boolean;
@@ -41,6 +72,13 @@ interface IShoppingPageState {
 }
 
 export class ShoppingComponent extends React.Component<IShoppingPageProps, IShoppingPageState> {
+
+  show;
+  constructor(props) {
+    super(props);
+    this.show = notify.createShowQueue();
+  }
+
   public state = {
     isCartOpen: false,
     showFiltersPopup: false,
@@ -96,7 +134,7 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
           <button
             disabled={this.props.cartItems.length <= 0}
             onClick={this.handleCheckoutClick}
-            className={`${globalStyles.Btn} ${globalStyles.BtnSuccessSubtle}`}
+            className={classNames(globalStyles.Btn, globalStyles.BtnSuccessSubtle)}
           >
             CHECKOUT
           </button>
@@ -123,11 +161,17 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
   }
 
   private handleCheckoutClick = () => {
-    this.props.history.push('/checkout');
+    if (this.props.isAuthenticated) {
+      this.props.history.push('/checkout');
+    } else {
+      this.show('Please log in or register before checking out.', 'warning', 4000);
+      this.props.history.push('/auth');
+    }
   }
 }
 
 const mapStateToProps = createStructuredSelector<any, IShoppingPageMappedProps>({
+  isAuthenticated: isAuthenticatedSelector,
   products: getProductsSelector,
   cartItems: cartItemsSelector,
   categories: categoriesSelector,
