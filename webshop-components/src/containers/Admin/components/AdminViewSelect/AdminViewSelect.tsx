@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { AdminViewType } from '../../interfaces';
 
+import styles from './AdminViewSelect.module.css';
+
 interface IAdminViewSelectProps {
   views: AdminViewType[];
   selectedView: AdminViewType;
@@ -18,14 +20,15 @@ class SingleViewButton extends React.PureComponent<ISingleViewButton> {
   public render() {
     const { view, isSelected } = this.props;
     return(
-      <label>
+      <label className={styles.container}>
+        {view.split('_')[1]}
         <input
           type='radio'
           name='adminView'
           checked={isSelected}
           onChange={this.handleChange}
         />
-        {view.split('_')[1]}
+        <span className={styles.checkmark} />
       </label>
     );
   }
@@ -41,10 +44,10 @@ export class AdminViewSelect extends React.PureComponent<IAdminViewSelectProps> 
   public render() {
     const { views, selectedView } = this.props;
     return(
-      <div className='bla'>
-        <h3>CHOOSE VIEW</h3>
+      <div className={styles.Main}>
         { views.map((view) => (
           <SingleViewButton
+            key={view}
             view={view}
             isSelected={view === selectedView}
             onSelect={this.props.onSelect}
