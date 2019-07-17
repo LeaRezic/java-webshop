@@ -144,8 +144,6 @@ export class Table<T> extends React.Component<ITableProps<T>, ITableState<T>> {
     );
   }
 
-  // #TODO @bigd -> type me !!1!
-  // Find a way to get internal table state typed and passed to first arg here
   private getRowState = (tableState: any, rowInfo: IRowInfo<T>) => {
     return {
       className: classNames(

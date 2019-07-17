@@ -27,11 +27,11 @@ export const isLogDataLoadedSelector = (store: IStore): boolean => {
   return !store.admin.logs.meta.fetching;
 }
 
-const allLogDataSelector = (store: IStore): ILoginLog[] => {
+export const allLogDataSelector = (store: IStore): ILoginLog[] => {
   return store.admin.logs.data;
 }
 
-const logUsernameFilterSelector = (store: IStore): string => {
+export const logUsernameFilterSelector = (store: IStore): string => {
   return store.admin.logs.usernameFilter;
 }
 
@@ -70,3 +70,12 @@ export const receiptsDataSelector = createSelector(
     return receipts.filter((receipt) => receipt.username === username);
   }
 );
+
+export const logsSelectedUsersSelector = (store: IStore) => {
+  const users = store.admin.users.data;
+  const username = store.admin.logs.usernameFilter;
+  if (username === null) {
+    return [];
+  }
+  return users.filter((user) => user.username === username);
+};

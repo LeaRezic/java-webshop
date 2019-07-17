@@ -1,34 +1,44 @@
 import * as React from 'react';
-import { ILoginLog } from '../../interfaces';
+import { ILoginLog, IAdminUserData } from '../../interfaces';
 
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
-import { Table } from '../../../../components/Table/Table';
-import { getTableConfig } from './tableConfig';
+import { LogsTable } from './LogsTable/LogsTable';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { loginLogsRequest } from '../../state/actions';
+import { loginLogsRequest, loginLogsSetFilter } from '../../state/actions';
 import { authTokenSelector } from '../../../Auth/state/selectors';
-import { isFetchingLogsSelector, isLogDataLoadedSelector, logDataSelector } from '../../state/selectors';
+import {
+  isFetchingLogsSelector,
+  isLogDataLoadedSelector,
+  logDataSelector,
+  usersDataSelector,
+  logsSelectedUsersSelector,
+} from '../../state/selectors';
+import { UsersSelect } from '../UsersSelect/UsersSelect';
 
 import styles from './LoginLogs.module.css';
+import { Aux } from '../../../../hoc/Aux/Aux';
 
 interface ILoginLogsMappedProps {
   tokenId: string;
   isFetchinData: boolean;
   isDataLoaded: boolean;
-  data: ILoginLog[];
+  logsData: ILoginLog[];
+  usersData: IAdminUserData[];
+  selectedUsers: IAdminUserData[];
 }
 
 interface ILoginLogsMappedDispatch {
   onLogDataFetch: (tokenId: string) => void;
+  onSetFilter: (username: string) => void;
 }
 
 type ILoginLogsProps = ILoginLogsMappedProps & ILoginLogsMappedDispatch;
 
-export class LoginLogsComponent extends React.PureComponent<ILoginLogsProps> {
+export class LoginLogsComponent extends React.Component<ILoginLogsProps> {
 
   public componentDidMount() {
-    if (this.props.data === null || this.props.data.length === 0) {
+    if (this.props.logsData === null || this.props.logsData.length === 0) {
       this.props.onLogDataFetch(this.props.tokenId);
     }
   }
@@ -36,15 +46,20 @@ export class LoginLogsComponent extends React.PureComponent<ILoginLogsProps> {
   public render() {
     return (
       <div className={styles.TableContainer}>
-        {this.props.isFetchinData
+        { this.props.isFetchinData
           ? <Spinner />
-          : this.props.isDataLoaded && this.props.data.length === 0
-            ? <p>NO DATA TO SHOW</p>
-            : <Table
-                columns={getTableConfig()}
-                data={this.props.data}
-                foldableColumns={true}
+          : <Aux>
+              <UsersSelect
+                selectedUsers={this.props.selectedUsers}
+                users={this.props.usersData}
+                onChange={this.props.onSetFilter}
               />
+              { this.props.isDataLoaded && this.props.logsData.length === 0
+                ? <p>NO DATA</p>
+                : <LogsTable
+                    data={this.props.logsData}
+                  /> }
+            </Aux>
         }
       </div>
     );
@@ -55,11 +70,14 @@ const mapStateToProps = createStructuredSelector<any, ILoginLogsMappedProps>({
   tokenId: authTokenSelector,
   isFetchinData: isFetchingLogsSelector,
   isDataLoaded: isLogDataLoadedSelector,
-  data: logDataSelector,
+  logsData: logDataSelector,
+  usersData: usersDataSelector,
+  selectedUsers: logsSelectedUsersSelector,
 });
 
 const mapDispatchToProps = {
   onLogDataFetch: loginLogsRequest,
+  onSetFilter: loginLogsSetFilter,
 }
 
 export const LoginLogs = connect(mapStateToProps, mapDispatchToProps)(LoginLogsComponent);

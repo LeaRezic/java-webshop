@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IAdminUserData } from '../../interfaces';
+import { IAdminUserData, AdminViewType } from '../../interfaces';
 
 import styles from './UsersData.module.css';
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
@@ -7,7 +7,7 @@ import { Table } from '../../../../components/Table/Table';
 import { getTableConfig } from './tableConfig';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { usersDataRequest, viewUserLogs, viewUserReceipts } from '../../state/actions';
+import { usersDataRequest, loginLogsSetFilter, receiptsSetFilter, setAdminView } from '../../state/actions';
 import { authTokenSelector } from '../../../Auth/state/selectors';
 import { isFetchingUserDataSelector, usersDataSelector, isUsersDataLoadedSelector } from '../../state/selectors';
 
@@ -20,8 +20,9 @@ interface IUsersDataMappedProps {
 
 interface IUsersDataMappedDispatch {
   onUsersDataFetch: (tokenId: string) => void;
-  onClickUserLogs: (username: string) => void;
-  onClickUserReceipts: (username: string) => void;
+  onSetLogsFilter: (username: string) => void;
+  onSetReceiptsFilter: (username: string) => void;
+  onChangeView: (adminView: AdminViewType) => void;
 }
 
 type IUsersDataProps = IUsersDataMappedProps & IUsersDataMappedDispatch;
@@ -42,13 +43,23 @@ export class UsersDataComponent extends React.PureComponent<IUsersDataProps> {
             : this.props.isDataLoaded && this.props.data.length === 0
               ? <p>NO DATA TO SHOW</p>
               : <Table
-                  columns={getTableConfig(this.props.onClickUserLogs, this.props.onClickUserReceipts)}
+                  columns={getTableConfig(this.handleUserLogsClick, this.handleReceiptLogsClick)}
                   data={this.props.data}
                   foldableColumns={true}
                 />
         }
       </div>
     );
+  }
+
+  private handleUserLogsClick = (username: string) => {
+    this.props.onChangeView(AdminViewType.VIEW_LOGS);
+    this.props.onSetLogsFilter(username);
+  }
+
+  private handleReceiptLogsClick = (username: string) => {
+    this.props.onChangeView(AdminViewType.VIEW_RECEIPTS);
+    this.props.onSetReceiptsFilter(username);
   }
 }
 
@@ -61,8 +72,9 @@ const mapStateToProps = createStructuredSelector<any, IUsersDataMappedProps>({
 
 const mapDispatchToProps = {
   onUsersDataFetch: usersDataRequest,
-  onClickUserLogs: viewUserLogs,
-  onClickUserReceipts: viewUserReceipts,
+  onSetLogsFilter: loginLogsSetFilter,
+  onSetReceiptsFilter: receiptsSetFilter,
+  onChangeView: setAdminView,
 }
 
 export const UsersData = connect(mapStateToProps, mapDispatchToProps)(UsersDataComponent);

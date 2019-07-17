@@ -1,7 +1,6 @@
 import { IAdminState, AdminViewType, IAdminViewMeta, IAdminUserData, ILoginLog } from '../interfaces';
 import { AdminActionTypes, AdminActions } from './actions';
 import { IReceiptDetailed } from '../../Profile/interfaces';
-import { statement } from '@babel/template';
 
 const initialMeta: IAdminViewMeta = {
   fetching: false,
@@ -183,14 +182,6 @@ const receiptsSetFilter = (state: IAdminState, username: string) => {
   };
 }
 
-const viewUserLogs = (state: IAdminState, username: string) => {
-  return setAdminView(loginLogsSetFilter(state, username), AdminViewType.VIEW_LOGS);;
-}
-
-const viewUserReceipts = (state: IAdminState, username: string) => {
-  return setAdminView(receiptsSetFilter(state, username), AdminViewType.VIEW_RECEIPTS);;
-}
-
 export const adminReducer = (state: IAdminState = initialState, action: AdminActions): IAdminState => {
   switch (action.type) {
     case AdminActionTypes.SET_ADMIN_VIEW: return setAdminView(state, action.data);
@@ -205,8 +196,6 @@ export const adminReducer = (state: IAdminState = initialState, action: AdminAct
     case AdminActionTypes.RECEIPTS_SUCCESS: return receiptsSuccess(state, action.data);
     case AdminActionTypes.RECEIPTS_FAILURE: return receiptsFailure(state, action.data);
     case AdminActionTypes.RECEIPTS_SET_FILTER: return receiptsSetFilter(state, action.data);
-    case AdminActionTypes.VIEW_USER_LOGS: return viewUserLogs(state, action.data);
-    case AdminActionTypes.VIEW_USER_RECEIPTS: return viewUserReceipts(state, action.data);
     default: return state;
   }
 };
