@@ -1,13 +1,12 @@
 import * as React from 'react';
 
-import { Table } from '../Table/Table';
 import { getTableConfig } from './tableConfig';
 import { IReceiptDetailed } from '../../containers/Profile/interfaces';
 import { ReceiptDetailed } from './ReceiptDetailed/ReceiptDetailed';
 import { Aux } from '../../hoc/Aux/Aux';
 import { Modal } from '../Modal/Modal';
 
-import styles from './ReceiptsTable.module.css';
+import ReactTable from 'react-table';
 
 interface IReceiptTableProps {
   data: IReceiptDetailed[];
@@ -29,10 +28,10 @@ export class ReceiptsTable extends React.PureComponent<IReceiptTableProps, IRece
   public render() {
     return(
       <Aux>
-        <Table
+        <ReactTable
           columns={getTableConfig(this.props.showUsername, this.handleViewItems)}
           data={this.props.data}
-          foldableColumns={true}
+          pageSize={this.props.data.length > 10 ? 20 : 5}
         />
         { this.state.showPopup
             ? <Modal show={this.state.showPopup} onModalClosed={this.handleClosePopup} >

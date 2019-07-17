@@ -1,79 +1,70 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { CellType } from '../Table/Cell';
-import { IRowConfig } from '../Table/interfaces';
 import { IReceiptDetailed } from '../../containers/Profile/interfaces';
 import { changeIsoDateFormat } from '../../utils/dateUtils';
+import { getFormattedCurrency } from '../../utils/currencyUtil';
 
 import styles from './ReceiptsTable.module.css';
-import { getFormattedCurrency } from '../../utils/currencyUtil';
 
 export const getTableConfig = (
   showUsername: boolean,
-  onViewDetails: (receipt: IReceiptDetailed) => void)
-  :IRowConfig<IReceiptDetailed> => {
+  onViewDetails: (receipt: IReceiptDetailed) => void) => {
   const config = [
     {
+      Header: 'User',
+      id: '1',
       accessor: (row: IReceiptDetailed) => row.username,
-      openInNewTab: true,
       sortable: true,
-      title: 'User',
-      weight: 20,
     },
     {
+      Header: 'Date',
+      id: '2',
       accessor: (row: IReceiptDetailed) => row.basic.purchaseDate,
-      openInNewTab: true,
       sortable: true,
-      title: 'Date',
-      formatter: (date: string) => changeIsoDateFormat(date.split(' ')[0]),
-      weight: 19,
+      Cell: (props) => changeIsoDateFormat(props.value.split(' ')[0]),
     },
     {
+      Header: 'Number',
+      id: '3',
       accessor: (row: IReceiptDetailed) => row.basic.number,
-      openInNewTab: true,
       sortable: true,
-      title: 'Number',
-      weight: 18,
     },
     {
+      Header: 'Amount',
+      id: '4',
       accessor: (row: IReceiptDetailed) => row.basic.amount,
-      openInNewTab: true,
       sortable: true,
-      title: 'Amount',
-      formatter: (amount: number) => getFormattedCurrency(amount),
-      weight: 17,
+      Cell: (props) => getFormattedCurrency(props.value),
     },
     {
+      Header: 'Items Total',
+      id: '5',
       accessor: (row: IReceiptDetailed) => row.basic.totalProducts,
       sortable: true,
-      title: 'Items Total',
-      weight: 16,
     },
     {
+      Header: 'PayPal',
+      id: '6',
       accessor: (row: IReceiptDetailed) => row.basic.creditCard,
       sortable: true,
-      title: 'Paid by Card',
       className: styles.CreditCard,
-      formatter: (isCreditCard: boolean) => isCreditCard ? <span className={classNames(styles.Icon, 'fas fa-check')} /> : null,
-      weight: 15,
+      Cell: (props) => props.value ? <span className={classNames(styles.Icon, 'fas fa-check')} /> : null,
     },
     {
-      actions: [
-        {
-          className: styles.BtnDetails,
-          onClick: (event: any, row: IReceiptDetailed, original: any) => {
-            onViewDetails(row);
-          },
-          tooltip: 'View Details',
-          icon: 'fas fa-eye',
-        },
-      ],
-      cellType: CellType.Actions,
-      field: '',
-      fixedWidth: true,
-      title: 'Actions',
-      weight: 18,
+      Header: 'Actions',
+      id: '7',
+      Cell: (props) => {
+        return (
+          <span
+            className={classNames('fas fa-eye', styles.BtnDetails)}
+            onClick={(e: any) => {
+              e.preventDefault();
+              onViewDetails(props.original);
+            }}
+          />
+        );
+      }
     },
   ];
   if (!showUsername) {

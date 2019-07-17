@@ -1,0 +1,19 @@
+
+.BtnDetails {
+  background-color: transparent;
+  border: 2px solid lightslategray;
+  color: lightslategray;
+  padding: 2px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20%;
+}
+
+.BtnDetails:hover {
+  border: 2px solid lightskyblue;
+  color: lightskyblue;
+}
+
+.BtnDetails:focus {
+  outline: none;
+}

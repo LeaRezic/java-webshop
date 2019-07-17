@@ -18,6 +18,9 @@ export const columnsConfig = [{
     id: '2',
     accessor: (row: ILoginLog) => row.date,
     sortable: true,
-    Cell: props => changeIsoDateFormat(props.value.split(' ')[0]),
+    Cell: props => {
+      console.log(props);
+      return changeIsoDateFormat(props.value.split(' ')[0]);
+    },
   },
 ];

@@ -12,6 +12,9 @@ export class LogsTable extends React.Component<ILogsTableProps> {
     return(
       <ReactTable
         columns={columnsConfig}
+        // columns={[
+        //   {},
+        // ]}
         data={this.props.data}
         pageSize={this.props.data.length > 10 ? 20 : 5}
       />

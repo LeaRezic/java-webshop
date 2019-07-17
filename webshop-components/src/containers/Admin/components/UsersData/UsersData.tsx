@@ -3,13 +3,13 @@ import { IAdminUserData, AdminViewType } from '../../interfaces';
 
 import styles from './UsersData.module.css';
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
-import { Table } from '../../../../components/Table/Table';
 import { getTableConfig } from './tableConfig';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { usersDataRequest, loginLogsSetFilter, receiptsSetFilter, setAdminView } from '../../state/actions';
 import { authTokenSelector } from '../../../Auth/state/selectors';
 import { isFetchingUserDataSelector, usersDataSelector, isUsersDataLoadedSelector } from '../../state/selectors';
+import ReactTable from 'react-table';
 
 interface IUsersDataMappedProps {
   tokenId: string;
@@ -42,10 +42,9 @@ export class UsersDataComponent extends React.PureComponent<IUsersDataProps> {
             ? <Spinner />
             : this.props.isDataLoaded && this.props.data.length === 0
               ? <p>NO DATA TO SHOW</p>
-              : <Table
+              : <ReactTable
                   columns={getTableConfig(this.handleUserLogsClick, this.handleReceiptLogsClick)}
                   data={this.props.data}
-                  foldableColumns={true}
                 />
         }
       </div>

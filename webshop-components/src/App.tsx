@@ -20,6 +20,8 @@ import { isAuthenticatedSelector, isAdminSelector } from './containers/Auth/stat
 import { connect } from 'react-redux';
 import { autoSignIn } from './containers/Auth/state/actions';
 
+import 'react-table/react-table.css';
+
 export interface IAppAuthMappedProps {
   isAuth: boolean;
   isAdmin: boolean;
