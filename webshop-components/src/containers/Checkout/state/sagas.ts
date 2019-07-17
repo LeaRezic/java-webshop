@@ -4,20 +4,34 @@ import { notify } from 'react-notify-toast';
 import { instance } from '../../../utils/axios';
 import { CheckoutActionTypes, createReceiptRequest, createReceiptSuccess, createReceiptFailure } from './actions';
 import { clearCart } from '../../Shop/state/actions';
+import { PaymentMethod } from '../interfaces';
 
 export function* watchCreateReceiptRequest() {
   yield takeLatest(CheckoutActionTypes.CREATE_RECEIPT_REQUEST, createReceiptRequestIntercept);
 }
 
 function* createReceiptRequestIntercept(action: Readonly<ReturnType<typeof createReceiptRequest>>) {
-  try {
-    const data = {
+  const { paymentMethod } = action.data;
+  let data;
+  const url = '/receipt';
+  if (paymentMethod === PaymentMethod.CASH) {
+    data = {
+      method: 'CASH',
+      username: '',
       password: action.data.password,
       receiptItems: action.data.items,
     };
-    const ulr = '/receipt';
+  } else {
+    data = {
+      method: 'PAY_PAL',
+      username: action.data.username,
+      password: '',
+      receiptItems: action.data.items,
+    };
+  }
+  try {
     const response = yield instance.post(
-      ulr,
+      url,
       JSON.stringify(data),
       {
         method: 'post',
@@ -27,7 +41,7 @@ function* createReceiptRequestIntercept(action: Readonly<ReturnType<typeof creat
         }
       }
     );
-    notify.show(`Checkout successful. Issued receipt ${response.data.receiptNumber}.`, 'success', 2000);
+    notify.show(`Checkout successful.\nIssued receipt ${response.data.receiptNumber}.`, 'success', 2000);
     yield put(clearCart());
     yield put(createReceiptSuccess(response.data.token));
   } catch (error) {

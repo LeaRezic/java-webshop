@@ -9,17 +9,19 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { addProductToCart, removeProductFromCart, incrementProductQuantity, decrementProductQuantity, setProductQuantity } from '../Shop/state/actions';
 import { cartItemsSelector } from '../Shop/state/selectors';
-import { authTokenSelector } from '../Auth/state/selectors';
+import { authTokenSelector, usernameSelector } from '../Auth/state/selectors';
+import { createReceiptRequest, clearError } from './state/actions';
+import { ICreateReceiptRequest, ICreateReceiptItem, PaymentMethod } from './interfaces';
+import { redirectToProfileSelector, createReceiptErrorSelector } from './state/selectors';
+import { stopRedirectToProducts } from '../Auth/state/actions';
+import { PayPal } from './components/PayPal/PayPal';
 
 import styles from './CheckoutPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
-import { createReceiptRequest, clearError } from './state/actions';
-import { ICreateReceiptRequest, ICreateReceiptItem } from './interfaces';
-import { redirectToProfileSelector, createReceiptErrorSelector } from './state/selectors';
-import { stopRedirectToProducts } from '../Auth/state/actions';
 
 interface ICheckoutPageMappedProps {
   authToken: string;
+  username: string;
   cartItems: ICartItem[];
   shouldRedirect: boolean;
   error: string;
@@ -98,8 +100,35 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
         >
           CONFIRM ORDER
         </button>
+        <div className={'PayPalButtons'}>
+          <PayPal
+            totalAmount={this.getTotalPrice()}
+            onCancel={this.handleCancelPayPal}
+            onError={this.handleErrorPayPal}
+            onSuccess={this.handleSuccessPayPal}
+          />
+        </div>
       </div>
     );
+  }
+
+  private handleCancelPayPal = () => {
+    this.show('Cancelled PayPal checkout.', 'warning', 3000);
+  }
+
+  private handleErrorPayPal = () => {
+    this.show('Error with PayPal checkout.\nPlease try again or contact support.', 'error', 3000);
+  }
+
+  private handleSuccessPayPal = () => {
+    this.show('PayPal verified!', 'success', 2000);
+    const data: ICreateReceiptRequest = {
+      tokenId: this.props.authToken,
+      paymentMethod: PaymentMethod.PAY_PAL,
+      username: this.props.username,
+      items: this.getItemsFromCart(),
+    }
+    this.props.onConfirmOrder(data);
   }
 
   private redirectToShop = () => {
@@ -115,6 +144,7 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
     const data: ICreateReceiptRequest = {
       tokenId: this.props.authToken,
       password: password,
+      paymentMethod: PaymentMethod.CASH,
       items: this.getItemsFromCart(),
     }
     this.props.onConfirmOrder(data);
@@ -126,10 +156,17 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
       ammount: citem.quantity,
     }));
   }
+
+  private getTotalPrice = () => {
+    return this.props.cartItems.reduce((prev, curr) => {
+      return prev + curr.quantity * curr.product.price;
+    }, 0);
+  }
 }
 
 const mapStateToProps = createStructuredSelector<any, ICheckoutPageMappedProps>({
   authToken: authTokenSelector,
+  username: usernameSelector,
   cartItems: cartItemsSelector,
   shouldRedirect: redirectToProfileSelector,
   error: createReceiptErrorSelector,

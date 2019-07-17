@@ -2,27 +2,30 @@ import { takeLatest, put } from 'redux-saga/effects';
 import { notify } from 'react-notify-toast';
 
 import { instance } from '../../../utils/axios';
+import { saveAuthToken, readAuthToken, deleteAuthToken } from '../../../utils/storageUtil';
 import { getCurrentIP } from '../../../utils/ipUtil';
-import { AuthActionTypes, loginSuccess, loginFailure, loginRequest, registerRequest, logOut } from './actions';
-import { IAuthRequestData } from '../interfaces';
+import { AuthActionTypes, authSuccess, authFailure, authRequest, autoSignIn } from './actions';
+import { IAuthDispatchData } from '../interfaces';
+import { getDateFromToken } from '../../../utils/dateUtils';
+import { clearCart } from '../../Shop/state/actions';
 
-export function* watchLoginRequest() {
-  yield takeLatest(AuthActionTypes.LOG_IN_REQUEST, loginRequestIntercept);
+export function* watchAuthRequest() {
+  yield takeLatest(AuthActionTypes.AUTH_REQUEST, authRequestIntercept);
 }
 
-function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>>) {
+function* authRequestIntercept(action: Readonly<ReturnType<typeof authRequest>>) {
+  const ip = yield getCurrentIP();
+  const data: IAuthDispatchData = {
+    credentials: {
+      username: action.data.username,
+      password: action.data.password,
+    },
+    visitorAddress: ip,
+  };
+  const url = action.data.isRegister ? '/register' : '/login';
   try {
-    const ip = yield getCurrentIP();
-    const data: IAuthRequestData = {
-      credentials: {
-        username: action.data.username,
-        password: action.data.password,
-      },
-      visitorAddress: ip,
-    };
-    const ulr = '/login';
     const response = yield instance.post(
-      ulr,
+      url,
       JSON.stringify(data),
       {
         method: 'post',
@@ -31,48 +34,47 @@ function* loginRequestIntercept(action: Readonly<ReturnType<typeof loginRequest>
         }
       }
     );
-    yield put(loginSuccess(response.data.token));
+    const message = action.data.isRegister
+      ? `Created user ${action.data.username}.`
+      : `Logged in as ${action.data.username}.`
+    notify.show(message, 'success', 2000);
+    saveAuthToken(response.data.token);
+    yield put(authSuccess(response.data.token));
   } catch (error) {
     if (typeof error.response === 'undefined') {
-      yield put(loginFailure(error.message));
+      yield put(authFailure(error.message));
       return;
     }
-    yield put(loginFailure(error.response.data.error));
+    yield put(authFailure(error.response.data.error));
   }
 }
 
-export function* watchRegisterRequest() {
-  yield takeLatest(AuthActionTypes.REGISTER_REQUEST, registerRequestIntercept);
+export function* watchAutoLogin() {
+  yield takeLatest(AuthActionTypes.AUTO_SIGN_IN, autoLoginIntercept);
 }
 
-function* registerRequestIntercept(action: Readonly<ReturnType<typeof registerRequest>>) {
-  try {
-    const ip = yield getCurrentIP();
-    const data: IAuthRequestData = {
-      credentials: {
-        username: action.data.username,
-        password: action.data.password,
-      },
-      visitorAddress: ip,
-    };
-    const ulr = '/register';
-    const response = yield instance.post(
-      ulr,
-      JSON.stringify(data),
-      {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8'
-        }
-      }
-    );
-    notify.show(`Created user ${action.data.username}.`, 'success', 2000);
-    yield put(loginSuccess(response.data.token));
-  } catch (error) {
-    if (typeof error.response === 'undefined') {
-      yield put(loginFailure(error.message));
-      return;
-    }
-    yield put(loginFailure(error.response.data.error));
+function* autoLoginIntercept(action: Readonly<ReturnType<typeof autoSignIn>>) {
+  const token = readAuthToken();
+  if (!token
+      || !token.email
+      || !token.expireTime
+      || !token.tokenId) {
+    return;
   }
+  console.log(token.expireTime);
+  const expirationDate = getDateFromToken(token.expireTime);
+  console.log(expirationDate);
+  if (expirationDate < new Date()) {
+    return;
+  }
+  yield put(authSuccess(token));
+}
+
+export function* watchLogout() {
+  yield takeLatest(AuthActionTypes.LOG_OUT, logoutIntercept);
+}
+
+function* logoutIntercept(action: Readonly<ReturnType<typeof autoSignIn>>) {
+  yield put(clearCart());
+  deleteAuthToken();
 }

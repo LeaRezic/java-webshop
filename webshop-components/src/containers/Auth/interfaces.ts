@@ -8,14 +8,20 @@ export interface IAuthToken {
 export interface IAuthState {
   token: IAuthToken;
   meta: {
-    isRequestingLogin: boolean;
-    isRequestingRegister: boolean;
-    loginSuccess: boolean;
-    registerSuccess: boolean;
-    loginError: string;
-    registerError: string;
-    shouldRedirectToProducts: boolean;
+    isRequestingAuth: boolean;
+    authSuccess: boolean;
+    authError: string;
+    shouldRedirect: boolean;
+    redirectDest: string;
   }
+}
+
+export interface IAuthDispatchData {
+  credentials: {
+    username: string;
+    password: string;
+  };
+  visitorAddress: string;
 }
 
 export interface IAuthRequestData {
@@ -23,5 +29,6 @@ export interface IAuthRequestData {
     username: string;
     password: string;
   };
+  isRegister: boolean;
   visitorAddress: string;
 }

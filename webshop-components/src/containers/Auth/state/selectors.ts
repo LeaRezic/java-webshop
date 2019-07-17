@@ -15,17 +15,17 @@ export const usernameSelector = (state: IStore): string => {
 };
 
 export const shouldRedirectSelector = (state: IStore): boolean => {
-  return state.auth.meta.shouldRedirectToProducts;
+  return state.auth.meta.shouldRedirect;
+}
+
+export const redirectDestSelector = (state: IStore): string => {
+  return state.auth.meta.redirectDest;
 }
 
 export const authTokenSelector = (state: IStore): string => {
   return state.auth.token.tokenId;
 }
 
-export const loginErrorSelector = (state: IStore): string => {
-  return state.auth.meta.loginError;
-}
-
-export const registerErrorSelector = (state: IStore): string => {
-  return state.auth.meta.registerError;
+export const authErrorSelector = (state: IStore): string => {
+  return state.auth.meta.authError;
 }

@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { IUserRequestInfo } from '../../state/actions';
-import { IInputField, INPUT_TYPE, InputField } from '../../../../components/Input/Input';
 
 import styles from './UserForm.module.css';
 import globalStyles from '../../../../style/GlobalStyle.module.css';
@@ -12,6 +11,8 @@ const EMAIL_PATTERN = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}
 interface IUserFormProps {
   formTitle: string;
   btnText: string;
+  isRegister: boolean;
+  extraValidate: boolean;
   onSubmit: (data: IUserRequestInfo) => void;
 }
 
@@ -92,7 +93,7 @@ export class UserForm extends React.PureComponent<IUserFormProps, IUserFormState
         }});
       return;
     }
-    if (!EMAIL_PATTERN.test(value)) {
+    if (this.props.extraValidate && !EMAIL_PATTERN.test(value)) {
       this.setState({
         username: {
           ...this.state.username,
@@ -126,7 +127,7 @@ export class UserForm extends React.PureComponent<IUserFormProps, IUserFormState
         }});
       return;
     }
-    if (value.length < 6) {
+    if (this.props.extraValidate && value.length < 6) {
       this.setState({
         password: {
           ...this.state.password,
@@ -155,6 +156,7 @@ export class UserForm extends React.PureComponent<IUserFormProps, IUserFormState
     const userData: IUserRequestInfo = {
       username: this.state.username.value,
       password: this.state.password.value,
+      isRegister: this.props.isRegister,
     };
     this.props.onSubmit(userData);
   }

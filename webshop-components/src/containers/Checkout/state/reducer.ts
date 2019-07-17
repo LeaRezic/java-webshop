@@ -1,4 +1,4 @@
-import { ICheckoutState, PaymentMethod } from '../interfaces';
+import { ICheckoutState, PaymentMethod, ICreateReceiptRequest } from '../interfaces';
 import { CheckoutActionTypes, CheckoutActions } from './actions';
 
 const initialState: ICheckoutState = {
@@ -12,12 +12,16 @@ const initialState: ICheckoutState = {
   }
 }
 
-const createReceiptRequest = (state: ICheckoutState): ICheckoutState => {
+const createReceiptRequest = (state: ICheckoutState, data: ICreateReceiptRequest): ICheckoutState => {
   return {
     ...state,
+    paymentMethod: data.paymentMethod,
     meta: {
       ...state.meta,
       isRequestingReceiptCreate: true,
+      receiptCreatedSuccess: false,
+      receiptCreatedError: null,
+      shouldRedirectToProfile: false,
     }
   }
 }
@@ -31,7 +35,7 @@ const createReceiptSuccess = (state: ICheckoutState, receiptNumber: string): ICh
       isRequestingReceiptCreate: false,
       receiptCreatedSuccess: true,
       receiptCreatedError: null,
-      shouldRedirectToProfile: true,
+      // shouldRedirectToProfile: true,
     }
   }
 }
@@ -78,7 +82,7 @@ const clearError = (state: ICheckoutState): ICheckoutState => {
 
 export const checkoutReducer = (state: ICheckoutState = initialState, action: CheckoutActions): ICheckoutState => {
   switch (action.type) {
-    case CheckoutActionTypes.CREATE_RECEIPT_REQUEST: return createReceiptRequest(state);
+    case CheckoutActionTypes.CREATE_RECEIPT_REQUEST: return createReceiptRequest(state, action.data);
     case CheckoutActionTypes.CREATE_RECEIPT_SUCCESS: return createReceiptSuccess(state, action.data);
     case CheckoutActionTypes.CREATE_RECEIPT_FAILURE: return createReceiptFailure(state, action.data);
     case CheckoutActionTypes.SET_PAYMENT_METHOD: return setPaymentMethod(state, action.data);

@@ -18,13 +18,25 @@ import { ProductViewPage } from './containers/ProductView/ProductViewPage';
 import { createStructuredSelector } from 'reselect';
 import { isAuthenticatedSelector, isAdminSelector } from './containers/Auth/state/selectors';
 import { connect } from 'react-redux';
+import { autoSignIn } from './containers/Auth/state/actions';
 
-export interface IAppAuthProps {
+export interface IAppAuthMappedProps {
   isAuth: boolean;
   isAdmin: boolean;
 }
 
+interface IAppAuthMappedDispatch {
+  onAutoLogin: () => void;
+}
+
+export type IAppAuthProps = IAppAuthMappedProps & IAppAuthMappedDispatch;
+
 class App extends React.Component<RouteComponentProps & IAppAuthProps, {}> {
+
+  public componentDidMount() {
+    this.props.onAutoLogin();
+  }
+
   render() {
     const { isAuth, isAdmin } = this.props;
     let routes = (
@@ -66,9 +78,13 @@ class App extends React.Component<RouteComponentProps & IAppAuthProps, {}> {
   }
 }
 
-const mapStateToProps = createStructuredSelector<any, IAppAuthProps>({
+const mapStateToProps = createStructuredSelector<any, IAppAuthMappedProps>({
   isAuth: isAuthenticatedSelector,
   isAdmin: isAdminSelector,
-})
+});
 
-export default withRouter(connect(mapStateToProps)(App));
+const mapDispatchToProps = {
+  onAutoLogin: autoSignIn,
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

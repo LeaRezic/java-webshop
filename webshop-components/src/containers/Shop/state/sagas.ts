@@ -1,7 +1,17 @@
-import { takeLatest, put } from 'redux-saga/effects';
-import { instance } from '../../../utils/axios';
+import {
+  takeLatest,
+  put,
+} from 'redux-saga/effects';
 
-import { fetchProducts, fetchProductsFailure, fetchProductsSuccess, ShoppingActionTypes, fetchCategoriesSuccess, fetchCategoriesFailure } from './actions';
+import { instance } from '../../../utils/axios';
+import {
+  fetchProducts,
+  fetchProductsFailure,
+  fetchProductsSuccess,
+  ShoppingActionTypes,
+  fetchCategoriesSuccess,
+  fetchCategoriesFailure,
+} from './actions';
 
 export function * watchFetchProducts() {
   yield takeLatest(ShoppingActionTypes.FETCH_PRODUCTS, fetchProductsData);
@@ -30,5 +40,3 @@ function* fetchCategoriesData(action: Readonly<ReturnType<typeof fetchProducts>>
     yield put(fetchCategoriesFailure(error.message));
   }
 }
-
-// export default [watchFetchProducts];

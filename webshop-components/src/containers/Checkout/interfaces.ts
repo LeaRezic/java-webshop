@@ -23,6 +23,8 @@ export interface ICreateReceiptItem {
 
 export interface ICreateReceiptRequest {
   tokenId: string;
-  password: string;
+  username?: string;
+  password?: string;
+  paymentMethod: PaymentMethod;
   items: ICreateReceiptItem[];
 }

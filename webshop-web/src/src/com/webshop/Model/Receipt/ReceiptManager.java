@@ -121,7 +121,7 @@ public class ReceiptManager {
     private static int insertReceipt(CreateReceiptData createReceiptData, String email, String receiptNumber) {
         ReceiptEntity receiptEntity = new ReceiptEntity();
         receiptEntity.setReceiptId(0);
-        receiptEntity.setCreditCard(createReceiptData.isCreditCard());
+        receiptEntity.setCreditCard(createReceiptData.getMethod().equals(CreateReceiptData.METHOD_PAY_PAL));
         receiptEntity.setReceiptNumber(receiptNumber);
         receiptEntity.setPurchaseDate(new Timestamp(new Date().getTime()));
         receiptEntity.setUserAccountId(repo.getUserByUsername(email).getUserAccountId());

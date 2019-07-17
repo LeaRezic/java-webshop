@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 
 import { NavItem } from '../NavItem/NavItem';
 import { isAuthenticatedSelector, isAdminSelector } from '../../../containers/Auth/state/selectors';
-import { IAppAuthProps } from '../../../App';
+import { IAppAuthMappedProps } from '../../../App';
 
 import styles from './NavItems.module.css';
 
-export class NavItemsComponent extends React.Component<IAppAuthProps> {
+export class NavItemsComponent extends React.Component<IAppAuthMappedProps> {
   render() {
     const {
       isAdmin,
@@ -26,7 +26,7 @@ export class NavItemsComponent extends React.Component<IAppAuthProps> {
   }
 }
 
-const mapStateToProps = createStructuredSelector<any, IAppAuthProps>({
+const mapStateToProps = createStructuredSelector<any, IAppAuthMappedProps>({
   isAuth: isAuthenticatedSelector,
   isAdmin: isAdminSelector,
 })

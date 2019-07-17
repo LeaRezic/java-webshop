@@ -29,15 +29,16 @@ public class ReceiptServlet extends BaseServlet {
         CreateReceiptData createReceiptData = (CreateReceiptData) JsonUtil.getObjFromJson(body, CreateReceiptData.class);
         String authToken = super.getRequestAuthHeader(request);
         AuthTokenServer serverToken = AuthTokenManager.getExistingServerToken(authToken);
-        if (!AuthTokenManager.validateCredentials(serverToken.getEmail(), createReceiptData.getPassword())) {
-            super.sendErrorResponse(
-                    response,
-                    HttpServletResponse.SC_BAD_REQUEST,
-                    "Invalid Credentials."
-            );
-            return;
+        if (createReceiptData.getMethod().equals(CreateReceiptData.METHOD_CASH)) {
+            if (!AuthTokenManager.validateCredentials(serverToken.getEmail(), createReceiptData.getPassword())) {
+                super.sendErrorResponse(
+                        response,
+                        HttpServletResponse.SC_BAD_REQUEST,
+                        "Invalid Credentials."
+                );
+                return;
+            }
         }
-        LoggerUtil.log(JsonUtil.getJsonString(createReceiptData));
         String receiptNumber = ReceiptManager.createNewReceipt(createReceiptData, serverToken.getEmail());
         super.printJsonResponse(response, JsonUtil.getJson(receiptNumber, "receiptNumber"));
     }

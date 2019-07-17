@@ -37,7 +37,7 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
     const { hoverOnCartItem, hoverOnDelete } = this.state;
     return (
       <div
-        className={classNames(styles.CartItemContainer, { [styles.HoverContainer]: hoverOnCartItem })}
+        className={classNames(styles.CartItemContainer, {[styles.HoverContainer]: hoverOnCartItem })}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
@@ -45,26 +45,44 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
           <img src={getDesiredDimensionsPic(pictureUrl, 150)} alt='productPhoto'/>
         </div>
         <div className={styles.DetailsContainer}>
-          <div className={`${styles.Title} ${hoverOnDelete ? styles.Strike : ''}`}>{name}</div>
+          <div className={`${styles.Title} ${hoverOnDelete ? styles.Strike : ''}`}>
+            {name}
+          </div>
           <br/>
-          <div><span className={`${globalStyles.GrimzonBold} ${hoverOnDelete ? styles.Strike : ''}`}>Base Price: {getFormattedCurrency(price)}</span></div>
-          <div><span className={`${globalStyles.GrimzonBold} ${hoverOnDelete ? styles.Strike : ''}`}>Amount: {this.getQuantity(this.props.item.quantity)}</span></div>
+          <div>
+            <span className={classNames(globalStyles.GrimzonBold, {[styles.Strike]: hoverOnDelete})}>
+              Base Price: {getFormattedCurrency(price)}
+            </span>
+          </div>
+          <div>
+            <span className={classNames(globalStyles.GrimzonBold, { [styles.Strike]: hoverOnDelete })}>
+              Amount: {this.getQuantity(this.props.item.quantity)}
+            </span>
+          </div>
           <br/>
           <div className={styles.QuantityBtnsContainer}>
             <button
               className={classNames(styles.BtnQuantity, styles.BtnCartItem)}
               onClick={() => this.props.onDecrementProduct(this.props.item.product.id)}
-            >-</button>
-            <div className={`${styles.Price} ${hoverOnDelete ? styles.Strike : ''}`}>{getFormattedCurrency(price * this.props.item.quantity)}</div>
+            >
+              -
+            </button>
+            <div className={classNames(styles.Price, { [styles.Strike]: hoverOnDelete })}>
+              {getFormattedCurrency(price * this.props.item.quantity)}
+            </div>
             <button
               className={classNames(styles.BtnQuantity, styles.BtnCartItem)}
               onClick={() => this.props.onIncrementProduct(this.props.item.product.id)}
-            >+</button>
+            >
+              +
+            </button>
             <button
               className={classNames(styles.BtnQuantity, styles.BtnCartItem)}
               onClick={this.handleSetQuantity}
               style={{fontSize: '0.8rem'}}
-            >SET</button>
+            >
+              SET
+            </button>
           </div>
         </div>
         <div className={styles.CloseBtnContainer}>
@@ -73,7 +91,9 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
             onClick={() => this.props.onRemoveProduct(this.props.item.product.id)}
             onMouseEnter={this.handleMouseEnterDelete}
             onMouseLeave={this.handleMouseLeaveDelete}
-          >x</button>
+          >
+            x
+          </button>
         </div>
       </div>
     );

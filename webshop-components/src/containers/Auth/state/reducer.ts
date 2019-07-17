@@ -1,36 +1,33 @@
 import { IAuthState, IAuthToken } from '../interfaces';
 import { AuthActions, AuthActionTypes } from './actions';
-import { statement } from '@babel/template';
 
 const initialState: IAuthState = {
   token: {
-    email: '',
-    expireTime: '',
+    email: null,
+    expireTime: null,
     isAdmin: false,
-    tokenId: '',
+    tokenId: null,
   },
   meta: {
-    isRequestingLogin: false,
-    isRequestingRegister: false,
-    loginSuccess: false,
-    registerSuccess: false,
-    loginError: '',
-    registerError: '',
-    shouldRedirectToProducts: false,
+    isRequestingAuth: false,
+    authSuccess: false,
+    authError: null,
+    shouldRedirect: false,
+    redirectDest: '/products',
   }
 }
 
-const loginRequest = (state: IAuthState) => {
+const authRequest = (state: IAuthState): IAuthState => {
   return {
     ...state,
     meta: {
       ...state.meta,
-      isRequestingLogin: true,
+      isRequestingAuth: true,
     }
   }
 }
 
-const loginSuccess = (state: IAuthState, token: IAuthToken) => {
+const authSuccess = (state: IAuthState, token: IAuthToken): IAuthState => {
   return {
     ...state,
     token: {
@@ -41,117 +38,76 @@ const loginSuccess = (state: IAuthState, token: IAuthToken) => {
     },
     meta: {
       ...state.meta,
-      isRequestingLogin: false,
-      loginSuccess: true,
-      shouldRedirectToProducts: true,
+      isRequestingAuth: false,
+      authSuccess: true,
+      authError: null,
+      shouldRedirect: true,
     }
   }
 }
 
-const loginFailure = (state: IAuthState, error: string) => {
+const authFailure = (state: IAuthState, error: string): IAuthState => {
   return {
     ...state,
     meta: {
       ...state.meta,
-      isRequestingLogin: false,
-      loginSuccess: false,
-      loginError: error,
+      isRequestingAuth: false,
+      authSuccess: false,
+      authError: error,
     }
   }
 }
 
-const logOut = () => {
+const logOut = (): IAuthState => {
   return {
     ...initialState,
     meta: {
       ...initialState.meta,
-      shouldRedirectToProducts: true,
+      shouldRedirect: true,
+      redirectDest: '/products',
     }
   };
 }
 
-const registerRequest = (state: IAuthState) => {
+const setRedirectDest = (state: IAuthState, path: string): IAuthState => {
   return {
     ...state,
     meta: {
       ...state.meta,
-      isRequestingRegister: true,
+      redirectDest: path,
     }
   }
 }
 
-const registerSuccess = (state: IAuthState, token: IAuthToken) => {
-  return {
-    ...state,
-    token: {
-      email: token.email,
-      expireTime: token.expireTime,
-      isAdmin: token.isAdmin,
-      tokenId: token.tokenId,
-    },
-    meta: {
-      ...state.meta,
-      isRequestingRegister: false,
-      registerSuccess: true,
-      shouldRedirectToProducts: true,
-    }
-  }
-}
-
-const registerFailure = (state: IAuthState, error: string) => {
+const stopRedirect = (state: IAuthState): IAuthState => {
   return {
     ...state,
     meta: {
       ...state.meta,
-      isRequestingRegister: false,
-      registerSuccess: false,
-      registerError: error,
+      shouldRedirect: false,
     }
   }
 }
 
-const stopRedirectToProducts = (state: IAuthState) => {
-  return {
-    ...state,
-    meta: {
-      ...state.meta,
-      shouldRedirectToProducts: false,
-    }
-  }
-}
-
-const clearLoginErr = (state: IAuthState) => {
+const clearAuthError = (state: IAuthState): IAuthState => {
   return {
     ...state,
       meta: {
         ...state.meta,
-        loginError: '',
+        authError: null,
       }
-  }
-}
-
-const clearRegisterErr = (state: IAuthState) => {
-  return {
-    ...state,
-    meta: {
-      ...state.meta,
-      registerError: '',
-    }
   }
 }
 
 export const authReducer = (state: IAuthState = initialState, action: AuthActions): IAuthState => {
   switch (action.type) {
-    case AuthActionTypes.LOG_IN_REQUEST: return loginRequest(state);
-    case AuthActionTypes.LOG_IN_SUCCESS: return loginSuccess(state, action.data!);
-    case AuthActionTypes.LOG_IN_FAILURE: return loginFailure(state, action.data!);
+    case AuthActionTypes.AUTH_REQUEST: return authRequest(state);
+    case AuthActionTypes.AUTH_SUCCESS: return authSuccess(state, action.data!);
+    case AuthActionTypes.AUTH_FAILURE: return authFailure(state, action.data!);
     case AuthActionTypes.LOG_OUT: return logOut();
-    case AuthActionTypes.REGISTER_REQUEST: return registerRequest(state);
-    case AuthActionTypes.REGISTER_SUCCESS: return registerSuccess(state, action.data!);
-    case AuthActionTypes.REGISTER_FAILURE: return registerFailure(state, action.data!);
-    case AuthActionTypes.STOP_REDIRECT_TO_PRODUCTS: return stopRedirectToProducts(state);
-    case AuthActionTypes.CLEAR_LOGIN_ERROR: return clearLoginErr(state);
-    case AuthActionTypes.CLEAR_REGISTER_ERROR: return clearRegisterErr(state);
+    case AuthActionTypes.SET_REDIRECT_DEST: return setRedirectDest(state, action.data);
+    case AuthActionTypes.STOP_REDIRECT: return stopRedirect(state);
+    case AuthActionTypes.CLEAR_ERROR: return clearAuthError(state);
     default: return state;
   }
 };

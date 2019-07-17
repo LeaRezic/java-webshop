@@ -1,6 +1,5 @@
 import { IReduxAction } from '../../../typings/interfaces';
 import { PaymentMethod, ICreateReceiptRequest } from '../interfaces';
-import { ICartItem } from '../../Shop/interfaces';
 
 export enum CheckoutActionTypes {
   CREATE_RECEIPT_REQUEST = 'CREATE_RECEIPT_REQUEST',

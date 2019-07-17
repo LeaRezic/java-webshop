@@ -4,21 +4,31 @@ import java.util.List;
 
 public class CreateReceiptData {
 
+    public static String METHOD_CASH = "CASH";
+    public static String METHOD_PAY_PAL = "PAY_PAL";
+
+    private String method;
+    private String username;
     private String password;
-    private boolean creditCard;
     private List<CreateReceiptItemData> receiptItems;
 
-    public CreateReceiptData(String password, List<CreateReceiptItemData> items) {
+    public CreateReceiptData(String method, String username, String password, List<CreateReceiptItemData> receiptItems) {
+        this.method = method;
+        this.username = username;
         this.password = password;
-        this.receiptItems = items;
+        this.receiptItems = receiptItems;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
         return password;
-    }
-
-    public boolean isCreditCard() {
-        return creditCard;
     }
 
     public List<CreateReceiptItemData> getReceiptItems() {

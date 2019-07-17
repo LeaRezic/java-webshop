@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import { notify } from 'react-notify-toast';
 
 import { UserForm } from './components/UserForm/UserForm';
-import { IUserRequestInfo, loginRequest, registerRequest, logOut, stopRedirectToProducts, clearLoginError, clearRegisterError } from './state/actions';
+import { IUserRequestInfo, authRequest, logOut, stopRedirectToProducts, clearError } from './state/actions';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { isAuthenticatedSelector, shouldRedirectSelector, loginErrorSelector, registerErrorSelector } from './state/selectors';
+import { isAuthenticatedSelector, shouldRedirectSelector, authErrorSelector, redirectDestSelector } from './state/selectors';
 
 import styles from './LoginPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
@@ -15,17 +15,15 @@ import { ReactRouterProps } from '../../typings/interfaces';
 interface ILoginPageMappedProps {
   isAuthenticated: boolean;
   shouldRedirect: boolean;
-  loginError: string;
-  registerError: string;
+  redirectTo: string;
+  authError: string;
 }
 
 interface ILoginPageMappedDispatch {
-  onLogin: (data: IUserRequestInfo) => void;
-  onRegister: (data: IUserRequestInfo) => void;
+  onAuth: (data: IUserRequestInfo) => void;
   onLogout: () => void;
   onCancelRedirect: () => void;
-  onClearLoginError: () => void;
-  onClearRegisterError: () => void;
+  onClearError: () => void;
 }
 
 type ILoginPageProps = ILoginPageMappedProps
@@ -45,18 +43,13 @@ export class LoginPageComponent extends React.PureComponent<ILoginPageProps, ILo
   }
 
   public componentDidUpdate() {
+    if (this.props.authError) {
+      this.show(this.props.authError, 'error', 4000);
+      this.props.onClearError();
+    }
     if (this.props.shouldRedirect) {
       this.props.onCancelRedirect();
-      this.props.history.push('/products');
-    }
-
-    if (this.props.loginError) {
-      this.show(this.props.loginError, 'error', 4000);
-      this.props.onClearLoginError();
-    }
-    if (this.props.registerError) {
-      this.show(this.props.registerError, 'error', 4000);
-      this.props.onClearRegisterError();
+      this.props.history.push(this.props.redirectTo);
     }
   }
 
@@ -84,12 +77,16 @@ export class LoginPageComponent extends React.PureComponent<ILoginPageProps, ILo
                     <UserForm
                       formTitle='Already Have an Account'
                       btnText='LOG IN'
-                      onSubmit={this.props.onLogin}
+                      isRegister={false}
+                      extraValidate={false}
+                      onSubmit={this.props.onAuth}
                     />
                     <UserForm
                       formTitle='Create a New Account'
                       btnText='REGISTER'
-                      onSubmit={this.props.onRegister}
+                      isRegister
+                      extraValidate
+                      onSubmit={this.props.onAuth}
                     />
                   </div>
               )
@@ -109,17 +106,15 @@ export class LoginPageComponent extends React.PureComponent<ILoginPageProps, ILo
 const mapStateToProps = createStructuredSelector<any, ILoginPageMappedProps>({
   isAuthenticated: isAuthenticatedSelector,
   shouldRedirect: shouldRedirectSelector,
-  loginError: loginErrorSelector,
-  registerError: registerErrorSelector,
+  authError: authErrorSelector,
+  redirectTo: redirectDestSelector,
 });
 
 const mapDispatchToProps = {
-  onLogin: loginRequest,
-  onRegister: registerRequest,
+  onAuth: authRequest,
   onLogout: logOut,
   onCancelRedirect: stopRedirectToProducts,
-  onClearLoginError: clearLoginError,
-  onClearRegisterError: clearRegisterError,
+  onClearError: clearError,
 };
 
 export const LoginPage = connect(mapStateToProps, mapDispatchToProps)(LoginPageComponent);

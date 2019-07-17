@@ -2,43 +2,42 @@ import { IReduxAction } from '../../../typings/interfaces';
 import { IAuthToken } from '../interfaces';
 
 export enum AuthActionTypes {
-  LOG_IN_REQUEST = 'LOG_IN_REQUEST',
-  LOG_IN_SUCCESS = 'LOG_IN_SUCCESS',
-  LOG_IN_FAILURE = 'LOG_IN_FAILURE',
+  AUTH_REQUEST = 'AUTH_REQUEST',
+  AUTH_SUCCESS = 'AUTH_SUCCESS',
+  AUTH_FAILURE = 'AUTH_FAILURE',
   LOG_OUT = 'LOG_OUT',
-  REGISTER_REQUEST = 'REGISTER_REQUEST',
-  REGISTER_SUCCESS = 'REGISTER_SUCCESS',
-  REGISTER_FAILURE = 'REGISTER_FAILURE',
-  STOP_REDIRECT_TO_PRODUCTS = 'STOP_REDIRECT_TO_PRODUCTS',
-  CLEAR_LOGIN_ERROR = 'CLEAR_LOGIN_ERROR',
-  CLEAR_REGISTER_ERROR = 'CLEAR_REGISTER_ERROR',
+  SET_REDIRECT_DEST = 'SET_REDIRECT_DEST',
+  STOP_REDIRECT = 'STOP_REDIRECT',
+  CLEAR_ERROR = 'CLEAR_ERROR',
+  AUTO_SIGN_IN = 'AUTO_SIGN_IN',
 }
 
 export interface IUserRequestInfo {
   username: string;
   password: string;
+  isRegister: boolean;
 }
 
-export const loginRequest = (userInfo: IUserRequestInfo)
-  :IReduxAction<IUserRequestInfo, void, void, AuthActionTypes.LOG_IN_REQUEST> => {
+export const authRequest = (userInfo: IUserRequestInfo)
+  :IReduxAction<IUserRequestInfo, void, void, AuthActionTypes.AUTH_REQUEST> => {
   return {
-    type: AuthActionTypes.LOG_IN_REQUEST,
+    type: AuthActionTypes.AUTH_REQUEST,
     data: userInfo,
   };
 }
 
-export const loginSuccess = (userInfo: IAuthToken)
-  :IReduxAction<IAuthToken, void, void, AuthActionTypes.LOG_IN_SUCCESS> => {
+export const authSuccess = (userInfo: IAuthToken)
+  :IReduxAction<IAuthToken, void, void, AuthActionTypes.AUTH_SUCCESS> => {
   return {
-    type: AuthActionTypes.LOG_IN_SUCCESS,
+    type: AuthActionTypes.AUTH_SUCCESS,
     data: userInfo,
   };
 }
 
-export const loginFailure = (error: string)
-  :IReduxAction<string, void, void, AuthActionTypes.LOG_IN_FAILURE> => {
+export const authFailure = (error: string)
+  :IReduxAction<string, void, void, AuthActionTypes.AUTH_FAILURE> => {
   return {
-    type: AuthActionTypes.LOG_IN_FAILURE,
+    type: AuthActionTypes.AUTH_FAILURE,
     data: error,
   };
 }
@@ -50,60 +49,42 @@ export const logOut = ()
   };
 }
 
-export const registerRequest = (userInfo: IUserRequestInfo)
-  :IReduxAction<IUserRequestInfo, void, void, AuthActionTypes.REGISTER_REQUEST> => {
+export const setRedirectDest = (destination: string)
+  : IReduxAction<string, void, void, AuthActionTypes.SET_REDIRECT_DEST> => {
   return {
-    type: AuthActionTypes.REGISTER_REQUEST,
-    data: userInfo,
-  };
-}
-
-export const registerSuccess = (userInfo: IAuthToken)
-  :IReduxAction<IAuthToken, void, void, AuthActionTypes.REGISTER_SUCCESS> => {
-  return {
-    type: AuthActionTypes.REGISTER_SUCCESS,
-    data: userInfo,
-  };
-}
-
-export const registerFailure = (error: string)
-  :IReduxAction<string, void, void, AuthActionTypes.REGISTER_FAILURE> => {
-  return {
-    type: AuthActionTypes.REGISTER_FAILURE,
-    data: error,
+    type: AuthActionTypes.SET_REDIRECT_DEST,
+    data: destination,
   };
 }
 
 export const stopRedirectToProducts = ()
-  : IReduxAction<void, void, void, AuthActionTypes.STOP_REDIRECT_TO_PRODUCTS> => {
+  : IReduxAction<void, void, void, AuthActionTypes.STOP_REDIRECT> => {
   return {
-    type: AuthActionTypes.STOP_REDIRECT_TO_PRODUCTS,
+    type: AuthActionTypes.STOP_REDIRECT,
   };
 }
 
-export const clearLoginError = ()
-  : IReduxAction<void, void, void, AuthActionTypes.CLEAR_LOGIN_ERROR> => {
+export const clearError = ()
+  : IReduxAction<void, void, void, AuthActionTypes.CLEAR_ERROR> => {
   return {
-    type: AuthActionTypes.CLEAR_LOGIN_ERROR,
+    type: AuthActionTypes.CLEAR_ERROR,
   };
 }
 
-export const clearRegisterError = ()
-  : IReduxAction<void, void, void, AuthActionTypes.CLEAR_REGISTER_ERROR> => {
+export const autoSignIn = ()
+  : IReduxAction<void, void, void, AuthActionTypes.AUTO_SIGN_IN> => {
   return {
-    type: AuthActionTypes.CLEAR_REGISTER_ERROR,
+    type: AuthActionTypes.AUTO_SIGN_IN,
   };
 }
 
 export type AuthActions =
-  | ReturnType<typeof loginRequest>
-  | ReturnType<typeof loginSuccess>
-  | ReturnType<typeof loginFailure>
+  | ReturnType<typeof authRequest>
+  | ReturnType<typeof authSuccess>
+  | ReturnType<typeof authFailure>
   | ReturnType<typeof logOut>
-  | ReturnType<typeof registerRequest>
-  | ReturnType<typeof registerSuccess>
-  | ReturnType<typeof registerFailure>
+  | ReturnType<typeof setRedirectDest>
   | ReturnType<typeof stopRedirectToProducts>
-  | ReturnType<typeof clearLoginError>
-  | ReturnType<typeof clearRegisterError>
+  | ReturnType<typeof clearError>
+  | ReturnType<typeof autoSignIn>
   ;

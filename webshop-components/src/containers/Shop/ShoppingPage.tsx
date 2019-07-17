@@ -40,6 +40,7 @@ import { ReactRouterProps } from '../../typings/interfaces';
 import styles from './ShoppingPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
 import { isAuthenticatedSelector } from '../Auth/state/selectors';
+import { setRedirectDest } from '../Auth/state/actions';
 
 interface IShoppingPageMappedProps {
   isAuthenticated: boolean;
@@ -62,6 +63,7 @@ interface IShoppingPageMappedDispatch {
   onAddSubcategories: (ids: number[]) => void;
   onRemoveSubcategories: (ids: number[]) => void;
   onSetQuantity: (productId: number, quantity: number) => void;
+  onSetAuthRedirect: (dest: string) => void;
 }
 
 type IShoppingPageProps =
@@ -171,6 +173,7 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
       this.props.history.push('/checkout');
     } else {
       this.show('Please log in or register before checking out.', 'warning', 4000);
+      this.props.onSetAuthRedirect('/checkout');
       this.props.history.push('/auth');
     }
   }
@@ -197,6 +200,7 @@ const mapDispatchToProps = {
   onRemoveSubcategories: removeFilterSubcategories,
   onClearCart: clearCart,
   onSetQuantity: setProductQuantity,
+  onSetAuthRedirect: setRedirectDest,
 };
 
 export const ShoppingPage = withRouter(connect(mapStateToProps, mapDispatchToProps)(ShoppingComponent));
