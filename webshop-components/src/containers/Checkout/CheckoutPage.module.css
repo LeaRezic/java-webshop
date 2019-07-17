@@ -1,0 +1,81 @@
+.Container {
+  width: 80%;
+  margin: 100px auto 0;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.OrderContainer {
+  width: 50%;
+}
+.Padder {
+  width: 20%;
+}
+.PaymentContainer {
+  width: 30%;
+}
+
+.ButtonsContainer {
+  display: flex;
+  padding: 20px;
+  justify-content: space-around;
+}
+
+@media(max-width: 1300px) {
+  .Container {
+    width: 90%;
+  }
+  .OrderContainer {
+    width: 60%;
+  }
+  .Padder {
+    width: 10%;
+  }
+  .PaymentContainer {
+    width: 30%;
+  }
+}
+
+@media(max-width: 1020px) {
+  .OrderContainer {
+    width: 65%;
+  }
+  .Padder {
+    width: 5%;
+  }
+  .PaymentContainer {
+    width: 30%;
+  }
+  .ButtonsContainer {
+    flex-direction: column;
+  }
+  .ButtonsContainer > button {
+    margin-top: 20px;
+    width: 150px;
+  }
+}
+
+@media(max-width: 870px) {
+  .Container {
+    margin-top: 0;
+    flex-direction: column;
+  }
+  .OrderContainer {
+    width: 100%;
+  }
+  .Padder {
+    width: 100%;
+    height: 20px;
+  }
+  .PaymentContainer {
+    width: 100%;
+  }
+  .ButtonsContainer {
+    flex-direction: column;
+  }
+  .ButtonsContainer > button {
+    margin-top: 20px;
+    width: 150px;
+  }
+}

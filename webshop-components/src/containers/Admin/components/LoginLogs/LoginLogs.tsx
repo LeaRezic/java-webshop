@@ -2,7 +2,6 @@ import * as React from 'react';
 import { ILoginLog, IAdminUserData } from '../../interfaces';
 
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
-import { LogsTable } from './LogsTable/LogsTable';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { loginLogsRequest, loginLogsSetFilter } from '../../state/actions';
@@ -18,6 +17,9 @@ import { UsersSelect } from '../UsersSelect/UsersSelect';
 
 import styles from './LoginLogs.module.css';
 import { Aux } from '../../../../hoc/Aux/Aux';
+import ReactTable from 'react-table';
+import { columnsConfig } from './tableConfig';
+import { NoData } from '../../../../components/UI/NoData/NoData';
 
 interface ILoginLogsMappedProps {
   tokenId: string;
@@ -49,15 +51,19 @@ export class LoginLogsComponent extends React.Component<ILoginLogsProps> {
         { this.props.isFetchinData
           ? <Spinner />
           : <Aux>
-              <UsersSelect
-                selectedUsers={this.props.selectedUsers}
-                users={this.props.usersData}
-                onChange={this.props.onSetFilter}
-              />
+              <div className={styles.SelectContainer}>
+                <UsersSelect
+                  selectedUsers={this.props.selectedUsers}
+                  users={this.props.usersData}
+                  onChange={this.props.onSetFilter}
+                />
+              </div>
               { this.props.isDataLoaded && this.props.logsData.length === 0
-                ? <p>NO DATA</p>
-                : <LogsTable
+                ? <NoData />
+                : <ReactTable
+                    columns={columnsConfig}
                     data={this.props.logsData}
+                    pageSize={this.props.logsData.length > 10 ? 20 : 5}
                   /> }
             </Aux>
         }

@@ -10,6 +10,7 @@ import { usersDataRequest, loginLogsSetFilter, receiptsSetFilter, setAdminView }
 import { authTokenSelector } from '../../../Auth/state/selectors';
 import { isFetchingUserDataSelector, usersDataSelector, isUsersDataLoadedSelector } from '../../state/selectors';
 import ReactTable from 'react-table';
+import { NoData } from '../../../../components/UI/NoData/NoData';
 
 interface IUsersDataMappedProps {
   tokenId: string;
@@ -41,7 +42,7 @@ export class UsersDataComponent extends React.PureComponent<IUsersDataProps> {
         { this.props.isFetchinData
             ? <Spinner />
             : this.props.isDataLoaded && this.props.data.length === 0
-              ? <p>NO DATA TO SHOW</p>
+              ? <NoData />
               : <ReactTable
                   columns={getTableConfig(this.handleUserLogsClick, this.handleReceiptLogsClick)}
                   data={this.props.data}

@@ -79,3 +79,12 @@ export const logsSelectedUsersSelector = (store: IStore) => {
   }
   return users.filter((user) => user.username === username);
 };
+
+export const receiptsSelectedUsersSelector = (store: IStore) => {
+  const users = store.admin.users.data;
+  const username = store.admin.receipts.usernameFilter;
+  if (username === null) {
+    return [];
+  }
+  return users.filter((user) => user.username === username);
+};

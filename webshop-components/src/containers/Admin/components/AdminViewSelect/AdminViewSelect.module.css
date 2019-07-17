@@ -1,9 +1,17 @@
 .Main {
   width: 20%;
+  min-width: 400px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 400px) {
+  .Main {
+    flex-direction: column;
+    margin-left: 25%;
+  }
 }
 
 /* Customize the label (the container) */

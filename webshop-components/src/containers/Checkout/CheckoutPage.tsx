@@ -7,17 +7,36 @@ import { ICartItem } from '../Shop/interfaces';
 import { CartItem } from '../Shop/components/Cart/CartItem/CartItem';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { addProductToCart, removeProductFromCart, incrementProductQuantity, decrementProductQuantity, setProductQuantity } from '../Shop/state/actions';
+import { addProductToCart,
+  removeProductFromCart,
+  incrementProductQuantity,
+  decrementProductQuantity,
+  setProductQuantity,
+} from '../Shop/state/actions';
 import { cartItemsSelector } from '../Shop/state/selectors';
-import { authTokenSelector, usernameSelector } from '../Auth/state/selectors';
-import { createReceiptRequest, clearError } from './state/actions';
-import { ICreateReceiptRequest, ICreateReceiptItem, PaymentMethod } from './interfaces';
-import { redirectToProfileSelector, createReceiptErrorSelector } from './state/selectors';
+import {
+  authTokenSelector,
+  usernameSelector,
+} from '../Auth/state/selectors';
+import {
+  createReceiptRequest,
+  clearError,
+} from './state/actions';
+import {
+  ICreateReceiptRequest,
+  ICreateReceiptItem,
+  PaymentMethod,
+} from './interfaces';
+import {
+  redirectToProfileSelector,
+  createReceiptErrorSelector,
+} from './state/selectors';
 import { stopRedirectToProducts } from '../Auth/state/actions';
 import { PayPal } from './components/PayPal/PayPal';
 
 import styles from './CheckoutPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
+import { NoData } from '../../components/UI/NoData/NoData';
 
 interface ICheckoutPageMappedProps {
   authToken: string;
@@ -61,55 +80,71 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
 
   public render() {
     const { cartItems } = this.props;
-    const itemList = cartItems.length > 0
-      ? cartItems.map((item) => (
-        <CartItem
-          key={item.product.id}
-          item={item}
-          onDecrementProduct={this.props.onDecrementProduct}
-          onIncrementProduct={this.props.onIncrementProduct}
-          onRemoveProduct={this.props.onRemoveProduct}
-          onSetQuantity={this.props.onSetQuantity}
-        />
-      ))
-      : <div>
-        <p>NO PRODUCTS IN CART</p>
-        <button
-          onClick={this.redirectToShop}
-          className={classNames(globalStyles.Btn, globalStyles.BtnInfo)}
-        >
-          BACK TO SHOPPING
-        </button>
-      </div>
+    const cartEmpty = cartItems.length === 0;
     return (
-      <div className={styles.Container}>
-        <div className={styles.OrderContainer}>
-          { itemList }
-        </div>
-        <hr/>
-        <div className={styles.TotalContainer}>
-          Total: NNNN
-        </div>
-        <div className={styles.PaymentContainer}>
-          Payment method: cash or pay pal
-        </div>
-        <button
-          disabled={this.props.cartItems.length === 0}
-          className={classNames(globalStyles.Btn, globalStyles.BtnSuccess)}
-          onClick={this.handleConfirmOrder}
-        >
-          CONFIRM ORDER
-        </button>
-        <div className={'PayPalButtons'}>
-          <PayPal
-            totalAmount={this.getTotalPrice()}
-            onCancel={this.handleCancelPayPal}
-            onError={this.handleErrorPayPal}
-            onSuccess={this.handleSuccessPayPal}
-          />
-        </div>
-      </div>
+        cartEmpty
+        ? <div>
+            <NoData message={'Cart Empty'} />
+            <button
+              onClick={this.redirectToShop}
+              className={classNames(globalStyles.Btn, globalStyles.BtnInfo)}
+            >
+              BACK TO SHOPPING
+            </button>
+          </div>
+        : (
+          <div className={styles.Container}>
+            <div className={styles.OrderContainer}>
+              <div className={globalStyles.CrimzonBigUppercase}>YOUR ITEMS</div>
+              <hr />
+              <div className={styles.CartItemsContainer}>
+                {cartItems.map((item) => (
+                  <CartItem
+                    key={item.product.id}
+                    item={item}
+                    onDecrementProduct={this.props.onDecrementProduct}
+                    onIncrementProduct={this.props.onIncrementProduct}
+                    onRemoveProduct={this.props.onRemoveProduct}
+                    onSetQuantity={this.props.onSetQuantity}
+                  />
+                ))
+                }
+              </div>
+              <hr />
+              <div className={globalStyles.CrimzonBigUppercase}>
+                TOTAL: {this.getTotalPrice()}
+              </div>
+              <hr />
+            </div>
+            <div className={styles.Padder} />
+            <div className={styles.PaymentContainer}>
+              <div className={globalStyles.CrimzonBigUppercase}>PAYMENT OPTIONS</div>
+              <hr />
+              <div className={styles.ButtonsContainer}>
+                <PayPal
+                  totalAmount={this.getTotalPrice()}
+                  onCancel={this.handleCancelPayPal}
+                  onError={this.handleErrorPayPal}
+                  onSuccess={this.handleSuccessPayPal}
+                />
+                <button
+                  disabled={this.props.cartItems.length === 0}
+                  className={classNames(globalStyles.Btn, globalStyles.BtnSuccessSubtle)}
+                  onClick={this.handleConfirmOrder}
+                >
+                  CASH
+                </button>
+              </div>
+            </div>
+          </div>
+        )
     );
+  }
+
+  private getTotalPrice = () => {
+    return this.props.cartItems.reduce((prev, curr) => {
+      return prev + curr.quantity * curr.product.price;
+    }, 0);
   }
 
   private handleCancelPayPal = () => {
@@ -155,12 +190,6 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
       productId: citem.product.id,
       ammount: citem.quantity,
     }));
-  }
-
-  private getTotalPrice = () => {
-    return this.props.cartItems.reduce((prev, curr) => {
-      return prev + curr.quantity * curr.product.price;
-    }, 0);
   }
 }
 

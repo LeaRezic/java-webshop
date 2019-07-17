@@ -1,5 +1,5 @@
-import { ILoginLog } from '../../../interfaces';
-import { changeIsoDateFormat } from '../../../../../utils/dateUtils';
+import { ILoginLog } from '../../interfaces';
+import { changeIsoDateFormat } from '../../../../utils/dateUtils';
 
 export const columnsConfig = [{
     Header: 'Username',
@@ -19,8 +19,8 @@ export const columnsConfig = [{
     accessor: (row: ILoginLog) => row.date,
     sortable: true,
     Cell: props => {
-      console.log(props);
-      return changeIsoDateFormat(props.value.split(' ')[0]);
+      const details = props.value.split(' ');
+      return `${changeIsoDateFormat(details[0])} - ${details[1].split('.')[0]}`;
     },
   },
 ];
