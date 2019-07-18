@@ -25,6 +25,7 @@ import { NoData } from '../../components/UI/NoData/NoData';
 
 import styles from './ProductViewPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
+import { getErrorDisplay } from '../../utils/errorDisplayUtil';
 
 export class ProductViewComponent extends React.Component<IProductViewPageProps, {}> {
 
@@ -41,7 +42,7 @@ export class ProductViewComponent extends React.Component<IProductViewPageProps,
         : <Aux>
             <NoData />
             { this.props.error !== null
-              ? <div className={globalStyles.GrimzonBold}>{this.props.error}</div>
+              ? <div className={globalStyles.GrimzonBold}>{getErrorDisplay(this.props.error)}</div>
               : null }
           </Aux>
     return (

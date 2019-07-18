@@ -29,12 +29,12 @@ function* purchaseHistoryRequestIntercept(action: Readonly<ReturnType<typeof pur
         }
       }
     );
-    if (response.data.error) {
-      yield put(purchaseHistoryFailure(response.data.error));
-      return;
-    }
     yield put(purchaseHistorySuccess(response.data.receipts));
   } catch (error) {
-    yield put(purchaseHistoryFailure(error.message));
+    if (typeof error.response === 'undefined') {
+      yield put(purchaseHistoryFailure(error.message));
+      return;
+    }
+    yield put(purchaseHistoryFailure(error.response.data.error));
   }
 }

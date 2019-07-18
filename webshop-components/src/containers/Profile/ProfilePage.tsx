@@ -13,6 +13,7 @@ import {
   errorSelector,
 } from './state/selectors';
 import { PurchaseHistory } from './components/PurchaseHistory/PurchaseHistory';
+import { IStore } from '../../state/store';
 
 import styles from './ProfilePage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
@@ -69,7 +70,7 @@ export class ProfilePageComponent extends React.PureComponent<IProfilePageProps,
 
 }
 
-const mapStateToProps = createStructuredSelector<any, IProfilePageMappedProps>({
+const mapStateToProps = createStructuredSelector<IStore, IProfilePageMappedProps>({
   authToken: authTokenSelector,
   purchaseHistory: receiptsSelector,
   isFetchingData: isFetchingSelector,

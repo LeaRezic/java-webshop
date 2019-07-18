@@ -5,10 +5,10 @@ import { notify } from 'react-notify-toast';
 import { IProduct } from '../../../interfaces';
 import { getFormattedCurrency } from '../../../../../utils/currencyUtil';
 import { ReactRouterProps } from '../../../../../typings/interfaces';
+import { getDesiredDimensionsPic } from '../../../../../utils/pictureUtil';
 
 import styles from './Product.module.css';
 import globalStyles from '../../../../../style/GlobalStyle.module.css';
-import { getDesiredDimensionsPic } from '../../../../../utils/pictureUtil';
 
 export interface IProductProps {
   product: IProduct;

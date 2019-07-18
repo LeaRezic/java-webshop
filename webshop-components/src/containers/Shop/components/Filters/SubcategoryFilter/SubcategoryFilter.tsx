@@ -24,7 +24,7 @@ export class SubcategoryFilter extends React.PureComponent<ISubcategoryFilterPro
     return (
       <div className={styles.SubcategoryFilterContainer}>
         <label className={styles.container}>{subcategory.name}
-          <input type='checkbox' checked={isSet} onClick={this.handleOnClick} />
+          <input type='checkbox' checked={isSet} onChange={this.handleOnClick} />
             <span className={styles.checkmark}></span>
         </label>
       </div>

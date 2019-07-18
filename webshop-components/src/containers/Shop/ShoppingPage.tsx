@@ -30,6 +30,7 @@ import {
   selectedCategoryIdSelector,
   fetchingDataSelector,
   dataLoadedSelector,
+  errorSelector,
 } from './state/selectors';
 import { connect } from 'react-redux';
 import { Aux } from '../../hoc/Aux/Aux';
@@ -37,14 +38,15 @@ import { Cart } from './components/Cart/Cart';
 import { Filters } from './components/Filters/Filters';
 import { Modal } from '../../components/Modal/Modal';
 import { ReactRouterProps } from '../../typings/interfaces';
+import { isAuthenticatedSelector } from '../Auth/state/selectors';
+import { setRedirectDest } from '../Auth/state/actions';
+import { Spinner } from '../../components/UI/Spinner/Spinner';
+import { NoData } from '../../components/UI/NoData/NoData';
+import { IStore } from '../../state/store';
+import { getErrorDisplay } from '../../utils/errorDisplayUtil';
 
 import styles from './ShoppingPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
-import { isAuthenticatedSelector } from '../Auth/state/selectors';
-import { setRedirectDest } from '../Auth/state/actions';
-import { errorSelector } from '../Profile/state/selectors';
-import { Spinner } from '../../components/UI/Spinner/Spinner';
-import { NoData } from '../../components/UI/NoData/NoData';
 
 interface IShoppingPageMappedProps {
   isAuthenticated: boolean;
@@ -167,11 +169,11 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
         : this.props.dataLoaded && this.props.products !== null && this.props.categories !== null
           ? { allData }
           : <Aux>
-            <NoData />
-            {this.props.error !== null
-              ? <div className={globalStyles.GrimzonBold}>{this.props.error}</div>
-              : null}
-          </Aux>
+              <NoData />
+              { this.props.error !== null
+              ? <div className={globalStyles.GrimzonBold}>{getErrorDisplay(this.props.error)}</div>
+                : null }
+            </Aux>
     );
   }
 
@@ -198,7 +200,7 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
   }
 }
 
-const mapStateToProps = createStructuredSelector<any, IShoppingPageMappedProps>({
+const mapStateToProps = createStructuredSelector<IStore, IShoppingPageMappedProps>({
   isAuthenticated: isAuthenticatedSelector,
   products: getProductsSelector,
   cartItems: cartItemsSelector,
