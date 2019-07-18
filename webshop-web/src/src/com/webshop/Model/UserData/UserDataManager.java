@@ -1,13 +1,27 @@
 package src.com.webshop.Model.UserData;
 
 import src.com.webshop.DAL.Entities.UserAccountEntity;
+import src.com.webshop.DAL.Repository.DBRepository;
+import src.com.webshop.DAL.Repository.Repository;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class UserDataManager extends ManagerBase {
+public class UserDataManager {
+
+    private static UserDataManager userDataManager = null;
+    private Repository repo;
+    private UserDataManager() {
+        repo = DBRepository.getInstance();
+    }
+    public static UserDataManager getInstance() {
+        if (userDataManager == null) {
+            return new UserDataManager();
+        }
+        return userDataManager;
+    }
 
     public String insertUser(String email, String password, boolean isAdmin) {
         UserAccountEntity entity = new UserAccountEntity();

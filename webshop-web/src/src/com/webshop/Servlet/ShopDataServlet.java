@@ -15,7 +15,7 @@ public class ShopDataServlet extends BaseServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         super.setAccessControlHeaders(response);
-        ShopDataVM shopData = ShopDataManager.getShopData();
+        ShopDataVM shopData = ShopDataManager.getInstance().getShopData();
         JsonObject jsonObject = JsonUtil.getJson(shopData, "shop");
         super.printJsonResponse(response, jsonObject);
     }

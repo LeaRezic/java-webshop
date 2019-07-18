@@ -27,13 +27,13 @@ public class ProductServlet extends BaseServlet {
     }
 
     private void sendAllProducts(HttpServletResponse response) throws IOException {
-        ArrayList<ProductBasicVM> products = (ArrayList<ProductBasicVM>) ProductManager.getAllProducts();
+        ArrayList<ProductBasicVM> products = (ArrayList<ProductBasicVM>) ProductManager.getInstance().getAllProducts();
         JsonObject jsonObject = JsonUtil.getJsonArray(products, "products");
         super.printJsonResponse(response, jsonObject);
     }
 
     private void sendProductDetails(HttpServletResponse response, int idFromUrl) throws IOException {
-        ProductDetailedVM product = ProductManager.getProduct(idFromUrl);
+        ProductDetailedVM product = ProductManager.getInstance().getProduct(idFromUrl);
         JsonObject jsonObject = JsonUtil.getJson(product, "product");
         super.printJsonResponse(response, jsonObject);
     }

@@ -16,7 +16,7 @@ public class CategoryServlet extends BaseServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         super.setAccessControlHeaders(response);
-        ArrayList<CategoryVM> categories = (ArrayList<CategoryVM>) CategoryManager.getAllCategories();
+        ArrayList<CategoryVM> categories = (ArrayList<CategoryVM>) CategoryManager.getInstance().getAllCategories();
         JsonObject jsonObject = JsonUtil.getJsonArray(categories, "categories");
         super.printJsonResponse(response, jsonObject);
     }

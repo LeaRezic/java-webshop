@@ -30,7 +30,7 @@ public class LoginServlet extends BaseServlet {
             );
             return;
         }
-        if (!AuthManager.validateCredentials(credentials.getUsername(), credentials.getPassword())) {
+        if (!AuthManager.getInstance().validateCredentials(credentials.getUsername(), credentials.getPassword())) {
             super.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
@@ -38,7 +38,7 @@ public class LoginServlet extends BaseServlet {
             );
             return;
         }
-        AuthTokenClient tokenClient = AuthManager.getNewClientTokenAndCacheServerToken(credentials.getUsername(), credentials.getPassword());
+        AuthTokenClient tokenClient = AuthManager.getInstance().getNewClientTokenAndCacheServerToken(credentials.getUsername(), credentials.getPassword());
         if (tokenClient == null) {
             super.sendErrorResponse(
                     response,
@@ -47,7 +47,7 @@ public class LoginServlet extends BaseServlet {
             );
             return;
         }
-        LoginLogManager.logNewLogin(authRequestData);
+        LoginLogManager.getInstance().logNewLogin(authRequestData);
         JsonObject responseData = JsonUtil.getJson(tokenClient, "token");
         super.printJsonResponse(response, responseData);
     }

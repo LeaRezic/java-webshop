@@ -22,7 +22,7 @@ public class LoginLogServlet extends BaseServlet {
             return;
         }
         String authToken = super.getRequestAuthHeader(request);
-        AuthTokenServer serverToken = AuthManager.getExistingServerToken(authToken);
+        AuthTokenServer serverToken = AuthManager.getInstance().getExistingServerToken(authToken);
         if (!serverToken.isAdmin()) {
             super.sendErrorResponse(
                     response,
@@ -31,8 +31,8 @@ public class LoginLogServlet extends BaseServlet {
             );
             return;
         }
-        AuthManager.updateExpireDate(authToken);
-        List<LoginLogVM> logs = LoginLogManager.getLoginLogs();
+        AuthManager.getInstance().updateExpireDate(authToken);
+        List<LoginLogVM> logs = LoginLogManager.getInstance().getLoginLogs();
         super.printJsonResponse(response, JsonUtil.getJsonArray(logs, "logs"));
     }
 }

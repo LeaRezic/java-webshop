@@ -26,9 +26,9 @@ public class ReceiptServlet extends BaseServlet {
         String body = request.getReader().lines().collect(Collectors.joining());
         CreateReceiptData createReceiptData = (CreateReceiptData) JsonUtil.getObjFromJson(body, CreateReceiptData.class);
         String authToken = super.getRequestAuthHeader(request);
-        AuthTokenServer serverToken = AuthManager.getExistingServerToken(authToken);
+        AuthTokenServer serverToken = AuthManager.getInstance().getExistingServerToken(authToken);
         if (createReceiptData.getMethod().equals(CreateReceiptData.METHOD_CASH)) {
-            if (!AuthManager.validateCredentials(serverToken.getEmail(), createReceiptData.getPassword())) {
+            if (!AuthManager.getInstance().validateCredentials(serverToken.getEmail(), createReceiptData.getPassword())) {
                 super.sendErrorResponse(
                         response,
                         HttpServletResponse.SC_BAD_REQUEST,
@@ -37,7 +37,7 @@ public class ReceiptServlet extends BaseServlet {
                 return;
             }
         }
-        String receiptNumber = ReceiptManager.createNewReceipt(createReceiptData, serverToken.getEmail());
+        String receiptNumber = ReceiptManager.getInstance().createNewReceipt(createReceiptData, serverToken.getEmail());
         super.printJsonResponse(response, JsonUtil.getJson(receiptNumber, "receiptNumber"));
     }
 
@@ -47,14 +47,14 @@ public class ReceiptServlet extends BaseServlet {
             return;
         }
         String authToken = super.getRequestAuthHeader(request);
-        AuthTokenServer serverToken = AuthManager.getExistingServerToken(authToken);
+        AuthTokenServer serverToken = AuthManager.getInstance().getExistingServerToken(authToken);
         List<ReceiptDetailedVM> receipts;
         if (serverToken.isAdmin()) {
-            receipts = ReceiptManager.getAllReceipts();
+            receipts = ReceiptManager.getInstance().getAllReceipts();
         } else {
-            receipts = ReceiptManager.getReceiptForUser(serverToken.getUserUuid());
+            receipts = ReceiptManager.getInstance().getReceiptForUser(serverToken.getUserUuid());
         }
-        AuthManager.updateExpireDate(authToken);
+        AuthManager.getInstance().updateExpireDate(authToken);
         super.printJsonResponse(response, JsonUtil.getJsonArray(receipts, "receipts"));
     }
 

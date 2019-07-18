@@ -42,7 +42,7 @@ public class RegisterServlet extends BaseServlet {
             );
             return;
         }
-        if (AuthManager.usernameExists(credentials.getUsername())) {
+        if (AuthManager.getInstance().usernameExists(credentials.getUsername())) {
             super.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
@@ -50,7 +50,7 @@ public class RegisterServlet extends BaseServlet {
             );
             return;
         }
-        String uuid = UserDataManager.insertUser(credentials.getUsername(), credentials.getPassword(), false);
+        String uuid = UserDataManager.getInstance().insertUser(credentials.getUsername(), credentials.getPassword(), false);
         if (uuid == null) {
             super.sendErrorResponse(
                     response,
@@ -59,7 +59,7 @@ public class RegisterServlet extends BaseServlet {
             );
             return;
         }
-        AuthTokenClient tokenClient = AuthManager.getNewClientTokenAndCacheServerToken(credentials.getUsername(), credentials.getPassword());
+        AuthTokenClient tokenClient = AuthManager.getInstance().getNewClientTokenAndCacheServerToken(credentials.getUsername(), credentials.getPassword());
         if (tokenClient == null) {
             super.sendErrorResponse(
                     response,
@@ -68,7 +68,7 @@ public class RegisterServlet extends BaseServlet {
             );
             return;
         }
-        LoginLogManager.logNewRegister(authRequestData);
+        LoginLogManager.getInstance().logNewRegister(authRequestData);
         JsonObject responseData = JsonUtil.getJson(tokenClient, "token");
         super.printJsonResponse(response, responseData);
     }

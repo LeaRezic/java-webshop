@@ -22,7 +22,7 @@ public class UsersServlet extends BaseServlet {
             return;
         }
         String authToken = super.getRequestAuthHeader(request);
-        AuthTokenServer serverToken = AuthManager.getExistingServerToken(authToken);
+        AuthTokenServer serverToken = AuthManager.getInstance().getExistingServerToken(authToken);
         if (!serverToken.isAdmin()) {
             super.sendErrorResponse(
                     response,
@@ -31,8 +31,8 @@ public class UsersServlet extends BaseServlet {
             );
             return;
         }
-        AuthManager.updateExpireDate(authToken);
-        List<UserDataVM> users = UserDataManager.getUsersData();
+        AuthManager.getInstance().updateExpireDate(authToken);
+        List<UserDataVM> users = UserDataManager.getInstance().getUsersData();
         super.printJsonResponse(response, JsonUtil.getJsonArray(users, "users"));
     }
 }
