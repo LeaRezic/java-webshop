@@ -26,14 +26,14 @@ export const getTableConfig = (
       id: '2',
       accessor: (row: IAdminUserData) => row.userSince,
       sortable: true,
-      Cell: (props) => changeIsoDateFormat(props.value.split(' ')[0]),
+      Cell: (props) => getDateNice(props),
     },
     {
       Header: 'Last Login',
       id: '3',
       accessor: (row: IAdminUserData) => row.lastLogin,
       sortable: true,
-      Cell: (props) => changeIsoDateFormat(props.value.split(' ')[0]),
+      Cell: (props) => getDateNice(props),
     },
     {
       Header: 'Logs',
@@ -62,3 +62,12 @@ export const getTableConfig = (
       ),
     },
 ];
+
+const getDateNice = (data: any) => {
+  try {
+    const result = changeIsoDateFormat(data.value.split(' ')[0]);
+    return result;
+  } catch {
+    return 'N/A';
+  }
+}

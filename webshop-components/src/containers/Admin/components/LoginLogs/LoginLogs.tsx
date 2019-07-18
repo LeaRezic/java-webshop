@@ -1,14 +1,27 @@
 import * as React from 'react';
 import DateTimeRangePicker from '@wojtekmaj/react-datetimerange-picker';
 
-import { ILoginLog, IAdminUserData, IAdminViewFilter } from '../../interfaces';
+import {
+  ILoginLog,
+  IAdminUserData,
+  IAdminViewFilter,
+} from '../../interfaces';
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { loginLogsRequest, loginLogsSetUsernameFilter, loginLogsSetDatesFilter } from '../../state/actions';
+import {
+  loginLogsRequest,
+  loginLogsSetUsernameFilter,
+  loginLogsSetDatesFilter,
+} from '../../state/actions';
 import { authTokenSelector } from '../../../Auth/state/selectors';
 import { usersDataSelector } from '../../state/selectors';
-import { isFetchingLogsSelector, isLogDataLoadedSelector, filteredLogsSelector, logsFilter } from '../../state/selectors/logsSelectors';
+import {
+  isFetchingLogsSelector,
+  isLogDataLoadedSelector,
+  filteredLogsSelector,
+  logsFilter,
+} from '../../state/selectors/logsSelectors';
 import { UsersSelect } from '../UsersSelect/UsersSelect';
 import { Aux } from '../../../../hoc/Aux/Aux';
 import ReactTable from 'react-table';

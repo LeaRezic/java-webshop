@@ -1,5 +1,3 @@
-import { ICartItem } from "../Shop/interfaces";
-
 export enum PaymentMethod {
   CASH = 'CASH',
   PAY_PAL = 'PAY_PAL',

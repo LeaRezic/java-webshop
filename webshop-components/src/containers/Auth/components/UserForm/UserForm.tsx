@@ -149,8 +149,6 @@ export class UserForm extends React.PureComponent<IUserFormProps, IUserFormState
     return !this.state.password.valid || !this.state.username.valid;
   }
 
-  // bruddochm@bloglines.com', 'kxSh3kdlc'
-  // 'ulundono@opera.com', 'rScnwDFxvqk',
   private handleSubmit = (e: any) => {
     e.preventDefault();
     const userData: IUserRequestInfo = {

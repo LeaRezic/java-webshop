@@ -1,14 +1,30 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import {
+  takeLatest,
+  put,
+} from 'redux-saga/effects';
 import { notify } from 'react-notify-toast';
 
 import { instance } from '../../../utils/axios';
-import { saveAuthToken, readAuthToken, deleteAuthToken } from '../../../utils/storageUtil';
+import {
+  saveAuthToken,
+  readAuthToken,
+  deleteAuthToken
+} from '../../../utils/storageUtil';
 import { getCurrentIP } from '../../../utils/ipUtil';
-import { AuthActionTypes, authSuccess, authFailure, authRequest, autoSignIn } from './actions';
+import {
+  AuthActionTypes,
+  authSuccess,
+  authFailure,
+  authRequest,
+} from './actions';
 import { IAuthDispatchData } from '../interfaces';
 import { getDateFromToken } from '../../../utils/dateUtils';
 import { clearCart } from '../../Shop/state/actions';
 import { clearAdminData } from '../../Admin/state/actions';
+import {
+  clearProfile,
+  setUsername,
+} from '../../Profile/state/actions';
 
 export function* watchAuthRequest() {
   yield takeLatest(AuthActionTypes.AUTH_REQUEST, authRequestIntercept);
@@ -41,6 +57,7 @@ function* authRequestIntercept(action: Readonly<ReturnType<typeof authRequest>>)
     notify.show(message, 'success', 2000);
     saveAuthToken(response.data.token);
     yield put(authSuccess(response.data.token));
+    yield put(setUsername(response.data.token.email));
   } catch (error) {
     if (typeof error.response === 'undefined') {
       yield put(authFailure(error.message));
@@ -69,6 +86,7 @@ function* autoLoginIntercept() {
     return;
   }
   yield put(authSuccess(token));
+  yield put(setUsername(token.email));
 }
 
 export function* watchLogout() {
@@ -77,6 +95,7 @@ export function* watchLogout() {
 
 function* logoutIntercept() {
   yield put(clearCart());
+  yield put(clearProfile());
   yield put(clearAdminData());
   deleteAuthToken();
 }

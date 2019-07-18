@@ -87,5 +87,4 @@ export class ProductDetails extends React.PureComponent<IProductDetailsProps & R
   private getLink = () => {
     return <a href={this.props.product!.externalUrl} target='_blank' >{this.props.product!.externalUrl}</a>
   }
-
 }

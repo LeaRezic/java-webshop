@@ -6,9 +6,18 @@ import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { getTableConfig } from './tableConfig';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { usersDataRequest, loginLogsSetUsernameFilter, receiptsSetUsernameFilter, setAdminView } from '../../state/actions';
+import {
+  usersDataRequest,
+  loginLogsSetUsernameFilter,
+  receiptsSetUsernameFilter,
+  setAdminView,
+} from '../../state/actions';
 import { authTokenSelector } from '../../../Auth/state/selectors';
-import { isFetchingUserDataSelector, usersDataSelector, isUsersDataLoadedSelector } from '../../state/selectors';
+import {
+  isFetchingUserDataSelector,
+  usersDataSelector,
+  isUsersDataLoadedSelector,
+} from '../../state/selectors';
 import ReactTable from 'react-table';
 import { NoData } from '../../../../components/UI/NoData/NoData';
 

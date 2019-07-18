@@ -1,4 +1,8 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import {
+  takeLatest,
+  put,
+} from 'redux-saga/effects';
+
 import { instance } from '../../../utils/axios';
 
 import {

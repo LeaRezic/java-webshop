@@ -1,4 +1,3 @@
-import { RouteComponentProps, StaticContext } from 'react-router';
 import { IProduct } from '../Shop/interfaces';
 import { ReactRouterProps } from '../../typings/interfaces';
 
@@ -11,16 +10,19 @@ export interface IProductDetailed {
 }
 
 export interface IProductViewState {
-  product: IProductDetailed | null;
+  product: IProductDetailed;
   meta: {
     isFetchingData: boolean;
     dataLoaded: boolean;
-    error: string | undefined;
+    error: string;
   }
 }
 
 export interface IProductViewPageMappedProps {
-  product: IProductDetailed | null;
+  product: IProductDetailed;
+  isFetchingData: boolean;
+  dataLoaded: boolean;
+  error: string;
 }
 
 export interface IProductViewPageMappedDispatch {

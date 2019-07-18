@@ -1,5 +1,15 @@
-import { IAdminState, AdminViewType, IAdminViewMeta, IAdminUserData, ILoginLog, IAdminViewFilter } from '../interfaces';
-import { AdminActionTypes, AdminActions } from './actions';
+import {
+  IAdminState,
+  AdminViewType,
+  IAdminViewMeta,
+  IAdminUserData,
+  ILoginLog,
+  IAdminViewFilter,
+} from '../interfaces';
+import {
+  AdminActionTypes,
+  AdminActions,
+} from './actions';
 import { IReceiptDetailed } from '../../Profile/interfaces';
 
 const initialMeta: IAdminViewMeta = {

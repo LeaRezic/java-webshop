@@ -1,8 +1,16 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import {
+  takeLatest,
+  put,
+} from 'redux-saga/effects';
 import { notify } from 'react-notify-toast';
 
 import { instance } from '../../../utils/axios';
-import { CheckoutActionTypes, createReceiptRequest, createReceiptSuccess, createReceiptFailure } from './actions';
+import {
+  CheckoutActionTypes,
+  createReceiptRequest,
+  createReceiptSuccess,
+  createReceiptFailure,
+} from './actions';
 import { clearCart } from '../../Shop/state/actions';
 import { PaymentMethod } from '../interfaces';
 

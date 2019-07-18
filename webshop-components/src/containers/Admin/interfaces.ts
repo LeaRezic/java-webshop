@@ -8,7 +8,6 @@ export enum AdminViewType {
 
 export interface IAdminUserData {
   username: string;
-  // uuid: string;
   totalReceipts: number;
   userSince: string;
   lastLogin: string;

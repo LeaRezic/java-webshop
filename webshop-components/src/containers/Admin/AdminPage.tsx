@@ -11,7 +11,11 @@ import { UsersData } from './components/UsersData/UsersData';
 import { Receipts } from './components/Receipts/Receipts';
 import { LoginLogs } from './components/LoginLogs/LoginLogs';
 
-const VIEWS = [AdminViewType.VIEW_USERS, AdminViewType.VIEW_LOGS, AdminViewType.VIEW_RECEIPTS];
+const VIEWS = [
+  AdminViewType.VIEW_USERS,
+  AdminViewType.VIEW_LOGS,
+  AdminViewType.VIEW_RECEIPTS,
+];
 
 interface IAdminMappedProps {
   selectedView: AdminViewType;

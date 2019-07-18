@@ -23,21 +23,13 @@ export interface IReceiptDetailed {
   items: IReceiptItem[];
 };
 
-export interface IProfileInfo {
-  username: string;
-  memberSince: string;
-}
-
 export interface IProfileState {
-  profileInfo: IProfileInfo;
+  username: string;
   receipts: IReceiptDetailed[];
   viewReceiptId: number;
   meta: {
-    isRequestingHistory: boolean;
-    historySuccess: boolean;
-    historyError: string;
-    isRequestingProfileInfo: boolean;
-    profileInfoSuccess: boolean;
-    profileInfoError: string;
+    fetchingData: boolean;
+    dataLoaded: boolean;
+    error: string;
   }
 }

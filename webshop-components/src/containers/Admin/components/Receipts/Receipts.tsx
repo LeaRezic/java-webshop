@@ -4,15 +4,27 @@ import DateTimeRangePicker from '@wojtekmaj/react-datetimerange-picker';
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { receiptsRequest, receiptsSetUsernameFilter, receiptsSetDatesFilter } from '../../state/actions';
+import {
+  receiptsRequest,
+  receiptsSetUsernameFilter,
+  receiptsSetDatesFilter,
+} from '../../state/actions';
 import { authTokenSelector } from '../../../Auth/state/selectors';
 import { usersDataSelector } from '../../state/selectors';
-import { isFetchingReceiptsSelector, isReceiptsDataLoadedSelector, filteredReceiptsSelector, receiptsSelectedUsersSelector, receiptsFilterSelector } from '../../state/selectors/receiptSelectors';
+import {
+  isFetchingReceiptsSelector,
+  isReceiptsDataLoadedSelector,
+  filteredReceiptsSelector,
+  receiptsFilterSelector,
+} from '../../state/selectors/receiptSelectors';
 import { ReceiptsTable } from '../../../../components/ReceiptsTable/ReceiptsTable';
 import { IReceiptDetailed } from '../../../Profile/interfaces';
 import { Aux } from '../../../../hoc/Aux/Aux';
 import { UsersSelect } from '../UsersSelect/UsersSelect';
-import { IAdminUserData, IAdminViewFilter } from '../../interfaces';
+import {
+  IAdminUserData,
+  IAdminViewFilter,
+} from '../../interfaces';
 import { NoData } from '../../../../components/UI/NoData/NoData';
 
 import styles from './Receipts.module.css';

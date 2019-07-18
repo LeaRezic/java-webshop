@@ -1,9 +1,8 @@
 import { createSelector } from 'reselect';
 
 import { IStore } from '../../../../state/store';
-import { IAdminViewFilter, IAdminUserData } from '../../interfaces';
+import { IAdminViewFilter } from '../../interfaces';
 import { IReceiptDetailed } from '../../../Profile/interfaces';
-import { usersDataSelector } from '../selectors';
 import { getDateFromDisplayDateTime } from '../../../../utils/dateUtils';
 
 export const isFetchingReceiptsSelector = (store: IStore): boolean => {
@@ -21,16 +20,6 @@ const receiptsDataSelector = (store: IStore): IReceiptDetailed[] => {
 export const receiptsFilterSelector = (store: IStore): IAdminViewFilter => {
   return store.admin.receipts.filter;
 }
-
-export const receiptsSelectedUsersSelector = createSelector(
-  [usersDataSelector, receiptsFilterSelector],
-  (usersdata: IAdminUserData[], filter: IAdminViewFilter) => {
-    if (filter.username === null) {
-      return [];
-    }
-    return usersdata.filter((user) => user.username === filter.username);
-  }
-);
 
 export const filteredReceiptsSelector = createSelector(
   [receiptsDataSelector, receiptsFilterSelector],

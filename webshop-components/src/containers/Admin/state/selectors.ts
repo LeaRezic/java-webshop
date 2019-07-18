@@ -1,5 +1,8 @@
 import { IStore } from '../../../state/store';
-import { AdminViewType, IAdminUserData } from '../interfaces';
+import {
+  AdminViewType,
+  IAdminUserData,
+} from '../interfaces';
 
 export const adminViewSelector = (store: IStore): AdminViewType => {
   return store.admin.activeView;

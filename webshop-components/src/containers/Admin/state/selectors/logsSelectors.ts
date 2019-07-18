@@ -1,7 +1,10 @@
 import { createSelector } from 'reselect';
 
 import { IStore } from '../../../../state/store';
-import { ILoginLog, IAdminViewFilter } from '../../interfaces';
+import {
+  ILoginLog,
+  IAdminViewFilter,
+} from '../../interfaces';
 import { getDateFromDisplayDateTime } from '../../../../utils/dateUtils';
 
 export const isFetchingLogsSelector = (store: IStore): boolean => {

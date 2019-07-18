@@ -157,7 +157,7 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
   }
 
   private handleSuccessPayPal = () => {
-    this.show('PayPal verified!', 'success', 2000);
+    // this.show('PayPal verified!', 'success', 2000);
     const data: ICreateReceiptRequest = {
       tokenId: this.props.authToken,
       paymentMethod: PaymentMethod.PAY_PAL,

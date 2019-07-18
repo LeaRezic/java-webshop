@@ -3,14 +3,25 @@ import classNames from 'classnames';
 import { notify } from 'react-notify-toast';
 
 import { UserForm } from './components/UserForm/UserForm';
-import { IUserRequestInfo, authRequest, logOut, stopRedirectToProducts, clearError } from './state/actions';
+import {
+  IUserRequestInfo,
+  authRequest,
+  logOut,
+  stopRedirectToProducts,
+  clearError,
+} from './state/actions';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { isAuthenticatedSelector, shouldRedirectSelector, authErrorSelector, redirectDestSelector } from './state/selectors';
+import {
+  isAuthenticatedSelector,
+  shouldRedirectSelector,
+  authErrorSelector,
+  redirectDestSelector,
+} from './state/selectors';
+import { ReactRouterProps } from '../../typings/interfaces';
 
 import styles from './LoginPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
-import { ReactRouterProps } from '../../typings/interfaces';
 
 interface ILoginPageMappedProps {
   isAuthenticated: boolean;

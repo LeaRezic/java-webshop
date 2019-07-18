@@ -18,9 +18,16 @@ export const columnsConfig = [{
     id: '2',
     accessor: (row: ILoginLog) => row.date,
     sortable: true,
-    Cell: props => {
-      const details = props.value.split(' ');
-      return `${changeIsoDateFormat(details[0])} - ${details[1].split('.')[0]}`;
-    },
+    Cell: props => getDateNice(props),
   },
 ];
+
+const getDateNice = (data: any) => {
+  try {
+    const details = data.value.split(' ');
+    const result = `${changeIsoDateFormat(details[0])} - ${details[1].split('.')[0]}`;
+    return result;
+  } catch {
+    return 'N/A';
+  }
+}

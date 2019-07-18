@@ -6,17 +6,23 @@ import { authTokenSelector } from '../Auth/state/selectors';
 import { purchaseHistoryRequest } from './state/actions';
 import { connect } from 'react-redux';
 import { IReceiptDetailed } from './interfaces';
-import { receiptsSelector, loadingHistorySelector, historyLoadedSelector } from './state/selectors';
+import {
+  receiptsSelector,
+  isFetchingSelector,
+  dataLoadedSelector,
+  errorSelector,
+} from './state/selectors';
 import { PurchaseHistory } from './components/PurchaseHistory/PurchaseHistory';
 
 import styles from './ProfilePage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
 
 interface IProfilePageMappedProps {
-  isLoadingHistory: boolean;
-  isHistoryLoaded: boolean;
+  isFetchingData: boolean;
+  dataLoaded: boolean;
   authToken: string;
   purchaseHistory: IReceiptDetailed[];
+  error: string;
 }
 
 interface IProfilePageMappedDispatch {
@@ -46,9 +52,10 @@ export class ProfilePageComponent extends React.PureComponent<IProfilePageProps,
         </button>
         { this.state.shouldDisplayHistory
             ? <PurchaseHistory
-                isLoadingData={this.props.isLoadingHistory}
-                isDataLoaded={this.props.isHistoryLoaded}
+                isLoadingData={this.props.isFetchingData}
+                isDataLoaded={this.props.dataLoaded}
                 receipts={this.props.purchaseHistory}
+                error={this.props.error}
               />
             : null }
       </div>
@@ -65,8 +72,9 @@ export class ProfilePageComponent extends React.PureComponent<IProfilePageProps,
 const mapStateToProps = createStructuredSelector<any, IProfilePageMappedProps>({
   authToken: authTokenSelector,
   purchaseHistory: receiptsSelector,
-  isLoadingHistory: loadingHistorySelector,
-  isHistoryLoaded: historyLoadedSelector,
+  isFetchingData: isFetchingSelector,
+  dataLoaded: dataLoadedSelector,
+  error: errorSelector,
 })
 
 const mapDispatchToProps = {

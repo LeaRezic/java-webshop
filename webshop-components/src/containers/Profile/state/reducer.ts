@@ -1,99 +1,80 @@
-import { IProfileState, IReceiptDetailed, IProfileInfo } from '../interfaces';
-import { ProfileActionTypes, ProfileActions } from './actions';
+import {
+  IProfileState,
+  IReceiptDetailed,
+} from '../interfaces';
+import {
+  ProfileActionTypes,
+  ProfileActions,
+} from './actions';
 
 const initialState: IProfileState = {
-  profileInfo: {
-    username: '',
-    memberSince: '',
-  },
+  username: null,
   receipts: [],
   viewReceiptId: 0,
   meta: {
-    isRequestingHistory: false,
-    historySuccess: false,
-    historyError: '',
-    isRequestingProfileInfo: false,
-    profileInfoSuccess: false,
-    profileInfoError: '',
+    fetchingData: false,
+    dataLoaded: false,
+    error: null,
   }
 }
 
-const purchaseHistoryRequest = (state: IProfileState) => {
+const purchaseHistoryRequest = (state: IProfileState): IProfileState => {
   return {
     ...state,
     meta: {
       ...state.meta,
-      isRequestingHistory: true,
+      fetchingData: true,
+      dataLoaded: false,
+      error: null,
     }
   }
 }
 
-const purchaseHistorySuccess = (state: IProfileState, receipts: IReceiptDetailed[]) => {
+const purchaseHistorySuccess = (state: IProfileState, receipts: IReceiptDetailed[]): IProfileState => {
   return {
     ...state,
     receipts: receipts,
     meta: {
       ...state.meta,
-      isRequestingHistory: false,
-      historySuccess: true,
+      fetchingData: false,
+      dataLoaded: true,
+      error: null,
     }
   }
 }
 
-const purchaseHistoryFailure = (state: IProfileState, error: string) => {
+const purchaseHistoryFailure = (state: IProfileState, error: string): IProfileState => {
   return {
     ...state,
     meta: {
       ...state.meta,
-      isRequestingHistory: false,
-      historySuccess: false,
-      historyError: error,
+      fetchingData: false,
+      dataLoaded: false,
+      error: error,
     }
   }
 }
 
-const profileDetailsRequest = (state: IProfileState) => {
+const setUsername = (state: IProfileState, username: string): IProfileState => {
   return {
     ...state,
-    meta: {
-      ...state.meta,
-      isRequestingRegister: true,
-    }
+    username: username,
   }
 }
 
-const profileDetailsSuccess = (state: IProfileState, profileInfo: IProfileInfo) => {
+const clearProfile = (state: IProfileState): IProfileState => {
   return {
-    ...state,
-    profileInfo: profileInfo,
-    meta: {
-      ...state.meta,
-      isRequestingProfileInfo: false,
-      profileInfoSuccess: true,
-    }
-  }
-}
-
-const profileDetailsFailure = (state: IProfileState, error: string) => {
-  return {
-    ...state,
-    meta: {
-      ...state.meta,
-      isRequestingProfileInfo: false,
-      profileInfoSuccess: false,
-      profileInfoError: error,
-    }
+    ...initialState,
   }
 }
 
 export const profileReducer = (state: IProfileState = initialState, action: ProfileActions): IProfileState => {
   switch (action.type) {
     case ProfileActionTypes.PURCHASE_HISTORY_REQUEST: return purchaseHistoryRequest(state);
-    case ProfileActionTypes.PURCHASE_HISTORY_SUCCESS: return purchaseHistorySuccess(state, action.data!);
-    case ProfileActionTypes.PURCHASE_HISTORY_FAILURE: return purchaseHistoryFailure(state, action.data!);
-    case ProfileActionTypes.PROFILE_DETAILS_REQUEST: return profileDetailsRequest(state);
-    case ProfileActionTypes.PROFILE_DETAILS_SUCCESS: return profileDetailsSuccess(state, action.data!);
-    case ProfileActionTypes.PROFILE_DETAILS_FAILURE: return profileDetailsFailure(state, action.data!);
+    case ProfileActionTypes.PURCHASE_HISTORY_SUCCESS: return purchaseHistorySuccess(state, action.data);
+    case ProfileActionTypes.PURCHASE_HISTORY_FAILURE: return purchaseHistoryFailure(state, action.data);
+    case ProfileActionTypes.SET_USERNAME: return setUsername(state, action.data);
+    case ProfileActionTypes.CLEAR_PROFILE: return clearProfile(state);
     default: return state;
   }
 };

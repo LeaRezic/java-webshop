@@ -1,26 +1,34 @@
-import { IProductViewState, IProductDetailed } from '../interfaces';
-import { ProductViewActionTypes, ProductViewAction } from './actions';
+import {
+  IProductViewState,
+  IProductDetailed,
+} from '../interfaces';
+import {
+  ProductViewActionTypes,
+  ProductViewAction,
+} from './actions';
 
 const initialState: IProductViewState = {
   product: null,
   meta: {
     isFetchingData: false,
     dataLoaded: false,
-    error: undefined,
+    error: null,
   }
 }
 
-const fetchProduct = (state: IProductViewState) => {
+const fetchProduct = (state: IProductViewState): IProductViewState => {
   return {
     ...state,
     meta: {
       ...state.meta,
       isFetchingData: true,
+      dataLoaded: false,
+      error: null,
     }
   };
 }
 
-const fetchProductSuccess = (state: IProductViewState, product: IProductDetailed) => {
+const fetchProductSuccess = (state: IProductViewState, product: IProductDetailed): IProductViewState => {
   return {
     ...state,
     product: product,
@@ -28,11 +36,12 @@ const fetchProductSuccess = (state: IProductViewState, product: IProductDetailed
       ...state.meta,
       isFetchingData: false,
       dataLoaded: true,
+      error: null,
     }
   };
 }
 
-const fetchProductFailure = (state: IProductViewState, errorMsg: string) => {
+const fetchProductFailure = (state: IProductViewState, errorMsg: string): IProductViewState => {
   return {
     ...state,
     meta: {
