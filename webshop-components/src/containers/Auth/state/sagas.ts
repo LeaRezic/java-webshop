@@ -8,6 +8,7 @@ import { AuthActionTypes, authSuccess, authFailure, authRequest, autoSignIn } fr
 import { IAuthDispatchData } from '../interfaces';
 import { getDateFromToken } from '../../../utils/dateUtils';
 import { clearCart } from '../../Shop/state/actions';
+import { clearAdminData } from '../../Admin/state/actions';
 
 export function* watchAuthRequest() {
   yield takeLatest(AuthActionTypes.AUTH_REQUEST, authRequestIntercept);
@@ -53,7 +54,7 @@ export function* watchAutoLogin() {
   yield takeLatest(AuthActionTypes.AUTO_SIGN_IN, autoLoginIntercept);
 }
 
-function* autoLoginIntercept(action: Readonly<ReturnType<typeof autoSignIn>>) {
+function* autoLoginIntercept() {
   const token = readAuthToken();
   if (!token
       || !token.email
@@ -74,7 +75,8 @@ export function* watchLogout() {
   yield takeLatest(AuthActionTypes.LOG_OUT, logoutIntercept);
 }
 
-function* logoutIntercept(action: Readonly<ReturnType<typeof autoSignIn>>) {
+function* logoutIntercept() {
   yield put(clearCart());
+  yield put(clearAdminData());
   deleteAuthToken();
 }

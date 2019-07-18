@@ -2,3 +2,40 @@
   padding-right: 12px;
   margin-bottom: 10px;
 }
+
+.DatePickerContainer {
+  width: 750px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+@media(max-width: 750px) {
+  .DatePickerContainer {
+    width: 350px;
+    margin-bottom: 30px;
+    flex-direction: column;
+  }
+}
+
+.CustomDatePicker {
+  font-size: 1rem;
+}
+
+.CustomDatePicker > div:first-child {
+  padding: 5px;
+}
+
+.CustomDatePicker > div:first-child > span {
+  margin-top: 5px;
+}
+
+@media(max-width: 500px) {
+  .CustomDatePicker > div:first-child {
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+    padding: 0;
+  }
+}

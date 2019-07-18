@@ -1,25 +1,22 @@
 import * as React from 'react';
-import { ILoginLog, IAdminUserData } from '../../interfaces';
+import DateTimeRangePicker from '@wojtekmaj/react-datetimerange-picker';
 
+import { ILoginLog, IAdminUserData, IAdminViewFilter } from '../../interfaces';
 import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { loginLogsRequest, loginLogsSetFilter } from '../../state/actions';
+import { loginLogsRequest, loginLogsSetUsernameFilter, loginLogsSetDatesFilter } from '../../state/actions';
 import { authTokenSelector } from '../../../Auth/state/selectors';
-import {
-  isFetchingLogsSelector,
-  isLogDataLoadedSelector,
-  logDataSelector,
-  usersDataSelector,
-  logsSelectedUsersSelector,
-} from '../../state/selectors';
+import { usersDataSelector } from '../../state/selectors';
+import { isFetchingLogsSelector, isLogDataLoadedSelector, filteredLogsSelector, logsFilter } from '../../state/selectors/logsSelectors';
 import { UsersSelect } from '../UsersSelect/UsersSelect';
-
-import styles from './LoginLogs.module.css';
 import { Aux } from '../../../../hoc/Aux/Aux';
 import ReactTable from 'react-table';
 import { columnsConfig } from './tableConfig';
 import { NoData } from '../../../../components/UI/NoData/NoData';
+
+import styles from './LoginLogs.module.css';
+import globalStyles from '../../../../style/GlobalStyle.module.css';
 
 interface ILoginLogsMappedProps {
   tokenId: string;
@@ -27,12 +24,13 @@ interface ILoginLogsMappedProps {
   isDataLoaded: boolean;
   logsData: ILoginLog[];
   usersData: IAdminUserData[];
-  selectedUsers: IAdminUserData[];
+  logsFilter: IAdminViewFilter;
 }
 
 interface ILoginLogsMappedDispatch {
   onLogDataFetch: (tokenId: string) => void;
-  onSetFilter: (username: string) => void;
+  onSetUsernameFilter: (username: string) => void;
+  onSetDatesFilter: (dates: Date[]) => void;
 }
 
 type ILoginLogsProps = ILoginLogsMappedProps & ILoginLogsMappedDispatch;
@@ -51,11 +49,20 @@ export class LoginLogsComponent extends React.Component<ILoginLogsProps> {
         { this.props.isFetchinData
           ? <Spinner />
           : <Aux>
+              <div className={styles.DatePickerContainer}>
+              <div className={globalStyles.CrimzonBigUppercase}>Specify Date Range: </div>
+                <DateTimeRangePicker
+                  onChange={this.handleDateRangeChange}
+                  value={this.getSelectedDates()}
+                  className={styles.CustomDatePicker}
+                  format={'\xa0\xa0dd.MM.yyyy\xa0HH:MM:ss\xa0\xa0'}
+                />
+              </div>
               <div className={styles.SelectContainer}>
                 <UsersSelect
-                  selectedUsers={this.props.selectedUsers}
+                  selectedUsers={this.getSelectedUsers()}
                   users={this.props.usersData}
-                  onChange={this.props.onSetFilter}
+                  onChange={this.props.onSetUsernameFilter}
                 />
               </div>
               { this.props.isDataLoaded && this.props.logsData.length === 0
@@ -63,12 +70,31 @@ export class LoginLogsComponent extends React.Component<ILoginLogsProps> {
                 : <ReactTable
                     columns={columnsConfig}
                     data={this.props.logsData}
-                    pageSize={this.props.logsData.length > 10 ? 20 : 5}
+                    pageSize={this.props.logsData.length > 10 ? 25 : 5}
                   /> }
             </Aux>
         }
       </div>
     );
+  }
+
+  private getSelectedDates = () => {
+    return [this.props.logsFilter.from, this.props.logsFilter.to];
+  }
+
+  private getSelectedUsers = () => {
+    if (this.props.logsFilter.username === null) {
+      return [];
+    }
+    return this.props.usersData.filter((user) => user.username === this.props.logsFilter.username);
+  }
+
+  private handleDateRangeChange = (values) => {
+    if (values === null) {
+      this.props.onSetDatesFilter([null, null]);
+      return;
+    }
+    this.props.onSetDatesFilter(values);
   }
 }
 
@@ -76,14 +102,15 @@ const mapStateToProps = createStructuredSelector<any, ILoginLogsMappedProps>({
   tokenId: authTokenSelector,
   isFetchinData: isFetchingLogsSelector,
   isDataLoaded: isLogDataLoadedSelector,
-  logsData: logDataSelector,
+  logsData: filteredLogsSelector,
   usersData: usersDataSelector,
-  selectedUsers: logsSelectedUsersSelector,
+  logsFilter: logsFilter,
 });
 
 const mapDispatchToProps = {
   onLogDataFetch: loginLogsRequest,
-  onSetFilter: loginLogsSetFilter,
+  onSetUsernameFilter: loginLogsSetUsernameFilter,
+  onSetDatesFilter: loginLogsSetDatesFilter,
 }
 
 export const LoginLogs = connect(mapStateToProps, mapDispatchToProps)(LoginLogsComponent);

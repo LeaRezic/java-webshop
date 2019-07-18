@@ -6,7 +6,7 @@ import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { getTableConfig } from './tableConfig';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { usersDataRequest, loginLogsSetFilter, receiptsSetFilter, setAdminView } from '../../state/actions';
+import { usersDataRequest, loginLogsSetUsernameFilter, receiptsSetUsernameFilter, setAdminView } from '../../state/actions';
 import { authTokenSelector } from '../../../Auth/state/selectors';
 import { isFetchingUserDataSelector, usersDataSelector, isUsersDataLoadedSelector } from '../../state/selectors';
 import ReactTable from 'react-table';
@@ -72,8 +72,8 @@ const mapStateToProps = createStructuredSelector<any, IUsersDataMappedProps>({
 
 const mapDispatchToProps = {
   onUsersDataFetch: usersDataRequest,
-  onSetLogsFilter: loginLogsSetFilter,
-  onSetReceiptsFilter: receiptsSetFilter,
+  onSetLogsFilter: loginLogsSetUsernameFilter,
+  onSetReceiptsFilter: receiptsSetUsernameFilter,
   onChangeView: setAdminView,
 }
 

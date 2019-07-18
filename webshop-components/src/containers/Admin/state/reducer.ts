@@ -1,4 +1,4 @@
-import { IAdminState, AdminViewType, IAdminViewMeta, IAdminUserData, ILoginLog } from '../interfaces';
+import { IAdminState, AdminViewType, IAdminViewMeta, IAdminUserData, ILoginLog, IAdminViewFilter } from '../interfaces';
 import { AdminActionTypes, AdminActions } from './actions';
 import { IReceiptDetailed } from '../../Profile/interfaces';
 
@@ -8,6 +8,16 @@ const initialMeta: IAdminViewMeta = {
   error: null,
 }
 
+const today = new Date();
+const yearAgo = new Date();
+yearAgo.setFullYear(yearAgo.getFullYear() - 1);
+
+const initialFilter: IAdminViewFilter = {
+  username: null,
+  from: yearAgo,
+  to: today,
+}
+
 const initialState: IAdminState = {
   activeView: AdminViewType.VIEW_USERS,
   users: {
@@ -15,25 +25,25 @@ const initialState: IAdminState = {
     meta: { ...initialMeta },
   },
   logs: {
-    usernameFilter: null,
     data: [],
+    filter: { ...initialFilter },
     meta:  { ...initialMeta },
   },
   receipts: {
-    usernameFilter: null,
     data: [],
+    filter: { ...initialFilter },
     meta:  { ...initialMeta },
   }
 }
 
-const setAdminView = (state: IAdminState, view: AdminViewType) => {
+const setAdminView = (state: IAdminState, view: AdminViewType): IAdminState => {
   return {
     ...state,
     activeView: view,
   };
 }
 
-const usersDataRequest = (state: IAdminState) => {
+const usersDataRequest = (state: IAdminState): IAdminState => {
   return {
     ...state,
     users: {
@@ -46,7 +56,7 @@ const usersDataRequest = (state: IAdminState) => {
   }
 }
 
-const usersDataSuccess = (state: IAdminState, usersData: IAdminUserData[]) => {
+const usersDataSuccess = (state: IAdminState, usersData: IAdminUserData[]): IAdminState => {
   return {
     ...state,
     users: {
@@ -61,7 +71,7 @@ const usersDataSuccess = (state: IAdminState, usersData: IAdminUserData[]) => {
   }
 }
 
-const usersDataFailure = (state: IAdminState, error: string) => {
+const usersDataFailure = (state: IAdminState, error: string): IAdminState => {
   return {
     ...state,
     users: {
@@ -76,7 +86,7 @@ const usersDataFailure = (state: IAdminState, error: string) => {
   }
 }
 
-const loginLogsRequest = (state: IAdminState) => {
+const loginLogsRequest = (state: IAdminState): IAdminState => {
   return {
     ...state,
     logs: {
@@ -89,7 +99,7 @@ const loginLogsRequest = (state: IAdminState) => {
   }
 }
 
-const loginLogsSuccess = (state: IAdminState, logData: ILoginLog[]) => {
+const loginLogsSuccess = (state: IAdminState, logData: ILoginLog[]): IAdminState => {
   return {
     ...state,
     logs: {
@@ -104,7 +114,7 @@ const loginLogsSuccess = (state: IAdminState, logData: ILoginLog[]) => {
   }
 }
 
-const loginLogsFailure = (state: IAdminState, error: string) => {
+const loginLogsFailure = (state: IAdminState, error: string): IAdminState => {
   return {
     ...state,
     logs: {
@@ -119,17 +129,20 @@ const loginLogsFailure = (state: IAdminState, error: string) => {
   }
 }
 
-const loginLogsSetFilter = (state: IAdminState, username: string) => {
+const loginLogsSetUsernameFilter = (state: IAdminState, username: string): IAdminState => {
   return {
     ...state,
     logs: {
       ...state.logs,
-      usernameFilter: username,
+      filter: {
+        ...state.logs.filter,
+        username: username,
+      }
     },
   };
 }
 
-const receiptsRequest = (state: IAdminState) => {
+const receiptsRequest = (state: IAdminState): IAdminState => {
   return {
     ...state,
     receipts: {
@@ -142,7 +155,7 @@ const receiptsRequest = (state: IAdminState) => {
   }
 }
 
-const receiptsSuccess = (state: IAdminState, receipts: IReceiptDetailed[]) => {
+const receiptsSuccess = (state: IAdminState, receipts: IReceiptDetailed[]): IAdminState => {
   return {
     ...state,
     receipts: {
@@ -157,7 +170,7 @@ const receiptsSuccess = (state: IAdminState, receipts: IReceiptDetailed[]) => {
   }
 }
 
-const receiptsFailure = (state: IAdminState, error: string) => {
+const receiptsFailure = (state: IAdminState, error: string): IAdminState => {
   return {
     ...state,
     receipts: {
@@ -172,13 +185,50 @@ const receiptsFailure = (state: IAdminState, error: string) => {
   }
 }
 
-const receiptsSetFilter = (state: IAdminState, username: string) => {
+const receiptsSetUsernameFilter = (state: IAdminState, username: string): IAdminState => {
   return {
     ...state,
     receipts: {
       ...state.receipts,
-      usernameFilter: username,
+      filter: {
+        ...state.receipts.filter,
+        username: username,
+      }
     },
+  };
+}
+
+const loginLogsSetDatesFilter = (state: IAdminState, dates: Date[]): IAdminState => {
+  return {
+    ...state,
+    logs: {
+      ...state.logs,
+      filter: {
+        ...state.logs.filter,
+        from: dates[0],
+        to: dates[1],
+      },
+    },
+  };
+}
+
+const receiptsSetDatesFilter = (state: IAdminState, dates: Date[]): IAdminState => {
+  return {
+    ...state,
+    receipts: {
+      ...state.receipts,
+      filter: {
+        ...state.receipts.filter,
+        from: dates[0],
+        to: dates[1],
+      },
+    },
+  };
+}
+
+const clearAdminData = (): IAdminState => {
+  return {
+    ...initialState
   };
 }
 
@@ -191,11 +241,14 @@ export const adminReducer = (state: IAdminState = initialState, action: AdminAct
     case AdminActionTypes.LOGIN_LOGS_REQUEST: return loginLogsRequest(state);
     case AdminActionTypes.LOGIN_LOGS_SUCCESS: return loginLogsSuccess(state, action.data);
     case AdminActionTypes.LOGIN_LOGS_FAILURE: return loginLogsFailure(state, action.data);
-    case AdminActionTypes.LOGIN_LOGS_SET_FILTER: return loginLogsSetFilter(state, action.data);
+    case AdminActionTypes.LOGIN_LOGS_SET_USERNAME_FILTER: return loginLogsSetUsernameFilter(state, action.data);
+    case AdminActionTypes.LOGIN_LOGS_SET_DATES_FILTER: return loginLogsSetDatesFilter(state, action.data);
     case AdminActionTypes.RECEIPTS_REQUEST: return receiptsRequest(state);
     case AdminActionTypes.RECEIPTS_SUCCESS: return receiptsSuccess(state, action.data);
     case AdminActionTypes.RECEIPTS_FAILURE: return receiptsFailure(state, action.data);
-    case AdminActionTypes.RECEIPTS_SET_FILTER: return receiptsSetFilter(state, action.data);
+    case AdminActionTypes.RECEIPTS_SET_USERNAME_FILTER: return receiptsSetUsernameFilter(state, action.data);
+    case AdminActionTypes.RECEIPTS_SET_DATES_FILTER: return receiptsSetDatesFilter(state, action.data);
+    case AdminActionTypes.CLEAR_ADMIN_DATA: return clearAdminData();
     default: return state;
   }
 };

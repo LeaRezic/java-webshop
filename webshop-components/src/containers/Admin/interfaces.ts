@@ -28,6 +28,12 @@ export interface IAdminViewMeta {
   error: string;
 }
 
+export interface IAdminViewFilter {
+  username: string;
+  from: Date;
+  to: Date;
+}
+
 export interface IAdminState {
   activeView: AdminViewType;
   users: {
@@ -35,13 +41,13 @@ export interface IAdminState {
     meta: IAdminViewMeta;
   }
   logs: {
-    usernameFilter: string;
     data: ILoginLog[];
+    filter: IAdminViewFilter;
     meta: IAdminViewMeta;
   };
   receipts: {
-    usernameFilter: string;
     data: IReceiptDetailed[];
+    filter: IAdminViewFilter;
     meta: IAdminViewMeta;
   };
 }

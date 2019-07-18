@@ -37,6 +37,7 @@ import { PayPal } from './components/PayPal/PayPal';
 import styles from './CheckoutPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
 import { NoData } from '../../components/UI/NoData/NoData';
+import { getFormattedCurrency } from '../../utils/currencyUtil';
 
 interface ICheckoutPageMappedProps {
   authToken: string;
@@ -106,20 +107,20 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
                     onIncrementProduct={this.props.onIncrementProduct}
                     onRemoveProduct={this.props.onRemoveProduct}
                     onSetQuantity={this.props.onSetQuantity}
+                    color={'#644E5B'}
                   />
                 ))
                 }
               </div>
-              <hr />
-              <div className={globalStyles.CrimzonBigUppercase}>
-                TOTAL: {this.getTotalPrice()}
-              </div>
-              <hr />
             </div>
             <div className={styles.Padder} />
             <div className={styles.PaymentContainer}>
-              <div className={globalStyles.CrimzonBigUppercase}>PAYMENT OPTIONS</div>
               <hr />
+              <div className={globalStyles.CrimzonBigUppercase}>
+                TOTAL: {getFormattedCurrency(this.getTotalPrice())}
+              </div>
+              <hr />
+              <div className={globalStyles.CrimzonBigUppercase}>PAYMENT OPTIONS</div>
               <div className={styles.ButtonsContainer}>
                 <PayPal
                   totalAmount={this.getTotalPrice()}
@@ -129,7 +130,7 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
                 />
                 <button
                   disabled={this.props.cartItems.length === 0}
-                  className={classNames(globalStyles.Btn, globalStyles.BtnSuccessSubtle)}
+                  className={classNames(globalStyles.BtnSmall, globalStyles.BtnSuccess)}
                   onClick={this.handleConfirmOrder}
                 >
                   CASH

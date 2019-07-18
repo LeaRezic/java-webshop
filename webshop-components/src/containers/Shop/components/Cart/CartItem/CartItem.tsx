@@ -10,6 +10,8 @@ import globalStyles from '../../../../../style/GlobalStyle.module.css';
 
 export interface ICartItemProps {
   item: ICartItem;
+  color?: string;
+  colorHover?: string;
   onRemoveProduct: (productId: number) => void;
   onIncrementProduct: (productId: number) => void;
   onDecrementProduct: (productId: number) => void;
@@ -34,12 +36,15 @@ export class CartItem extends React.PureComponent<ICartItemProps, ICartItemState
       pictureUrl,
       price,
     } = this.props.item.product;
+    const color = this.props.color || 'transparent';
+    const colorHover = this.props.colorHover || '#30415D';
     const { hoverOnCartItem, hoverOnDelete } = this.state;
     return (
       <div
-        className={classNames(styles.CartItemContainer, {[styles.HoverContainer]: hoverOnCartItem })}
+        className={classNames(styles.CartItemContainer)}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
+        style={{ backgroundColor: hoverOnCartItem ? colorHover : color }}
       >
         <div className={styles.PictureContainer}>
           <img src={getDesiredDimensionsPic(pictureUrl, 150)} alt='productPhoto'/>

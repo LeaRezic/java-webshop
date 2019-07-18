@@ -7,7 +7,7 @@ import styles from './Logo.module.css';
 export class Logo extends React.Component {
   public render() {
     return(
-      <div className={styles['Logo']}>
+      <div className={styles.Logo}>
         <img src={duckLogo} alt='Logo Duck' />
       </div>
     );

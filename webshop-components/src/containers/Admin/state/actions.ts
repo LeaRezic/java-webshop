@@ -11,11 +11,14 @@ export enum AdminActionTypes {
   LOGIN_LOGS_REQUEST = 'LOGIN_LOGS_REQUEST',
   LOGIN_LOGS_SUCCESS = 'LOGIN_LOGS_SUCCESS',
   LOGIN_LOGS_FAILURE = 'LOGIN_LOGS_FAILURE',
-  LOGIN_LOGS_SET_FILTER = 'LOGIN_LOGS_SET_FILTER',
+  LOGIN_LOGS_SET_USERNAME_FILTER = 'LOGIN_LOGS_SET_USERNAME_FILTER',
+  LOGIN_LOGS_SET_DATES_FILTER = 'LOGIN_LOGS_SET_DATES_FILTER',
   RECEIPTS_REQUEST = 'RECEIPTS_REQUEST',
   RECEIPTS_SUCCESS = 'RECEIPTS_SUCCESS',
   RECEIPTS_FAILURE = 'RECEIPTS_FAILURE',
-  RECEIPTS_SET_FILTER = 'RECEIPTS_SET_FILTER',
+  RECEIPTS_SET_USERNAME_FILTER = 'RECEIPTS_SET_USERNAME_FILTER',
+  RECEIPTS_SET_DATES_FILTER = 'RECEIPTS_SET_DATES_FILTER',
+  CLEAR_ADMIN_DATA = 'CLEAR_ADMIN_DATA',
 }
 
 export const setAdminView = (view: AdminViewType)
@@ -74,10 +77,10 @@ export const loginLogsFailure = (error: string)
   };
 }
 
-export const loginLogsSetFilter = (username: string)
-  :IReduxAction<string, void, void, AdminActionTypes.LOGIN_LOGS_SET_FILTER> => {
+export const loginLogsSetUsernameFilter = (username: string)
+  :IReduxAction<string, void, void, AdminActionTypes.LOGIN_LOGS_SET_USERNAME_FILTER> => {
     return {
-      type: AdminActionTypes.LOGIN_LOGS_SET_FILTER,
+      type: AdminActionTypes.LOGIN_LOGS_SET_USERNAME_FILTER,
       data: username,
     };
 }
@@ -106,11 +109,34 @@ export const receiptsFailure = (error: string)
   };
 }
 
-export const receiptsSetFilter = (username: string)
-  : IReduxAction<string, void, void, AdminActionTypes.RECEIPTS_SET_FILTER> => {
+export const receiptsSetUsernameFilter = (username: string)
+  : IReduxAction<string, void, void, AdminActionTypes.RECEIPTS_SET_USERNAME_FILTER> => {
   return {
-    type: AdminActionTypes.RECEIPTS_SET_FILTER,
+    type: AdminActionTypes.RECEIPTS_SET_USERNAME_FILTER,
     data: username,
+  };
+}
+
+export const loginLogsSetDatesFilter = (dateRange: Date[])
+  : IReduxAction<Date[], void, void, AdminActionTypes.LOGIN_LOGS_SET_DATES_FILTER> => {
+  return {
+    type: AdminActionTypes.LOGIN_LOGS_SET_DATES_FILTER,
+    data: dateRange,
+  };
+}
+
+export const receiptsSetDatesFilter = (dateRange: Date[])
+  : IReduxAction<Date[], void, void, AdminActionTypes.RECEIPTS_SET_DATES_FILTER> => {
+  return {
+    type: AdminActionTypes.RECEIPTS_SET_DATES_FILTER,
+    data: dateRange,
+  };
+}
+
+export const clearAdminData = ()
+  : IReduxAction<void, void, void, AdminActionTypes.CLEAR_ADMIN_DATA> => {
+  return {
+    type: AdminActionTypes.CLEAR_ADMIN_DATA,
   };
 }
 
@@ -122,9 +148,12 @@ export type AdminActions =
   | ReturnType<typeof loginLogsRequest>
   | ReturnType<typeof loginLogsSuccess>
   | ReturnType<typeof loginLogsFailure>
-  | ReturnType<typeof loginLogsSetFilter>
+  | ReturnType<typeof loginLogsSetUsernameFilter>
   | ReturnType<typeof receiptsRequest>
   | ReturnType<typeof receiptsSuccess>
   | ReturnType<typeof receiptsFailure>
-  | ReturnType<typeof receiptsSetFilter>
+  | ReturnType<typeof receiptsSetUsernameFilter>
+  | ReturnType<typeof loginLogsSetDatesFilter>
+  | ReturnType<typeof receiptsSetDatesFilter>
+  | ReturnType<typeof clearAdminData>
   ;
