@@ -1,19 +1,3 @@
-------------------------------------------------------------------------------------------------
--- COUNTRY, CITY
-
-CREATE TABLE country (
-    country_id serial PRIMARY KEY,
-    name VARCHAR (50) UNIQUE NOT NULL
-);
-
-CREATE TABLE city (
-    city_id serial PRIMARY KEY,
-    name VARCHAR (255) NOT NULL,
-    country_id INTEGER NOT NULL,
-    CONSTRAINT city_country_id_fkey FOREIGN KEY (country_id)
-        REFERENCES country (country_id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION
-);
 
 ------------------------------------------------------------------------------------------------
 -- ROLE, USER ACCOUNT, USER DETAILS
@@ -37,22 +21,6 @@ CREATE TABLE user_account (
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE user_details (
-    user_details_id serial PRIMARY KEY,
-    user_account_id INTEGER NOT NULL,
-    first_name VARCHAR (255) NOT NULL,
-    last_name VARCHAR (255) NOT NULL,
-    female BOOLEAN NOT NULL,
-    city_id INTEGER,
-    full_street TEXT,
-    phone VARCHAR (25),
-    CONSTRAINT user_details_user_account_id_fkey FOREIGN KEY (user_account_id)
-        REFERENCES user_account (user_account_id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION,
-    CONSTRAINT user_details_city_id_fkey FOREIGN KEY (city_id)
-        REFERENCES city (city_id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION
-);
 
 ------------------------------------------------------------------------------------------------
 -- LOGS
@@ -107,33 +75,6 @@ CREATE TABLE product (
         ON UPDATE NO ACTION ON DELETE NO ACTION,
     CONSTRAINT product_product_manufacturer_id_fkey FOREIGN KEY (product_manufacturer_id)
         REFERENCES product_manufacturer (product_manufacturer_id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
-CREATE TABLE game_details (
-    game_details_id serial PRIMARY KEY,
-    product_id INTEGER UNIQUE NOT NULL,
-    players_min INTEGER NULL,
-    players_max INTEGER NULL,
-    playtime_from INTEGER NULL,
-    playtime_to INTEGER NULL,
-    instructions_video_url TEXT NULL,
-    CONSTRAINT game_details_product_id_fkey FOREIGN KEY (product_id)
-        REFERENCES product (product_id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
-CREATE TABLE expansion_details (
-    expansion_details_id serial PRIMARY KEY,
-    product_id INTEGER UNIQUE NOT NULL,
-    base_game_id INTEGER NOT NULL,
-    added_players_num INTEGER NULL,
-    added_playtime INTEGER NULL,
-    CONSTRAINT expansion_details_product_id_fkey FOREIGN KEY (product_id)
-        REFERENCES product (product_id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION,
-    CONSTRAINT expansion_details_base_game_id_fkey FOREIGN KEY (base_game_id)
-        REFERENCES game_details (product_id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 

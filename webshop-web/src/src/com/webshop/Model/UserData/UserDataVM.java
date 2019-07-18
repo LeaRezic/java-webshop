@@ -1,19 +1,17 @@
-package src.com.webshop.Model.Auth.UserData;
+package src.com.webshop.Model.UserData;
 
-public class UserDetailedVM {
+public class UserDataVM {
 
     private String username;
     private String uuid;
     private int totalReceipts;
     private String userSince;
-    private String lastLogin;
 
-    public UserDetailedVM(String username, String uuid, int totalReceipts, String userSince, String lastLogin) {
+    public UserDataVM(String username, String uuid, int totalReceipts, String userSince) {
         this.username = username;
         this.uuid = uuid;
         this.totalReceipts = totalReceipts;
         this.userSince = userSince;
-        this.lastLogin = lastLogin;
     }
 
 }

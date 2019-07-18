@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Receipt;
+package src.com.webshop.Model.Receipt.ReportReceipt;
 
 public class ReceiptItemVM {
 
@@ -24,27 +24,11 @@ public class ReceiptItemVM {
         return id;
     }
 
-    public int getReceiptId() {
-        return receiptId;
+    public int getAmount() {
+        return amount;
     }
 
     public int getProductId() {
         return productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public String getPictureUrl() {
-        return pictureUrl;
-    }
-
-    public double getProductPrice() {
-        return productPrice;
-    }
-
-    public int getAmount() {
-        return amount;
     }
 }

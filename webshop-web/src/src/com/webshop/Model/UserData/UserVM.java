@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Auth.UserData;
+package src.com.webshop.Model.UserData;
 
 public class UserVM {
 

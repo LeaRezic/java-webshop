@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Receipt;
+package src.com.webshop.Model.Receipt.ReportReceipt;
 
 
 public class ReceiptBasicVM {
@@ -23,23 +23,4 @@ public class ReceiptBasicVM {
         return id;
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public boolean isCreditCard() {
-        return creditCard;
-    }
-
-    public String getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public int getTotalProducts() {
-        return totalProducts;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
 }

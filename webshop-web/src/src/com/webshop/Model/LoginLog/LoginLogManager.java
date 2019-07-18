@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Auth.LoginLog;
+package src.com.webshop.Model.LoginLog;
 
 import src.com.webshop.DAL.Entities.LoginLogEntity;
 import src.com.webshop.DAL.Repository.Repository;
@@ -33,15 +33,15 @@ public class LoginLogManager {
     }
 
     public static List<LoginLogVM> getLoginLogs() {
-        List<LoginLogVM> resultList = new ArrayList<>();
+        List<LoginLogVM> models = new ArrayList<>();
         List<LoginLogEntity> entities = repo.getLoginLogs();
-        entities.forEach((e) -> resultList.add(new LoginLogVM(
+        entities.forEach((e) -> models.add(new LoginLogVM(
                 e.giveId(),
                 e.getUserName(),
                 e.getIpAddress(),
                 e.getLoginDate().toString(),
                 e.isRegister()
         )));
-        return resultList;
+        return models;
     }
 }

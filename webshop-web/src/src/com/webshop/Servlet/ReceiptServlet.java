@@ -1,12 +1,10 @@
 package src.com.webshop.Servlet;
 
-import src.com.webshop.Model.Auth.AuthRequestData;
-import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
+import src.com.webshop.Model.Auth.AuthManager;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
-import src.com.webshop.Model.Receipt.CreateReceiptData;
-import src.com.webshop.Model.Receipt.ReceiptDetailedVM;
+import src.com.webshop.Model.Receipt.CreateReceipt.CreateReceiptData;
+import src.com.webshop.Model.Receipt.ReportReceipt.ReceiptDetailedVM;
 import src.com.webshop.Model.Receipt.ReceiptManager;
-import src.com.webshop.Util.DummyLogger.LoggerUtil;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -28,9 +26,9 @@ public class ReceiptServlet extends BaseServlet {
         String body = request.getReader().lines().collect(Collectors.joining());
         CreateReceiptData createReceiptData = (CreateReceiptData) JsonUtil.getObjFromJson(body, CreateReceiptData.class);
         String authToken = super.getRequestAuthHeader(request);
-        AuthTokenServer serverToken = AuthTokenManager.getExistingServerToken(authToken);
+        AuthTokenServer serverToken = AuthManager.getExistingServerToken(authToken);
         if (createReceiptData.getMethod().equals(CreateReceiptData.METHOD_CASH)) {
-            if (!AuthTokenManager.validateCredentials(serverToken.getEmail(), createReceiptData.getPassword())) {
+            if (!AuthManager.validateCredentials(serverToken.getEmail(), createReceiptData.getPassword())) {
                 super.sendErrorResponse(
                         response,
                         HttpServletResponse.SC_BAD_REQUEST,
@@ -49,14 +47,14 @@ public class ReceiptServlet extends BaseServlet {
             return;
         }
         String authToken = super.getRequestAuthHeader(request);
-        AuthTokenServer serverToken = AuthTokenManager.getExistingServerToken(authToken);
+        AuthTokenServer serverToken = AuthManager.getExistingServerToken(authToken);
         List<ReceiptDetailedVM> receipts;
         if (serverToken.isAdmin()) {
             receipts = ReceiptManager.getAllReceipts();
         } else {
-            receipts = ReceiptManager.getReceiptsDetailed(serverToken.getUserUuid());
+            receipts = ReceiptManager.getReceiptForUser(serverToken.getUserUuid());
         }
-        AuthTokenManager.updateExpireDate(authToken);
+        AuthManager.updateExpireDate(authToken);
         super.printJsonResponse(response, JsonUtil.getJsonArray(receipts, "receipts"));
     }
 

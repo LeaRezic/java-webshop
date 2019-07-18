@@ -97,16 +97,6 @@ public class DBRepository implements Repository {
     }
 
     @Override
-    public List<ExpansionDetailsEntity> getExpansionsForGame(int gameDetailsId) {
-        return null;
-    }
-
-    @Override
-    public List<ProductManufacturerEntity> getManufacturers() {
-        return null;
-    }
-
-    @Override
     public List<ReceiptEntity> getReceipts() {
         return (List<ReceiptEntity>) getAllEntitiesOfType(ReceiptEntity.class.getSimpleName());
     }
@@ -164,22 +154,6 @@ public class DBRepository implements Repository {
     }
 
     @Override
-    public ExpansionDetailsEntity getExpansionDetails(int expansionDetailsId) {
-        return (ExpansionDetailsEntity)
-                getEntityOfTypeById(
-                        ExpansionDetailsEntity.class.getSimpleName(),
-                        expansionDetailsId);
-    }
-
-    @Override
-    public GameDetailsEntity getGameDetails(int gameDetailsId) {
-        return (GameDetailsEntity)
-                getEntityOfTypeById(
-                        GameDetailsEntity.class.getSimpleName(),
-                        gameDetailsId);
-    }
-
-    @Override
     public ProductEntity getProduct(int productId) {
         return (ProductEntity)
                 getEntityOfTypeById(
@@ -196,35 +170,11 @@ public class DBRepository implements Repository {
     }
 
     @Override
-    public ProductCategoryEntity getCategory(int categoryId) {
-        return (ProductCategoryEntity)
-                getEntityOfTypeById(
-                        ProductCategoryEntity.class.getSimpleName(),
-                        categoryId);
-    }
-
-    @Override
     public ProductSubcategoryEntity getSubcategory(int subcategoryId) {
         return (ProductSubcategoryEntity)
                 getEntityOfTypeById(
                         ProductSubcategoryEntity.class.getSimpleName(),
                         subcategoryId);
-    }
-
-    @Override
-    public ReceiptEntity getReceipt(int receiptId) {
-        return (ReceiptEntity)
-                getEntityOfTypeById(
-                        ReceiptEntity.class.getSimpleName(),
-                        receiptId);
-    }
-
-    @Override
-    public ReceiptItemEntity getReceiptItem(int receiptItemId) {
-        return (ReceiptItemEntity)
-                getEntityOfTypeById(
-                        ReceiptItemEntity.class.getSimpleName(),
-                        receiptItemId);
     }
 
     @Override
@@ -241,14 +191,6 @@ public class DBRepository implements Repository {
                 getEntityOfTypeById(
                         UserAccountEntity.class.getSimpleName(),
                         userAccountId);
-    }
-
-    @Override
-    public UserDetailsEntity getUserDetails(int userDetailsId) {
-        return (UserDetailsEntity)
-                getEntityOfTypeById(
-                        UserDetailsEntity.class.getSimpleName(),
-                        userDetailsId);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Auth.LoginLog;
+package src.com.webshop.Model.LoginLog;
 
 public class LoginLogVM {
 

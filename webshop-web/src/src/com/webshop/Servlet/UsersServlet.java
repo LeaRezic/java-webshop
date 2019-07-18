@@ -1,9 +1,9 @@
 package src.com.webshop.Servlet;
 
-import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
+import src.com.webshop.Model.Auth.AuthManager;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
-import src.com.webshop.Model.Auth.UserData.UserDetailedVM;
-import src.com.webshop.Model.Auth.UserData.UserManager;
+import src.com.webshop.Model.UserData.UserDataVM;
+import src.com.webshop.Model.UserData.UserManager;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -22,7 +22,7 @@ public class UsersServlet extends BaseServlet {
             return;
         }
         String authToken = super.getRequestAuthHeader(request);
-        AuthTokenServer serverToken = AuthTokenManager.getExistingServerToken(authToken);
+        AuthTokenServer serverToken = AuthManager.getExistingServerToken(authToken);
         if (!serverToken.isAdmin()) {
             super.sendErrorResponse(
                     response,
@@ -31,8 +31,8 @@ public class UsersServlet extends BaseServlet {
             );
             return;
         }
-        AuthTokenManager.updateExpireDate(authToken);
-        List<UserDetailedVM> users = UserManager.getUsersDetailed();
+        AuthManager.updateExpireDate(authToken);
+        List<UserDataVM> users = UserManager.getUsersData();
         super.printJsonResponse(response, JsonUtil.getJsonArray(users, "users"));
     }
 }

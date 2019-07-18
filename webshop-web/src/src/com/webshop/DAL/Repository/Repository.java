@@ -8,35 +8,25 @@ public interface Repository {
 
     List<ProductEntity> getProducts();
     List<ProductCategoryEntity> getCategories();
-    List<ProductSubcategoryEntity> getSubcategoriesForCategory(int categoryId);
-    List<ExpansionDetailsEntity> getExpansionsForGame(int gameDetailsId);
-    List<ProductManufacturerEntity> getManufacturers();
     List<ReceiptEntity> getReceipts();
-    List<ReceiptEntity> getReceiptsForCustomer(String userUuid);
-    List<ReceiptItemEntity> getReceiptItemsForReceipt (int receiptId);
     List<UserAccountEntity> getUsers();
+    List<LoginLogEntity> getLoginLogs();
 
-    ExpansionDetailsEntity getExpansionDetails(int expansionDetailsId);
-    GameDetailsEntity getGameDetails(int gameDetailsId);
-    ProductEntity getProduct(int productId);
-    ProductManufacturerEntity getManufacturer(int manufacturerId);
-    ProductCategoryEntity getCategory(int categoryId);
-    ProductSubcategoryEntity getSubcategory(int subcategoryId);
-    ReceiptEntity getReceipt(int receiptId);
-    ReceiptItemEntity getReceiptItem(int receiptItemId);
     RoleEntity getRole(int roleId);
     UserAccountEntity getUserAccount(int userAccountId);
+    ProductEntity getProduct(int productId);
+    ProductManufacturerEntity getManufacturer(int manufacturerId);
+    ProductSubcategoryEntity getSubcategory(int subcategoryId);
+
+    List<ReceiptEntity> getReceiptsForCustomer(String userUuid);
+    List<ReceiptItemEntity> getReceiptItemsForReceipt (int receiptId);
+    List<ProductSubcategoryEntity> getSubcategoriesForCategory(int categoryId);
+
     UserAccountEntity getUserAccountByUUID(String userAccountUUID);
-    UserDetailsEntity getUserDetails(int userDetailsId);
+    UserAccountEntity getUserByUsername(String username);
 
     boolean insertUser(UserAccountEntity entity);
     boolean insertLoginLog(LoginLogEntity entity);
-
-    List<LoginLogEntity> getLoginLogs();
-
-    UserAccountEntity getUserByUsername(String username);
-
     int insertReceipt(ReceiptEntity receiptEntity);
-
     void insertReceiptItem(ReceiptItemEntity receiptItemEntity);
 }

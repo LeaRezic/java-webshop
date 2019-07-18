@@ -167,7 +167,7 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
         this.props.fetchingData
         ? <Spinner />
         : this.props.dataLoaded && this.props.products !== null && this.props.categories !== null
-          ? { allData }
+          ? allData
           : <Aux>
               <NoData />
               { this.props.error !== null

@@ -21,16 +21,8 @@ public class AuthTokenServer {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getTokenId() {
         return tokenId;
-    }
-
-    public void setTokenId(String tokenId) {
-        this.tokenId = tokenId;
     }
 
     public String getExpireTime() {
@@ -45,15 +37,8 @@ public class AuthTokenServer {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
     public String getUserUuid() {
         return userUuid;
     }
 
-    public void setUserUuid(String userUuid) {
-        this.userUuid = userUuid;
-    }
 }

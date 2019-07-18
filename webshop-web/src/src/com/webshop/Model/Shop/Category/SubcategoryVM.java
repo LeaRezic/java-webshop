@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Category;
+package src.com.webshop.Model.Shop.Category;
 
 public class SubcategoryVM {
 
@@ -20,7 +20,4 @@ public class SubcategoryVM {
         return name;
     }
 
-    public int getCategoryId() {
-        return categoryId;
-    }
 }

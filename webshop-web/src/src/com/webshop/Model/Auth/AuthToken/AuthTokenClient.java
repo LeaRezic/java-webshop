@@ -14,35 +14,4 @@ public class AuthTokenClient {
         this.isAdmin = isAdmin;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTokenId() {
-        return tokenId;
-    }
-
-    public void setTokenId(String tokenId) {
-        this.tokenId = tokenId;
-    }
-
-    public String getExpireTime() {
-        return expireTime;
-    }
-
-    public void setExpireTime(String expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
 }

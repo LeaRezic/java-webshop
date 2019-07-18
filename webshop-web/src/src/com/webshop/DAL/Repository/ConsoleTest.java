@@ -1,9 +1,9 @@
 package src.com.webshop.DAL.Repository;
 
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
-import src.com.webshop.Model.Auth.UserData.UserManager;
-import src.com.webshop.Model.Auth.UserData.UserVM;
-import src.com.webshop.Model.Category.CategoryManager;
+import src.com.webshop.Model.UserData.UserManager;
+import src.com.webshop.Model.UserData.UserVM;
+import src.com.webshop.Model.Shop.Category.CategoryManager;
 import src.com.webshop.Util.DateUtil;
 import src.com.webshop.Util.DummyLogger.LoggerUtil;
 

@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Product;
+package src.com.webshop.Model.Shop.Product;
 
 public class ProductDetailedVM {
 
@@ -20,19 +20,4 @@ public class ProductDetailedVM {
         return basic;
     }
 
-    public String getSubcategoryName() {
-        return subcategoryName;
-    }
-
-    public String getManufacturerName() {
-        return manufacturerName;
-    }
-
-    public int getManufacturerId() {
-        return manufacturerId;
-    }
-
-    public String getExternalUrl() {
-        return externalUrl;
-    }
 }

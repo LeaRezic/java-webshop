@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Category;
+package src.com.webshop.Model.Shop.Category;
 
 import java.util.ArrayList;
 import java.util.List;

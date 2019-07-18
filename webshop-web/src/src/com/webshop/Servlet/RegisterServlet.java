@@ -3,9 +3,9 @@ package src.com.webshop.Servlet;
 import com.google.gson.JsonObject;
 import src.com.webshop.Model.Auth.*;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenClient;
-import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
-import src.com.webshop.Model.Auth.LoginLog.LoginLogManager;
-import src.com.webshop.Model.Auth.UserData.UserManager;
+import src.com.webshop.Model.Auth.AuthManager;
+import src.com.webshop.Model.LoginLog.LoginLogManager;
+import src.com.webshop.Model.UserData.UserManager;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -42,7 +42,7 @@ public class RegisterServlet extends BaseServlet {
             );
             return;
         }
-        if (AuthTokenManager.usernameExists(credentials.getUsername())) {
+        if (AuthManager.usernameExists(credentials.getUsername())) {
             super.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
@@ -59,7 +59,7 @@ public class RegisterServlet extends BaseServlet {
             );
             return;
         }
-        AuthTokenClient tokenClient = AuthTokenManager.getNewClientToken(credentials.getUsername(), credentials.getPassword());
+        AuthTokenClient tokenClient = AuthManager.getNewClientTokenAndCacheServerToken(credentials.getUsername(), credentials.getPassword());
         if (tokenClient == null) {
             super.sendErrorResponse(
                     response,

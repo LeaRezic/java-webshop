@@ -1,9 +1,9 @@
 package src.com.webshop.Servlet;
 
 import com.google.gson.JsonObject;
-import src.com.webshop.Model.Product.ProductBasicVM;
-import src.com.webshop.Model.Product.ProductDetailedVM;
-import src.com.webshop.Model.Product.ProductManager;
+import src.com.webshop.Model.Shop.Product.ProductBasicVM;
+import src.com.webshop.Model.Shop.Product.ProductDetailedVM;
+import src.com.webshop.Model.Shop.Product.ProductManager;
 import src.com.webshop.Util.JsonUtil;
 import src.com.webshop.Util.UrlUtil;
 

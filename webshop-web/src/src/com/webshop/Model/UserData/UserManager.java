@@ -1,10 +1,9 @@
-package src.com.webshop.Model.Auth.UserData;
+package src.com.webshop.Model.UserData;
 
 import src.com.webshop.DAL.Entities.RoleEntity;
 import src.com.webshop.DAL.Entities.UserAccountEntity;
 import src.com.webshop.DAL.Repository.Repository;
 import src.com.webshop.DAL.Repository.RepositoryFactory;
-import src.com.webshop.Util.DateUtil;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -21,19 +20,6 @@ public class UserManager {
             return false;
         }
         return user.getPassword().equals(password);
-    }
-
-    public static boolean checkUserExists(String uuid) {
-        UserAccountEntity entity = repo.getUserAccountByUUID(uuid);
-        return entity == null;
-    }
-
-    private static UserVM getUserByUuid(String uuid) {
-        UserAccountEntity entity = repo.getUserAccountByUUID(uuid);
-        if (entity == null) {
-            return null;
-        }
-        return getUserVmFromEntity(entity);
     }
 
     public static UserVM getUserByUsername(String username) {
@@ -78,27 +64,15 @@ public class UserManager {
         return uuid;
     }
 
-    public static List<UserDetailedVM> getUsersDetailed() {
-        List<UserDetailedVM> users = new ArrayList<>();
+    public static List<UserDataVM> getUsersData() {
+        List<UserDataVM> usersData = new ArrayList<>();
         List<UserAccountEntity> entities = repo.getUsers();
-        entities.forEach((entity) -> users.add(new UserDetailedVM(
+        entities.forEach((entity) -> usersData.add(new UserDataVM(
                 entity.getEmail(),
                 entity.getUuid(),
                 repo.getReceiptsForCustomer(entity.getUuid()).size(),
-                /*
-                DateUtil.getDisplayTimestamp(entity.getCreatedOn()),
-                DateUtil.getDisplayTimestamp(entity.getLastLogin())
-                */
-                entity.getCreatedOn().toString(),
-                getLastLogin(entity)
+                entity.getCreatedOn().toString()
         )));
-        return users;
-    }
-
-    private static String getLastLogin(UserAccountEntity entity) {
-        if (entity.getLastLogin() == null) {
-            return entity.getCreatedOn().toString();
-        }
-        return entity.getLastLogin().toString();
+        return usersData;
     }
 }

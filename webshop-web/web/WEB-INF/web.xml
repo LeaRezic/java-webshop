@@ -37,6 +37,14 @@
         <url-pattern>/category</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>ShopDataServlet</servlet-name>
+        <servlet-class>src.com.webshop.Servlet.ShopDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShopDataServlet</servlet-name>
+        <url-pattern>/shopdata</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>ReceiptServlet</servlet-name>
         <servlet-class>src.com.webshop.Servlet.ReceiptServlet</servlet-class>
     </servlet>

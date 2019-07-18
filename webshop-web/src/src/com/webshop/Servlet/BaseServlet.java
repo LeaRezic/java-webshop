@@ -1,8 +1,7 @@
 package src.com.webshop.Servlet;
 
 import com.google.gson.JsonObject;
-import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
-import src.com.webshop.Util.DummyLogger.LoggerUtil;
+import src.com.webshop.Model.Auth.AuthManager;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -89,7 +88,7 @@ public class BaseServlet extends HttpServlet {
     protected boolean sendAuthErrorIfApplies(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String authToken = getRequestAuthHeader(request);
         try {
-            if (!AuthTokenManager.tokenValid(authToken)) {
+            if (!AuthManager.tokenValid(authToken)) {
                 sendErrorResponse(
                         response,
                         HttpServletResponse.SC_UNAUTHORIZED,

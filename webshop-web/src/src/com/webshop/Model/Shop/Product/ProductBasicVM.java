@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Product;
+package src.com.webshop.Model.Shop.Product;
 
 public class ProductBasicVM {
 
@@ -22,16 +22,8 @@ public class ProductBasicVM {
         return id;
     }
 
-    public int getSubcategoryId() {
-        return subcategoryId;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public String getPictureUrl() {

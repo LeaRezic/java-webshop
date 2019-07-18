@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Receipt;
+package src.com.webshop.Model.Receipt.CreateReceipt;
 
 public class CreateReceiptItemData {
 

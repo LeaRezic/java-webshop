@@ -17,9 +17,9 @@ export function * watchFetchShopData() {
 
 function * fetchShopDataIntercept(action: Readonly<ReturnType<typeof fetchShopData>>) {
   try {
-    const ulr = '/product';
+    const ulr = '/shopdata';
     const response = yield instance.get(ulr, { responseType: 'json' });
-    yield put(fetchShopDataSuccess(response.data.shop.products));
+    yield put(fetchShopDataSuccess(response.data.shop));
   } catch (error) {
     yield put(fetchShopDataFailure(error.message));
   }

@@ -3,8 +3,8 @@ package src.com.webshop.Servlet;
 import com.google.gson.JsonObject;
 import src.com.webshop.Model.Auth.*;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenClient;
-import src.com.webshop.Model.Auth.AuthToken.AuthTokenManager;
-import src.com.webshop.Model.Auth.LoginLog.LoginLogManager;
+import src.com.webshop.Model.Auth.AuthManager;
+import src.com.webshop.Model.LoginLog.LoginLogManager;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -30,7 +30,7 @@ public class LoginServlet extends BaseServlet {
             );
             return;
         }
-        if (!AuthTokenManager.validateCredentials(credentials.getUsername(), credentials.getPassword())) {
+        if (!AuthManager.validateCredentials(credentials.getUsername(), credentials.getPassword())) {
             super.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
@@ -38,7 +38,7 @@ public class LoginServlet extends BaseServlet {
             );
             return;
         }
-        AuthTokenClient tokenClient = AuthTokenManager.getNewClientToken(credentials.getUsername(), credentials.getPassword());
+        AuthTokenClient tokenClient = AuthManager.getNewClientTokenAndCacheServerToken(credentials.getUsername(), credentials.getPassword());
         if (tokenClient == null) {
             super.sendErrorResponse(
                     response,

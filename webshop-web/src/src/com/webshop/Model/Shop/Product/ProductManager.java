@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Product;
+package src.com.webshop.Model.Shop.Product;
 
 import src.com.webshop.DAL.Entities.ProductEntity;
 import src.com.webshop.DAL.Entities.ProductManufacturerEntity;
@@ -14,10 +14,10 @@ public class ProductManager {
     private static Repository repo = RepositoryFactory.getRepo();
 
     public static List<ProductBasicVM> getAllProducts() {
-        List<ProductBasicVM> list = new ArrayList<>();
+        List<ProductBasicVM> models = new ArrayList<>();
         List<ProductEntity> entities = repo.getProducts();
-        entities.forEach((entity) -> list.add(createBasicVmFromEntity(entity)));
-        return list;
+        entities.forEach((entity) -> models.add(createBasicVmFromEntity(entity)));
+        return models;
     }
 
     private static ProductBasicVM createBasicVmFromEntity(ProductEntity entity) {

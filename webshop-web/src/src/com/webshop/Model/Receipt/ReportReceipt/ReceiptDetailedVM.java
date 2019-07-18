@@ -1,4 +1,4 @@
-package src.com.webshop.Model.Receipt;
+package src.com.webshop.Model.Receipt.ReportReceipt;
 
 import java.util.List;
 
@@ -22,7 +22,4 @@ public class ReceiptDetailedVM {
         return basic;
     }
 
-    public List<ReceiptItemVM> getItems() {
-        return items;
-    }
 }
