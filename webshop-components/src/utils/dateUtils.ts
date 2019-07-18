@@ -24,16 +24,10 @@ export const getDateFromToken = (tokenDate: string): Date => {
 }
 
 export const getDateFromDisplayDateTime = (displayDateTime: string): Date => {
-  console.log('[DATE UTIL]');
-  console.log(displayDateTime);
   displayDateTime = displayDateTime.split('.')[0];
   if (moment(displayDateTime, [ISO_DATE_TIME], true).isValid()) {
-    console.log('... is VALID');
-    console.log(displayDateTime);
     const momentDate = moment(displayDateTime, ISO_DATE_TIME).utc(false);
-    console.log(momentDate.toDate());
     return momentDate.toDate();
   }
-  console.log('... NOT VALID :(');
   return null;
 }

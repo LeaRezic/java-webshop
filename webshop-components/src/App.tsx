@@ -6,7 +6,6 @@ import {
   Redirect,
   RouteComponentProps,
 } from 'react-router-dom';
-import './App.css';
 
 import { Layout } from './hoc/Layout/Layout';
 import { ShoppingPage } from './containers/Shop/ShoppingPage';
@@ -16,7 +15,10 @@ import { ProfilePage } from './containers/Profile/ProfilePage';
 import { AdminPage } from './containers/Admin/AdminPage';
 import { ProductViewPage } from './containers/ProductView/ProductViewPage';
 import { createStructuredSelector } from 'reselect';
-import { isAuthenticatedSelector, isAdminSelector } from './containers/Auth/state/selectors';
+import {
+  isAuthenticatedSelector,
+  isAdminSelector,
+} from './containers/Auth/state/selectors';
 import { connect } from 'react-redux';
 import { autoSignIn } from './containers/Auth/state/actions';
 
