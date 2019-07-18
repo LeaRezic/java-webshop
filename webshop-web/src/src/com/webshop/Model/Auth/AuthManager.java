@@ -2,10 +2,12 @@ package src.com.webshop.Model.Auth;
 
 import src.com.webshop.Cache.AuthCache;
 import src.com.webshop.Cache.AuthCacheFactory;
+import src.com.webshop.DAL.Entities.RoleEntity;
+import src.com.webshop.DAL.Entities.UserAccountEntity;
+import src.com.webshop.DAL.Repository.DBRepository;
+import src.com.webshop.DAL.Repository.Repository;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenClient;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
-import src.com.webshop.Model.UserData.UserManager;
-import src.com.webshop.Model.UserData.UserVM;
 import src.com.webshop.Util.DateUtil;
 
 import java.text.ParseException;
@@ -13,15 +15,35 @@ import java.util.UUID;
 
 public class AuthManager {
 
-    public static boolean validateCredentials(String username, String password) {
-        return UserManager.validatePassword(username, password);
+    private static AuthManager authManager = null;
+    private Repository repo;
+    private AuthManager() {
+        repo = DBRepository.getInstance();
+    }
+    public static AuthManager getInstance() {
+        if (authManager == null) {
+            return new AuthManager();
+        }
+        return authManager;
     }
 
-    public static AuthTokenClient getNewClientTokenAndCacheServerToken(String username, String password) {
+    public boolean validateCredentials(String username, String password) {
+        UserVM user = getUserByUsername(username);
+        if (user == null) {
+            return false;
+        }
+        return user.getPassword().equals(password);
+    }
+
+    public boolean usernameExists(String username) {
+        return getUserByUsername(username) != null;
+    }
+
+    public AuthTokenClient getNewClientTokenAndCacheServerToken(String username, String password) {
         if (!validateCredentials(username, password)) {
             return null;
         }
-        UserVM user = UserManager.getUserByUsername(username);
+        UserVM user = getUserByUsername(username);
         if (user == null) {
             return null;
         }
@@ -33,11 +55,8 @@ public class AuthManager {
         return clientToken;
     }
 
-    public static boolean usernameExists(String username) {
-        return UserManager.getUserByUsername(username) != null;
-    }
 
-    public static AuthTokenServer getExistingServerToken(String tokenId) {
+    public AuthTokenServer getExistingServerToken(String tokenId) {
         AuthCache authCache = AuthCacheFactory.getAuthCache();
         AuthTokenServer token = null;
         if (authCache.checkIfPresent(tokenId)) {
@@ -46,7 +65,7 @@ public class AuthManager {
         return token;
     }
 
-    public static boolean tokenValid(String tokenId) throws ParseException {
+    public boolean tokenValid(String tokenId) throws ParseException {
         AuthCache authCache = AuthCacheFactory.getAuthCache();
         if (authCache.checkIfPresent(tokenId)) {
             AuthTokenServer token = authCache.getAuthTokenServer(tokenId);
@@ -55,20 +74,21 @@ public class AuthManager {
         return false;
     }
 
-    public static boolean updateExpireDate(String tokenId) {
+    public boolean updateExpireDate(String tokenId) {
         AuthCache authCache = AuthCacheFactory.getAuthCache();
         if (authCache.checkIfPresent(tokenId)) {
             authCache.updateExpireDate(tokenId, DateUtil.getNowWithMins(30));
+            return true;
         }
         return false;
     }
 
-    private static void cacheServerToken(AuthTokenServer serverToken) {
+    private void cacheServerToken(AuthTokenServer serverToken) {
         AuthCache authCache = AuthCacheFactory.getAuthCache();
         authCache.storeAuthToken(serverToken);
     }
 
-    public static AuthTokenClient getClientToken(UserVM user, String tokenId, String expireDate) {
+    private AuthTokenClient getClientToken(UserVM user, String tokenId, String expireDate) {
         return new AuthTokenClient(
                 user.getUsername(),
                 tokenId,
@@ -77,7 +97,7 @@ public class AuthManager {
         );
     }
 
-    public static AuthTokenServer getServerToken(UserVM user, String tokenId, String expireDate) {
+    private AuthTokenServer getServerToken(UserVM user, String tokenId, String expireDate) {
         return new AuthTokenServer(
                 user.getUsername(),
                 tokenId,
@@ -85,6 +105,32 @@ public class AuthManager {
                 user.getRole().equals("administrator"),
                 user.getUuid()
         );
+    }
+
+    private UserVM getUserByUsername(String username) {
+        UserAccountEntity entity = repo.getUserByUsername(username);
+        if (entity == null) {
+            return null;
+        }
+        return getUserVmFromEntity(entity);
+    }
+
+    private UserVM getUserVmFromEntity(UserAccountEntity entity) {
+        return new UserVM(
+                entity.giveId(),
+                entity.getUuid(),
+                entity.getEmail(),
+                getRoleName(entity.getRoleId()),
+                entity.getPassword()
+        );
+    }
+
+    private String getRoleName(int roleId) {
+        RoleEntity role = repo.getRole(roleId);
+        if (role == null) {
+            return "UNKNOWN";
+        }
+        return role.getRoleName();
     }
 
 }

@@ -5,7 +5,7 @@ import src.com.webshop.Model.Auth.*;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenClient;
 import src.com.webshop.Model.Auth.AuthManager;
 import src.com.webshop.Model.LoginLog.LoginLogManager;
-import src.com.webshop.Model.UserData.UserManager;
+import src.com.webshop.Model.UserData.UserDataManager;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -50,7 +50,7 @@ public class RegisterServlet extends BaseServlet {
             );
             return;
         }
-        String uuid = UserManager.insertUser(credentials.getUsername(), credentials.getPassword(), false);
+        String uuid = UserDataManager.insertUser(credentials.getUsername(), credentials.getPassword(), false);
         if (uuid == null) {
             super.sendErrorResponse(
                     response,

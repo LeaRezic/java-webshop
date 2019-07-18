@@ -2,7 +2,6 @@ package src.com.webshop.DAL.Repository;
 
 import src.com.webshop.DAL.Entities.*;
 import src.com.webshop.DAL.EntityManagerFactoryUtil;
-import src.com.webshop.Util.DummyLogger.LoggerUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -69,6 +68,7 @@ public class DBRepository implements Repository {
             em.getTransaction().begin();
             em.persist(entity);
             em.getTransaction().commit();
+            em.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             if (em != null) {
@@ -229,10 +229,8 @@ public class DBRepository implements Repository {
     public boolean insertLoginLog(LoginLogEntity entity) {
         try {
             insertEntity(entity);
-            LoggerUtil.log("[DB REPO]: logged entity " + entity.getIpAddress());
             return true;
         } catch (Exception e) {
-            LoggerUtil.log("[DB REPO]: something got fucked...");
             return false;
         }
     }

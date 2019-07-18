@@ -2,7 +2,7 @@ package src.com.webshop.Cache;
 
 public class AuthCacheFactory {
 
-    public static final AuthCache getAuthCache() {
+    public static AuthCache getAuthCache() {
         return RedisAuthCache.getInstance();
     }
 }

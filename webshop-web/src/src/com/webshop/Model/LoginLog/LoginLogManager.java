@@ -1,8 +1,8 @@
 package src.com.webshop.Model.LoginLog;
 
 import src.com.webshop.DAL.Entities.LoginLogEntity;
+import src.com.webshop.DAL.Repository.DBRepository;
 import src.com.webshop.DAL.Repository.Repository;
-import src.com.webshop.DAL.Repository.RepositoryFactory;
 import src.com.webshop.Model.Auth.AuthRequestData;
 
 import java.sql.Timestamp;
@@ -12,17 +12,27 @@ import java.util.List;
 
 public class LoginLogManager {
 
-    private static Repository repo = RepositoryFactory.getRepo();
+    private static LoginLogManager loginlogManager = null;
+    private Repository repo;
+    private LoginLogManager() {
+        repo = DBRepository.getInstance();
+    }
+    public static LoginLogManager getInstance() {
+        if (loginlogManager == null) {
+            return new LoginLogManager();
+        }
+        return loginlogManager;
+    }
 
-    public static void logNewLogin(AuthRequestData authRequestData) {
+    public void logNewLogin(AuthRequestData authRequestData) {
         newLog(authRequestData, false);
     }
 
-    public static void logNewRegister(AuthRequestData authRequestData) {
+    public void logNewRegister(AuthRequestData authRequestData) {
         newLog(authRequestData, true);
     }
 
-    private static void newLog(AuthRequestData authRequestData, boolean isRegister) {
+    private void newLog(AuthRequestData authRequestData, boolean isRegister) {
         LoginLogEntity loginLogEntity = new LoginLogEntity();
         loginLogEntity.setUserName(authRequestData.getCredentials().getUsername());
         loginLogEntity.setIpAddress(authRequestData.getVisitorAddress());
@@ -32,7 +42,7 @@ public class LoginLogManager {
         repo.insertLoginLog(loginLogEntity);
     }
 
-    public static List<LoginLogVM> getLoginLogs() {
+    public List<LoginLogVM> getLoginLogs() {
         List<LoginLogVM> models = new ArrayList<>();
         List<LoginLogEntity> entities = repo.getLoginLogs();
         entities.forEach((e) -> models.add(new LoginLogVM(

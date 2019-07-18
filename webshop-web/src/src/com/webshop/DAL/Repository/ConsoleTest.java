@@ -1,8 +1,8 @@
 package src.com.webshop.DAL.Repository;
 
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
-import src.com.webshop.Model.UserData.UserManager;
-import src.com.webshop.Model.UserData.UserVM;
+import src.com.webshop.Model.UserData.UserDataManager;
+import src.com.webshop.Model.Auth.UserVM;
 import src.com.webshop.Model.Shop.Category.CategoryManager;
 import src.com.webshop.Util.DateUtil;
 import src.com.webshop.Util.DummyLogger.LoggerUtil;
@@ -43,7 +43,7 @@ public class ConsoleTest {
         System.out.println(retreivedToken.getIdToken());
         */
 
-        UserVM user = UserManager.getUserByUsername("plain@user.com");
+        UserVM user = UserDataManager.getUserByUsername("plain@user.com");
         System.out.println(user.getUsername());
         System.out.println(user.getUuid());
 

@@ -3,7 +3,7 @@ package src.com.webshop.Servlet;
 import src.com.webshop.Model.Auth.AuthManager;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
 import src.com.webshop.Model.UserData.UserDataVM;
-import src.com.webshop.Model.UserData.UserManager;
+import src.com.webshop.Model.UserData.UserDataManager;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -32,7 +32,7 @@ public class UsersServlet extends BaseServlet {
             return;
         }
         AuthManager.updateExpireDate(authToken);
-        List<UserDataVM> users = UserManager.getUsersData();
+        List<UserDataVM> users = UserDataManager.getUsersData();
         super.printJsonResponse(response, JsonUtil.getJsonArray(users, "users"));
     }
 }

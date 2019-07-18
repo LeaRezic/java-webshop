@@ -5,10 +5,20 @@ import src.com.webshop.Model.Shop.Product.ProductManager;
 
 public class ShopDataManager {
 
-    public static ShopDataVM getShopData() {
+    private static ShopDataManager shopDataManger = null;
+    private ShopDataManager() { }
+
+    public static ShopDataManager getInstance() {
+        if (shopDataManger == null) {
+            return new ShopDataManager();
+        }
+        return shopDataManger;
+    }
+
+    public ShopDataVM getShopData() {
         return new ShopDataVM(
-                CategoryManager.getAllCategories(),
-                ProductManager.getAllProducts()
+                CategoryManager.getInstance().getAllCategories(),
+                ProductManager.getInstance().getAllProducts()
         );
     }
 }
