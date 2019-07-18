@@ -1,9 +1,8 @@
 import {
   IShoppingState,
   ICartItem,
-  IProduct,
-  ICategory,
   ISubCategory,
+  IShopServerResponse,
 } from '../interfaces';
 import {
   ProductsAction,
@@ -20,51 +19,51 @@ const initialState: IShoppingState = {
   selectedCategoryId: 0,
   selectedSubcategoryIds: [],
   meta: {
-    fetchingProducts: false,
-    productsLoaded: false,
-    fetchingCategories: false,
-    categoriesLoaded: false,
-    isCheckout: false,
-    isShopping: true,
+    fetchingData: false,
+    dataLoaded: false,
     error: null,
   }
 }
 
-const fetchProducts = (state: IShoppingState) => {
+const fetchShopDataRequest = (state: IShoppingState): IShoppingState => {
   return {
     ...state,
     meta: {
       ...state.meta,
-      fetchingProducts: true,
+      fetchingData: true,
+      dataLoaded: false,
+      error: null,
     }
   };
 }
 
-const fetchProductsSuccess = (state: IShoppingState, products: IProduct[]) => {
+const fetchShopDataSuccess = (state: IShoppingState, shopData: IShopServerResponse): IShoppingState => {
   return {
     ...state,
-    products: products,
+    products: shopData.products,
+    categories: shopData.categories,
     meta: {
       ...state.meta,
-      fetchingProducts: false,
-      productsLoaded: true,
+      fetchingData: false,
+      dataLoaded: true,
+      error: null,
     }
   };
 }
 
-const fetchProductsFailure = (state: IShoppingState, errorMsg: string) => {
+const fetchShopDataFailure = (state: IShoppingState, errorMsg: string): IShoppingState => {
   return {
     ...state,
     meta: {
       ...state.meta,
-      fetchingProducts: false,
-      productsLoaded: false,
+      fetchingData: false,
+      dataLoaded: false,
       error: errorMsg,
     }
   }
 }
 
-const addProductToCart = (state: IShoppingState, productId: number) => {
+const addProductToCart = (state: IShoppingState, productId: number): IShoppingState => {
   if (state.cart.items.some((item) => item.product.id === productId)) {
     return changeQuantity(state, productId, +1);
   }
@@ -83,7 +82,7 @@ const addProductToCart = (state: IShoppingState, productId: number) => {
   }
 }
 
-const removeProductFromCart = (state: IShoppingState, productId: number) => {
+const removeProductFromCart = (state: IShoppingState, productId: number): IShoppingState => {
   return {
     ...state,
     cart: {
@@ -92,7 +91,7 @@ const removeProductFromCart = (state: IShoppingState, productId: number) => {
   };
 }
 
-const changeQuantity = (state: IShoppingState, productId: number, quantityDiff: number) => {
+const changeQuantity = (state: IShoppingState, productId: number, quantityDiff: number): IShoppingState => {
   if (!state.cart.items.some((item) => item.product.id === productId)) {
     return state;
   }
@@ -115,7 +114,7 @@ const changeQuantity = (state: IShoppingState, productId: number, quantityDiff: 
   };
 }
 
-const setQuantity = (state: IShoppingState, productQuantity: ISetQuantity) => {
+const setQuantity = (state: IShoppingState, productQuantity: ISetQuantity): IShoppingState => {
   if (!state.cart.items.some((item) => item.product.id === productQuantity.productId)) {
     return state;
   }
@@ -138,40 +137,6 @@ const setQuantity = (state: IShoppingState, productQuantity: ISetQuantity) => {
   };
 }
 
-const fetchCategories = (state: IShoppingState) => {
-  return {
-    ...state,
-    meta: {
-      ...state.meta,
-      fetchingCategories: true,
-    },
-  };
-}
-
-const fetchCategoriesSuccess = (state: IShoppingState, categories: ICategory[]) => {
-  return {
-    ...state,
-    meta: {
-      ...state.meta,
-      fetchingCategories: false,
-      categoriesLoaded: true,
-    },
-    categories: categories,
-  };
-}
-
-const fetchCategoriesFailure = (state: IShoppingState, errMsg: string) => {
-  return {
-    ...state,
-    meta: {
-      ...state.meta,
-      fetchingCategories: false,
-      categoriesLoaded: false,
-      error: errMsg,
-    },
-  };
-}
-
 const getAllSubcatIdsForCategory = (subcategories: ISubCategory[]) => {
   const initial: number[] = [];
   return subcategories.reduce((prev, curr) => {
@@ -179,7 +144,7 @@ const getAllSubcatIdsForCategory = (subcategories: ISubCategory[]) => {
   }, initial);
 }
 
-const changeFilterCategory = (state: IShoppingState, id: number) => {
+const changeFilterCategory = (state: IShoppingState, id: number): IShoppingState => {
   if (id === 0) {
     return {
       ...state,
@@ -195,14 +160,14 @@ const changeFilterCategory = (state: IShoppingState, id: number) => {
   }
 }
 
-const addFilterSubcategories = (state: IShoppingState, ids: number[]) => {
+const addFilterSubcategories = (state: IShoppingState, ids: number[]): IShoppingState => {
   return {
     ...state,
     selectedSubcategoryIds: state.selectedSubcategoryIds.concat(ids),
   }
 }
 
-const removeFilterSubcategories = (state: IShoppingState, ids: number[]) => {
+const removeFilterSubcategories = (state: IShoppingState, ids: number[]): IShoppingState => {
   const subcats = state.selectedSubcategoryIds.filter((id) => !ids.includes(id));
   if (subcats.length === 0) {
     return {
@@ -217,7 +182,7 @@ const removeFilterSubcategories = (state: IShoppingState, ids: number[]) => {
   }
 }
 
-const clearCart = (state: IShoppingState) => {
+const clearCart = (state: IShoppingState): IShoppingState => {
   return {
     ...state,
     cart: {
@@ -228,21 +193,18 @@ const clearCart = (state: IShoppingState) => {
 
 export function shoppingReducer(state: IShoppingState = initialState, action: ProductsAction): IShoppingState {
   switch (action.type) {
-    case ShoppingActionTypes.FETCH_PRODUCTS: return fetchProducts(state);
-    case ShoppingActionTypes.FETCH_PRODUCTS_SUCCESS: return fetchProductsSuccess(state, action.data!);
-    case ShoppingActionTypes.FETCH_PRODUCTS_FAILURE: return fetchProductsFailure(state, action.data!);
-    case ShoppingActionTypes.ADD_PRODUCT_TO_CART: return addProductToCart(state, action.data!);
-    case ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART: return removeProductFromCart(state, action.data!);
+    case ShoppingActionTypes.FETCH_SHOP_DATA_REQUEST: return fetchShopDataRequest(state);
+    case ShoppingActionTypes.FETCH_SHOP_DATA_SUCCESS: return fetchShopDataSuccess(state, action.data);
+    case ShoppingActionTypes.FETCH_SHOP_DATA_FAILURE: return fetchShopDataFailure(state, action.data);
+    case ShoppingActionTypes.ADD_PRODUCT_TO_CART: return addProductToCart(state, action.data);
+    case ShoppingActionTypes.REMOVE_PRODUCT_FROM_CART: return removeProductFromCart(state, action.data);
     case ShoppingActionTypes.CLEAR_CART: return clearCart(state);
-    case ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data!, 1);
-    case ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data!, -1);
-    case ShoppingActionTypes.SET_PRODUCT_QUANTITY: return setQuantity(state, action.data!);
-    case ShoppingActionTypes.FETCH_CATEGORIES: return fetchCategories(state);
-    case ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS: return fetchCategoriesSuccess(state, action.data!);
-    case ShoppingActionTypes.FETCH_CATEGORIES_FAILURE: return fetchCategoriesFailure(state, action.data!);
-    case ShoppingActionTypes.CHANGE_FILTER_CATEGORY: return changeFilterCategory(state, action.data!);
-    case ShoppingActionTypes.ADD_FILTER_SUBCATEGORIES: return addFilterSubcategories(state, action.data!);
-    case ShoppingActionTypes.REMOVE_FILTER_SUBCATEGORIES: return removeFilterSubcategories(state, action.data!);
+    case ShoppingActionTypes.INCREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data, 1);
+    case ShoppingActionTypes.DECREMENT_PRODUCT_QUANTITY: return changeQuantity(state, action.data, -1);
+    case ShoppingActionTypes.SET_PRODUCT_QUANTITY: return setQuantity(state, action.data);
+    case ShoppingActionTypes.CHANGE_FILTER_CATEGORY: return changeFilterCategory(state, action.data);
+    case ShoppingActionTypes.ADD_FILTER_SUBCATEGORIES: return addFilterSubcategories(state, action.data);
+    case ShoppingActionTypes.REMOVE_FILTER_SUBCATEGORIES: return removeFilterSubcategories(state, action.data);
     default: return state;
   }
 }

@@ -11,12 +11,11 @@ import {
 } from './interfaces';
 import { Products } from './components/Products/Products';
 import {
-  fetchProducts,
+  fetchShopData,
   addProductToCart,
   removeProductFromCart,
   incrementProductQuantity,
   decrementProductQuantity,
-  fetchCategories,
   addFilterSubcategories,
   removeFilterSubcategories,
   changeFilterCategory,
@@ -29,6 +28,8 @@ import {
   getProductsSelector,
   selectedSubcategoryIdsSelector,
   selectedCategoryIdSelector,
+  fetchingDataSelector,
+  dataLoadedSelector,
 } from './state/selectors';
 import { connect } from 'react-redux';
 import { Aux } from '../../hoc/Aux/Aux';
@@ -41,6 +42,9 @@ import styles from './ShoppingPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
 import { isAuthenticatedSelector } from '../Auth/state/selectors';
 import { setRedirectDest } from '../Auth/state/actions';
+import { errorSelector } from '../Profile/state/selectors';
+import { Spinner } from '../../components/UI/Spinner/Spinner';
+import { NoData } from '../../components/UI/NoData/NoData';
 
 interface IShoppingPageMappedProps {
   isAuthenticated: boolean;
@@ -49,16 +53,18 @@ interface IShoppingPageMappedProps {
   categories: ICategory[];
   chosenCategoryId: number;
   chosenSubcategoryIds: number[];
+  fetchingData: boolean;
+  dataLoaded: boolean;
+  error: string;
 }
 
 interface IShoppingPageMappedDispatch {
-  onProductsFetch: () => void;
+  onFetchData: () => void;
   onAddProduct: (productId: number) => void;
   onRemoveProduct: (productId: number) => void;
   onClearCart: () => void;
   onIncrementProduct: (productId: number) => void;
   onDecrementProduct: (productId: number) => void;
-  onCategoriesFetch: () => void;
   onChangeCategoryId: (id: number) => void;
   onAddSubcategories: (ids: number[]) => void;
   onRemoveSubcategories: (ids: number[]) => void;
@@ -91,20 +97,22 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
   };
 
   public componentDidMount() {
-    this.props.onProductsFetch();
-    this.props.onCategoriesFetch();
+    if (this.props.products === null || this.props.products.length === 0) {
+      this.props.onFetchData();
+    }
   }
 
   public render() {
-    const filters = <Filters
-      chosenCategoryId={this.props.chosenCategoryId}
-      chosenSubcategoryIds={this.props.chosenSubcategoryIds}
-      filterList={this.props.categories}
-      onChangeCategoryId={this.props.onChangeCategoryId}
-      onAddSubcategories={this.props.onAddSubcategories}
-      onRemoveSubcategories={this.props.onRemoveSubcategories}
-    />;
-    return(
+    const filters =
+      <Filters
+        chosenCategoryId={this.props.chosenCategoryId}
+        chosenSubcategoryIds={this.props.chosenSubcategoryIds}
+        filterList={this.props.categories}
+        onChangeCategoryId={this.props.onChangeCategoryId}
+        onAddSubcategories={this.props.onAddSubcategories}
+        onRemoveSubcategories={this.props.onRemoveSubcategories}
+      />;
+    const allData =
       <Aux>
         <button
           className={classNames(styles.FiltersBtn, globalStyles.Btn, globalStyles.BtnSuccessSubtle)}
@@ -125,7 +133,7 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
           </div>
         </div>
         <button className={styles.CartBtn} onClick={this.handleCartClick}>
-          { this.state.isCartOpen
+          {this.state.isCartOpen
             ? <i className={classNames('fas fa-chevron-right', styles.Icon)} />
             : <i className={classNames('fas fa-chevron-left', styles.Icon)} />}
           <i className={classNames('fas fa-shopping-cart', styles.CartIcon)} />
@@ -147,12 +155,23 @@ export class ShoppingComponent extends React.Component<IShoppingPageProps, IShop
             CHECKOUT
           </button>
         </div>
-        { this.state.showFiltersPopup
+        {this.state.showFiltersPopup
           ? <Modal show={this.state.showFiltersPopup} onModalClosed={this.handleClosePopup} >
-              {filters}
-            </Modal>
-          : null }
+            {filters}
+          </Modal>
+          : null}
       </Aux>
+    return(
+        this.props.fetchingData
+        ? <Spinner />
+        : this.props.dataLoaded && this.props.products !== null && this.props.categories !== null
+          ? { allData }
+          : <Aux>
+            <NoData />
+            {this.props.error !== null
+              ? <div className={globalStyles.GrimzonBold}>{this.props.error}</div>
+              : null}
+          </Aux>
     );
   }
 
@@ -186,15 +205,17 @@ const mapStateToProps = createStructuredSelector<any, IShoppingPageMappedProps>(
   categories: categoriesSelector,
   chosenCategoryId: selectedCategoryIdSelector,
   chosenSubcategoryIds: selectedSubcategoryIdsSelector,
+  fetchingData: fetchingDataSelector,
+  dataLoaded: dataLoadedSelector,
+  error: errorSelector,
 })
 
-const mapDispatchToProps = {
-  onProductsFetch: fetchProducts,
+const mapDispatchToProps: IShoppingPageMappedDispatch = {
+  onFetchData: fetchShopData,
   onAddProduct: addProductToCart,
   onRemoveProduct: removeProductFromCart,
   onIncrementProduct: incrementProductQuantity,
   onDecrementProduct: decrementProductQuantity,
-  onCategoriesFetch: fetchCategories,
   onChangeCategoryId: changeFilterCategory,
   onAddSubcategories: addFilterSubcategories,
   onRemoveSubcategories: removeFilterSubcategories,

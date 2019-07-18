@@ -1,8 +1,7 @@
 import { all } from 'redux-saga/effects';
 
 import {
-  watchFetchProducts,
-  watchFetchCategories,
+  watchFetchShopData,
 } from '../containers/Shop/state/sagas';
 import { watchFetchProduct } from '../containers/ProductView/state/sagas';
 import { watchCreateReceiptRequest } from '../containers/Checkout/state/sagas';
@@ -13,7 +12,6 @@ import {
 } from '../containers/Auth/state/sagas';
 import {
   watchPurchaseHistoryRequest,
-  watchProfileDetailsRequest,
 } from '../containers/Profile/state/sagas';
 import {
   watchUsersDataRequest,
@@ -23,13 +21,11 @@ import {
 
 export default function * root() {
   yield all([
-    watchFetchProducts(),
-    watchFetchCategories(),
+    watchFetchShopData(),
     watchFetchProduct(),
     watchAuthRequest(),
     watchAutoLogin(),
     watchPurchaseHistoryRequest(),
-    watchProfileDetailsRequest(),
     watchUsersDataRequest(),
     watchLoginLogsRequest(),
     watchReceiptsRequest(),

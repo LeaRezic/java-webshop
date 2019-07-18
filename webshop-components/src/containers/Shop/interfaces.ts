@@ -1,5 +1,3 @@
-import { ReactRouterProps } from '../../typings/interfaces';
-
 export interface IProduct {
   id: number;
   name: string;
@@ -35,12 +33,13 @@ export interface IShoppingState {
   selectedCategoryId: number;
   selectedSubcategoryIds: number[];
   meta: {
-    fetchingProducts: boolean;
-    productsLoaded: boolean;
-    fetchingCategories: boolean;
-    categoriesLoaded: boolean;
-    isShopping: boolean;
-    isCheckout: boolean;
-    error: string | null;
+    fetchingData: boolean;
+    dataLoaded: boolean;
+    error: string;
   }
+}
+
+export interface IShopServerResponse {
+  categories: ICategory[];
+  products: IProduct[];
 }

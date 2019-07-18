@@ -5,38 +5,22 @@ import {
 
 import { instance } from '../../../utils/axios';
 import {
-  fetchProducts,
-  fetchProductsFailure,
-  fetchProductsSuccess,
+  fetchShopDataFailure,
+  fetchShopDataSuccess,
   ShoppingActionTypes,
-  fetchCategoriesSuccess,
-  fetchCategoriesFailure,
+  fetchShopData,
 } from './actions';
 
-export function * watchFetchProducts() {
-  yield takeLatest(ShoppingActionTypes.FETCH_PRODUCTS, fetchProductsData);
+export function * watchFetchShopData() {
+  yield takeLatest(ShoppingActionTypes.FETCH_SHOP_DATA_REQUEST, fetchShopDataIntercept);
 }
 
-function * fetchProductsData(action: Readonly<ReturnType<typeof fetchProducts>>) {
+function * fetchShopDataIntercept(action: Readonly<ReturnType<typeof fetchShopData>>) {
   try {
     const ulr = '/product';
     const response = yield instance.get(ulr, { responseType: 'json' });
-    yield put(fetchProductsSuccess(response.data.products));
+    yield put(fetchShopDataSuccess(response.data.shop.products));
   } catch (error) {
-    yield put(fetchProductsFailure(error.message));
-  }
-}
-
-export function* watchFetchCategories() {
-  yield takeLatest(ShoppingActionTypes.FETCH_CATEGORIES, fetchCategoriesData);
-}
-
-function* fetchCategoriesData(action: Readonly<ReturnType<typeof fetchProducts>>) {
-  try {
-    const ulr = '/category';
-    const response = yield instance.get(ulr, { responseType: 'json' });
-    yield put(fetchCategoriesSuccess(response.data.categories));
-  } catch (error) {
-    yield put(fetchCategoriesFailure(error.message));
+    yield put(fetchShopDataFailure(error.message));
   }
 }

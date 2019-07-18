@@ -1,20 +1,16 @@
-import { IProduct, ICategory } from '../interfaces';
+import { IShopServerResponse } from '../interfaces';
 import { IReduxAction } from '../../../typings/interfaces';
 
 export enum ShoppingActionTypes {
-  FETCH_PRODUCTS = 'FETCH_PRODUCTS',
-  FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS',
-  FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE',
-  INIT_CART = 'INIT_CART',
+  FETCH_SHOP_DATA_REQUEST = 'FETCH_PRODUCTS',
+  FETCH_SHOP_DATA_SUCCESS = 'FETCH_PRODUCTS_SUCCESS',
+  FETCH_SHOP_DATA_FAILURE = 'FETCH_PRODUCTS_FAILURE',
   ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART',
   REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART',
   CLEAR_CART = 'CLEAR_CART',
   INCREMENT_PRODUCT_QUANTITY = 'INCREMENT_PRODUCT_QUANTITY',
   DECREMENT_PRODUCT_QUANTITY = 'DECREMENT_PRODUCT_QUANTITY',
   SET_PRODUCT_QUANTITY = 'SET_PRODUCT_QUANTITY',
-  FETCH_CATEGORIES = 'FETCH_CATEGORIES',
-  FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS',
-  FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE',
   CHANGE_FILTER_CATEGORY = 'CHANGE_FILTER_CATEGORY',
   ADD_FILTER_SUBCATEGORIES = 'ADD_FILTER_SUBCATEGORIES',
   REMOVE_FILTER_SUBCATEGORIES = 'REMOVE_FILTER_SUBCATEGORIES',
@@ -25,25 +21,25 @@ export interface ISetQuantity {
   quantity: number;
 }
 
-export const fetchProducts = ()
-  :IReduxAction<void, void, void, ShoppingActionTypes.FETCH_PRODUCTS> => {
+export const fetchShopData = ()
+  :IReduxAction<void, void, void, ShoppingActionTypes.FETCH_SHOP_DATA_REQUEST> => {
   return {
-    type: ShoppingActionTypes.FETCH_PRODUCTS,
+    type: ShoppingActionTypes.FETCH_SHOP_DATA_REQUEST,
   }
 }
 
-export const fetchProductsSuccess = (products: IProduct[])
-  :IReduxAction<IProduct[], void, void, ShoppingActionTypes.FETCH_PRODUCTS_SUCCESS> => {
+export const fetchShopDataSuccess = (shopData: IShopServerResponse)
+  :IReduxAction<IShopServerResponse, void, void, ShoppingActionTypes.FETCH_SHOP_DATA_SUCCESS> => {
   return {
-    type: ShoppingActionTypes.FETCH_PRODUCTS_SUCCESS,
-    data: products,
+    type: ShoppingActionTypes.FETCH_SHOP_DATA_SUCCESS,
+    data: shopData,
   }
 }
 
-export const fetchProductsFailure = (errMessage: string)
-  :IReduxAction<string, void, void, ShoppingActionTypes.FETCH_PRODUCTS_FAILURE> => {
+export const fetchShopDataFailure = (errMessage: string)
+  :IReduxAction<string, void, void, ShoppingActionTypes.FETCH_SHOP_DATA_FAILURE> => {
   return {
-    type: ShoppingActionTypes.FETCH_PRODUCTS_FAILURE,
+    type: ShoppingActionTypes.FETCH_SHOP_DATA_FAILURE,
     data: errMessage,
   }
 }
@@ -99,29 +95,6 @@ export const setProductQuantity = (productId: number, quantity: number)
   }
 }
 
-export const fetchCategories = ()
-  : IReduxAction<void, void, void, ShoppingActionTypes.FETCH_CATEGORIES> => {
-  return {
-    type: ShoppingActionTypes.FETCH_CATEGORIES,
-  }
-}
-
-export const fetchCategoriesSuccess = (categories: ICategory[])
-  : IReduxAction<ICategory[], void, void, ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS> => {
-  return {
-    type: ShoppingActionTypes.FETCH_CATEGORIES_SUCCESS,
-    data: categories,
-  }
-}
-
-export const fetchCategoriesFailure = (errMessage: string)
-  : IReduxAction<string, void, void, ShoppingActionTypes.FETCH_CATEGORIES_FAILURE> => {
-  return {
-    type: ShoppingActionTypes.FETCH_CATEGORIES_FAILURE,
-    data: errMessage,
-  }
-}
-
 export const changeFilterCategory = (categoryId: number)
   : IReduxAction<number, void, void, ShoppingActionTypes.CHANGE_FILTER_CATEGORY> => {
   return {
@@ -147,18 +120,15 @@ export const removeFilterSubcategories = (subcategoryIds: number[])
 }
 
 export type ProductsAction =
-  | ReturnType<typeof fetchProducts>
-  | ReturnType<typeof fetchProductsSuccess>
-  | ReturnType<typeof fetchProductsFailure>
+  | ReturnType<typeof fetchShopData>
+  | ReturnType<typeof fetchShopDataSuccess>
+  | ReturnType<typeof fetchShopDataFailure>
   | ReturnType<typeof addProductToCart>
   | ReturnType<typeof removeProductFromCart>
   | ReturnType<typeof clearCart>
   | ReturnType<typeof incrementProductQuantity>
   | ReturnType<typeof decrementProductQuantity>
   | ReturnType<typeof setProductQuantity>
-  | ReturnType<typeof fetchCategories>
-  | ReturnType<typeof fetchCategoriesSuccess>
-  | ReturnType<typeof fetchCategoriesFailure>
   | ReturnType<typeof changeFilterCategory>
   | ReturnType<typeof addFilterSubcategories>
   | ReturnType<typeof removeFilterSubcategories>

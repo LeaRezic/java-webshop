@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { Product } from './Product/Product';
-import { Spinner } from '../../../../components/UI/Spinner/Spinner';
 import { IProduct } from '../../interfaces';
 import { ReactRouterProps } from '../../../../typings/interfaces';
 
@@ -23,7 +22,7 @@ export class Products extends React.Component<IProducts & ReactRouterProps> {
             onAddProduct={this.props.onAddProduct}
             {...this.props}
           />))
-      : <Spinner />;
+      : null;
     return (
       <div className={styles.Products}>
         {displayProducts}
