@@ -11,6 +11,7 @@ import {
   isFetchingSelector,
   dataLoadedSelector,
   errorSelector,
+  usernameSelector
 } from './state/selectors';
 import { PurchaseHistory } from './components/PurchaseHistory/PurchaseHistory';
 import { IStore } from '../../state/store';
@@ -22,6 +23,7 @@ interface IProfilePageMappedProps {
   isFetchingData: boolean;
   dataLoaded: boolean;
   authToken: string;
+  username: string;
   purchaseHistory: IReceiptDetailed[];
   error: string;
 }
@@ -45,12 +47,15 @@ export class ProfilePageComponent extends React.PureComponent<IProfilePageProps,
   public render() {
     return (
       <div className={styles.Container}>
-        <button
-          onClick={this.handleOnClick}
-          className={classNames(globalStyles.Btn, globalStyles.BtnSubtle)}
-        >
-          {this.state.shouldDisplayHistory ? 'REFRESH PURCHASE HISTORY' : 'FETCH PURCHASE HISTORY'}
-        </button>
+        <div className={styles.Content}>
+          <div className={globalStyles.TextLightGray}>Logged in as {this.props.username}</div>
+          <button
+            onClick={this.handleOnClick}
+            className={classNames(globalStyles.Btn, globalStyles.BtnInfo, styles.RefreshBtn)}
+          >
+            {this.state.shouldDisplayHistory ? 'REFRESH PURCHASE HISTORY' : 'FETCH PURCHASE HISTORY'}
+          </button>
+        </div>
         { this.state.shouldDisplayHistory
             ? <PurchaseHistory
                 isLoadingData={this.props.isFetchingData}
@@ -76,6 +81,7 @@ const mapStateToProps = createStructuredSelector<IStore, IProfilePageMappedProps
   isFetchingData: isFetchingSelector,
   dataLoaded: dataLoadedSelector,
   error: errorSelector,
+  username: usernameSelector,
 })
 
 const mapDispatchToProps = {

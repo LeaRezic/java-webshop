@@ -3,18 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Notifications from 'react-notify-toast';
-
 import * as serviceWorker from './serviceWorker';
+
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './state/store';
+import { ErrorBoundary } from './components/AppError/ErrorBoundary';
 
 const app =
 <Provider store={store}>
-    <BrowserRouter>
-      <Notifications />
-      <App />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Notifications />
+        <App />
+      </BrowserRouter>
+    </ErrorBoundary>
 </Provider>
 
 ReactDOM.render(app, document.getElementById('root'));

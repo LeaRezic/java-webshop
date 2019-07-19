@@ -1,0 +1,17 @@
+.Content {
+  margin-top: 150px;
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+@media(max-width: 700px) {
+  .Content {
+    display: block;
+  }
+  .RefreshBtn {
+    width: 70%;
+    margin-top: 10px;
+  }
+}

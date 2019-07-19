@@ -1,0 +1,10 @@
+.MainError {
+  padding-right: 35px;
+  color: #A94442;
+  background-color: #F2DEDE;
+  border-color: #EBCCD1;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}

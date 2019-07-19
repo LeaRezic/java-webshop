@@ -38,6 +38,7 @@ import styles from './CheckoutPage.module.css';
 import globalStyles from '../../style/GlobalStyle.module.css';
 import { NoData } from '../../components/UI/NoData/NoData';
 import { getFormattedCurrency } from '../../utils/currencyUtil';
+import { Modal } from '../../components/Modal/Modal';
 
 interface ICheckoutPageMappedProps {
   authToken: string;
@@ -59,12 +60,22 @@ interface ICheckoutPageMappedDispatch {
 
 type ICheckoutPageProps = ICheckoutPageMappedProps & ICheckoutPageMappedDispatch & RouterProps;
 
-class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
+interface ICheckoutPageState {
+  showPopup: boolean;
+  password: string;
+}
+
+class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps, ICheckoutPageState> {
 
   show;
   constructor(props) {
     super(props);
     this.show = notify.createShowQueue();
+  }
+
+  public state = {
+    showPopup: false,
+    password: null,
   }
 
   public componentDidUpdate() {
@@ -137,9 +148,52 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
                 </button>
               </div>
             </div>
+            { this.state.showPopup
+              ? <Modal show={this.state.showPopup} onModalClosed={this.handleClosePopup} >
+                  <div className={styles.PasswordModal}>
+                    <div className={globalStyles.TextLightGray}>Please re-enter your password.</div>
+                    <input
+                      placeholder='password'
+                      type='password'
+                      onChange={(event) => this.handlePasswordChange(event)}
+                    />
+                    <button
+                      onClick={this.handlePasswordReenter}
+                      className={classNames(globalStyles.BtnSmall, globalStyles.BtnSuccess)}
+                    >
+                      SUBMIT
+                    </button>
+                  </div>
+                </Modal>
+              : null}
           </div>
         )
     );
+  }
+
+  private handlePasswordReenter = () => {
+    if (this.state.password === null || this.state.password.trim().length === 0) {
+      this.show('Cannot proceed without reenting password.', 'warning', 4000);
+      return;
+    }
+    const data: ICreateReceiptRequest = {
+      tokenId: this.props.authToken,
+      password: this.state.password,
+      paymentMethod: PaymentMethod.CASH,
+      items: this.getItemsFromCart(),
+    }
+    this.props.onConfirmOrder(data);
+    this.setState({showPopup: false});
+  }
+
+  private handlePasswordChange = (event: any) => {
+    event.preventDefault();
+    const value = event.target.value;
+    this.setState({password: value});
+  }
+
+  private handleClosePopup = () => {
+    this.setState({showPopup: false});
   }
 
   private getTotalPrice = () => {
@@ -172,18 +226,7 @@ class CheckoutPageComponent extends React.PureComponent<ICheckoutPageProps> {
   }
 
   private handleConfirmOrder = () => {
-    const password = prompt('Please reenter your password');
-    if (password === null || password.trim().length === 0) {
-      this.show('Cannot proceed without reenting password.', 'warning', 4000);
-      return;
-    }
-    const data: ICreateReceiptRequest = {
-      tokenId: this.props.authToken,
-      password: password,
-      paymentMethod: PaymentMethod.CASH,
-      items: this.getItemsFromCart(),
-    }
-    this.props.onConfirmOrder(data);
+    this.setState({showPopup: true});
   }
 
   private getItemsFromCart = (): ICreateReceiptItem[] => {

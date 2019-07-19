@@ -17,3 +17,7 @@ export const dataLoadedSelector = (store: IStore): boolean => {
 export const errorSelector = (store: IStore): string => {
   return store.profile.meta.error;
 };
+
+export const usernameSelector = (store: IStore): string => {
+  return store.profile.username;
+};

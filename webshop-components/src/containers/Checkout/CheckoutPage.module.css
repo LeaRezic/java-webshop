@@ -7,6 +7,13 @@
   margin-bottom: 50px;
 }
 
+.PasswordModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+
 .OrderContainer {
   width: 50%;
 }
