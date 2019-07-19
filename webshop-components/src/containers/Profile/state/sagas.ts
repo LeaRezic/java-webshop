@@ -18,7 +18,7 @@ export function* watchPurchaseHistoryRequest() {
 function* purchaseHistoryRequestIntercept(action: Readonly<ReturnType<typeof purchaseHistoryRequest>>) {
   try {
     const tokenId = action.data!;
-    const ulr = '/receipt';
+    const ulr = '/auth/receipt';
     const response = yield instance.get(
       ulr,
       {

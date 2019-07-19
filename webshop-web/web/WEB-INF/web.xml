@@ -9,7 +9,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <url-pattern>/login/verify</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
@@ -17,7 +17,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register</url-pattern>
+        <url-pattern>/login/register</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>ProductServlet</servlet-name>
@@ -50,8 +50,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ReceiptServlet</servlet-name>
-        <url-pattern>/receipt</url-pattern>
-        <url-pattern>/receipt/*</url-pattern>
+        <url-pattern>/auth/receipt</url-pattern>
+        <url-pattern>/admin/receipt</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>LoginLogServlet</servlet-name>
@@ -59,8 +59,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginLogServlet</servlet-name>
-        <url-pattern>/loginlogs</url-pattern>
-        <url-pattern>/loginlogs/*</url-pattern>
+        <url-pattern>/admin/loginlogs</url-pattern>
+        <url-pattern>/admin/loginlogs/*</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>UsersServlet</servlet-name>
@@ -68,8 +68,9 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UsersServlet</servlet-name>
-        <url-pattern>/users</url-pattern>
+        <url-pattern>/admin/users</url-pattern>
     </servlet-mapping>
+
     <context-param>
         <param-name>localAllowOrigin</param-name>
         <param-value>http://localhost:3000</param-value>
@@ -78,4 +79,32 @@
         <param-name>remoteAllowOrigin</param-name>
         <param-value>https://learezic.from.hr</param-value>
     </context-param>
+
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>src.com.webshop.Filter.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>TokenFilter</filter-name>
+        <filter-class>src.com.webshop.Filter.TokenFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>TokenFilter</filter-name>
+        <url-pattern>/auth/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>src.com.webshop.Filter.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
 </web-app>

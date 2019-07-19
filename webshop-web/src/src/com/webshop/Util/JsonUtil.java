@@ -39,9 +39,4 @@ public class JsonUtil {
         return gson.fromJson(json, objClass);
     }
 
-    public static Object getObjFromReader(BufferedReader reader, Class objClass) {
-        final Gson gson;
-        gson = new GsonBuilder().create();
-        return gson.fromJson(reader, objClass);
-    }
 }

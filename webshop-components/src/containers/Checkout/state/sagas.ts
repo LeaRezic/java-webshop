@@ -21,7 +21,7 @@ export function* watchCreateReceiptRequest() {
 function* createReceiptRequestIntercept(action: Readonly<ReturnType<typeof createReceiptRequest>>) {
   const { paymentMethod } = action.data;
   let data;
-  const url = '/receipt';
+  const url = '/auth/receipt';
   if (paymentMethod === PaymentMethod.CASH) {
     data = {
       method: 'CASH',

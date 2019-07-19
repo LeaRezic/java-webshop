@@ -1,33 +1,46 @@
 package src.com.webshop.Servlet;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import src.com.webshop.Model.Auth.*;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenClient;
 import src.com.webshop.Model.Auth.AuthManager;
 import src.com.webshop.Model.LoginLog.LoginLogManager;
 import src.com.webshop.Model.UserData.UserDataManager;
+import src.com.webshop.Util.HttpRequestUtil;
+import src.com.webshop.Util.JsonResponseWriter;
 import src.com.webshop.Util.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.stream.Collectors;
 
 @WebServlet(name = "RegisterServlet")
-public class RegisterServlet extends BaseServlet {
+public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.setAccessControlHeaders(response);
-        String body = request.getReader().lines().collect(Collectors.joining());
-        AuthRequestData authRequestData = (AuthRequestData) JsonUtil.getObjFromJson(body, AuthRequestData.class);
-        Credentials credentials = authRequestData.getCredentials();
+        String body = HttpRequestUtil.getRequestBody(request);
+        AuthRequestData authRequestData;
+        Credentials credentials;
+        try {
+            authRequestData = (AuthRequestData)  JsonUtil.getObjFromJson(body, AuthRequestData.class);
+            credentials = authRequestData.getCredentials();
+        } catch (JsonParseException e) {
+            JsonResponseWriter.sendErrorResponse(
+                    response,
+                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    "Error while parsing login credentials."
+            );
+            return;
+        }
         if (credentials == null
             || credentials.getUsername() == null
             || credentials.getPassword() == null
             || credentials.getUsername().trim().length() == 0
             || credentials.getPassword().trim().length() == 0) {
-            super.sendErrorResponse(
+            JsonResponseWriter.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
                     "Invalid request. Must supply login credentials."
@@ -35,7 +48,7 @@ public class RegisterServlet extends BaseServlet {
             return;
         }
         if (credentials.getPassword().length() < 6) {
-            super.sendErrorResponse(
+            JsonResponseWriter.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
                     "Password needs to be at least 6 characters long."
@@ -43,7 +56,7 @@ public class RegisterServlet extends BaseServlet {
             return;
         }
         if (AuthManager.getInstance().usernameExists(credentials.getUsername())) {
-            super.sendErrorResponse(
+            JsonResponseWriter.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_BAD_REQUEST,
                     "Username already exists. Please use a different one."
@@ -52,7 +65,7 @@ public class RegisterServlet extends BaseServlet {
         }
         String uuid = UserDataManager.getInstance().insertUser(credentials.getUsername(), credentials.getPassword(), false);
         if (uuid == null) {
-            super.sendErrorResponse(
+            JsonResponseWriter.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
                     "Failed to create new account."
@@ -61,7 +74,7 @@ public class RegisterServlet extends BaseServlet {
         }
         AuthTokenClient tokenClient = AuthManager.getInstance().getNewClientTokenAndCacheServerToken(credentials.getUsername(), credentials.getPassword());
         if (tokenClient == null) {
-            super.sendErrorResponse(
+            JsonResponseWriter.sendErrorResponse(
                     response,
                     HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
                     "Failed to construct auth token for client."
@@ -70,10 +83,7 @@ public class RegisterServlet extends BaseServlet {
         }
         LoginLogManager.getInstance().logNewRegister(authRequestData);
         JsonObject responseData = JsonUtil.getJson(tokenClient, "token");
-        super.printJsonResponse(response, responseData);
+        JsonResponseWriter.printJsonResponse(response, responseData);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

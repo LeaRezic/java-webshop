@@ -39,7 +39,7 @@ function* authRequestIntercept(action: Readonly<ReturnType<typeof authRequest>>)
     },
     visitorAddress: ip,
   };
-  const url = action.data.isRegister ? '/register' : '/login';
+  const url = action.data.isRegister ? '/login/register' : '/login/verify';
   try {
     const response = yield instance.post(
       url,

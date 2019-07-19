@@ -25,9 +25,12 @@ export const getDateFromToken = (tokenDate: string): Date => {
 
 export const getDateFromDisplayDateTime = (displayDateTime: string): Date => {
   displayDateTime = displayDateTime.split('.')[0];
+  console.log(`[UTIL]: display time ${displayDateTime}`);
   if (moment(displayDateTime, [ISO_DATE_TIME], true).isValid()) {
     const momentDate = moment(displayDateTime, ISO_DATE_TIME).utc(false);
+    console.log(`[UTIL]: date ${momentDate.toDate()}`);
     return momentDate.toDate();
   }
+  console.log(`[UTIL]: display time NO VALIDO`)
   return null;
 }

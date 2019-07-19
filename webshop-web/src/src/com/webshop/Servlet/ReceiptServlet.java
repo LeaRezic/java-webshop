@@ -1,52 +1,45 @@
 package src.com.webshop.Servlet;
 
+import com.google.gson.JsonParseException;
 import src.com.webshop.Model.Auth.AuthManager;
 import src.com.webshop.Model.Auth.AuthToken.AuthTokenServer;
 import src.com.webshop.Model.Receipt.CreateReceipt.CreateReceiptData;
 import src.com.webshop.Model.Receipt.ReportReceipt.ReceiptDetailedVM;
 import src.com.webshop.Model.Receipt.ReceiptManager;
+import src.com.webshop.Util.HttpRequestUtil;
+import src.com.webshop.Util.JsonResponseWriter;
 import src.com.webshop.Util.JsonUtil;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @WebServlet(name = "ReceiptServlet")
-public class ReceiptServlet extends BaseServlet {
+public class ReceiptServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.setAccessControlHeaders(response);
-        if (super.sendAuthErrorIfApplies(request, response)) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String body = HttpRequestUtil.getRequestBody(request);
+        CreateReceiptData createReceiptData;
+        try {
+            createReceiptData = (CreateReceiptData) JsonUtil.getObjFromJson(body, CreateReceiptData.class);
+        } catch (JsonParseException e) {
+            JsonResponseWriter.sendErrorResponse(
+                    response,
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    "Invalid POST data. Could not parse create receipt data.");
             return;
         }
-        String body = request.getReader().lines().collect(Collectors.joining());
-        CreateReceiptData createReceiptData = (CreateReceiptData) JsonUtil.getObjFromJson(body, CreateReceiptData.class);
-        String authToken = super.getRequestAuthHeader(request);
+        String authToken = HttpRequestUtil.getRequestAuthHeader(request);
         AuthTokenServer serverToken = AuthManager.getInstance().getExistingServerToken(authToken);
-        if (createReceiptData.getMethod().equals(CreateReceiptData.METHOD_CASH)) {
-            if (!AuthManager.getInstance().validateCredentials(serverToken.getEmail(), createReceiptData.getPassword())) {
-                super.sendErrorResponse(
-                        response,
-                        HttpServletResponse.SC_BAD_REQUEST,
-                        "Invalid Credentials."
-                );
-                return;
-            }
-        }
         String receiptNumber = ReceiptManager.getInstance().createNewReceipt(createReceiptData, serverToken.getEmail());
-        super.printJsonResponse(response, JsonUtil.getJson(receiptNumber, "receiptNumber"));
+        JsonResponseWriter.printJsonResponse(response, JsonUtil.getJson(receiptNumber, "receiptNumber"));
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.setAccessControlHeaders(response);
-        if (super.sendAuthErrorIfApplies(request, response)) {
-            return;
-        }
-        String authToken = super.getRequestAuthHeader(request);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String authToken = HttpRequestUtil.getRequestAuthHeader(request);
         AuthTokenServer serverToken = AuthManager.getInstance().getExistingServerToken(authToken);
         List<ReceiptDetailedVM> receipts;
         if (serverToken.isAdmin()) {
@@ -54,8 +47,7 @@ public class ReceiptServlet extends BaseServlet {
         } else {
             receipts = ReceiptManager.getInstance().getReceiptForUser(serverToken.getUserUuid());
         }
-        AuthManager.getInstance().updateExpireDate(authToken);
-        super.printJsonResponse(response, JsonUtil.getJsonArray(receipts, "receipts"));
+        JsonResponseWriter.printJsonResponse(response, JsonUtil.getJsonArray(receipts, "receipts"));
     }
 
 }
