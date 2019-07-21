@@ -31,7 +31,7 @@ function* usersDataRequestIntercept(action: Readonly<ReturnType<typeof usersData
       {
         method: 'get',
         headers: {
-          'Content-Type': 'text/plain; charset=UTF-8',
+          'Content-Type': 'application/json',
           'Authorization': `Bearer:${tokenId}`,
         }
       }
@@ -59,7 +59,7 @@ function* loginLogsRequestIntercept(action: Readonly<ReturnType<typeof loginLogs
       {
         method: 'get',
         headers: {
-          'Content-Type': 'text/plain; charset=UTF-8',
+          'Content-Type': 'application/json',
           'Authorization': `Bearer:${tokenId}`,
         }
       }
@@ -87,9 +87,9 @@ function* receiptsRequestIntercept(action: Readonly<ReturnType<typeof receiptsRe
       {
         method: 'get',
         headers: {
-          'Content-Type': 'text/plain; charset=UTF-8',
           'Authorization': `Bearer:${tokenId}`,
-        }
+        },
+        responseType: 'json',
       }
     );
     if (response.data.error) {

@@ -28,13 +28,13 @@ export const getTableConfig = (
       sortable: true,
       Cell: (props) => getDateNice(props),
     },
-    {
-      Header: 'Last Login',
-      id: '3',
-      accessor: (row: IAdminUserData) => row.lastLogin,
-      sortable: true,
-      Cell: (props) => getDateNice(props),
-    },
+    // {
+    //   Header: 'Last Login',
+    //   id: '3',
+    //   accessor: (row: IAdminUserData) => row.lastLogin,
+    //   sortable: true,
+    //   Cell: (props) => getDateNice(props),
+    // },
     {
       Header: 'Logs',
       id: '4',

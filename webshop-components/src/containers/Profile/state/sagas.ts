@@ -24,9 +24,9 @@ function* purchaseHistoryRequestIntercept(action: Readonly<ReturnType<typeof pur
       {
         method: 'get',
         headers: {
-          'Content-Type': 'text/plain; charset=UTF-8',
           'Authorization': `Bearer:${tokenId}`,
-        }
+        },
+        responseType: 'json',
       }
     );
     yield put(purchaseHistorySuccess(response.data.receipts));

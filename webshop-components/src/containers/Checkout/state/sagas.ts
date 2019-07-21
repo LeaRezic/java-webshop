@@ -44,7 +44,7 @@ function* createReceiptRequestIntercept(action: Readonly<ReturnType<typeof creat
       {
         method: 'post',
         headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
+          'Content-Type': 'application/json',
           'Authorization': `Bearer:${action.data.tokenId}`,
         }
       }

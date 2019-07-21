@@ -34,6 +34,16 @@ public class ReceiptServlet extends HttpServlet {
         }
         String authToken = HttpRequestUtil.getRequestAuthHeader(request);
         AuthTokenServer serverToken = AuthManager.getInstance().getExistingServerToken(authToken);
+        if (createReceiptData.getMethod().equals("CASH")) {
+            boolean valid = AuthManager.getInstance().validateCredentials(serverToken.getEmail(), createReceiptData.getPassword());
+            if (!valid) {
+                JsonResponseWriter.sendErrorResponse(
+                        response,
+                        HttpServletResponse.SC_UNAUTHORIZED,
+                        "Invalid authorization"
+                );
+            }
+        }
         String receiptNumber = ReceiptManager.getInstance().createNewReceipt(createReceiptData, serverToken.getEmail());
         JsonResponseWriter.printJsonResponse(response, JsonUtil.getJson(receiptNumber, "receiptNumber"));
     }
