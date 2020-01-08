@@ -25,9 +25,9 @@ export function* watchUsersDataRequest() {
 function* usersDataRequestIntercept(action: Readonly<ReturnType<typeof usersDataRequest>>) {
   try {
     const tokenId = action.data!;
-    const ulr = '/admin/users';
+    const url = '/admin/users';
     const response = yield instance.get(
-      ulr,
+      url,
       {
         method: 'get',
         headers: {
@@ -53,9 +53,9 @@ export function* watchLoginLogsRequest() {
 function* loginLogsRequestIntercept(action: Readonly<ReturnType<typeof loginLogsRequest>>) {
   try {
     const tokenId = action.data!;
-    const ulr = '/admin/loginlogs';
+    const url = '/admin/loginlogs';
     const response = yield instance.get(
-      ulr,
+      url,
       {
         method: 'get',
         headers: {
@@ -81,9 +81,9 @@ export function* watchReceiptsRequest() {
 function* receiptsRequestIntercept(action: Readonly<ReturnType<typeof receiptsRequest>>) {
   try {
     const tokenId = action.data!;
-    const ulr = '/admin/receipt';
+    const url = '/admin/receipt';
     const response = yield instance.get(
-      ulr,
+      url,
       {
         method: 'get',
         headers: {

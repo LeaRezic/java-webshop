@@ -18,8 +18,8 @@ export function* watchFetchProduct() {
 function* fetchProductData(action: Readonly<ReturnType<typeof fetchProduct>>) {
   try {
     const id = action.data;
-    const ulr = `/product/${id}`;
-    const response = yield instance.get(ulr, { responseType: 'json' });
+    const url = `/product/${id}`;
+    const response = yield instance.get(url, { responseType: 'json' });
     yield put(fetchProductSuccess(response.data.product));
   } catch (error) {
     yield put(fetchProductFailure(error.message));

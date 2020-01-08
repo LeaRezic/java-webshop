@@ -51,7 +51,7 @@ function* createReceiptRequestIntercept(action: Readonly<ReturnType<typeof creat
     );
     notify.show(`Checkout successful.\nIssued receipt ${response.data.receiptNumber}.`, 'success', 2000);
     yield put(clearCart());
-    yield put(createReceiptSuccess(response.data.token));
+    yield put(createReceiptSuccess(response.data.receiptNumber));
   } catch (error) {
     if (typeof error.response === 'undefined') {
       yield put(createReceiptFailure(error.message));
