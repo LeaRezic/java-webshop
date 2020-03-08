@@ -43,7 +43,7 @@ export class Product extends React.PureComponent<IProductProps & ReactRouterProp
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
-        <img className={styles.Image} src={getDesiredDimensionsPic(pictureUrl, 200)} />
+        <img className={styles.Image} src={getDesiredDimensionsPic(pictureUrl, 200)} alt='Product image.' />
         <div className={styles.ProductDetails}>
           <h3 className={styles.Title}>{name}</h3>
           <div className={styles.Description}>{this.getLimitedDescription(description)}</div>

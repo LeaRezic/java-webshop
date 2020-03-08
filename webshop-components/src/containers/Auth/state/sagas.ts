@@ -31,7 +31,8 @@ export function* watchAuthRequest() {
 }
 
 function* authRequestIntercept(action: Readonly<ReturnType<typeof authRequest>>) {
-  const ip = yield getCurrentIP();
+  // const ip = yield getCurrentIP();
+  const ip = 'unknown';
   const data: IAuthDispatchData = {
     credentials: {
       username: action.data.username,
@@ -72,6 +73,15 @@ export function* watchAutoLogin() {
 }
 
 function* autoLoginIntercept() {
+  instance.get('/noexist').then((data) => console.log(`Noexist response: ${JSON.stringify(data)}`)).catch((err) => `Noexist err: ${err}`);
+  instance.get('/noremote').then((data) => console.log(`Noremote response: ${JSON.stringify(data)}`)).catch((err) => `Noremote err: ${err}`);
+  instance.post('/noremote', JSON.stringify({test: 'blablabla'}),
+    {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((data) => console.log(`Noremote response: ${JSON.stringify(data)}`)).catch((err) => `Noremote err: ${err}`);
   const token = readAuthToken();
   if (!token
       || !token.email

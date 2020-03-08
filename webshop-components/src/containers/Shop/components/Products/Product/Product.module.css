@@ -37,6 +37,11 @@
   justify-content: space-evenly;
 }
 
+.Image {
+  width: 200px;
+  height: 200px;
+}
+
 @media (max-width: 800px) {
   .Product {
     flex-direction: row;
