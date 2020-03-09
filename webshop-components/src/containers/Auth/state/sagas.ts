@@ -52,7 +52,6 @@ function* authRequestIntercept(action: Readonly<ReturnType<typeof authRequest>>)
         }
       }
     );
-    console.log(JSON.stringify(response));
     if (response != null && response.data != null && response.data.error != null) {
       throw new Error(response.data.error);
     }
