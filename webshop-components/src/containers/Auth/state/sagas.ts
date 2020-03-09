@@ -52,13 +52,17 @@ function* authRequestIntercept(action: Readonly<ReturnType<typeof authRequest>>)
         }
       }
     );
+    console.log(JSON.stringify(response));
+    if (response != null && response.data != null && response.data.error != null) {
+      throw new Error(response.data.error);
+    }
     const message = action.data.isRegister
-      ? `Created user ${action.data.username}.`
-      : `Logged in as ${action.data.username}.`
-    notify.show(message, 'success', 2000);
+      ? `Created user ${response.data.token.email}.`
+      : `Logged in as ${response.data.token.email}.`
     saveAuthToken(response.data.token);
     yield put(authSuccess(response.data.token));
     yield put(setUsername(response.data.token.email));
+    notify.show(message, 'success', 2000);
   } catch (error) {
     if (typeof error.response === 'undefined') {
       yield put(authFailure(error.message));
@@ -73,15 +77,15 @@ export function* watchAutoLogin() {
 }
 
 function* autoLoginIntercept() {
-  instance.get('/noexist').then((data) => console.log(`Noexist response: ${JSON.stringify(data)}`)).catch((err) => `Noexist err: ${err}`);
-  instance.get('/noremote').then((data) => console.log(`Noremote response: ${JSON.stringify(data)}`)).catch((err) => `Noremote err: ${err}`);
-  instance.post('/noremote', JSON.stringify({test: 'blablabla'}),
+  instance.post('/noremote', JSON.stringify({ test: 'Testing noremote function response.' }),
     {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then((data) => console.log(`Noremote response: ${JSON.stringify(data)}`)).catch((err) => `Noremote err: ${err}`);
+    }).then((res) => res.data)
+      .then((data) => console.log(`Noremote response: ${JSON.stringify(data)}`))
+      .catch((err) => `Noremote err: ${err}`);
   const token = readAuthToken();
   if (!token
       || !token.email
